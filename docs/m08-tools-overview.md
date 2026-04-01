@@ -1,5 +1,6 @@
 ---
 title: "M8. 4요소 도구들"
+parent: "📘 기본과정"
 nav_order: 9
 ---
 

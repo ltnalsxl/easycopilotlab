@@ -1,5 +1,6 @@
 ---
 title: "M2. 에이전트의 사용방식"
+parent: "📘 기본과정"
 nav_order: 3
 ---
 

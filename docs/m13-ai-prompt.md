@@ -1,5 +1,6 @@
 ---
 title: "M13. 도구 — AI 프롬프트"
+parent: "📘 기본과정"
 nav_order: 14
 ---
 

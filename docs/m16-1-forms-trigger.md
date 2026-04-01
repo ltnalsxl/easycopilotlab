@@ -1,6 +1,7 @@
 ---
 title: "실습① — Forms 설문 만들기"
 parent: "M16. 도구 — 트리거"
+grand_parent: "📘 기본과정"
 nav_order: 1
 ---
 

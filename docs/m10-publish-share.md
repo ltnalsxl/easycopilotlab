@@ -1,5 +1,6 @@
 ---
 title: "M10. 게시와 공유"
+parent: "📘 기본과정"
 nav_order: 11
 has_children: true
 ---

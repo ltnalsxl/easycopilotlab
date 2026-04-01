@@ -1,5 +1,6 @@
 ---
 title: "M0. 오리엔테이션"
+parent: "📘 기본과정"
 nav_order: 1
 ---
 

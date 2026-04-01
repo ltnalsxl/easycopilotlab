@@ -1,5 +1,6 @@
 ---
 title: "M12. 도구 — 에이전트 흐름"
+parent: "📘 기본과정"
 nav_order: 13
 has_children: true
 ---

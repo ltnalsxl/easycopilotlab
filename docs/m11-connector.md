@@ -1,5 +1,6 @@
 ---
 title: "M11. 도구 — 커넥터"
+parent: "📘 기본과정"
 nav_order: 12
 has_children: true
 ---

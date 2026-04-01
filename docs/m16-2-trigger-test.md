@@ -1,6 +1,7 @@
 ---
 title: "실습② — 트리거 연결 및 테스트"
 parent: "M16. 도구 — 트리거"
+grand_parent: "📘 기본과정"
 nav_order: 2
 ---
 

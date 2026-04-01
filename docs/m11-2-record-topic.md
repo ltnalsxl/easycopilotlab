@@ -1,6 +1,7 @@
 ---
 title: "실습② — Record Topic + Excel 커넥터"
 parent: "M11. 도구 — 커넥터"
+grand_parent: "📘 기본과정"
 nav_order: 2
 ---
 

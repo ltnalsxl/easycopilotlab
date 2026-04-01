@@ -1,5 +1,6 @@
 ---
 title: "마무리"
+parent: "📘 기본과정"
 nav_order: 18
 ---
 

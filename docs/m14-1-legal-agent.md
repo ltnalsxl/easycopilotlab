@@ -1,6 +1,7 @@
 ---
 title: "실습① — 법무 에이전트 만들기"
 parent: "M14. 도구 — 멀티에이전트"
+grand_parent: "📘 기본과정"
 nav_order: 1
 ---
 

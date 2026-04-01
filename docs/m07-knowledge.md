@@ -1,5 +1,6 @@
 ---
 title: "M7. 3요소 지식"
+parent: "📘 기본과정"
 nav_order: 8
 has_children: true
 ---

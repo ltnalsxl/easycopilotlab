@@ -1,6 +1,7 @@
 ---
 title: "실습③ — @호출 테스트"
 parent: "M10. 게시와 공유"
+grand_parent: "📘 기본과정"
 nav_order: 3
 ---
 

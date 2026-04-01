@@ -1,6 +1,7 @@
 ---
 title: "실습 — 파일 업로드"
 parent: "M7. 3요소 지식"
+grand_parent: "📘 기본과정"
 nav_order: 1
 ---
 

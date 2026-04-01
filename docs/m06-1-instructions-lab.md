@@ -1,6 +1,7 @@
 ---
 title: "실습 — 지침 업그레이드 + 테스트"
 parent: "M6. 2요소 지침"
+grand_parent: "📘 기본과정"
 nav_order: 1
 ---
 

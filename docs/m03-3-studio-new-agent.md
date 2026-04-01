@@ -1,6 +1,7 @@
 ---
 title: "실습③ — Copilot Studio로 가져오기"
 parent: "M3. 에이전트 만들기 시작"
+grand_parent: "📘 기본과정"
 nav_order: 3
 ---
 

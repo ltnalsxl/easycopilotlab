@@ -1,5 +1,6 @@
 ---
 title: "M14. 도구 — 멀티에이전트"
+parent: "📘 기본과정"
 nav_order: 15
 has_children: true
 ---

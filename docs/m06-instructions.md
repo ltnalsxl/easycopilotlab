@@ -1,5 +1,6 @@
 ---
 title: "M6. 2요소 지침"
+parent: "📘 기본과정"
 nav_order: 7
 has_children: true
 ---

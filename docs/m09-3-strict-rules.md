@@ -1,6 +1,7 @@
 ---
 title: "실습③ — STRICT RULES 추가"
 parent: "M9. 도구 — 토픽과 변수"
+grand_parent: "📘 기본과정"
 nav_order: 3
 ---
 

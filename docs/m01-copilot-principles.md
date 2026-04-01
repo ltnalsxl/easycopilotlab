@@ -1,5 +1,6 @@
 ---
 title: "M1. 코파일럿 동작원리"
+parent: "📘 기본과정"
 nav_order: 2
 ---
 

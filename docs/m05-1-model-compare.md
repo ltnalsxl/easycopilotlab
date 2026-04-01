@@ -1,6 +1,7 @@
 ---
 title: "실습① — 모델 변경 + 비교"
 parent: "M5. 1요소 오케스트레이터와 AI"
+grand_parent: "📘 기본과정"
 nav_order: 1
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "실습 — MCP 서버 연결"
 parent: "M15. 도구 — MCP"
+grand_parent: "📘 기본과정"
 nav_order: 1
 ---
 

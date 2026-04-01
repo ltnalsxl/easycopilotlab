@@ -1,6 +1,7 @@
 ---
 title: "실습② — Contact Topic 만들기"
 parent: "M9. 도구 — 토픽과 변수"
+grand_parent: "📘 기본과정"
 nav_order: 2
 ---
 

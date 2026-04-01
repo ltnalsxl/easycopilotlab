@@ -1,6 +1,7 @@
 ---
 title: "실습① — 흐름 만들기"
 parent: "M12. 도구 — 에이전트 흐름"
+grand_parent: "📘 기본과정"
 nav_order: 1
 ---
 

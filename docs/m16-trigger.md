@@ -1,5 +1,6 @@
 ---
 title: "M16. 도구 — 트리거"
+parent: "📘 기본과정"
 nav_order: 17
 has_children: true
 ---

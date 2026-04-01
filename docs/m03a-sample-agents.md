@@ -1,6 +1,7 @@
 ---
 title: "M3a. 부록 — 샘플 에이전트"
 parent: "M3. 에이전트 만들기 시작"
+grand_parent: "📘 기본과정"
 nav_order: 4
 ---
 

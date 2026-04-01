@@ -1,5 +1,6 @@
 ---
 title: "M4. 에이전트의 구성요소"
+parent: "📘 기본과정"
 nav_order: 5
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "M9. 도구 — 토픽과 변수"
+parent: "📘 기본과정"
 nav_order: 10
 has_children: true
 ---
