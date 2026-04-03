@@ -141,14 +141,13 @@
     }
 
     // --- 루트 URL 가져오기 ---
-    var basicUrl = basicItem ? basicItem.querySelector(':scope > .nav-list-link') : null;
+    var homeUrl = '{{ "/" | relative_url }}';
     var advancedUrl = advancedItem ? advancedItem.querySelector(':scope > .nav-list-link') : null;
-    basicUrl = basicUrl ? basicUrl.getAttribute('href') : null;
     advancedUrl = advancedUrl ? advancedUrl.getAttribute('href') : null;
 
     btnBasic.addEventListener('click', function () {
       setTrack('basic');
-      if (basicUrl) window.location.href = basicUrl;
+      window.location.href = homeUrl;
     });
     btnAdvanced.addEventListener('click', function () {
       setTrack('advanced');
