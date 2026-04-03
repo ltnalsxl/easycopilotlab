@@ -4,7 +4,7 @@ layout: home
 nav_exclude: true
 ---
 
-# 문과생을 위한 Copilot Studio
+# 문과생을 위한 Copilot Studio — 기본과정
 {: .fs-9 }
 
 개발자 없이 만드는 우리 팀 전용 AI — 완전 정복 1일 과정
