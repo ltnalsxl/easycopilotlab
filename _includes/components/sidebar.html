@@ -46,6 +46,7 @@
   </div>
 
   <div class="course-switcher-controls"{% if basic_root %} data-basic-url="{{ basic_root_url }}"{% endif %}{% if advanced_root %} data-advanced-url="{{ advanced_root_url }}"{% endif %} data-home-url="{{ '/' | relative_url }}">
+    <div class="sr-only" data-basic-title="{% if basic_root %}{{ basic_root.title }}{% endif %}" data-advanced-title="{% if advanced_root %}{{ advanced_root.title }}{% endif %}"></div>
     <div class="course-switcher-tabs" aria-label="과정 선택">
       <button class="course-switcher-tab{% if default_track == 'basic' %} active{% endif %}" type="button" data-track-button="basic" aria-pressed="false">기본</button>
       <button class="course-switcher-tab{% if default_track == 'advanced' %} active{% endif %}" type="button" data-track-button="advanced" aria-pressed="false">심화</button>
@@ -108,12 +109,15 @@
       }
 
       var buttons = Array.prototype.slice.call(controls.querySelectorAll('[data-track-button]'));
+      var titleData = controls.querySelector('[data-basic-title]');
       var storageKey = 'easycopilotlab-track';
       var currentTrack = sidebar.getAttribute('data-current-track');
       var defaultTrack = currentTrack || sidebar.getAttribute('data-default-track') || 'basic';
       var basicUrl = controls.getAttribute('data-basic-url');
       var advancedUrl = controls.getAttribute('data-advanced-url');
       var homeUrl = controls.getAttribute('data-home-url');
+      var basicTitle = titleData ? titleData.getAttribute('data-basic-title') : '';
+      var advancedTitle = titleData ? titleData.getAttribute('data-advanced-title') : '';
 
       try {
         if (!currentTrack) {
@@ -139,14 +143,25 @@
         return items;
       }
 
-      function findItemByUrl(targetUrl) {
+      function findItem(targetUrl, targetTitle) {
         var normalizedTarget = normalizePath(targetUrl);
         var items = getTopLevelItems();
+        var normalizedTitle = (targetTitle || '').trim();
 
         for (var index = 0; index < items.length; index += 1) {
           var link = getDirectChildByClass(items[index], 'nav-list-link');
 
-          if (link && normalizePath(link.getAttribute('href')) === normalizedTarget) {
+          if (!link) {
+            continue;
+          }
+
+          var linkTitle = link.textContent.replace(/\s+/g, ' ').trim();
+
+          if (normalizedTitle && linkTitle === normalizedTitle) {
+            return items[index];
+          }
+
+          if (normalizedTarget && normalizePath(link.getAttribute('href')) === normalizedTarget) {
             return items[index];
           }
         }
@@ -176,9 +191,9 @@
           button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
 
-        setBranchState(findItemByUrl(basicUrl), track === 'basic');
-        setBranchState(findItemByUrl(advancedUrl), track === 'advanced');
-        setBranchState(findItemByUrl(homeUrl), false);
+        setBranchState(findItem(basicUrl, basicTitle), track === 'basic');
+        setBranchState(findItem(advancedUrl, advancedTitle), track === 'advanced');
+        setBranchState(findItem(homeUrl, 'Home'), false);
 
         if (persist) {
           try {
