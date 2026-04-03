@@ -56,25 +56,12 @@
   border-radius: 4px;
 }
 
-// 기본/심화 사이드바 스위처
-.course-switcher-controls {
-  width: 100%;
-  padding-top: 0.75rem;
-  overflow: hidden;
-}
-
-@media (min-width: 66.5rem) {
-  .course-switcher-controls {
-    max-width: 16.5rem;
-    margin-left: auto;
-  }
-}
-
+// 기본/심화 사이드바 스위처 — 탭 + 분기 표시/숨기기만
 .course-switcher-tabs {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
-  padding: 0 1rem 0.875rem;
+  padding: 0.75rem 1rem;
 }
 
 .course-switcher-tab {
@@ -83,24 +70,18 @@
   border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.74);
-  padding: 0.55rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   font: inherit;
   font-size: 0.85rem;
   font-weight: 700;
   line-height: 1.2;
   cursor: pointer;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  transition: background 160ms ease, color 160ms ease;
 }
 
-.course-switcher-tab:hover,
-.course-switcher-tab:focus-visible {
+.course-switcher-tab:hover {
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
-}
-
-.course-switcher-tab:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.35);
-  outline-offset: 2px;
 }
 
 .course-switcher-tab.active {
@@ -109,65 +90,16 @@
   color: #10233a;
 }
 
-.course-switcher-nav {
-  overflow-x: hidden;
-}
-
-.course-switcher-nav .nav-list .nav-list-link {
-  display: block;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.35;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  word-break: normal;
-  padding-top: 0.48rem;
-  padding-bottom: 0.48rem;
-}
-
-.course-switcher-sidebar,
-.course-switcher-sidebar .site-nav,
-.course-switcher-sidebar .nav-list,
-.course-switcher-sidebar .nav-list-item {
-  overflow-x: hidden;
-}
-
-.course-switcher-sidebar .nav-list-item {
-  max-width: 100%;
-}
-
-.course-switcher-sidebar .nav-list-item > .nav-list-link,
-.course-switcher-sidebar .nav-list-item > .nav-list-expander,
-.course-switcher-sidebar .nav-list-item > .nav-list {
-  position: relative;
-  z-index: 0;
-}
-
-.course-switcher-sidebar .nav-list-item > .nav-list {
-  max-width: 100%;
-}
-
-.course-switcher-sidebar .site-header,
-.course-switcher-sidebar .site-footer,
-.course-switcher-sidebar .course-switcher-controls,
-.course-switcher-sidebar .site-nav {
-  position: relative;
-  z-index: 1;
-}
-
-.course-switcher-nav .course-track-hidden {
+// JS가 붙이는 클래스: 선택 안 된 과정 루트를 숨김
+.course-track-hidden {
   display: none !important;
 }
 
-.course-switcher-nav .course-track-open > .nav-list {
+// JS가 붙이는 클래스: 선택된 과정 루트를 펼침
+.course-track-open > .nav-list {
   display: block;
 }
 
-.course-switcher-nav .course-track-open > .nav-list-expander svg {
+.course-track-open > .nav-list-expander svg {
   transform: rotate(-90deg);
-}
-
-.course-switcher-nav .nav-list .nav-list .nav-list-link {
-  font-size: 0.92em;
 }
