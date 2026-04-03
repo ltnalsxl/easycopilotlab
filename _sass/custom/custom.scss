@@ -57,9 +57,16 @@
 }
 
 // 기본/심화 사이드바 스위처
-.course-switcher-nav {
+.course-switcher-controls {
+  width: 100%;
   padding-top: 0.75rem;
-  overflow-x: hidden;
+}
+
+@media (min-width: 66.5rem) {
+  .course-switcher-controls {
+    max-width: 16.5rem;
+    margin-left: auto;
+  }
 }
 
 .course-switcher-tabs {
@@ -101,55 +108,30 @@
   color: #10233a;
 }
 
-.course-switcher-track-link {
-  display: block;
-  margin: 0 1rem 0.5rem;
-  padding: 0.45rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 0.75rem;
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.course-switcher-track-link:hover,
-.course-switcher-track-link.is-active,
-.course-switcher-track-link.active {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.course-switcher-panel {
-  display: none;
-}
-
-.course-switcher-panel.is-active {
-  display: block;
-}
-
-.course-switcher-nav > .nav-list.course-switcher-panel {
-  margin-top: 0;
+.course-switcher-nav {
+  overflow-x: hidden;
 }
 
 .course-switcher-nav .nav-list .nav-list-link {
   display: block;
-  width: 100%;
-  max-width: 100%;
-  min-height: 0;
   line-height: 1.35;
   white-space: normal;
   overflow-wrap: anywhere;
-  word-break: keep-all;
+  word-break: normal;
   padding-top: 0.48rem;
   padding-bottom: 0.48rem;
 }
 
-.course-switcher-nav .nav-list,
-.course-switcher-nav .nav-list-item {
-  max-width: 100%;
+.course-switcher-nav .course-track-hidden {
+  display: none !important;
+}
+
+.course-switcher-nav .course-track-open > .nav-list {
+  display: block;
+}
+
+.course-switcher-nav .course-track-open > .nav-list-expander svg {
+  transform: rotate(-90deg);
 }
 
 .course-switcher-nav .nav-list .nav-list .nav-list-link {
