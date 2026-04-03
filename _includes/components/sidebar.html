@@ -140,8 +140,20 @@
       try { localStorage.setItem(storageKey, track); } catch (e) {}
     }
 
-    btnBasic.addEventListener('click', function () { setTrack('basic'); });
-    btnAdvanced.addEventListener('click', function () { setTrack('advanced'); });
+    // --- 루트 URL 가져오기 ---
+    var basicUrl = basicItem ? basicItem.querySelector(':scope > .nav-list-link') : null;
+    var advancedUrl = advancedItem ? advancedItem.querySelector(':scope > .nav-list-link') : null;
+    basicUrl = basicUrl ? basicUrl.getAttribute('href') : null;
+    advancedUrl = advancedUrl ? advancedUrl.getAttribute('href') : null;
+
+    btnBasic.addEventListener('click', function () {
+      setTrack('basic');
+      if (basicUrl) window.location.href = basicUrl;
+    });
+    btnAdvanced.addEventListener('click', function () {
+      setTrack('advanced');
+      if (advancedUrl) window.location.href = advancedUrl;
+    });
 
     setTrack(defaultTrack);
   });
