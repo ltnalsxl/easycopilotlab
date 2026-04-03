@@ -59,6 +59,7 @@
 // 기본/심화 사이드바 스위처
 .course-switcher-nav {
   padding-top: 0.75rem;
+  overflow-x: hidden;
 }
 
 .course-switcher-tabs {
@@ -100,14 +101,6 @@
   color: #10233a;
 }
 
-.course-switcher-panel {
-  display: none;
-}
-
-.course-switcher-panel.is-active {
-  display: block;
-}
-
 .course-switcher-track-link {
   display: block;
   margin: 0 1rem 0.5rem;
@@ -123,18 +116,40 @@
 }
 
 .course-switcher-track-link:hover,
+.course-switcher-track-link.is-active,
 .course-switcher-track-link.active {
   color: #fff;
   background: rgba(255, 255, 255, 0.08);
 }
 
-.course-switcher-panel > .nav-list {
+.course-switcher-panel {
+  display: none;
+}
+
+.course-switcher-panel.is-active {
+  display: block;
+}
+
+.course-switcher-nav > .nav-list.course-switcher-panel {
   margin-top: 0;
 }
 
 .course-switcher-nav .nav-list .nav-list-link {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
   padding-top: 0.48rem;
   padding-bottom: 0.48rem;
+}
+
+.course-switcher-nav .nav-list,
+.course-switcher-nav .nav-list-item {
+  max-width: 100%;
 }
 
 .course-switcher-nav .nav-list .nav-list .nav-list-link {

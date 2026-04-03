@@ -49,20 +49,70 @@
       {%- assign basic_pages = nav_pages | where: "parent", basic_root.title -%}
       {%- include components/nav/sorted.html pages=basic_pages -%}
       {%- assign basic_pages = nav_sorted | default: empty_array -%}
-      <div class="course-switcher-panel{% if default_track == 'basic' %} is-active{% endif %}" id="course-track-basic" data-track-panel="basic">
-        <a href="{{ basic_root.url | relative_url }}" class="course-switcher-track-link{% if page.url == basic_root.url %} active{% endif %}">📘 기본과정</a>
-        {%- include components/course_switcher_links.liquid pages=basic_pages all_pages=nav_pages current_ancestors=current_ancestors -%}
-      </div>
+      <a href="{{ basic_root.url | relative_url }}" class="course-switcher-track-link course-switcher-panel{% if default_track == 'basic' %} is-active{% endif %}{% if page.url == basic_root.url %} active{% endif %}" data-track-panel="basic">📘 기본과정</a>
+      <ul class="nav-list course-switcher-panel{% if default_track == 'basic' %} is-active{% endif %}" data-track-panel="basic">{%- for node in basic_pages -%}
+          {%- assign node_children = nav_pages | where: "parent", node.title -%}
+          {%- include components/nav/sorted.html pages=node_children -%}
+          {%- assign node_children = nav_sorted | default: empty_array -%}
+          {%- assign branch_active = current_ancestors contains node.title -%}
+          {%- assign node_active = page.url == node.url -%}
+          {%- assign node_expanded = false -%}
+          {%- if branch_active or node_active -%}
+            {%- assign node_expanded = true -%}
+          {%- endif -%}
+          <li class="nav-list-item{% if node_expanded %} active{% endif %}">
+            {%- if node_children.size >= 1 -%}
+              <button class="nav-list-expander btn-reset" aria-label="{{ node.title }} submenu" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+              </button>
+            {%- endif -%}
+            <a href="{{ node.url | relative_url }}" class="nav-list-link{% if node_active %} active{% endif %}">{{ node.title }}</a>
+            {%- if node_children.size >= 1 -%}
+              {%- if node.child_nav_order == 'desc' or node.child_nav_order == 'reversed' -%}
+                {%- assign node_children = node_children | reverse -%}
+              {%- endif -%}
+              <ul class="nav-list">{%- for child in node_children -%}
+                  <li class="nav-list-item{% if page.url == child.url %} active{% endif %}">
+                    <a href="{{ child.url | relative_url }}" class="nav-list-link{% if page.url == child.url %} active{% endif %}">{{ child.title }}</a>
+                  </li>
+                {%- endfor -%}</ul>
+            {%- endif -%}
+          </li>{%- endfor -%}</ul>
     {%- endif -%}
 
     {%- if advanced_root -%}
       {%- assign advanced_pages = nav_pages | where: "parent", advanced_root.title -%}
       {%- include components/nav/sorted.html pages=advanced_pages -%}
       {%- assign advanced_pages = nav_sorted | default: empty_array -%}
-      <div class="course-switcher-panel{% if default_track == 'advanced' %} is-active{% endif %}" id="course-track-advanced" data-track-panel="advanced">
-        <a href="{{ advanced_root.url | relative_url }}" class="course-switcher-track-link{% if page.url == advanced_root.url %} active{% endif %}">📗 심화과정</a>
-        {%- include components/course_switcher_links.liquid pages=advanced_pages all_pages=nav_pages current_ancestors=current_ancestors -%}
-      </div>
+      <a href="{{ advanced_root.url | relative_url }}" class="course-switcher-track-link course-switcher-panel{% if default_track == 'advanced' %} is-active{% endif %}{% if page.url == advanced_root.url %} active{% endif %}" data-track-panel="advanced">📗 심화과정</a>
+      <ul class="nav-list course-switcher-panel{% if default_track == 'advanced' %} is-active{% endif %}" data-track-panel="advanced">{%- for node in advanced_pages -%}
+          {%- assign node_children = nav_pages | where: "parent", node.title -%}
+          {%- include components/nav/sorted.html pages=node_children -%}
+          {%- assign node_children = nav_sorted | default: empty_array -%}
+          {%- assign branch_active = current_ancestors contains node.title -%}
+          {%- assign node_active = page.url == node.url -%}
+          {%- assign node_expanded = false -%}
+          {%- if branch_active or node_active -%}
+            {%- assign node_expanded = true -%}
+          {%- endif -%}
+          <li class="nav-list-item{% if node_expanded %} active{% endif %}">
+            {%- if node_children.size >= 1 -%}
+              <button class="nav-list-expander btn-reset" aria-label="{{ node.title }} submenu" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+              </button>
+            {%- endif -%}
+            <a href="{{ node.url | relative_url }}" class="nav-list-link{% if node_active %} active{% endif %}">{{ node.title }}</a>
+            {%- if node_children.size >= 1 -%}
+              {%- if node.child_nav_order == 'desc' or node.child_nav_order == 'reversed' -%}
+                {%- assign node_children = node_children | reverse -%}
+              {%- endif -%}
+              <ul class="nav-list">{%- for child in node_children -%}
+                  <li class="nav-list-item{% if page.url == child.url %} active{% endif %}">
+                    <a href="{{ child.url | relative_url }}" class="nav-list-link{% if page.url == child.url %} active{% endif %}">{{ child.title }}</a>
+                  </li>
+                {%- endfor -%}</ul>
+            {%- endif -%}
+          </li>{%- endfor -%}</ul>
     {%- endif -%}
   </nav>
 
