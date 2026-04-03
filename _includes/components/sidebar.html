@@ -111,8 +111,10 @@
       if (basicItem) {
         if (track === 'basic') {
           basicItem.style.display = '';
+          basicItem.style.padding = '0';
+          basicItem.style.margin = '0';
+          basicItem.style.minHeight = '0';
           basicItem.classList.add('active');
-          // 루트 링크·expander 숨기고 자식만 노출
           var bLink = basicItem.querySelector(':scope > .nav-list-link');
           var bExp = basicItem.querySelector(':scope > .nav-list-expander');
           if (bLink) bLink.style.display = 'none';
@@ -126,6 +128,9 @@
       if (advancedItem) {
         if (track === 'advanced') {
           advancedItem.style.display = '';
+          advancedItem.style.padding = '0';
+          advancedItem.style.margin = '0';
+          advancedItem.style.minHeight = '0';
           advancedItem.classList.add('active');
           var aLink = advancedItem.querySelector(':scope > .nav-list-link');
           var aExp = advancedItem.querySelector(':scope > .nav-list-expander');
