@@ -1,43 +1,9 @@
-{%- assign empty_array = "" | split: "" -%}
-{%- assign nav_pages = site.html_pages
-      | where_exp: "item", "item.title != nil"
-      | where_exp: "item", "item.nav_exclude != true" -%}
-{%- assign basic_root = nav_pages | where: "path", "docs/basic-course.md" | first -%}
-{%- assign advanced_root = nav_pages | where: "path", "docs/advanced-course.md" | first -%}
+{%- comment -%}
+  Restored stock Just the Docs sidebar.
+  Tab switcher is injected by JS only — no structural changes.
+{%- endcomment -%}
 
-{%- assign current_ancestors = empty_array -%}
-{%- assign current_parent_title = page.parent -%}
-{%- for _step in (1..10) -%}
-  {%- if current_parent_title != nil and current_parent_title != "" -%}
-    {%- assign current_ancestors = current_ancestors | push: current_parent_title -%}
-    {%- assign current_parent_page = nav_pages | where: "title", current_parent_title | first -%}
-    {%- if current_parent_page -%}
-      {%- assign current_parent_title = current_parent_page.parent -%}
-    {%- else -%}
-      {%- assign current_parent_title = nil -%}
-    {%- endif -%}
-  {%- endif -%}
-{%- endfor -%}
-
-{%- assign current_track = "" -%}
-{%- if basic_root and (page.path == basic_root.path or current_ancestors contains basic_root.title) -%}
-  {%- assign current_track = "basic" -%}
-{%- elsif advanced_root and (page.path == advanced_root.path or current_ancestors contains advanced_root.title) -%}
-  {%- assign current_track = "advanced" -%}
-{%- endif -%}
-
-{%- assign default_track = "basic" -%}
-{%- if current_track != "" -%}
-  {%- assign default_track = current_track -%}
-{%- endif -%}
-
-<header class="side-bar course-switcher-sidebar" data-default-track="{{ default_track }}"{% if current_track != "" %} data-current-track="{{ current_track }}"{% endif %}>
-  {%- if basic_root -%}
-    {%- assign basic_root_url = basic_root.url | relative_url -%}
-  {%- endif -%}
-  {%- if advanced_root -%}
-    {%- assign advanced_root_url = advanced_root.url | relative_url -%}
-  {%- endif -%}
+<header class="side-bar">
   <div class="site-header">
     <a href="{{ '/' | relative_url }}" class="site-title lh-tight">{% include title.html %}</a>
     <button id="menu-button" class="site-button btn-reset" aria-label="Menu" aria-expanded="false">
@@ -45,174 +11,130 @@
     </button>
   </div>
 
-  <div class="course-switcher-controls"{% if basic_root %} data-basic-url="{{ basic_root_url }}"{% endif %}{% if advanced_root %} data-advanced-url="{{ advanced_root_url }}"{% endif %} data-home-url="{{ '/' | relative_url }}">
-    <div class="sr-only" data-basic-title="{% if basic_root %}{{ basic_root.title }}{% endif %}" data-advanced-title="{% if advanced_root %}{{ advanced_root.title }}{% endif %}"></div>
-    <div class="course-switcher-tabs" aria-label="과정 선택">
-      <button class="course-switcher-tab{% if default_track == 'basic' %} active{% endif %}" type="button" data-track-button="basic" aria-pressed="false">기본</button>
-      <button class="course-switcher-tab{% if default_track == 'advanced' %} active{% endif %}" type="button" data-track-button="advanced" aria-pressed="false">심화</button>
-    </div>
-  </div>
-
   {% include_cached components/site_nav.html %}
 
+  {%- comment -%}
+    note: nav_footer_custom and/or this "site footer" appear in components/footer.html for the mobile view.
+  {%- endcomment -%}
+
   <div class="d-md-block d-none site-footer">
-    {% capture nav_footer_custom %}
-      {%- include nav_footer_custom.html -%}
-    {% endcapture %}
-    {% if nav_footer_custom != "" %}
-      {{ nav_footer_custom }}
-    {% else %}
-      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
-    {% endif %}
+  {% capture nav_footer_custom %}
+    {%- include nav_footer_custom.html -%}
+  {% endcapture %}
+  {% if nav_footer_custom != "" %}
+    {{ nav_footer_custom }}
+  {% else %}
+    This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+  {% endif %}
   </div>
 </header>
 
 <script>
-  (function () {
-    function normalizePath(value) {
-      if (!value) {
-        return '';
-      }
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var siteNav = document.getElementById('site-nav');
+    if (!siteNav) return;
 
-      var normalized = value
-        .replace(/\/index\.html$/, '/')
-        .replace(/\.html$/, '')
-        .replace(/\/+$/, '');
+    // --- 탭 버튼 DOM 생성 & 삽입 (site-nav 맨 위) ---
+    var tabWrap = document.createElement('div');
+    tabWrap.className = 'course-switcher-tabs';
+    tabWrap.setAttribute('aria-label', '과정 선택');
 
-      return normalized === '' ? '/' : normalized;
-    }
+    var btnBasic = document.createElement('button');
+    btnBasic.type = 'button';
+    btnBasic.className = 'course-switcher-tab active';
+    btnBasic.textContent = '기본';
+    btnBasic.setAttribute('data-track', 'basic');
 
-    function getDirectChildByClass(element, className) {
-      var children = element.children;
+    var btnAdvanced = document.createElement('button');
+    btnAdvanced.type = 'button';
+    btnAdvanced.className = 'course-switcher-tab';
+    btnAdvanced.textContent = '심화';
+    btnAdvanced.setAttribute('data-track', 'advanced');
 
-      for (var index = 0; index < children.length; index += 1) {
-        if (children[index].classList && children[index].classList.contains(className)) {
-          return children[index];
+    tabWrap.appendChild(btnBasic);
+    tabWrap.appendChild(btnAdvanced);
+    siteNav.insertBefore(tabWrap, siteNav.firstChild);
+
+    var buttons = [btnBasic, btnAdvanced];
+
+    // --- top-level nav-list-item 찾기 ---
+    function getTopItems() {
+      var out = [];
+      for (var i = 0; i < siteNav.children.length; i++) {
+        var ul = siteNav.children[i];
+        if (ul.tagName === 'UL' && ul.classList.contains('nav-list')) {
+          for (var j = 0; j < ul.children.length; j++) {
+            var li = ul.children[j];
+            if (li.tagName === 'LI') out.push(li);
+          }
         }
       }
+      return out;
+    }
 
+    function findByText(text) {
+      var items = getTopItems();
+      for (var i = 0; i < items.length; i++) {
+        var a = items[i].querySelector(':scope > .nav-list-link');
+        if (a && a.textContent.trim().indexOf(text) !== -1) return items[i];
+      }
       return null;
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      var sidebar = document.querySelector('.course-switcher-sidebar');
+    var basicItem = findByText('기본과정');
+    var advancedItem = findByText('심화과정');
+    var homeItem = findByText('Home');
 
-      if (!sidebar) {
-        return;
-      }
+    // --- 현재 페이지 기준으로 기본 트랙 결정 ---
+    function isInsideBranch(item) {
+      if (!item) return false;
+      var active = item.querySelector('.nav-list-link.active');
+      return !!active || item.classList.contains('active');
+    }
 
-      var controls = sidebar.querySelector('.course-switcher-controls');
-      var siteNav = sidebar.querySelector('#site-nav');
+    var storageKey = 'easycopilotlab-track';
+    var currentTrack = '';
+    if (isInsideBranch(basicItem)) currentTrack = 'basic';
+    else if (isInsideBranch(advancedItem)) currentTrack = 'advanced';
 
-      if (!controls || !siteNav) {
-        return;
-      }
+    var defaultTrack = currentTrack || 'basic';
+    try {
+      if (!currentTrack) defaultTrack = localStorage.getItem(storageKey) || 'basic';
+    } catch (e) {}
 
-      var buttons = Array.prototype.slice.call(controls.querySelectorAll('[data-track-button]'));
-      var titleData = controls.querySelector('[data-basic-title]');
-      var storageKey = 'easycopilotlab-track';
-      var currentTrack = sidebar.getAttribute('data-current-track');
-      var defaultTrack = currentTrack || sidebar.getAttribute('data-default-track') || 'basic';
-      var basicUrl = controls.getAttribute('data-basic-url');
-      var advancedUrl = controls.getAttribute('data-advanced-url');
-      var homeUrl = controls.getAttribute('data-home-url');
-      var basicTitle = titleData ? titleData.getAttribute('data-basic-title') : '';
-      var advancedTitle = titleData ? titleData.getAttribute('data-advanced-title') : '';
-
-      try {
-        if (!currentTrack) {
-          defaultTrack = window.localStorage.getItem(storageKey) || defaultTrack;
-        }
-      } catch (error) {
-        defaultTrack = defaultTrack;
-      }
-
-      function getTopLevelItems() {
-        var items = [];
-
-        Array.prototype.slice.call(siteNav.children).forEach(function (child) {
-          if (child.tagName === 'UL' && child.classList.contains('nav-list')) {
-            items = items.concat(
-              Array.prototype.slice.call(child.children).filter(function (item) {
-                return item.tagName === 'LI' && item.classList.contains('nav-list-item');
-              })
-            );
-          }
-        });
-
-        return items;
-      }
-
-      function findItem(targetUrl, targetTitle) {
-        var normalizedTarget = normalizePath(targetUrl);
-        var items = getTopLevelItems();
-        var normalizedTitle = (targetTitle || '').trim();
-
-        for (var index = 0; index < items.length; index += 1) {
-          var link = getDirectChildByClass(items[index], 'nav-list-link');
-
-          if (!link) {
-            continue;
-          }
-
-          var linkTitle = link.textContent.replace(/\s+/g, ' ').trim();
-
-          if (normalizedTitle && linkTitle === normalizedTitle) {
-            return items[index];
-          }
-
-          if (normalizedTarget && normalizePath(link.getAttribute('href')) === normalizedTarget) {
-            return items[index];
-          }
-        }
-
-        return null;
-      }
-
-      function setBranchState(item, visible) {
-        if (!item) {
-          return;
-        }
-
-        item.classList.toggle('course-track-hidden', !visible);
-        item.classList.toggle('course-track-open', visible);
-
-        var expander = getDirectChildByClass(item, 'nav-list-expander');
-
-        if (expander) {
-          expander.setAttribute('aria-expanded', visible ? 'true' : 'false');
-        }
-      }
-
-      function setTrack(track, persist) {
-        buttons.forEach(function (button) {
-          var isActive = button.getAttribute('data-track-button') === track;
-          button.classList.toggle('active', isActive);
-          button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        });
-
-        setBranchState(findItem(basicUrl, basicTitle), track === 'basic');
-        setBranchState(findItem(advancedUrl, advancedTitle), track === 'advanced');
-        setBranchState(findItem(homeUrl, 'Home'), false);
-
-        if (persist) {
-          try {
-            window.localStorage.setItem(storageKey, track);
-          } catch (error) {
-            return;
-          }
-        }
-      }
-
-      buttons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          setTrack(button.getAttribute('data-track-button'), true);
-        });
+    // --- 트랙 전환 ---
+    function setTrack(track) {
+      buttons.forEach(function (b) {
+        b.classList.toggle('active', b.getAttribute('data-track') === track);
       });
 
-      window.setTimeout(function () {
-        setTrack(defaultTrack, false);
-      }, 0);
-    });
-  })();
+      // 기본과정 분기
+      if (basicItem) {
+        basicItem.style.display = track === 'basic' ? '' : 'none';
+        if (track === 'basic') {
+          basicItem.classList.add('active');
+        }
+      }
+
+      // 심화과정 분기
+      if (advancedItem) {
+        advancedItem.style.display = track === 'advanced' ? '' : 'none';
+        if (track === 'advanced') {
+          advancedItem.classList.add('active');
+        }
+      }
+
+      // Home 숨기기
+      if (homeItem) homeItem.style.display = 'none';
+
+      try { localStorage.setItem(storageKey, track); } catch (e) {}
+    }
+
+    btnBasic.addEventListener('click', function () { setTrack('basic'); });
+    btnAdvanced.addEventListener('click', function () { setTrack('advanced'); });
+
+    setTrack(defaultTrack);
+  });
+})();
 </script>
