@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>좌측 메뉴 스위처 데모</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page-bg: #f3eee5;
+      --page-ink: #17202a;
+      --page-muted: #586575;
+      --page-card: rgba(255, 255, 255, 0.84);
+      --page-card-strong: rgba(255, 255, 255, 0.96);
+      --page-border: rgba(15, 23, 42, 0.08);
+      --page-shadow: 0 24px 60px rgba(32, 35, 39, 0.14);
+      --page-shadow-soft: 0 14px 32px rgba(32, 35, 39, 0.09);
+      --hero-highlight: rgba(15, 23, 42, 0.04);
+      --sidebar-start: #152338;
+      --sidebar-end: #0f172a;
+      --sidebar-ink: #eef6ff;
+      --sidebar-muted: #9cb1c7;
+      --sidebar-surface: rgba(255, 255, 255, 0.07);
+      --sidebar-soft: rgba(92, 194, 255, 0.14);
+      --sidebar-border: rgba(255, 255, 255, 0.11);
+      --button-idle: rgba(255, 255, 255, 0.07);
+      --button-active: #5cc2ff;
+      --button-active-ink: #0d2234;
+      --link-hover: rgba(92, 194, 255, 0.14);
+      --link-active: linear-gradient(135deg, #8ad7ff 0%, #5cc2ff 100%);
+      --link-active-ink: #092235;
+      --accent: #5cc2ff;
+      --accent-soft: rgba(92, 194, 255, 0.16);
+      --accent-line: rgba(92, 194, 255, 0.28);
+      --chip-bg: rgba(15, 23, 42, 0.08);
+      --chip-ink: #233244;
+      --dot-color: #5cc2ff;
+    }
+
+    body[data-mode="basic"] {
+      --sidebar-start: #152338;
+      --sidebar-end: #0f172a;
+      --sidebar-ink: #eef6ff;
+      --sidebar-muted: #9cb1c7;
+      --sidebar-surface: rgba(255, 255, 255, 0.07);
+      --sidebar-soft: rgba(92, 194, 255, 0.14);
+      --sidebar-border: rgba(255, 255, 255, 0.11);
+      --button-idle: rgba(255, 255, 255, 0.07);
+      --button-active: #5cc2ff;
+      --button-active-ink: #0d2234;
+      --link-hover: rgba(92, 194, 255, 0.14);
+      --link-active: linear-gradient(135deg, #8ad7ff 0%, #5cc2ff 100%);
+      --link-active-ink: #092235;
+      --accent: #5cc2ff;
+      --accent-soft: rgba(92, 194, 255, 0.16);
+      --accent-line: rgba(92, 194, 255, 0.28);
+      --dot-color: #5cc2ff;
+    }
+
+    body[data-mode="advanced"] {
+      --sidebar-start: #18231b;
+      --sidebar-end: #101713;
+      --sidebar-ink: #f8f2e7;
+      --sidebar-muted: #c3c9b8;
+      --sidebar-surface: rgba(255, 247, 230, 0.07);
+      --sidebar-soft: rgba(245, 158, 11, 0.16);
+      --sidebar-border: rgba(255, 243, 214, 0.1);
+      --button-idle: rgba(255, 245, 223, 0.06);
+      --button-active: #f59e0b;
+      --button-active-ink: #281600;
+      --link-hover: rgba(245, 158, 11, 0.14);
+      --link-active: linear-gradient(135deg, #ffc44f 0%, #f59e0b 100%);
+      --link-active-ink: #2f1a00;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.16);
+      --accent-line: rgba(245, 158, 11, 0.28);
+      --dot-color: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: "SUIT Variable", "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 32%),
+        radial-gradient(circle at right 12% top 18%, rgba(255, 255, 255, 0.55), transparent 22%),
+        linear-gradient(180deg, #f7f3ec 0%, var(--page-bg) 100%);
+      color: var(--page-ink);
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(24px);
+      opacity: 0.34;
+      z-index: 0;
+    }
+
+    body::before {
+      top: -120px;
+      right: -120px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    body::after {
+      bottom: -160px;
+      left: -100px;
+      background: rgba(228, 219, 201, 0.65);
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 360px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      display: grid;
+      grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+      min-height: calc(100vh - 48px);
+      background: linear-gradient(180deg, var(--sidebar-start) 0%, var(--sidebar-end) 100%);
+      color: var(--sidebar-ink);
+      border: 1px solid var(--sidebar-border);
+      border-radius: 28px;
+      box-shadow: var(--page-shadow);
+      overflow: hidden;
+      position: sticky;
+      top: 24px;
+      isolation: isolate;
+    }
+
+    .sidebar::before,
+    .sidebar::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .sidebar::before {
+      width: 180px;
+      height: 180px;
+      top: -90px;
+      right: -50px;
+      background: var(--accent-soft);
+      filter: blur(6px);
+    }
+
+    .sidebar::after {
+      width: 240px;
+      height: 240px;
+      bottom: -140px;
+      left: -120px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .sidebar-header,
+    .mode-card,
+    .menu-panel,
+    .selection-card {
+      position: relative;
+      z-index: 1;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .sidebar.is-swapping .mode-card,
+    .sidebar.is-swapping .menu-panel,
+    .sidebar.is-swapping .selection-card {
+      opacity: 0.25;
+      transform: translateX(10px);
+    }
+
+    .sidebar-header {
+      padding: 24px 22px 18px;
+      border-bottom: 1px solid var(--sidebar-border);
+    }
+
+    .sidebar-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 10px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sidebar-muted);
+    }
+
+    .sidebar-label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--dot-color);
+      box-shadow: 0 0 0 8px var(--accent-soft);
+    }
+
+    .sidebar-title {
+      margin: 0;
+      font-size: 1.55rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .mode-switcher {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 18px 22px 0;
+    }
+
+    .mode-button {
+      appearance: none;
+      border: 0;
+      border-radius: 16px;
+      background: var(--button-idle);
+      color: var(--sidebar-ink);
+      padding: 12px 10px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+
+    .mode-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .mode-button:focus-visible,
+    .menu-link:focus-visible,
+    .menu-expander:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .mode-button.active {
+      background: var(--button-active);
+      color: var(--button-active-ink);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+    }
+
+    .mode-card {
+      margin: 16px 22px 0;
+      padding: 18px;
+      border-radius: 22px;
+      background: var(--sidebar-surface);
+      border: 1px solid var(--sidebar-border);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+
+    .mode-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--sidebar-soft);
+      color: var(--sidebar-ink);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .mode-card h2 {
+      margin: 14px 0 0;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      letter-spacing: -0.03em;
+    }
+
+    .mode-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .mode-tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--sidebar-border);
+      font-size: 0.78rem;
+      color: var(--sidebar-ink);
+    }
+
+    .menu-area {
+      min-height: 0;
+      overflow: auto;
+      padding: 16px 18px 18px;
+    }
+
+    .menu-panel {
+      display: grid;
+      gap: 12px;
+    }
+
+    .menu-section {
+      padding: 14px;
+      border-radius: 22px;
+      background: var(--sidebar-surface);
+      border: 1px solid var(--sidebar-border);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-count {
+      padding-top: 2px;
+      font-size: 0.78rem;
+      color: var(--sidebar-muted);
+      white-space: nowrap;
+    }
+
+    .menu-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .menu-node {
+      display: grid;
+      gap: 8px;
+    }
+
+    .menu-item-row {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 8px;
+      align-items: start;
+    }
+
+    .menu-expander,
+    .menu-expander-spacer {
+      width: 28px;
+      min-height: 28px;
+      border-radius: 12px;
+      flex: 0 0 auto;
+    }
+
+    .menu-expander {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--sidebar-muted);
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .menu-expander:hover {
+      background: var(--link-hover);
+      color: var(--sidebar-ink);
+    }
+
+    .menu-expander-spacer {
+      display: block;
+    }
+
+    .menu-expander-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+    }
+
+    .menu-expander-icon::before {
+      content: ">";
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 800;
+      line-height: 1;
+      transform-origin: center;
+      transition: transform 180ms ease;
+    }
+
+    .menu-node.is-open > .menu-item-row .menu-expander-icon::before {
+      transform: rotate(90deg);
+    }
+
+    .menu-link {
+      appearance: none;
+      width: 100%;
+      text-align: left;
+      border: 0;
+      border-radius: 18px;
+      padding: 11px 14px;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease, color 180ms ease;
+    }
+
+    .menu-link:hover {
+      transform: translateX(3px);
+      background: var(--link-hover);
+    }
+
+    .menu-link.active {
+      background: var(--link-active);
+      color: var(--link-active-ink);
+      box-shadow: 0 14px 26px rgba(15, 23, 42, 0.18);
+    }
+
+    .menu-link.active-branch:not(.active) {
+      background: var(--accent-soft);
+      color: var(--sidebar-ink);
+    }
+
+    .menu-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.85;
+    }
+
+    .menu-code {
+      font-weight: 800;
+    }
+
+    .menu-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      text-transform: none;
+    }
+
+    .menu-link:not(.active) .menu-badge {
+      background: var(--chip-bg);
+      color: var(--chip-ink);
+    }
+
+    .menu-title {
+      display: block;
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+
+    .menu-children {
+      display: none;
+      gap: 8px;
+      margin-left: 14px;
+      padding-left: 18px;
+      border-left: 1px solid var(--accent-line);
+    }
+
+    .menu-node.is-open > .menu-children {
+      display: grid;
+    }
+
+    .menu-node.has-active-branch > .menu-item-row .menu-expander {
+      color: var(--accent);
+    }
+
+    .menu-item-row.depth-1 .menu-link {
+      border-radius: 16px;
+      padding: 10px 13px;
+    }
+
+    .selection-card {
+      margin: 0 22px 22px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background: var(--sidebar-surface);
+      border: 1px solid var(--sidebar-border);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+
+    .selection-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sidebar-muted);
+    }
+
+    .selection-title {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+
+    .selection-path {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--sidebar-soft);
+      color: var(--sidebar-ink);
+      font-size: 0.78rem;
+    }
+
+    .content-area {
+      display: grid;
+      align-content: start;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .hero-card,
+    .content-card,
+    .idea-card {
+      background: var(--page-card);
+      border: 1px solid var(--page-border);
+      border-radius: 28px;
+      box-shadow: var(--page-shadow-soft);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-card {
+      padding: 28px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.82) 100%),
+        linear-gradient(135deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--hero-highlight);
+      color: var(--page-ink);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 8px var(--accent-soft);
+    }
+
+    .hero-card h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4.8vw, 3.45rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-card p {
+      max-width: 760px;
+      margin: 16px 0 0;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: var(--page-muted);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .hero-metric {
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid var(--page-border);
+      background: var(--page-card-strong);
+    }
+
+    .hero-metric strong {
+      display: block;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-metric span {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.9rem;
+      color: var(--page-muted);
+      line-height: 1.5;
+    }
+
+    .content-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--page-border);
+      background: rgba(255, 255, 255, 0.86);
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .browser-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #d4d9df;
+    }
+
+    .browser-url {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #f4f6f8;
+      color: #677283;
+      font-size: 0.88rem;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .browser-chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--page-ink);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .content-body {
+      display: grid;
+      gap: 20px;
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(252, 250, 246, 0.96) 100%);
+    }
+
+    .content-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.05);
+      color: var(--page-ink);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .content-note::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .content-title {
+      margin: 0;
+      font-size: 2rem;
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+    }
+
+    .content-copy {
+      margin: 0;
+      max-width: 760px;
+      color: var(--page-muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--page-card-strong);
+      border: 1px solid var(--page-border);
+      color: var(--page-ink);
+      font-size: 0.86rem;
+    }
+
+    .pill::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .insight-card {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--page-border);
+      background: var(--page-card-strong);
+    }
+
+    .insight-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .insight-card p {
+      margin: 10px 0 0;
+      color: var(--page-muted);
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    .idea-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .idea-card {
+      padding: 22px;
+    }
+
+    .idea-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .idea-card p {
+      margin: 12px 0 0;
+      color: var(--page-muted);
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+
+    .idea-card strong {
+      color: var(--page-ink);
+    }
+
+    @media (max-width: 1180px) {
+      .page-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: relative;
+        top: 0;
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .insight-grid,
+      .idea-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page-shell {
+        padding: 14px;
+        gap: 14px;
+      }
+
+      .sidebar-header,
+      .mode-switcher,
+      .mode-card,
+      .selection-card {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .sidebar-header,
+      .mode-switcher,
+      .menu-area,
+      .selection-card,
+      .hero-card,
+      .content-body {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero-card {
+        padding-top: 22px;
+        padding-bottom: 22px;
+      }
+
+      .browser-bar {
+        flex-wrap: wrap;
+      }
+
+      .browser-url {
+        order: 3;
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition-duration: 1ms !important;
+        animation-duration: 1ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-mode="basic">
+  <div class="page-shell">
+    <aside class="sidebar" aria-label="좌측 메뉴 데모">
+      <header class="sidebar-header">
+        <p class="sidebar-label">Sidebar Only Switch</p>
+        <h1 class="sidebar-title">코스 탐색 모드</h1>
+      </header>
+
+      <div class="mode-switcher" aria-label="메뉴 모드 선택">
+        <button class="mode-button active" type="button" aria-pressed="true" data-mode="basic">기본</button>
+        <button class="mode-button" type="button" aria-pressed="false" data-mode="advanced">심화</button>
+      </div>
+
+      <section class="mode-card" aria-live="polite">
+        <span class="mode-chip" id="modeChip">기본 과정 · 1일차</span>
+        <h2 id="modeTitle">M00부터 M17까지 기본 과정</h2>
+        <div class="mode-tags" id="modeTags"></div>
+      </section>
+
+      <div class="menu-area">
+        <div class="menu-panel" id="menuPanel"></div>
+      </div>
+
+      <section class="selection-card">
+        <span class="selection-label">선택된 메뉴 미리보기</span>
+        <h2 class="selection-title" id="selectionTitle">M14. 도구 - 멀티에이전트</h2>
+        <span class="selection-path" id="selectionPath">기본 / 도구 - 멀티에이전트 / 법무 에이전트 만들기</span>
+      </section>
+    </aside>
+
+    <main class="content-area">
+      <section class="hero-card">
+        <p class="eyebrow">Two-tab Demo</p>
+        <h1>기본 / 심화 좌측 메뉴 전환 데모</h1>
+        <p>이 데모는 레이아웃 전체를 바꾸지 않고, 사이드바 메뉴만 <strong>기본</strong>과 <strong>심화</strong> 두 탭으로 나눕니다. 기본은 M00부터 M17까지, 심화는 S01부터 S02까지 보여주고, 접힘은 모듈 아래 실습 콘텐츠에만 한 단계 적용합니다.</p>
+        <div class="hero-grid">
+          <div class="hero-metric">
+            <strong>기본 모드</strong>
+            <span>M00부터 M17까지를 현재 데모의 네이비 테마로 보여주는 기본 과정 메뉴.</span>
+          </div>
+          <div class="hero-metric">
+            <strong>심화 모드</strong>
+            <span>S01부터 S02까지를 현재 데모의 갈색 테마로 보여주는 심화 과정 메뉴.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <div class="browser-bar">
+          <div class="browser-dots" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="browser-url">https://microsoft.github.io/easycopilotlab</div>
+          <div class="browser-chip" id="liveModeText">현재 메뉴 관점: 기본</div>
+        </div>
+        <div class="content-body">
+          <span class="content-note">모듈 하위 실습만 접히는 구조입니다</span>
+          <h2 class="content-title">M14 아래 M14-1, M14-2처럼 한 단계만 접힙니다</h2>
+          <p class="content-copy">부모 모듈은 항상 보이고, 그 아래에 있는 실습 콘텐츠만 펼치고 접습니다. 예를 들어 M14를 열면 M14-1과 M14-2가 보이는 식으로, 현재 사이트의 모듈 구조를 단순하게 유지하면서도 하위 실습만 정리할 수 있습니다.</p>
+
+          <div class="pill-row">
+            <span class="pill">기본 / 심화 2탭만 사용</span>
+            <span class="pill">모듈 하위 실습만 1단계 접힘</span>
+            <span class="pill">기본은 네이비, 심화는 갈색 테마</span>
+          </div>
+
+          <div class="insight-grid">
+            <article class="insight-card">
+              <h3>기본 과정</h3>
+              <p>M00부터 M17까지 전체 흐름을 한 메뉴 안에서 보고, 실습이 있는 모듈만 펼쳐서 들어갈 수 있습니다.</p>
+            </article>
+            <article class="insight-card">
+              <h3>심화 과정</h3>
+              <p>S01과 S02만 간단하게 노출해, 아직 준비 중인 심화 과정을 갈색 테마로 분리해서 보여줄 수 있습니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="idea-grid">
+        <article class="idea-card">
+          <h3>모듈 중심 구조</h3>
+          <p><strong>부모 모듈은 항상 노출</strong>되고, 그 아래 실습만 접히기 때문에 학습 흐름이 끊기지 않습니다.</p>
+        </article>
+        <article class="idea-card">
+          <h3>테마만 분리</h3>
+          <p><strong>기본과 심화의 시각 톤을 분리</strong>해 같은 사이트 안에서도 다른 코스처럼 보이게 만들 수 있습니다.</p>
+        </article>
+        <article class="idea-card">
+          <h3>실제 적용 포인트</h3>
+          <p><strong>현재 페이지 자동 하이라이트</strong>와 모듈 하위 1단계 접힘만 붙이면 실제 사이트에도 무리 없이 옮길 수 있습니다.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const menuModes = {
+      basic: {
+        chip: "기본 과정 · 1일차",
+        liveText: "현재 메뉴 관점: 기본",
+        title: "M00부터 M17까지 기본 과정",
+        tags: ["M00-M17", "네이비 테마", "모듈 하위 1단계 접힘"],
+        sectionTitle: "기본 과정 전체",
+        items: [
+          { id: "m00", code: "M00", title: "오리엔테이션", badge: "모듈", summary: "오늘 만들 에이전트와 하루 흐름을 먼저 확인합니다." },
+          { id: "m01", code: "M01", title: "코파일럿 동작원리", badge: "모듈", summary: "에이전트와 코파일럿이 어떻게 움직이는지 가장 먼저 익힙니다." },
+          { id: "m02", code: "M02", title: "에이전트의 사용방식", badge: "모듈", summary: "몰입형과 인컨텍스트 사용방식을 비교합니다." },
+          {
+            id: "m03",
+            code: "M03",
+            title: "에이전트 만들기 시작",
+            badge: "모듈",
+            summary: "첫 번째 에이전트를 만들며 하위 실습들을 한 단계로 접습니다.",
+            children: [
+              { id: "m03-1", code: "실습 1", title: "HR 도우미 만들기", badge: "실습", summary: "에이전트 빌더로 첫 HR 도우미를 만듭니다." },
+              { id: "m03-2", code: "실습 2", title: "솔루션 만들기", badge: "실습", summary: "생성한 에이전트를 솔루션 구조 안에 정리합니다." },
+              { id: "m03-3", code: "실습 3", title: "Copilot Studio로 가져오기", badge: "실습", summary: "생성한 결과를 Copilot Studio 환경으로 연결합니다." },
+              { id: "m03a", code: "M03a", title: "샘플 에이전트", badge: "부록", summary: "참고용 샘플 에이전트를 체험합니다." }
+            ]
+          },
+          { id: "m04", code: "M04", title: "에이전트의 구성요소", badge: "모듈", summary: "에이전트 품질을 좌우하는 구성요소를 정리합니다." },
+          {
+            id: "m05",
+            code: "M05",
+            title: "1요소 오케스트레이터와 AI",
+            badge: "모듈",
+            summary: "모델과 설정 실습을 한 단계로 접어 관리합니다.",
+            children: [
+              { id: "m05-1", code: "실습 1", title: "모델 변경 + 비교", badge: "실습", summary: "모델별 답변 차이를 직접 비교합니다." },
+              { id: "m05-2", code: "실습 2", title: "에이전트 설정 변경", badge: "실습", summary: "핵심 옵션을 바꿔 응답 품질 변화를 봅니다." }
+            ]
+          },
+          {
+            id: "m06",
+            code: "M06",
+            title: "2요소 지침",
+            badge: "모듈",
+            summary: "지침 이론과 실습을 함께 보는 모듈입니다.",
+            children: [
+              { id: "m06-1", code: "실습", title: "지침 업그레이드 + 테스트", badge: "실습", summary: "좋은 지침을 작성하고 바로 테스트합니다." }
+            ]
+          },
+          {
+            id: "m07",
+            code: "M07",
+            title: "3요소 지식",
+            badge: "모듈",
+            summary: "지식 업로드 실습을 하위에 둔 모듈입니다.",
+            children: [
+              { id: "m07-1", code: "실습", title: "파일 업로드", badge: "실습", summary: "지식 문서를 넣어 답변 근거를 만듭니다." }
+            ]
+          },
+          { id: "m08", code: "M08", title: "4요소 도구들", badge: "모듈", summary: "도구가 채택되는 원리를 개요 수준에서 설명합니다." },
+          {
+            id: "m09",
+            code: "M09",
+            title: "도구 - 토픽과 변수",
+            badge: "모듈",
+            summary: "토픽과 변수 실습 콘텐츠를 하위에 접습니다.",
+            children: [
+              { id: "m09-1", code: "실습 1", title: "HRdoc Topic 만들기", badge: "실습", summary: "문서 기반 Topic을 처음 구성합니다." },
+              { id: "m09-2", code: "실습 2", title: "Contact Topic 만들기", badge: "실습", summary: "문의 연결용 Topic을 추가합니다." },
+              { id: "m09-3", code: "실습 3", title: "STRICT RULES 추가", badge: "실습", summary: "행동 제약을 강화하는 규칙을 넣습니다." }
+            ]
+          },
+          {
+            id: "m10",
+            code: "M10",
+            title: "게시와 공유",
+            badge: "모듈",
+            summary: "게시 관련 실습을 한 단계로 접어 보여줍니다.",
+            children: [
+              { id: "m10-1", code: "실습 1", title: "게시 & 채널 추가", badge: "실습", summary: "에이전트를 실제 사용 채널에 올립니다." },
+              { id: "m10-2", code: "실습 2", title: "몰입형 테스트", badge: "실습", summary: "전용 화면에서 게시된 에이전트를 검증합니다." },
+              { id: "m10-3", code: "실습 3", title: "@호출 테스트", badge: "실습", summary: "인컨텍스트 환경에서 에이전트를 호출해봅니다." }
+            ]
+          },
+          {
+            id: "m11",
+            code: "M11",
+            title: "도구 - 커넥터",
+            badge: "모듈",
+            summary: "커넥터 관련 준비와 연결 실습을 하위에 둡니다.",
+            children: [
+              { id: "m11-1", code: "실습 1", title: "Excel 파일 준비", badge: "실습", summary: "실습에 필요한 Excel 파일을 준비합니다." },
+              { id: "m11-2", code: "실습 2", title: "Record Topic + Excel 커넥터", badge: "실습", summary: "실제 커넥터를 연결해 데이터를 다룹니다." }
+            ]
+          },
+          {
+            id: "m12",
+            code: "M12",
+            title: "도구 - 에이전트 흐름",
+            badge: "모듈",
+            summary: "에이전트 흐름 생성과 연결 실습을 접어 보여줍니다.",
+            children: [
+              { id: "m12-1", code: "실습 1", title: "흐름 만들기", badge: "실습", summary: "자동화 행동을 만드는 첫 흐름을 만듭니다." },
+              { id: "m12-2", code: "실습 2", title: "지침으로 흐름 호출", badge: "실습", summary: "지침에서 흐름을 호출하도록 연결합니다." }
+            ]
+          },
+          { id: "m13", code: "M13", title: "도구 - AI 프롬프트", badge: "모듈", summary: "AI 프롬프트 고급도구를 소개합니다." },
+          {
+            id: "m14",
+            code: "M14",
+            title: "도구 - 멀티에이전트",
+            badge: "모듈",
+            summary: "요청한 접힘 예시처럼 실습 2개를 한 단계 아래에 둡니다.",
+            children: [
+              { id: "m14-1", code: "실습 1", title: "법무 에이전트 만들기", badge: "실습", summary: "전문화된 역할을 가진 법무 에이전트를 만듭니다." },
+              { id: "m14-2", code: "실습 2", title: "슈퍼 호스트 만들기", badge: "실습", summary: "여러 에이전트를 연결하는 슈퍼 호스트를 만듭니다." }
+            ]
+          },
+          {
+            id: "m15",
+            code: "M15",
+            title: "도구 - MCP",
+            badge: "모듈",
+            summary: "MCP 연결 실습을 한 단계 접힘으로 보여줍니다.",
+            children: [
+              { id: "m15-1", code: "실습", title: "MCP 서버 연결", badge: "실습", summary: "외부 기능을 가져오는 MCP 연결을 테스트합니다." }
+            ]
+          },
+          {
+            id: "m16",
+            code: "M16",
+            title: "도구 - 트리거",
+            badge: "모듈",
+            summary: "트리거 생성과 테스트 실습을 한 단계 아래에 둡니다.",
+            children: [
+              { id: "m16-1", code: "실습 1", title: "Forms 설문 만들기", badge: "실습", summary: "트리거 시작점이 되는 설문을 만듭니다." },
+              { id: "m16-2", code: "실습 2", title: "트리거 연결 및 테스트", badge: "실습", summary: "생성한 트리거를 연결하고 검증합니다." }
+            ]
+          },
+          { id: "m17", code: "M17", title: "마무리", badge: "모듈", summary: "하루 과정을 정리하고 Q&A로 마무리합니다." }
+        ]
+      },
+      advanced: {
+        chip: "심화 과정 · 2일차",
+        liveText: "현재 메뉴 관점: 심화",
+        title: "S01부터 S02까지 심화 과정",
+        tags: ["S01-S02", "갈색 테마", "간단 목록"],
+        sectionTitle: "심화 과정 전체",
+        items: [
+          { id: "s01", code: "S01", title: "S1. 준비 중", badge: "심화", summary: "심화 과정 첫 번째 모듈 자리입니다." },
+          { id: "s02", code: "S02", title: "S2. 준비 중", badge: "심화", summary: "심화 과정 두 번째 모듈 자리입니다." }
+        ]
+      }
+    };
+
+    const defaultSelection = {
+      basic: "m14-1",
+      advanced: "s01"
+    };
+
+    const selectedItems = { ...defaultSelection };
+    const expandedNodes = {
+      basic: new Set(),
+      advanced: new Set()
+    };
+
+    const sidebar = document.querySelector(".sidebar");
+    const menuPanel = document.getElementById("menuPanel");
+    const modeButtons = Array.from(document.querySelectorAll(".mode-button"));
+    const modeChip = document.getElementById("modeChip");
+    const modeTitle = document.getElementById("modeTitle");
+    const modeTags = document.getElementById("modeTags");
+    const selectionTitle = document.getElementById("selectionTitle");
+    const selectionPath = document.getElementById("selectionPath");
+    const liveModeText = document.getElementById("liveModeText");
+
+    let activeMode = localStorage.getItem("easycopilotlab-menu-demo-mode");
+
+    if (!menuModes[activeMode]) {
+      activeMode = "basic";
+    }
+
+    function countNodes(nodes) {
+      return nodes.reduce((total, node) => total + 1 + countNodes(node.children || []), 0);
+    }
+
+    function branchContainsId(node, itemId) {
+      if (node.id === itemId) {
+        return true;
+      }
+
+      return (node.children || []).some((child) => branchContainsId(child, itemId));
+    }
+
+    function findInNodes(nodes, itemId, ancestors = []) {
+      for (const node of nodes) {
+        if (node.id === itemId) {
+          return { item: node, ancestors };
+        }
+
+        if (node.children) {
+          const found = findInNodes(node.children, itemId, [...ancestors, node]);
+
+          if (found) {
+            return found;
+          }
+        }
+      }
+
+      return null;
+    }
+
+    function ensureSelectionVisible(modeKey) {
+      let selection = findInNodes(menuModes[modeKey].items, selectedItems[modeKey]);
+
+      if (!selection) {
+        selectedItems[modeKey] = defaultSelection[modeKey];
+        selection = findInNodes(menuModes[modeKey].items, selectedItems[modeKey]);
+      }
+
+      if (!selection) {
+        return null;
+      }
+
+      selection.ancestors.forEach((ancestor) => expandedNodes[modeKey].add(ancestor.id));
+
+      if (selection.item.children && selection.item.children.length > 0) {
+        expandedNodes[modeKey].add(selection.item.id);
+      }
+
+      return selection;
+    }
+
+    function buildModeTags(mode) {
+      return mode.tags.map((tag) => `<span class="mode-tag">${tag}</span>`).join("");
+    }
+
+    function renderNode(node, modeKey, selectedId, depth = 0) {
+      const hasChildren = Array.isArray(node.children) && node.children.length > 0;
+      const isActive = node.id === selectedId;
+      const hasActiveBranch = hasChildren && node.children.some((child) => branchContainsId(child, selectedId));
+      const isOpen = hasChildren && (expandedNodes[modeKey].has(node.id) || hasActiveBranch || isActive);
+      const linkClasses = ["menu-link"];
+
+      if (isActive) {
+        linkClasses.push("active");
+      } else if (hasActiveBranch) {
+        linkClasses.push("active-branch");
+      }
+
+      const childrenMarkup = hasChildren
+        ? `<div class="menu-children">${node.children
+            .map((child) => renderNode(child, modeKey, selectedId, depth + 1))
+            .join("")}</div>`
+        : "";
+
+      return `
+        <div class="menu-node${isOpen ? " is-open" : ""}${hasActiveBranch ? " has-active-branch" : ""}">
+          <div class="menu-item-row depth-${Math.min(depth, 1)}">
+            ${hasChildren
+              ? `<button class="menu-expander" type="button" data-node-toggle="${node.id}" aria-expanded="${String(isOpen)}" aria-label="${node.title} 하위 메뉴 펼치기"><span class="menu-expander-icon" aria-hidden="true"></span></button>`
+              : '<span class="menu-expander-spacer" aria-hidden="true"></span>'}
+            <button class="${linkClasses.join(" ")}" type="button" data-item-id="${node.id}">
+              <span class="menu-meta">
+                <span class="menu-code">${node.code}</span>
+                <span class="menu-badge">${node.badge}</span>
+              </span>
+              <span class="menu-title">${node.title}</span>
+            </button>
+          </div>
+          ${childrenMarkup}
+        </div>
+      `;
+    }
+
+    function buildMenu(modeKey) {
+      const mode = menuModes[modeKey];
+      const itemsMarkup = mode.items.map((item) => renderNode(item, modeKey, selectedItems[modeKey])).join("");
+
+      return `
+        <section class="menu-section">
+          <div class="section-head">
+            <span class="section-title">${mode.sectionTitle}</span>
+            <span class="section-count">${countNodes(mode.items)}개</span>
+          </div>
+          <div class="menu-list">${itemsMarkup}</div>
+        </section>
+      `;
+    }
+
+    function updateSelection(modeKey) {
+      const selection = ensureSelectionVisible(modeKey);
+
+      if (!selection) {
+        return;
+      }
+
+      const readableMode = modeButtons.find((button) => button.dataset.mode === modeKey)?.textContent || modeKey;
+      const pathParts = [readableMode, ...selection.ancestors.map((ancestor) => ancestor.title), selection.item.title];
+
+      selectionTitle.textContent = `${selection.item.code}. ${selection.item.title}`;
+      selectionPath.textContent = pathParts.join(" / ");
+    }
+
+    function paintMode(modeKey) {
+      const mode = menuModes[modeKey];
+      ensureSelectionVisible(modeKey);
+
+      document.body.dataset.mode = modeKey;
+      modeChip.textContent = `${mode.chip} · ${countNodes(mode.items)}개 문서`;
+      modeTitle.textContent = mode.title;
+      modeTags.innerHTML = buildModeTags(mode);
+      liveModeText.textContent = mode.liveText;
+      menuPanel.innerHTML = buildMenu(modeKey);
+      updateSelection(modeKey);
+
+      modeButtons.forEach((button) => {
+        const isActive = button.dataset.mode === modeKey;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      localStorage.setItem("easycopilotlab-menu-demo-mode", modeKey);
+    }
+
+    function renderMode(modeKey, animate = true) {
+      activeMode = modeKey;
+
+      if (!animate) {
+        paintMode(modeKey);
+        return;
+      }
+
+      sidebar.classList.add("is-swapping");
+
+      window.setTimeout(() => {
+        paintMode(modeKey);
+        requestAnimationFrame(() => {
+          sidebar.classList.remove("is-swapping");
+        });
+      }, 110);
+    }
+
+    modeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const nextMode = button.dataset.mode;
+
+        if (nextMode === activeMode) {
+          return;
+        }
+
+        renderMode(nextMode, true);
+      });
+    });
+
+    menuPanel.addEventListener("click", (event) => {
+      const nodeToggle = event.target.closest("[data-node-toggle]");
+      const itemTrigger = event.target.closest("[data-item-id]");
+
+      if (itemTrigger) {
+        selectedItems[activeMode] = itemTrigger.dataset.itemId;
+        paintMode(activeMode);
+        return;
+      }
+
+      if (nodeToggle) {
+        const nodeId = nodeToggle.dataset.nodeToggle;
+
+        if (expandedNodes[activeMode].has(nodeId)) {
+          expandedNodes[activeMode].delete(nodeId);
+        } else {
+          expandedNodes[activeMode].add(nodeId);
+        }
+
+        paintMode(activeMode);
+      }
+    });
+
+    renderMode(activeMode, false);
+  </script>
+</body>
+</html>

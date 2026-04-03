@@ -55,3 +55,88 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+// 기본/심화 사이드바 스위처
+.course-switcher-nav {
+  padding-top: 0.75rem;
+}
+
+.course-switcher-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding: 0 1rem 0.875rem;
+}
+
+.course-switcher-tab {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.74);
+  padding: 0.55rem 0.75rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.course-switcher-tab:hover,
+.course-switcher-tab:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.course-switcher-tab:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 2px;
+}
+
+.course-switcher-tab.active {
+  background: #fff;
+  border-color: #fff;
+  color: #10233a;
+}
+
+.course-switcher-panel {
+  display: none;
+}
+
+.course-switcher-panel.is-active {
+  display: block;
+}
+
+.course-switcher-track-link {
+  display: block;
+  margin: 0 1rem 0.5rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.course-switcher-track-link:hover,
+.course-switcher-track-link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.course-switcher-panel > .nav-list {
+  margin-top: 0;
+}
+
+.course-switcher-nav .nav-list .nav-list-link {
+  padding-top: 0.48rem;
+  padding-bottom: 0.48rem;
+}
+
+.course-switcher-nav .nav-list .nav-list .nav-list-link {
+  font-size: 0.92em;
+}
