@@ -110,17 +110,30 @@
 
       // 기본과정 분기
       if (basicItem) {
-        basicItem.style.display = track === 'basic' ? '' : 'none';
         if (track === 'basic') {
+          basicItem.style.display = '';
           basicItem.classList.add('active');
+          // 루트 링크·expander 숨기고 자식만 노출
+          var bLink = basicItem.querySelector(':scope > .nav-list-link');
+          var bExp = basicItem.querySelector(':scope > .nav-list-expander');
+          if (bLink) bLink.style.display = 'none';
+          if (bExp) bExp.style.display = 'none';
+        } else {
+          basicItem.style.display = 'none';
         }
       }
 
       // 심화과정 분기
       if (advancedItem) {
-        advancedItem.style.display = track === 'advanced' ? '' : 'none';
         if (track === 'advanced') {
+          advancedItem.style.display = '';
           advancedItem.classList.add('active');
+          var aLink = advancedItem.querySelector(':scope > .nav-list-link');
+          var aExp = advancedItem.querySelector(':scope > .nav-list-expander');
+          if (aLink) aLink.style.display = 'none';
+          if (aExp) aExp.style.display = 'none';
+        } else {
+          advancedItem.style.display = 'none';
         }
       }
 
