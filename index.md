@@ -1,7 +1,7 @@
 ---
 title: Home
 layout: home
-nav_order: 0
+nav_exclude: true
 ---
 
 # 문과생을 위한 Copilot Studio

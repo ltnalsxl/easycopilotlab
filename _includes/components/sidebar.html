@@ -83,7 +83,6 @@
 
     var basicItem = findByText('기본과정');
     var advancedItem = findByText('심화과정');
-    var homeItem = findByText('Home');
 
     // --- 현재 페이지 기준으로 기본 트랙 결정 ---
     function isInsideBranch(item) {
@@ -138,8 +137,6 @@
       }
 
       // Home 숨기기
-      if (homeItem) homeItem.style.display = 'none';
-
       try { localStorage.setItem(storageKey, track); } catch (e) {}
     }
 
