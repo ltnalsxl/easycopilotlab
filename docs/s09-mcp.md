@@ -46,7 +46,7 @@ has_children: true
 ---
 
 {: .important }
-> 👉 [실습: MCP 서버 연결](s08-1-mcp-connect)
+> 👉 [실습: MCP 서버 연결](s09-1-mcp-connect)
 
 ---
 

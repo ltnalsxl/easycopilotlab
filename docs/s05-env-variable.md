@@ -115,4 +115,4 @@ prod용 URL 입력 → 끝!
 
 ---
 
-다음 모듈: [S6. 영수증 → 엑셀 자동 저장](s04-receipt-excel)
+다음 모듈: [S6. 영수증 → 엑셀](s06-receipt-excel)
