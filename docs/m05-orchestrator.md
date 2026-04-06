@@ -1,5 +1,5 @@
 ---
-title: "M5. 1요소 오케스트레이터와 AI"
+title: "M5. 1요소 오케스트레이터"
 parent: "📘 기본과정"
 nav_order: 6
 has_children: true

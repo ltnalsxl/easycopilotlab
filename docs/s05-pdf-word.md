@@ -1,7 +1,7 @@
 ---
-title: "S7. AI 빌더 — PDF → Word 보고서"
+title: "S8. AI 빌더 — PDF → Word 보고서"
 parent: "📗 심화과정"
-nav_order: 8
+nav_order: 9
 ---
 
 # AI 빌더 — PDF → Word 보고서 자동 생성
@@ -9,7 +9,7 @@ nav_order: 8
 
 | 시간 | 소요 | 수강생 역할 |
 |:-----|:-----|:-----------|
-| 15:10 | 55분 | 🟢 직접 실습 |
+| 15:30 | 40분 | 🟢 직접 실습 |
 
 ## 목차
 {: .no_toc .text-delta }

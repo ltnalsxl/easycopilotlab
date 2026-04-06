@@ -1,7 +1,7 @@
 ---
-title: "S2. 지식 — SP 파일 vs 폴더"
+title: "S3. 지식 — SP 파일 vs 폴더 실습"
 parent: "📗 심화과정"
-nav_order: 3
+nav_order: 4
 ---
 
 # 지식 — SharePoint 파일 vs 폴더
@@ -9,7 +9,7 @@ nav_order: 3
 
 | 시간 | 소요 | 수강생 역할 |
 |:-----|:-----|:-----------|
-| 10:40 | 30분 | 🟢 직접 실습 |
+| 11:00 | 30분 | 🟢 직접 실습 |
 
 ## 목차
 {: .no_toc .text-delta }

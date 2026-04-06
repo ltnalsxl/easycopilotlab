@@ -1,6 +1,6 @@
 ---
 title: "실습 — MCP 서버 연결"
-parent: "S8. 도구 — MCP"
+parent: "S9. 도구 — MCP"
 grand_parent: "📗 심화과정"
 nav_order: 1
 ---
