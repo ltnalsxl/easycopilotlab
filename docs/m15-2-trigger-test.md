@@ -1,6 +1,6 @@
 ---
 title: "실습② — 트리거 워크플로우 업데이트"
-parent: "M16. 도구 — 트리거"
+parent: "M15. 도구 — 트리거"
 grand_parent: "📘 기본과정"
 nav_order: 2
 ---
@@ -22,11 +22,11 @@ nav_order: 2
 
 Copilot Studio → **HR 도우미** 에이전트 → **개요** 탭에서 트리거 **"새 응답이 제출되는 경우"**가 등록되어 있는지 확인합니다.
 
-![HR 도우미 에이전트 개요 — 트리거 새 응답이 제출되는 경우 확인](../assets/images/m16/image10.png)
+![HR 도우미 에이전트 개요 — 트리거 새 응답이 제출되는 경우 확인](../assets/images/m15/image10.png)
 
 트리거 항목의 **⋯** 메뉴 또는 링크를 클릭하여 **Power Automate** 워크플로우 디자이너를 엽니다. 기본 구조는 **"새 응답이 제출되는 경우"** → **"Sends a prompt to the specified copilot for processing"** 두 단계입니다.
 
-![Power Automate 워크플로우 디자이너 — 기본 2단계 흐름 확인](../assets/images/m16/image11.png)
+![Power Automate 워크플로우 디자이너 — 기본 2단계 흐름 확인](../assets/images/m15/image11.png)
 
 ---
 
@@ -34,19 +34,19 @@ Copilot Studio → **HR 도우미** 에이전트 → **개요** 탭에서 트리
 
 트리거와 Copilot 프롬프트 사이의 **+** 버튼을 클릭합니다. **작업 추가** 패널에서 `응답`을 검색하고, **Microsoft Forms** → **"응답 세부 정보 가져오기"**를 선택합니다.
 
-![작업 추가 — 응답 검색 → Microsoft Forms 응답 세부 정보 가져오기 선택](../assets/images/m16/image12.png)
+![작업 추가 — 응답 검색 → Microsoft Forms 응답 세부 정보 가져오기 선택](../assets/images/m15/image12.png)
 
 **양식 ID** 드롭다운에서 **"HR 문의 사항 접수 설문"**을 선택합니다.
 
-![응답 세부 정보 가져오기 — 양식 ID에서 HR 문의 사항 접수 설문 선택](../assets/images/m16/image13.png)
+![응답 세부 정보 가져오기 — 양식 ID에서 HR 문의 사항 접수 설문 선택](../assets/images/m15/image13.png)
 
 **응답 ID** 필드 클릭 → **번개(⚡)** 아이콘 → 동적 콘텐츠에서 **"응답 알림 목록 응답 ID"**를 선택합니다.
 
-![응답 ID — 번개 아이콘 클릭 → 응답 알림 목록 응답 ID 선택](../assets/images/m16/image14.png)
+![응답 ID — 번개 아이콘 클릭 → 응답 알림 목록 응답 ID 선택](../assets/images/m15/image14.png)
 
 응답 ID에 동적 콘텐츠를 넣으면 **For each** 루프가 자동 생성되어 응답 세부 정보 가져오기를 감쌉니다.
 
-![For each 루프 자동 생성 — 응답 세부 정보 가져오기가 루프 안에 배치됨](../assets/images/m16/image15.png)
+![For each 루프 자동 생성 — 응답 세부 정보 가져오기가 루프 안에 배치됨](../assets/images/m15/image15.png)
 
 ---
 
@@ -56,7 +56,7 @@ Forms 응답 데이터를 하나의 문자열로 조합하기 위해 변수를 �
 
 **For each 루프 위** (트리거 바로 아래)의 **+** 버튼을 클릭합니다. `변수`를 검색하고 **"변수 초기화"**를 선택합니다.
 
-![작업 추가 — 변수 검색 → 변수 초기화 선택](../assets/images/m16/image16.png)
+![작업 추가 — 변수 검색 → 변수 초기화 선택](../assets/images/m15/image16.png)
 
 변수 초기화 카드에서 아래와 같이 설정합니다:
 
@@ -65,7 +65,7 @@ Forms 응답 데이터를 하나의 문자열로 조합하기 위해 변수를 �
 | **이름** | `myBody` |
 | **유형** | `문자열` |
 
-![변수 초기화 — 이름 myBody, 유형 문자열 설정](../assets/images/m16/image17.png)
+![변수 초기화 — 이름 myBody, 유형 문자열 설정](../assets/images/m15/image17.png)
 
 ---
 
@@ -73,7 +73,7 @@ Forms 응답 데이터를 하나의 문자열로 조합하기 위해 변수를 �
 
 **For each** 루프 안, 응답 세부 정보 가져오기 아래의 **+** 버튼을 클릭합니다. `변수`를 검색하고 **"변수 설정"**을 선택합니다.
 
-![For each 내부 작업 추가 — 변수 검색 → 변수 설정 선택](../assets/images/m16/image18.png)
+![For each 내부 작업 추가 — 변수 검색 → 변수 설정 선택](../assets/images/m15/image18.png)
 
 변수 설정 카드에서 아래와 같이 구성합니다:
 
@@ -84,11 +84,11 @@ Forms 응답 데이터를 하나의 문자열로 조합하기 위해 변수를 �
 
 **번개(⚡)** 아이콘을 클릭하여 **응답 세부 정보 가져오기** 섹션에서 동적 콘텐츠를 선택합니다.
 
-![변수 설정 — myBody 값에 연락처 + 이메일 동적 콘텐츠 + 문의내용 동적 콘텐츠 조합](../assets/images/m16/image19.png)
+![변수 설정 — myBody 값에 연락처 + 이메일 동적 콘텐츠 + 문의내용 동적 콘텐츠 조합](../assets/images/m15/image19.png)
 
 완성된 변수 설정과 전체 흐름 구조를 확인합니다.
 
-![변수 설정 완료 — myBody에 연락처·이메일·문의내용이 조합된 전체 흐름](../assets/images/m16/image20.png)
+![변수 설정 완료 — myBody에 연락처·이메일·문의내용이 조합된 전체 흐름](../assets/images/m15/image20.png)
 
 ---
 
@@ -96,7 +96,7 @@ Forms 응답 데이터를 하나의 문자열로 조합하기 위해 변수를 �
 
 **"Sends a prompt to the specified copilot for processing"** 카드를 클릭합니다. **에이전트**가 **HR 도우미**로 설정되어 있는지 확인하고, **Body/message** 필드에 `myBody` 변수를 연결합니다.
 
-![Sends a prompt to copilot — 에이전트 HR 도우미, Body/message에 myBody 변수 연결](../assets/images/m16/image21.png)
+![Sends a prompt to copilot — 에이전트 HR 도우미, Body/message에 myBody 변수 연결](../assets/images/m15/image21.png)
 
 ---
 
@@ -104,11 +104,11 @@ Forms 응답 데이터를 하나의 문자열로 조합하기 위해 변수를 �
 
 우측 상단 **"게시"** 버튼을 클릭하여 워크플로우를 게시합니다.
 
-![Power Automate 워크플로우 게시 버튼 클릭](../assets/images/m16/image22.png)
+![Power Automate 워크플로우 게시 버튼 클릭](../assets/images/m15/image22.png)
 
 {: .warning }
 > 워크플로우를 게시해야 트리거 실행 시 업데이트된 흐름이 적용됩니다.
 
 ---
 
-실습을 완료했으면 [실습③: 트리거 결과 테스트](m16-3-trigger-result)로 이동하세요.
+실습을 완료했으면 [실습③: 트리거 결과 테스트](m15-3-trigger-result)로 이동하세요.

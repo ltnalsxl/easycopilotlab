@@ -1,7 +1,7 @@
 ---
-title: "M16. 도구 — 트리거"
+title: "M15. 도구 — 트리거"
 parent: "📘 기본과정"
-nav_order: 17
+nav_order: 16
 has_children: true
 ---
 
@@ -18,7 +18,7 @@ has_children: true
 1. TOC
 {:toc}
 
-![M16 트리거 — 잠든 AI가 이벤트로 깨어난다](../assets/images/m16/hero.png)
+![M15 트리거 — 잠든 AI가 이벤트로 깨어난다](../assets/images/m15/hero.png)
 
 ---
 
@@ -73,11 +73,11 @@ flowchart LR
 ---
 
 {: .important }
-> 👉 [실습①: Forms 설문 만들기](m16-1-forms-trigger)
+> 👉 [실습①: Forms 설문 만들기](m15-1-forms-trigger)
 >
-> 👉 [실습②: 트리거 워크플로우 업데이트](m16-2-trigger-test)
+> 👉 [실습②: 트리거 워크플로우 업데이트](m15-2-trigger-test)
 >
-> 👉 [실습③: 트리거 결과 테스트](m16-3-trigger-result)
+> 👉 [실습③: 트리거 결과 테스트](m15-3-trigger-result)
 
 ---
 
@@ -97,4 +97,4 @@ flowchart LR
 
 ---
 
-다음 모듈: [마무리](m17-wrap-up)
+다음 모듈: [마무리](m16-wrap-up)

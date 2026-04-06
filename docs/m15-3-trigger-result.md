@@ -1,6 +1,6 @@
 ---
 title: "실습③ — 트리거 결과 테스트"
-parent: "M16. 도구 — 트리거"
+parent: "M15. 도구 — 트리거"
 grand_parent: "📘 기본과정"
 nav_order: 3
 ---
@@ -22,15 +22,15 @@ nav_order: 3
 
 **① HR 도우미 에이전트 → 도구 탭 → "+ 도구 추가" 클릭**
 
-![HR 도우미 도구 탭 — + 도구 추가 버튼 클릭](../assets/images/m16/image23.png)
+![HR 도우미 도구 탭 — + 도구 추가 버튼 클릭](../assets/images/m15/image23.png)
 
 **② "outlook" 검색 → 커넥터 탭 → Office 365 Outlook → "메일 보내기(V2)" 선택**
 
-![도구 추가 — outlook 검색 → Office 365 Outlook 메일 보내기(V2) 선택](../assets/images/m16/image24.png)
+![도구 추가 — outlook 검색 → Office 365 Outlook 메일 보내기(V2) 선택](../assets/images/m15/image24.png)
 
 **③ 연결 확인 → "추가 및 구성" 클릭**
 
-![메일 보내기(V2) 연결 확인 후 추가 및 구성 클릭](../assets/images/m16/image25.png)
+![메일 보내기(V2) 연결 확인 후 추가 및 구성 클릭](../assets/images/m15/image25.png)
 
 **④ 세부 정보 설정**
 
@@ -44,7 +44,7 @@ nav_order: 3
 
 설정 완료 후 **저장**을 클릭합니다.
 
-![메일 보내기(V2) 세부 정보 — 작성자가 제공한 자격 증명 선택 후 저장](../assets/images/m16/image26.png)
+![메일 보내기(V2) 세부 정보 — 작성자가 제공한 자격 증명 선택 후 저장](../assets/images/m15/image26.png)
 
 ---
 
@@ -63,7 +63,7 @@ nav_order: 3
 
 아래와 같이 지침에 트리거 동작 규칙이 추가된 것을 확인합니다.
 
-![지침 편집 — Forms 트리거 동작 규칙 추가 (메일 보내기(V2) 도구 활용)](../assets/images/m16/image27.png)
+![지침 편집 — Forms 트리거 동작 규칙 추가 (메일 보내기(V2) 도구 활용)](../assets/images/m15/image27.png)
 
 ---
 
@@ -71,7 +71,7 @@ nav_order: 3
 
 상단 **"게시"** 버튼을 클릭합니다. 게시 확인 팝업에서 내용을 검토하고 **"게시"**를 클릭합니다.
 
-![에이전트 게시 확인 팝업 — 게시 버튼 클릭](../assets/images/m16/image28.png)
+![에이전트 게시 확인 팝업 — 게시 버튼 클릭](../assets/images/m15/image28.png)
 
 ---
 
@@ -79,11 +79,11 @@ nav_order: 3
 
 **① 개요 탭 → 트리거 "새 응답이 제출되는 경우" → 테스트 아이콘(🧪) 클릭하여 수동 테스트할 수 있습니다.**
 
-![개요 탭 트리거 — 새 응답이 제출되는 경우 테스트 아이콘 클릭](../assets/images/m16/image29.png)
+![개요 탭 트리거 — 새 응답이 제출되는 경우 테스트 아이콘 클릭](../assets/images/m15/image29.png)
 
 **② 또는 Forms 설문을 미리보기로 열어 테스트 데이터 입력 후 제출하면 실제 트리거가 작동하는지 확인할 수 있습니다.**
 
-![Forms 설문 미리보기 — 문의 내용과 이메일 입력 후 제출](../assets/images/m16/image30.png)
+![Forms 설문 미리보기 — 문의 내용과 이메일 입력 후 제출](../assets/images/m15/image30.png)
 
 ---
 
@@ -93,13 +93,13 @@ nav_order: 3
 
 담당자 메일함에서 에이전트가 작성한 **원문 문의 + 답변 초안** 메일이 도착했는지 확인합니다.
 
-![Outlook 수신 메일 — 원문 문의 내용 + AI 답변 초안이 포함된 메일](../assets/images/m16/image31.png)
+![Outlook 수신 메일 — 원문 문의 내용 + AI 답변 초안이 포함된 메일](../assets/images/m15/image31.png)
 
 **② Copilot Studio 활동 탭에서 실행 결과 확인**
 
 활동 탭에서 트리거 실행 내역을 클릭하면, **원본 검색** → **메일 보내기(V2)** 순서로 작업이 수행되고, 트리거 입력 내용과 답변 초안을 확인할 수 있습니다.
 
-![활동 탭 — 트리거 실행 완료, 원본 검색 + 메일 보내기(V2) 실행 내역 확인](../assets/images/m16/image32.png)
+![활동 탭 — 트리거 실행 완료, 원본 검색 + 메일 보내기(V2) 실행 내역 확인](../assets/images/m15/image32.png)
 
 | # | 확인 항목 | 기대 결과 |
 |:--|:---------|:---------|
@@ -113,4 +113,4 @@ nav_order: 3
 
 ---
 
-실습을 완료했으면 [M16 본문으로 돌아가세요](m16-trigger).
+실습을 완료했으면 [M15 본문으로 돌아가세요](m15-trigger).

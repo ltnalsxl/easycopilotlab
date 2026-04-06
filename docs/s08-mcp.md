@@ -18,7 +18,7 @@ has_children: true
 1. TOC
 {:toc}
 
-![M15 MCP — 만능 어댑터 하나로 외부 연결](../assets/images/m15/hero.png)
+![M15 MCP — 만능 어댑터 하나로 외부 연결](../assets/images/s08/hero.png)
 
 ---
 
@@ -46,7 +46,7 @@ has_children: true
 ---
 
 {: .important }
-> 👉 [실습: MCP 서버 연결](m15-1-mcp-connect)
+> 👉 [실습: MCP 서버 연결](s08-1-mcp-connect)
 
 ---
 
@@ -66,4 +66,4 @@ has_children: true
 
 ---
 
-다음 모듈: [M16. 도구 — 트리거](m16-trigger)
+다음 모듈: [M15. 도구 — 트리거](m15-trigger)

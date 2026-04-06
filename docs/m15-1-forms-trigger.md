@@ -1,6 +1,6 @@
 ---
 title: "실습① — Forms 설문 만들기"
-parent: "M16. 도구 — 트리거"
+parent: "M15. 도구 — 트리거"
 grand_parent: "📘 기본과정"
 nav_order: 1
 ---
@@ -22,7 +22,7 @@ nav_order: 1
 
 [Microsoft Forms](https://forms.office.com)에 접속하여 **+ 새 양식**을 클릭합니다.
 
-![Microsoft Forms 홈 화면에서 새 양식 버튼 클릭](../assets/images/m16/image.png)
+![Microsoft Forms 홈 화면에서 새 양식 버튼 클릭](../assets/images/m15/image.png)
 
 ## Step 2 — Copilot으로 설문 초안 생성
 
@@ -30,18 +30,18 @@ nav_order: 1
 
 > 사용자들의 HR 관련 문의 사항을 받기 위한 설문입니다
 
-![Copilot으로 초안 작성 — 설문 설명 입력](../assets/images/m16/image1.png)
+![Copilot으로 초안 작성 — 설문 설명 입력](../assets/images/m15/image1.png)
 
 Copilot이 자동으로 **문의 내용**과 **연락 가능한 이메일** 질문을 포함한 초안을 생성합니다. 내용을 확인한 후 **보관하기**를 클릭하세요.
 
-![Copilot이 생성한 HR 문의 사항 접수 설문 초안 — 보관하기 클릭](../assets/images/m16/image2.png)
+![Copilot이 생성한 HR 문의 사항 접수 설문 초안 — 보관하기 클릭](../assets/images/m15/image2.png)
 
 ## Step 3 — 완성 확인
 
 **HR 문의 사항 접수 설문**이 정상적으로 만들어졌는지 확인합니다.
 
-![HR 문의 사항 접수 설문 완성 화면](../assets/images/m16/image3.png)
+![HR 문의 사항 접수 설문 완성 화면](../assets/images/m15/image3.png)
 
 ---
 
-실습을 완료했으면 [실습② — 트리거 연결 및 테스트](m16-2-trigger-test)로 이동하세요.
+실습을 완료했으면 [실습② — 트리거 연결 및 테스트](m15-2-trigger-test)로 이동하세요.
