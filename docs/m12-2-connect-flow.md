@@ -42,6 +42,24 @@ nav_order: 2
 
 ![flow_HRRequest 도구 세부 정보 화면 — 이름, 설명, 입력 항목이 표시됨](../assets/images/m12/image35.png)
 
+**④-1 mySender 입력을 시스템 변수로 변경**
+
+mySender 항목의 "AI로 동적으로 채우기" 옆 **"사용자 지정"**을 클릭합니다.
+
+![mySender 입력 항목에서 사용자 지정을 클릭하는 화면](../assets/images/m12/image35-1.png)
+
+**④-2 시스템 변수 선택**
+
+변수 선택 패널에서 **시스템** 탭 → "user" 검색 → **User.DisplayName (System.User.DisplayName)**을 선택합니다.
+
+![변수 선택 패널에서 시스템 탭의 User.DisplayName을 선택하는 화면](../assets/images/m12/image35-2.png)
+
+**④-3 변수 지정 완료 확인**
+
+mySender 값에 **User.DisplayName** 변수가 지정된 것을 확인하고 **저장**합니다.
+
+![mySender에 User.DisplayName 변수가 지정된 완료 화면](../assets/images/m12/image35-3.png)
+
 **⑤ 도구 목록에서 등록 확인**
 
 도구 탭으로 돌아오면 **flow_HRRequest**가 흐름 유형으로 등록된 것을 확인할 수 있습니다.
