@@ -1,7 +1,7 @@
 ---
-title: "M15. 도구 — MCP"
-parent: "📘 기본과정"
-nav_order: 16
+title: "S8. 도구 — MCP"
+parent: "📗 심화과정"
+nav_order: 9
 has_children: true
 ---
 
@@ -10,7 +10,7 @@ has_children: true
 
 | 시간 | 소요 | 수강생 역할 |
 |:-----|:-----|:-----------|
-| 17:10 | 15분 |  직접 실습 |
+| 16:15 | 25분 |  직접 실습 |
 
 ## 목차
 {: .no_toc .text-delta }
