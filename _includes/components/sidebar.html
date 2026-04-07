@@ -97,9 +97,6 @@
     else if (isInsideBranch(advancedItem)) currentTrack = 'advanced';
 
     var defaultTrack = currentTrack || 'basic';
-    try {
-      if (!currentTrack) defaultTrack = localStorage.getItem(storageKey) || 'basic';
-    } catch (e) {}
 
     // --- 트랙 전환 ---
     function setTrack(track) {
