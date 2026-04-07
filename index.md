@@ -4,7 +4,7 @@ layout: home
 nav_exclude: true
 ---
 
-# 문과생을 위한 Copilot Studio
+# 업무에 바로 쓰는 Copilot Studio
 {: .fs-9 }
 
 개발자 없이 만드는 우리 팀 전용 AI — Copilot Studio 실습 과정
@@ -39,7 +39,7 @@ nav_exclude: true
 
 ### 📘 [기본과정 — 1일차](docs/basic-course)
 
-**개발자 없이 만드는 우리 팀 전용 AI — 완전 정복 1일 과정**
+**개발자 없이 만드는 우리 팀 전용 AI — 기본 1일 과정**
 
 | 구분 | 내용 |
 |:-----|:-----|
@@ -50,7 +50,7 @@ nav_exclude: true
 
 ### 📗 [심화과정 — 2일차](docs/advanced-course)
 
-**파일 처리 · AI 빌더 · MCP · 커스텀 커넥터 — 심화 1일 과정**
+**우리 팀 AI, 한 단계 더 완성하다 — 심화 1일 과정**
 
 | 구분 | 내용 |
 |:-----|:-----|
