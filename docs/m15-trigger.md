@@ -75,9 +75,11 @@ flowchart LR
 {: .important }
 > 👉 [실습①: Forms 설문 만들기](m15-1-forms-trigger)
 >
-> 👉 [실습②: 트리거 워크플로우 업데이트](m15-2-trigger-test)
+> 👉 [실습②: 트리거 추가하기](m15-2-add-trigger)
 >
-> 👉 [실습③: 트리거 결과 테스트](m15-3-trigger-result)
+> 👉 [실습③: 트리거 워크플로우 업데이트](m15-3-trigger-workflow)
+>
+> 👉 [실습④: 트리거 결과 테스트](m15-4-trigger-result)
 
 ---
 
