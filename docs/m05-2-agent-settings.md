@@ -1,6 +1,6 @@
 ---
 title: "실습② — 에이전트 설정 변경"
-parent: "M5. 1요소 오케스트레이터와 AI"
+parent: "M5. 1요소 오케스트레이터"
 grand_parent: "📘 기본과정"
 nav_order: 2
 ---
