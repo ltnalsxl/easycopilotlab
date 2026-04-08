@@ -24,21 +24,17 @@ nav_order: 1
 
 ![Microsoft Forms 홈 화면에서 새 양식 버튼 클릭](../assets/images/m15/image.png)
 
-## Step 2 — Copilot으로 설문 초안 생성
-
-**Copilot으로 초안 작성** 영역에 아래 설명을 입력합니다:
+## Step 2 — 초간간 설문양식 생성
 
 > 사용자들의 HR 관련 문의 사항을 받기 위한 설문입니다
 
-![Copilot으로 초안 작성 — 설문 설명 입력](../assets/images/m15/image1.png)
+**문의 내용**과 **연락 가능한 이메일** 질문 두개만을 포함한 양식을 생성합니다. 
 
-Copilot이 자동으로 **문의 내용**과 **연락 가능한 이메일** 질문을 포함한 초안을 생성합니다. 내용을 확인한 후 **보관하기**를 클릭하세요.
+![C](../assets/images/m15/image2.png)
 
-![Copilot이 생성한 HR 문의 사항 접수 설문 초안 — 보관하기 클릭](../assets/images/m15/image2.png)
+## Step 3 — 설문 이름 지정
 
-## Step 3 — 완성 확인
-
-**HR 문의 사항 접수 설문**이 정상적으로 만들어졌는지 확인합니다.
+설문에 **이름**을 지정해줍니다. 자동저장됩니다.
 
 ![HR 문의 사항 접수 설문 완성 화면](../assets/images/m15/image3.png)
 
