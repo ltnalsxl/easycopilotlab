@@ -79,7 +79,7 @@ mySender 값에 **User.DisplayName** 변수가 지정된 것을 확인하고 **�
 - 사용자가 담당자에게 문의를 보내달라고 요청하면 → flow_HRRequest 흐름을 호출
   - myRequest: 사용자가 요청한 문의 내용
   - mySender: 사용자 이름 (System.User.DisplayName)
-  - myEmail: 담당자 메일 주소 (hr@abc.co.kr)
+  - myEmail: 담당자 메일 주소 ({hr@abc.co.kr_실제 수신가능한 메일 주소로 변경})
   - 흐름 실행 후 myReturn 값을 사용자에게 안내
 ```
 
