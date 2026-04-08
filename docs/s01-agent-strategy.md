@@ -185,4 +185,4 @@ nav_order: 2
 
 ---
 
-다음 모듈: [S3. SP 파일 vs 폴더 실습](s03-sp-knowledge)
+다음 모듈: [S2. SP 파일 vs 폴더 실습](s02-sp-knowledge)

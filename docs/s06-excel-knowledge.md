@@ -1,7 +1,7 @@
 ---
-title: "S2. 지식 — Excel × 지식 4가지"
+title: "S6. 지식 — Excel × 지식 4가지"
 parent: "📗 심화과정"
-nav_order: 3
+nav_order: 8
 ---
 
 # 지식 — Excel 데이터를 지식으로 쓰는 4가지 방법

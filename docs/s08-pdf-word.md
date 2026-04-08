@@ -1,7 +1,7 @@
 ---
 title: "S8. AI 빌더 — PDF → Word 보고서"
 parent: "📗 심화과정"
-nav_order: 9
+nav_order: 10
 ---
 
 # AI 빌더 — PDF → Word 보고서 자동 생성

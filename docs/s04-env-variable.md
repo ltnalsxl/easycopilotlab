@@ -1,5 +1,5 @@
 ---
-title: "S5. 환경 변수"
+title: "S4. 환경 변수"
 parent: "📗 심화과정"
 nav_order: 6
 ---
@@ -115,4 +115,4 @@ prod용 URL 입력 → 끝!
 
 ---
 
-다음 모듈: [S6. 영수증 → 엑셀](s06-receipt-excel)
+다음 모듈: [S5. 영수증 → 엑셀](s05-receipt-excel)

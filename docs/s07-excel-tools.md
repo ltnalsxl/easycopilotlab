@@ -1,7 +1,7 @@
 ---
 title: "S7. 도구 — Excel × 도구 비교"
 parent: "📗 심화과정"
-nav_order: 8
+nav_order: 9
 ---
 
 # 도구 — Excel 데이터를 도구로 조회하는 3가지 방법

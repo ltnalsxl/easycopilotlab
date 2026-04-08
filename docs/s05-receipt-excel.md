@@ -1,5 +1,5 @@
 ---
-title: "S6. AI 빌더 — 영수증 → 엑셀"
+title: "S5. AI 빌더 — 영수증 → 엑셀"
 parent: "📗 심화과정"
 nav_order: 7
 ---

@@ -1,5 +1,5 @@
 ---
-title: "S3. 도구 — 트리거 심화"
+title: "S2. 도구 — 트리거 심화"
 parent: "📗 심화과정"
 nav_order: 4
 nav_exclude: true

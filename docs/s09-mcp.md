@@ -1,7 +1,7 @@
 ---
 title: "S9. 도구 — MCP"
 parent: "📗 심화과정"
-nav_order: 10
+nav_order: 11
 has_children: true
 ---
 

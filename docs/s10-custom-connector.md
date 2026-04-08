@@ -1,7 +1,7 @@
 ---
 title: "S10. 도구 — 커스텀 커넥터"
 parent: "📗 심화과정"
-nav_order: 11
+nav_order: 12
 ---
 
 # 도구 — 커스텀 커넥터

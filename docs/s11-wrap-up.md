@@ -1,7 +1,7 @@
 ---
 title: "마무리"
 parent: "📗 심화과정"
-nav_order: 12
+nav_order: 13
 ---
 
 # 마무리 — 심화과정 돌아보기

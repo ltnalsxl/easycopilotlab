@@ -1,7 +1,7 @@
 ---
-title: "S3. 지식 — SP 파일 vs 폴더 실습"
+title: "S2. 지식 — SP 파일 vs 폴더 실습"
 parent: "📗 심화과정"
-nav_order: 4
+nav_order: 3
 ---
 
 # 지식 — SharePoint 파일 vs 폴더
