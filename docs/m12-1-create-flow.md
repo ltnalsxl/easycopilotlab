@@ -105,7 +105,19 @@ nav_order: 1
 
    ![작업 추가 — 프롬프트 실행](../assets/images/m12/image10.png)
 
-3. 프롬프트 드롭다운 → **"+ 새 사용자 지정 프롬프트"** 클릭
+3. **새 연결 만들기** 화면이 나타나면 연결 이름을 입력 (예: `myCon_{이름 또는 사번}`) → **"로그인"** 클릭
+
+   ![새 연결 만들기 — 연결 이름 입력 후 로그인](../assets/images/m12/image10a.png)
+
+4. **계정 선택** 화면에서 본인 계정 선택
+
+   ![Microsoft 계정 선택](../assets/images/m12/image10b.png)
+
+5. Microsoft Dataverse 접근 권한 확인 화면에서 **"Allow access"** 클릭
+
+   ![Confirmation required — Allow access 클릭](../assets/images/m12/image10c.png)
+
+6. 프롬프트 드롭다운 → **"+ 새 사용자 지정 프롬프트"** 클릭
 
    ![새 사용자 지정 프롬프트](../assets/images/m12/image11.png)
 
