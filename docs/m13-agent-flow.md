@@ -53,14 +53,12 @@ has_children: true
 ```mermaid
 flowchart LR
     A[🗣 담당자한테\n문의 넣어줘] --> B[🧠 오케스트레이터\nSTRICT RULES 확인]
-    B --> C[⚙️ 에이전트 흐름\nflow_HRRequest]
-    C --> C1[🤖 AI 프롬프트\n메시지 본문 생성]
-    C1 --> D[💬 Teams 채널에\n문의 내용 전달]
+    B --> C[⚙️ 에이전트 흐름\nHR_Request]
+    C --> D[💬 Teams 채널에\n문의 내용 전달]
     D --> E[✅ 전달 완료되었습니다]
 
     style B fill:#e8f4fd,stroke:#0078d4
     style C fill:#ffd,stroke:#cc0
-    style C1 fill:#ffd,stroke:#cc0
     style D fill:#ffd,stroke:#cc0
 ```
 

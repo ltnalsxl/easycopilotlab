@@ -37,7 +37,7 @@ nav_order: 18
 | 8 | STRICT RULES 추가 | M10 | ☐ |
 | 9 | Copilot에서 게시 + 몰입형/@호출 테스트 | M11 | ☐ |
 | 10 | MSN 날씨 커넥터 체험 + Excel 커넥터 대화기록 저장 | M12 | ☐ |
-| 11 | flow_HRRequest 흐름 + STRICT RULES로 호출 연결 | M13 | ☐ |
+| 11 | HR_Request 흐름 + STRICT RULES로 호출 연결 | M13 | ☐ |
 | 12 | 슈퍼 호스트 + 법무 에이전트 (멀티에이전트) | M15 | ☐ |
 | 13 | Forms 트리거 + AI 초안 생성 흐름 | M16 | ☐ |
 
