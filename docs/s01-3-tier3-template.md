@@ -1,11 +1,11 @@
 ---
-title: "실습② — Tier 3: 책임 분리"
+title: "실습③ — Tier 3: 책임 분리"
 parent: "S1. 문서 자동화 5-Tier"
 grand_parent: "📗 심화과정"
-nav_order: 2
+nav_order: 3
 ---
 
-# 실습 ②: Tier 3 — 에이전트 추출 → 흐름 → Word 템플릿 채우기
+# 실습 ③: Tier 3 — 에이전트 추출 → 흐름 → Word 템플릿 채우기
 {: .no_toc }
 
 | 시간 | 소요 | 수강생 역할 |
@@ -163,6 +163,6 @@ PDF 가 아닌 파일이 들어오면 회의록 PDF 를 요청하세요.
 
 ## 다음 페이지
 
-[실습③ — Tier 4·5: AI 빌더 문서 출력 + 멀티모달](s01-3-tier4-aibuilder)
+[실습④ — Tier 4: AI 빌더 문서 출력](s01-4-tier4-aibuilder)
 
 <!-- build-trigger: 2026-05-10 -->
