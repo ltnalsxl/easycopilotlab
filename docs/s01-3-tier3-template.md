@@ -74,9 +74,13 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
    - 그 반복 섹션을 선택 → **속성 → 태그: `actionItems`**
    - {: .warning } **주의**: 표 바깥에 별도로 `actionItems` 라는 일반 텍스트 컨트롤을 따로 만들지 마세요. 반복 섹션 자체가 그 역할을 합니다.
 
+   **① Word 템플릿**
+
    ![Word 템플릿 — 콘텐츠 컨트롤 배치 (개발 도구 탭, 디자인 모드)](../assets/images/s01-3/001_click.png)
 
 5. 저장 → OneDrive 의 적당한 폴더 (예: `/myTemplates/회의록_템플릿_Tier3.docx`) 에 업로드
+
+   **② OneDrive**
 
    ![OneDrive — 회의록_템플릿_Tier3.docx 업로드 완료](../assets/images/s01-3/002_click.png)
 
@@ -154,33 +158,49 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
    트리거 아래 **+** 클릭 → 작업 추가:
 
+   **⑤ 트리거 아래 + 클릭**
+
    ![트리거 아래 + 클릭](../assets/images/s01-3/007_click.png)
 
    검색창에 `json` → **JSON 구문 분석** 선택:
+
+   **⑥ 작업 추가**
 
    ![작업 추가 — JSON 구문 분석](../assets/images/s01-3/008_click.png)
 
    Content 입력란 옆 동적 콘텐츠 픽커에서 트리거 입력 더 보기 (9):
 
+   **⑦ Content**
+
    ![Content — 동적 콘텐츠 더 보기](../assets/images/s01-3/009_click.png)
 
    트리거 입력 목록에서 **`actionItemsJson`** 클릭:
+
+   **⑧ 트리거 입력**
 
    ![트리거 입력 — actionItemsJson 선택](../assets/images/s01-3/010_click.png)
 
    Content 박스에 `actionItemsJson` 칩이 들어갑니다:
 
+   **⑨ Content 에 actionItemsJson 칩 삽입 완료**
+
    ![Content 에 actionItemsJson 칩 삽입 완료](../assets/images/s01-3/011_click.png)
 
    Schema 박스 아래 **샘플 페이로드를 사용하여 스키마 생성** 링크 클릭:
+
+   **⑩ 샘플 페이로드를 사용하여 스키마 생성**
 
    ![샘플 페이로드를 사용하여 스키마 생성](../assets/images/s01-3/012_click.png)
 
    대화상자에 위 샘플 JSON 한 줄 붙여넣고 **완료**:
 
+   **⑪ 샘플 JSON 페이로드 붙여넣기 → 완료**
+
    ![샘플 JSON 페이로드 붙여넣기 → 완료](../assets/images/s01-3/013_click.png)
 
    자동 생성된 스키마 (array → items → object → owner/dueDate/task):
+
+   **⑫ 자동 생성 스키마 확인**
 
    ![자동 생성 스키마 확인](../assets/images/s01-3/014_click.png)
 
@@ -201,41 +221,61 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
    JSON 구문 분석 아래 **+** 클릭 → 작업 추가:
 
+   **⑬ JSON 구문 분석 아래 + 클릭**
+
    ![JSON 구문 분석 아래 + 클릭](../assets/images/s01-3/015_click.png)
 
    검색창에 `word` → **Microsoft Word 템플릿 채우기** 선택:
+
+   **⑭ 작업 추가**
 
    ![작업 추가 — Microsoft Word 템플릿 채우기](../assets/images/s01-3/016_click.png)
 
    매개 변수 패널이 비어 있는 초기 상태:
 
+   **⑮ Word 템플릿 채우기**
+
    ![Word 템플릿 채우기 — 위치/문서 라이브러리/파일 비어 있음](../assets/images/s01-3/017_click.png)
 
    위치·라이브러리·파일 선택 (캡쳐에서는 `/myTemplates/회의록_템플릿_Tier3.docx`):
+
+   **⑯ 위치=OneDrive for Business / 라이브러리=OneDrive / 파일=회의록…**
 
    ![위치=OneDrive for Business / 라이브러리=OneDrive / 파일=회의록_템플릿_Tier3.docx](../assets/images/s01-3/018_click.png)
 
    파일을 선택하면 **고급 매개 변수** 영역이 0/8 로 나타납니다 → **모두 보기** 클릭해 8 개를 펼침:
 
+   **⑰ 고급 매개 변수**
+
    ![고급 매개 변수 — 모두 보기](../assets/images/s01-3/019_click.png)
 
    평면 7 개 입력 (Title/MeetingDate/NextMeeting/Agenda/Decisions/Attendees/Location) 에 트리거 입력 동명을 매핑. **ActionItems 는 아직 손대지 않은 상태** (다음 단계에서 전체 배열 모드로 전환):
+
+   **⑱ Title~Location 7 개 + ActionItems 박스 (개별 행 모드**
 
    ![Title~Location 7 개 + ActionItems 박스 (개별 행 모드 — 새 항목 추가)](../assets/images/s01-3/020_click.png)
 
    `ActionItems` 박스 **우측 상단** 의 **격자/배열 모양 아이콘** 클릭 → "전체 배열 입력으로 전환":
 
+   **⑲ ActionItems**
+
    ![ActionItems — 격자 아이콘 클릭 (전체 배열 입력으로 전환)](../assets/images/s01-3/021_click.png)
 
    박스가 단일 입력란("배열 입력") 으로 바뀝니다:
+
+   **⑳ ActionItems**
 
    ![ActionItems — 단일 배열 입력 모드](../assets/images/s01-3/022_click.png)
 
    동적 콘텐츠 픽커 (번개 아이콘) → **JSON 구문 분석 → Body** 클릭:
 
+   **(21) 동적 콘텐츠**
+
    ![동적 콘텐츠 — JSON 구문 분석 Body](../assets/images/s01-3/023_click.png)
 
    `ActionItems` 에 **Body** 칩이 통째로 들어가면 완료:
+
+   **(22) ActionItems ← Body 칩 매핑 완료**
 
    ![ActionItems ← Body 칩 매핑 완료](../assets/images/s01-3/024_click.png)
 
@@ -248,17 +288,25 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
    Word 템플릿 채우기 아래 **+** 클릭 → 작업 추가:
 
+   **(23) Word 템플릿 채우기 아래 + 클릭**
+
    ![Word 템플릿 채우기 아래 + 클릭](../assets/images/s01-3/025_click.png)
 
    검색 `파일 만` → **비즈니스용 OneDrive → 파일 만들기** 선택:
+
+   **(24) 작업 추가**
 
    ![작업 추가 — 비즈니스용 OneDrive 파일 만들기](../assets/images/s01-3/026_click.png)
 
    파일 만들기 매개 변수 — 폴더 경로 입력:
 
+   **(25) 파일 만들기**
+
    ![파일 만들기 — 폴더 경로](../assets/images/s01-3/027_click.png)
 
    폴더 경로 `/`, 파일 이름 `템플릿회의록_[utcNow() 칩].docx`, 파일 콘텐츠는 Microsoft Word 템플릿 채우기 출력:
+
+   **(26) 파일 만들기**
 
    ![파일 만들기 — 폴더 경로/파일 이름/콘텐츠 매핑 완료](../assets/images/s01-3/028_click.png)
 
@@ -268,13 +316,19 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
    파일 만들기 아래 **+** 클릭:
 
+   **(27) 파일 만들기 아래 + 클릭**
+
    ![파일 만들기 아래 + 클릭](../assets/images/s01-3/029_click.png)
 
    검색 `링크` → **비즈니스용 OneDrive → 공유 링크 만들기** 선택:
 
+   **(28) 작업 추가**
+
    ![작업 추가 — 비즈니스용 OneDrive 공유 링크 만들기](../assets/images/s01-3/030_click.png)
 
    파일 = 3번의 ID, 링크 유형 = Edit:
+
+   **(29) 공유 링크 만들기**
 
    ![공유 링크 만들기 — 파일=ID, 링크 유형=Edit](../assets/images/s01-3/031_click.png)
 
@@ -284,9 +338,13 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
    완성된 흐름 캔버스 (트리거 → JSON 구문 분석 → Word 템플릿 채우기 → 파일 만들기 → 공유 링크 만들기 → 에이전트에게 응답):
 
+   **(30) 완성된 흐름**
+
    ![완성된 흐름 — 6 개 노드](../assets/images/s01-3/032_click.png)
 
    에이전트에게 응답 — 출력 두 개 매핑:
+
+   **(31) 에이전트에게 응답**
 
    ![에이전트에게 응답 — 파일이름=이름, 파일링크=웹 URL](../assets/images/s01-3/033_click.png)
 
