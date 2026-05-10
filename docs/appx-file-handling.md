@@ -116,3 +116,5 @@ nav_exclude: true
 ---
 
 다음 모듈: [S1. 문서 자동화 5-Tier](s01-pdf-word)
+
+<!-- build-trigger: 2026-05-10 -->

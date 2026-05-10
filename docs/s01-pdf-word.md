@@ -120,3 +120,5 @@ has_children: true
 | [실습① — Tier 1·2: 빌트인 도구 (Markdown / HTML)](s01-1-pdf-extract) | 흐름 없이 5분에 만드는 Tier 1, 인라인 CSS로 한국 비즈니스 양식을 입히는 Tier 2 |
 | [실습② — Tier 3: 책임 분리 + Word 콘텐츠 컨트롤](s01-2-word-output) | LLM은 추출만, 흐름이 Word 템플릿을 채운다 |
 | [실습③ — Tier 4·5: AI 빌더 문서 출력 + 멀티모달](s01-3-tier4-aibuilder) | AI 빌더 프롬프트의 문서 출력 + 토픽 질문 노드로 결정적 폼 만들기 |
+
+<!-- build-trigger: 2026-05-10 -->

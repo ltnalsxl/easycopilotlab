@@ -99,3 +99,5 @@ has_children: true
 ## 다음 단계
 
 [실습 ① — Excel × 지식 4가지 비교](s06-1-excel-knowledge)부터 시작합니다.
+
+<!-- build-trigger: 2026-05-10 -->

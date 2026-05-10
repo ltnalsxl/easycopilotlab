@@ -81,3 +81,5 @@ has_children: true
 ---
 
 다음 모듈: [S6. Excel 케이스 스터디](s06-excel-case)
+
+<!-- build-trigger: 2026-05-10 -->

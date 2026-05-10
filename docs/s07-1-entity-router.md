@@ -174,3 +174,5 @@ Copilot Studio → **Entities → + New entity**
 
 [실습 ② — AI 프롬프트(DateParser + Summarizer)](s07-2-ai-prompt)로 이동해서  
 "다음주 수요일"을 실제 날짜로 변환하고, 누락 체크 + 티켓 생성을 자동화합니다.
+
+<!-- build-trigger: 2026-05-10 -->

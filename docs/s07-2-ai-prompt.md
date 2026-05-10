@@ -259,3 +259,5 @@ confidence: HIGH 또는 LOW
 ---
 
 다음 모듈: [S8. ALM과 환경 변수](s08-alm-env)
+
+<!-- build-trigger: 2026-05-10 -->

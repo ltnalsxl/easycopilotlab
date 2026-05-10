@@ -139,3 +139,5 @@ T0_Router (입구)
 
 - [실습 ① — Entity + Router + 입력변수](s07-1-entity-router) (35분)
 - [실습 ② — AI 프롬프트(DateParser + Summarizer)](s07-2-ai-prompt) (25분)
+
+<!-- build-trigger: 2026-05-10 -->

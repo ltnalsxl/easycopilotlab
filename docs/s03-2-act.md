@@ -176,3 +176,5 @@ nav_order: 2
 ## 다음 페이지
 
 [C. Integrate 그룹 (패턴 7·8·11·12)](s03-3-integrate)
+
+<!-- build-trigger: 2026-05-10 -->

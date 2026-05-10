@@ -196,3 +196,5 @@ Excel 데이터가 있다
 
 {: .highlight }
 > SharePoint 파일/폴더 비교는 이 모듈의 ②·③에서 Excel 맥락으로 함께 정리합니다. 다음 [실습 ②](s06-2-excel-tools)에서는 **도구로 정밀 조회하는 3가지 방법**을 배웁니다.
+
+<!-- build-trigger: 2026-05-10 -->

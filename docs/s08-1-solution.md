@@ -115,3 +115,5 @@ nav_order: 1
 ---
 
 다음: [실습 ② — 환경 변수 적용하기](s08-2-env-variable)
+
+<!-- build-trigger: 2026-05-10 -->
