@@ -74,15 +74,41 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
 ## Step 3-2. Power Automate 흐름 — `회의록_생성_흐름_Tier3`
 
 - 트리거: **Copilot Studio (V2)**
-- 입력 파라미터: 8 개
-  - `title` (텍스트), `meetingDate` (텍스트), `location` (텍스트)
-  - `attendees` (텍스트), `agenda` (텍스트), `decisions` (텍스트)
-  - `nextMeeting` (텍스트)
-  - `actionItems` (테이블/배열) — 객체 배열 `{ owner, dueDate, task }`
+- 입력 파라미터: 8 개 (**모두 텍스트**)
+  - `title`, `meetingDate`, `location`, `attendees`, `agenda`, `decisions`, `nextMeeting`
+  - `actionItemsJson` — 객체 배열을 **JSON 문자열**로 전달 (예: `[{"owner":"홍길동","dueDate":"2026-05-15","task":"초안 작성"}, ...]`)
+
+> **왜 JSON 문자열인가**: Copilot Studio (V2) 트리거 입력 타입은 텍스트·숫자·부울·날짜·파일 수준이라, **객체 배열(행이 여러 개인 표)** 같은 구조를 그대로 받을 수 없습니다. 실전에서는 **텍스트로 JSON 문자열을 받고, 흐름 안에서 Parse JSON 으로 객체 배열로 변환**합니다. 이게 표준 패턴입니다.
 
 작업 순서:
 
-1. **Word Online (Business) → Microsoft Word 템플릿 채우기 (Populate a Microsoft Word template)**
+1. **데이터 조작 → JSON 구문 분석 (Parse JSON)**
+   - 콘텐츠: 트리거 입력 `actionItemsJson`
+   - 스키마 (【샘플 페이로드를 사용하여 스키마 생성】에 아래와 같은 샘플 붙여넣기):
+
+     ```json
+     [
+       { "owner": "홍길동", "dueDate": "2026-05-15", "task": "초안 작성" }
+     ]
+     ```
+
+     자동 생성된 스키마는 다음과 같아야 합니다:
+
+     ```json
+     {
+       "type": "array",
+       "items": {
+         "type": "object",
+         "properties": {
+           "owner":   { "type": "string" },
+           "dueDate": { "type": "string" },
+           "task":    { "type": "string" }
+         }
+       }
+     }
+     ```
+
+2. **Word Online (Business) → Microsoft Word 템플릿 채우기 (Populate a Microsoft Word template)**
    - 위치: OneDrive
    - 라이브러리: OneDrive
    - 파일: `/Apps/회의록/회의록_템플릿.docx`
@@ -94,18 +120,20 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
      - `agenda` ← 트리거 입력 `agenda`
      - `decisions` ← 트리거 입력 `decisions`
      - `nextMeeting` ← 트리거 입력 `nextMeeting`
-     - `actionItems` (반복 섹션) ← 트리거 입력 `actionItems` 통째로 매핑
-       - 그 안의 `owner`, `dueDate`, `task` 는 자동으로 행별 매핑 UI 가 뜸
-2. **OneDrive → 파일 만들기**
+     - `actionItems` (반복 섹션) ← **1번 단계 Parse JSON 의 산출 본문(Body)**
+       - 그 안의 `owner`, `dueDate`, `task` 는 자동으로 행별 매핑 UI 가 뜨고, 각각 Parse JSON 출력의 동일 필드로 매핑
+3. **OneDrive → 파일 만들기**
    - 폴더: `/Apps/회의록/생성결과/`
    - 파일 이름: `회의록_@{triggerBody()?['meetingDate']}_@{triggerBody()?['title']}.docx`
      (트리거 입력값 조합으로 안전한 파일명)
-   - 콘텐츠: 1번 단계의 출력 (Microsoft Word 문서)
-3. **OneDrive → 항목 링크 가져오기** (또는 공유 링크 만들기)
-4. **Copilot Studio 에 응답**
+   - 콘텐츠: 2번 단계의 출력 (Microsoft Word 문서)
+4. **OneDrive → 항목 링크 가져오기** (또는 공유 링크 만들기)
+5. **Copilot Studio 에 응답**
    - 출력: `다운로드링크` (텍스트), `파일이름` (텍스트)
 
-> **포인트**: 흐름 안에 LLM 이 한 번도 등장하지 않습니다. 흐름은 단순 plumbing 만 합니다. 모든 추출은 에이전트가 합니다.
+> **포인트 1**: 흐름 안에 LLM 이 한 번도 등장하지 않습니다. 흐름은 **JSON 구문분석 → 템플릿 채우기 → 저장 → 링크** 의 단순 plumbing 만 합니다.
+>
+> **포인트 2**: Parse JSON 의 **스키마가 핵심**입니다. 스키마가 있어야 그 다음 단계에서 동적 콘텐츠 매핑 UI 가 `owner` · `dueDate` · `task` 를 자동 인식합니다.
 
 ---
 
@@ -123,7 +151,11 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
    - agenda (안건. 줄바꿈으로 구분한 문자열)
    - decisions (결정 사항. 줄바꿈으로 구분한 문자열)
    - nextMeeting (다음 회의 일정)
-   - actionItems (액션 아이템. 객체 배열로 [{owner, dueDate, task}, ...])
+   - actionItemsJson (액션 아이템. 아래 형식의 **JSON 문자열**)
+     ```
+     [{"owner":"홍길동","dueDate":"2026-05-15","task":"초안 작성"}, ...]
+     ```
+     — 반드시 대괄호로 시작하는 유효한 JSON. 이스케이프되지 않은 큰따옴표 사용. 액션 아이템이 없으면 `[]`.
 
 2. 추출 결과를 흐름 "회의록_생성_흐름_Tier3" 에 매개변수로 그대로 전달합니다.
 
