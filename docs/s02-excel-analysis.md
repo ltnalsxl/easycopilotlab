@@ -1,4 +1,4 @@
-﻿---
+---
 title: "S2. Excel 분석 17단계"
 parent: "📗 심화과정"
 nav_order: 3

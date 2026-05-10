@@ -1,4 +1,4 @@
-﻿---
+---
 title: "S6. Excel 케이스 스터디"
 parent: "📗 심화과정"
 nav_order: 7

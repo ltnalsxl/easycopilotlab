@@ -1,4 +1,4 @@
-﻿---
+---
 title: "실습② — 토픽 연결 (Step 13~17)"
 parent: "S2. Excel 분석 17단계"
 grand_parent: "📗 심화과정"

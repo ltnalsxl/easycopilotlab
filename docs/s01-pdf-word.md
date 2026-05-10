@@ -1,4 +1,4 @@
-﻿---
+---
 title: "S1. 문서 자동화 5-Tier"
 parent: "📗 심화과정"
 nav_order: 2

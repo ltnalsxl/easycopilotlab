@@ -1,4 +1,4 @@
-﻿---
+---
 title: "실습① — Tier 1·2: 빌트인 도구"
 parent: "S1. 문서 자동화 5-Tier"
 grand_parent: "📗 심화과정"

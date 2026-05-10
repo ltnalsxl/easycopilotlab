@@ -1,4 +1,4 @@
-﻿---
+---
 title: "실습① — 흐름 완성 (Step 1~12)"
 parent: "S2. Excel 분석 17단계"
 grand_parent: "📗 심화과정"

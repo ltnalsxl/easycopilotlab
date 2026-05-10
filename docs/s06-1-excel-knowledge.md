@@ -1,4 +1,4 @@
-﻿---
+---
 title: "실습① — Excel × 지식 4가지 비교"
 parent: "S6. Excel 케이스 스터디"
 grand_parent: "📗 심화과정"

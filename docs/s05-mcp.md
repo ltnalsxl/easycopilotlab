@@ -1,4 +1,4 @@
-﻿---
+---
 title: "S5. MCP"
 parent: "📗 심화과정"
 nav_order: 6

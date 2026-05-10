@@ -1,4 +1,4 @@
-﻿---
+---
 title: "A. Inform 그룹 (패턴 1·2·3·9)"
 parent: "S3. 12 패턴 카탈로그"
 grand_parent: "📗 심화과정"

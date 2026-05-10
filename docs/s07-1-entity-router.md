@@ -1,4 +1,4 @@
-﻿---
+---
 title: "실습① — Entity + Router + 입력변수"
 parent: "S7. 입력 구조화 — 엔티티 + AI 프롬프트"
 grand_parent: "📗 심화과정"

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "실습② — Tier 3: 책임 분리"
 parent: "S1. 문서 자동화 5-Tier"
 grand_parent: "📗 심화과정"

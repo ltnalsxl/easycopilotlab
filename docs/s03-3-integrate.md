@@ -1,4 +1,4 @@
-﻿---
+---
 title: "C. Integrate 그룹 (패턴 7·8·11·12)"
 parent: "S3. 12 패턴 카탈로그"
 grand_parent: "📗 심화과정"

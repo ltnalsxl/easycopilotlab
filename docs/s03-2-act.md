@@ -1,4 +1,4 @@
-﻿---
+---
 title: "B. Act 그룹 (패턴 4·5·6·10)"
 parent: "S3. 12 패턴 카탈로그"
 grand_parent: "📗 심화과정"

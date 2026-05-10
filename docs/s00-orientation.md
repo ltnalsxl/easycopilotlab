@@ -1,4 +1,4 @@
-﻿---
+---
 title: "S0. 오리엔테이션"
 parent: "📗 심화과정"
 nav_order: 1

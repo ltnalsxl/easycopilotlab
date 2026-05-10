@@ -1,4 +1,4 @@
-﻿---
+---
 title: "실습③ — Tier 4·5: AI 빌더 문서 출력"
 parent: "S1. 문서 자동화 5-Tier"
 grand_parent: "📗 심화과정"

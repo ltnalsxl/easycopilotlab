@@ -1,4 +1,4 @@
-﻿---
+---
 title: "S3. 12 패턴 카탈로그"
 parent: "📗 심화과정"
 nav_order: 4

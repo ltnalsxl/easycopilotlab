@@ -1,4 +1,4 @@
-﻿---
+---
 title: "실습② — AI 프롬프트 (DateParser + Summarizer)"
 parent: "S7. 입력 구조화 — 엔티티 + AI 프롬프트"
 grand_parent: "📗 심화과정"
