@@ -152,6 +152,21 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
 >
 > **포인트 2**: Parse JSON 의 **스키마가 핵심**입니다. 스키마가 있어야 그 다음 단계에서 동적 콘텐츠 매핑 UI 가 `owner` · `dueDate` · `task` 를 자동 인식합니다.
 
+{: .warning }
+> **For each 로 감싸지 말 것**
+>
+> "배열이니까 For each 로 돌려야 하나?" 하고 자동으로 For each 컨테이너가 추가될 수 있는데, **절대 안 됩니다**. **Microsoft Word 템플릿 채우기** 액션은 반복 섹션 컨트롤이 들어간 템플릿이라면 **배열을 통째로 받아서 행을 자기가 알아서 생성**합니다.
+>
+> ❌ 잘못 — 액션 아이템 N 개 → Word 문서 N 개 따로 생성됨
+> ```
+> Parse JSON → For each → Word 템플릿 채우기
+> ```
+>
+> ✅ 올바름 — Word 문서 1 개에 행 N 줄
+> ```
+> Parse JSON → Word 템플릿 채우기 (ActionItems ← Parse JSON Body 통째로)
+> ```
+
 ---
 
 ## Step 3-3. 에이전트 지침 — 추출만 시키기
