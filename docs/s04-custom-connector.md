@@ -5,7 +5,7 @@ nav_order: 5
 has_children: true
 ---
 
-# 도구 — 커스텀 커넥터
+# 도구 — 외부 REST API 를 에이전트 도구로
 {: .no_toc }
 
 | 시간 | 소요 | 수강생 역할 |
@@ -22,37 +22,62 @@ has_children: true
 
 ## 이 모듈에서 만들 것
 
-> **외부 환율 REST API → OpenAPI 정의로 등록 → 에이전트 도구로 호출**
+> **외부 REST API 한 개 → Copilot 으로 OpenAPI YAML 작성 → Copilot Studio 의 "도구 추가 → REST API" 로 한 번에 등록 → 인터넷 검색 끄고 테스트**
 
-기본과정 M12에서 **기본 커넥터(Excel 행 추가)**를 사용했습니다. 여기서는 Microsoft가 제공하지 않는 **외부 API를 직접 도구로 등록**하는 길을 배웁니다.
+기본과정 M12 에서 **기본 커넥터(Excel 행 추가)** 를 사용했습니다. 여기서는 Microsoft 가 제공하지 않는 **외부 REST API 를 직접 도구로 등록** 하는 길을 배웁니다.
 
 | 기본 커넥터 (M12) | 커스텀 커넥터 (이번 S4) |
 |:--|:--|
-| Microsoft가 미리 만들어 놓은 것 | **내가 직접 등록** |
-| Excel, Outlook, Teams 등 | 어떤 외부 REST API든 가능 |
+| Microsoft 가 미리 만들어 놓은 것 | **내가 직접 등록** |
+| Excel · Outlook · Teams 등 | 어떤 외부 REST API 든 가능 |
 | 클릭 몇 번으로 연결 | OpenAPI 정의 + 인증 설정 |
+
+---
+
+## 새 흐름 — Studio 한 곳에서 끝낸다
+
+기존 강의는 "Power Apps 에서 커스텀 커넥터 만들기 → Copilot Studio 에서 도구 등록" 두 화면을 오갔습니다. 지금은 **Copilot Studio 의 "도구 추가 → REST API"** 가 OpenAPI YAML 만 받으면 백엔드 커스텀 커넥터를 자동 생성하므로, **Studio 한 곳** 에서 끝납니다.
+
+```
+[1] REST API 선정 (예: 환율)
+    ↓
+[2] Copilot 에게 "이 API 를 OpenAPI 3.0 YAML 로 만들어줘"  ← AI 가 작성
+    ↓
+[3] Copilot Studio → 도구 → 도구 추가 → REST API → YAML 붙여넣기
+    ↓ (백엔드에서 커스텀 커넥터 자동 생성)
+[4] 도구 검색에서 새 도구 찾아 에이전트에 등록
+    ↓
+[5] 필요한 입력 변수 (base, quotes 등) 추가
+    ↓
+[6] 설정 → 인터넷 검색 끄기 (도구 채택 강제)
+    ↓
+[7] 테스트
+```
+
+{: .highlight }
+> **핵심 일반화 포인트** — OpenAPI YAML 작성을 Copilot 에게 맡기면 **어떤 REST API 든** 동일한 흐름으로 도구화할 수 있습니다.
 
 ---
 
 ## REST API = 질문과 답변
 
-REST API는 어렵게 느껴지지만, 본질은 **질문과 답변**입니다.
+REST API 는 어렵게 느껴지지만, 본질은 **질문과 답변** 입니다.
 
 ```
-에이전트: "USD → KRW 환율?" (GET /latest?from=USD&to=KRW)
+에이전트: "USD → KRW 환율?" (GET /latest?base=USD&symbols=KRW)
     ↓
-환율 API: "1350원입니다"          ({"USD":"KRW":1350})
+환율 API: "1350원입니다"          ({"rates":{"KRW":1350}})
     ↓
 에이전트: "현재 USD/KRW 환율은 1,350원입니다"
 ```
 
 | 일상 대화 | REST API |
 |:--|:--|
-| "USD → KRW 환율?" | `GET /latest?from=USD&to=KRW` |
+| "USD → KRW 환율?" | `GET /latest?base=USD&symbols=KRW` |
 | "1350원" | `{"rates": {"KRW": 1350}}` |
 
 {: .tip }
-> REST API는 **컴퓨터끼리 대화하는 약속**입니다. 사람이 한국어로 대화하듯, 컴퓨터는 URL과 JSON으로 대화합니다.
+> REST API 는 **컴퓨터끼리 대화하는 약속** 입니다. 사람이 한국어로 대화하듯, 컴퓨터는 URL 과 JSON 으로 대화합니다.
 
 ---
 
@@ -60,13 +85,13 @@ REST API는 어렵게 느껴지지만, 본질은 **질문과 답변**입니다.
 
 | 항목 | 설명 | 비유 |
 |:--|:--|:--|
-| 서버 주소 | API가 어디에 있는지 | 전화번호 |
+| 서버 주소 | API 가 어디에 있는지 | 전화번호 |
 | 엔드포인트 | 어떤 기능이 있는지 | 메뉴판 |
 | 파라미터 | 무엇을 보내야 하는지 | 주문서 |
 | 응답 형식 | 무엇을 받게 되는지 | 배달 목록 |
 
 {: .note }
-> OpenAPI 정의 파일은 **사전 제공**합니다. 직접 작성할 필요 없습니다.
+> 이번 강의에서는 OpenAPI YAML 을 **Copilot 에게 작성하게** 합니다. 사전 제공 파일에 의존하지 않으므로, 강의 후 **공공데이터포털·사내 API** 등 어떤 API 도 같은 방식으로 도구화할 수 있습니다.
 
 ---
 
@@ -74,24 +99,25 @@ REST API는 어렵게 느껴지지만, 본질은 **질문과 답변**입니다.
 
 | 실습 | 주제 | 시간 |
 |:----|:-----|:----|
-| [실습 ① — OpenAPI로 커스텀 커넥터 등록](s04-1-openapi) | OpenAPI 가져오기 + 커넥터 생성 + 단독 테스트 | 18분 |
-| [실습 ② — 에이전트에 도구로 연결](s04-2-connector-call) | Copilot Studio 도구 등록 + 호출 검증 | 17분 |
+| [실습 ① — REST API 선정 + Copilot 으로 OpenAPI 작성](s04-1-openapi) | 대상 API 고르기 + AI 로 YAML 자동 생성 + 검토 | 15분 |
+| [실습 ② — Studio 에서 도구 등록 + 인터넷 검색 끄기 + 테스트](s04-2-connector-call) | 도구 추가 → REST API + 검색·등록 + 변수 + 설정 + 검증 | 20분 |
 
-**왜 분리하나** — ①은 “Power Platform 영역(커넥터 만들기)”, ②는 “Copilot Studio 영역(도구 연결)”. 두 화면을 오가는 데 혼란이 있어서 한 모듈에 묶으면 길을 잃기 쉽습니다.
+**왜 분리하나** — ① 은 "API 와 OpenAPI 영역(AI 활용 작성)", ② 는 "Copilot Studio 영역(등록·설정·테스트)". 두 단계의 산출물이 명확히 다르므로 한 페이지에 묶으면 길을 잃기 쉽습니다.
 
 ---
 
-## 왜 환율 API를 쓰나
+## 왜 환율 API 를 샘플로 쓰나
 
 | 조건 | 이유 |
 |:--|:--|
 | 무인증 / 단순 인증 | 강의 시간 안에 인증 설정으로 시간 낭비 X |
 | 안정적·공식 운영 | 강의 당일 다운되면 재앙 |
-| OpenAPI가 단순 | 한 엔드포인트 + 단순 JSON |
-| 결과가 직관적 | "USD/KRW 환율"이 학습자에게 즉각 이해됨 |
+| OpenAPI 가 단순 | 한 엔드포인트 + 단순 JSON |
+| 결과가 직관적 | "USD/KRW 환율" 이 학습자에게 즉각 이해됨 |
+| 입력 변수 2개 | base(기준 통화) + quotes(비교 통화) — 입력 변수 등록 단계 학습에 적합 |
 
 {: .highlight }
-> S5의 MCP가 “Microsoft Learn”이라는 강한 임팩트를 가져가니, 커스텀 커넥터 쪽은 **메커니즘 자체(OpenAPI → 커넥터 → 도구)**를 단순한 API로 깔끔하게 학습하는 데 집중합니다. 응용은 강의 후 “공공데이터포털” 등으로 자기주도 확장 가능.
+> S5 의 MCP 가 "Microsoft Learn" 이라는 강한 임팩트를 가져가니, 커스텀 커넥터 쪽은 **메커니즘 자체(Copilot 작성 → Studio 등록 → 인터넷 검색 끄기)** 를 단순한 API 로 깔끔하게 학습하는 데 집중합니다. 응용은 강의 후 "공공데이터포털" 등으로 자기주도 확장 가능.
 
 ---
 
@@ -99,9 +125,11 @@ REST API는 어렵게 느껴지지만, 본질은 **질문과 답변**입니다.
 
 | 항목 | 내용 |
 |:-----|:-----|
-| OpenAPI 정의 파일 | 사전 제공 (환율 API용) |
-| 커스텀 커넥터 | `ExchangeRate` |
-| 에이전트 도구 등록 | `GetExchangeRate` |
+| 대상 API | 환율 (`https://api.frankfurter.app`) |
+| OpenAPI YAML | Copilot 으로 작성 → 검토 완료 |
+| Copilot Studio 도구 | `GetExchangeRate` (REST API 등록 → 자동 커스텀 커넥터) |
+| 입력 변수 | `base`(기준 통화) / `quotes`(비교 통화 — 콤마 구분) |
+| 설정 | **인터넷 검색 끄기** (도구 강제 채택) |
 | 테스트 발화 | "오늘 달러 환율 알려줘" 등 |
 
 ---
@@ -116,10 +144,10 @@ REST API는 어렵게 느껴지지만, 본질은 **질문과 답변**입니다.
 | 택배 API | "운송장 번호로 배송 추적" |
 
 {: .tip }
-> 응용 과제로 **공공데이터포털**(data.go.kr)의 무료 API를 추천합니다. 단, 회원가입·키 발급 시간이 필요해서 본 실습은 환율 API로 진행합니다.
+> 응용 과제로 **공공데이터포털**(data.go.kr)의 무료 API 를 추천합니다. 단, 회원가입·키 발급 시간이 필요해서 본 실습은 환율 API 로 진행합니다. **Copilot 으로 YAML 을 작성하는 흐름은 동일** 하므로 전이가 쉽습니다.
 
 ---
 
 ## 다음 단계
 
-[실습 ① — OpenAPI로 커스텀 커넥터 등록](s04-1-openapi)부터 시작합니다.
+[실습 ① — REST API 선정 + Copilot 으로 OpenAPI 작성](s04-1-openapi) 부터 시작합니다.
