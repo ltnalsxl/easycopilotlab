@@ -70,6 +70,8 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 3. 액션 아이템 표는 한 행만 두고, 셀에 `{{actionItems.owner}}` `{{actionItems.dueDate}}` `{{actionItems.task}}` 입력
 4. 저장 → 20MB 이하 (한도)
 
+![Word Online 에서 회의록_템플릿_Tier4.docx 를 연 모습 — {{title}}, {{meetingDate}}, {{location}}, {{attendees}}, {{agenda}} 가 그냥 텍스트로 박혀 있다 (콘텐츠 컨트롤 아님)](../assets/images/s01-4/001_click.png)
+
 ---
 
 ## Step 4-2. AI 빌더 프롬프트 — `회의록_표준화_프롬프트`
@@ -89,6 +91,25 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 
 > **제약**: 솔루션 이동 시 양식 재업로드 필요. 5MB 이상 양식은 저장-재오픈 후에야 테스트 가능.
 
+{: .tip }
+> 프롬프트는 AI 허브에서 별도로 만들어도 되지만, **흐름의 `프롬프트 실행` 액션 매개 변수 드롭다운에서 `+ 새 사용자 지정 프롬프트`** 를 눌러 그 자리에서 만들어도 됩니다. 아래 캡처는 흐름 안에서 만든 경로입니다.
+
+![흐름 디자이너의 프롬프트 실행 매개 변수 드롭다운에서 `+ 새 사용자 지정 프롬프트` 를 클릭해 새 프롬프트 편집기 진입](../assets/images/s01-4/008_click.png)
+
+![새 프롬프트 이름을 `meetingnote_AI` 로 입력하고 모델 드롭다운에서 `Standard GPT-5 chat` 선택 — 문서·이미지 작업에 적합한 품질](../assets/images/s01-4/009_click.png)
+
+![모델이 `GPT-5 chat` 으로 바뀐 빈 프롬프트 편집기 — 좌측 지침에 본문 작성, 우측은 모델 응답 미리 보기 영역](../assets/images/s01-4/010_click.png)
+
+![지침 본문에 추출 규칙(빈칸 처리·날짜 포맷·액션 아이템 분리)을 적고 `문서 입력` 변수를 추가한 모습](../assets/images/s01-4/011_click.png)
+
+![우측 상단의 출력 형식을 `텍스트` 에서 `문서` 로 바꾸면 `문서 설정` 버튼이 함께 노출](../assets/images/s01-4/012_click.png)
+
+![`문서 설정` 패널의 `문서 레이아웃 업로드` 영역 — Tier 4 양식 .docx 를 끌어서 놓거나 찾아보기로 업로드](../assets/images/s01-4/013_click.png)
+
+![`회의록_템플릿_Tier4.docx` 업로드 직후 — 10 식별된 필드(title · meetingDate · location · attendees · agenda · decisions · nextMeeting · actionItems 테이블 등)가 자동 인식](../assets/images/s01-4/014_click.png)
+
+![`문서 입력` 변수의 샘플 데이터로 `회의록_샘플1_줄글형식.pdf` 를 업로드하고 우측 상단 `테스트` 버튼으로 동작 확인](../assets/images/s01-4/015_click.png)
+
 ---
 
 ## Step 4-3. Power Automate 흐름 — `회의록_생성_흐름_Tier4`
@@ -107,6 +128,18 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
    - 콘텐츠: 1번 단계의 `Document Output Content Bytes`
 3. **OneDrive → 항목 링크 가져오기**
 4. **Copilot Studio 에 응답**: `다운로드링크`, `파일이름`
+
+![Copilot Studio 에이전트 흐름 목록 화면 — 우측 상단 `+ 새 에이전트 흐름` 클릭](../assets/images/s01-4/002_click.png)
+
+![트리거 추가 다이얼로그에서 `에이전트` 검색 → `에이전트가 흐름을 호출할 때` 선택](../assets/images/s01-4/003_click.png)
+
+![트리거 노드만 놓인 빈 캔버스 — 아래 ⊕ 버튼으로 첫 작업 추가](../assets/images/s01-4/004_click.png)
+
+![작업 추가 패널에서 `에이전트` 검색 → 기술 그룹의 `에이전트에게 응답` 액션 선택 (마지막 응답 노드 자리 미리 두기)](../assets/images/s01-4/005_click.png)
+
+![트리거와 `에이전트에게 응답` 사이의 ⊕ 를 눌러 추출+채우기 단일 액션을 끼워 넣을 자리 지정](../assets/images/s01-4/006_click.png)
+
+![작업 추가 패널의 `AI 기능` 섹션에서 `프롬프트 실행` 선택 — AI 빌더 호출 액션](../assets/images/s01-4/007_click.png)
 
 ---
 
