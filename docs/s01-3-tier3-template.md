@@ -167,6 +167,13 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
 > Parse JSON → Word 템플릿 채우기 (ActionItems ← Parse JSON Body 통째로)
 > ```
 
+{: .warning }
+> **개별 행 입력 모드 ❌ → 전체 배열 입력 모드 ✅**
+>
+> Word 템플릿 채우기 액션의 매개변수 패널에서 `ActionItems` 박스를 펼치면 기본적으로 **개별 행 입력 모드** 가 켜져 있습니다 — `Actionitems Owner - 1`, `Actionitems Duedate - 1`, `Actionitems Task - 1` 처럼 **한 행씩** 손으로 채우는 형태. 이 상태로 `Body owner` / `Body dueDate` / `Body task` 를 매핑해도 **첫 한 줄만 출력** 됩니다 (Body owner 는 배열 첫 요소만 가리킴).
+>
+> **해결**: `ActionItems` 박스 **우측 상단** 의 **격자/배열 모양 아이콘** 클릭 → "전체 배열 입력으로 전환 (Switch to input entire array)". 박스가 단일 입력란 하나로 바뀌면 거기에 **JSON 구문 분석** 액션의 **Body** (배열 전체) 를 통째로 넣습니다. 그래야 N 개 행이 모두 출력됩니다.
+
 ---
 
 ## Step 3-3. 에이전트 지침 — 추출만 시키기
