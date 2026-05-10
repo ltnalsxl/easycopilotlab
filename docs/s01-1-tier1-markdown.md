@@ -1,6 +1,6 @@
 ---
 title: "실습① — Tier 1: Markdown + 빌트인"
-parent: "S1. 문서 자동화 5-Tier"
+parent: "S1. 문서 업로드 활용 실습"
 grand_parent: "📗 심화과정"
 nav_order: 1
 ---

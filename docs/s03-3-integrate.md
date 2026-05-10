@@ -42,7 +42,7 @@ nav_order: 3
 
 **구성 요소**: Office Script + AI Prompt(코드 인터프리터) + Excel/Word 출력
 
-> **S2** 의 핸즈온이 이 패턴의 기본형입니다. [S2 — Excel 분석 17단계](s02-excel-analysis) 참조.
+> **S2** 의 핷즈온이 이 패턴의 기본형입니다. [S2 — 엑셀 업로드 활용 실습](s02-excel-analysis) 참조.
 
 **자주 등장하는 적용**:
 

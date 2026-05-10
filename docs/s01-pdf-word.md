@@ -1,11 +1,11 @@
 ---
-title: "S1. 문서 자동화 5-Tier"
+title: "S1. 문서 업로드 활용 실습"
 parent: "📗 심화과정"
 nav_order: 2
 has_children: true
 ---
 
-# S1. 문서 자동화 — 빌트인 도구부터 멀티모달 AI 빌더까지
+# S1. 문서 업로드 활용 실습 — 빌트인 도구부터 멀티모달 AI 빌더까지
 {: .no_toc }
 
 | 시간 | 소요 | 수강생 역할 |
@@ -59,7 +59,7 @@ has_children: true
 
 > "Copilot Studio 에이전트는 채팅창에 PDF를 던져주면 자동으로 읽어주잖아. 굳이 흐름을 따로 만들 필요가 있어?"
 
-맞습니다. **Copilot Studio의 오케스트레이터는 PDF · Word · 이미지 같은 일반 문서를 채팅에 첨부만 해도 잘 처리**합니다. 다음 [S2 — Excel 분석 17단계](s02-excel-analysis) 에서 다룰 Excel과는 큰 차이입니다 (Excel은 오케스트레이터가 기본적으로 받지 않습니다).
+맞습니다. **Copilot Studio의 오케스트레이터는 PDF · Word · 이미지 같은 일반 문서를 채팅에 첨부만 해도 잘 처리**합니다. 다음 [S2 — 엑셀 업로드 활용 실습](s02-excel-analysis) 에서 다룰 Excel과는 큰 차이입니다 (Excel은 오케스트레이터가 기본적으로 받지 않습니다).
 
 그러나 현업에서는 다음 두 가지 요구가 거의 항상 따라붙습니다.
 

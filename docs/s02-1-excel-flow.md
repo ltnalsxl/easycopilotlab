@@ -1,6 +1,6 @@
 ---
 title: "실습① — 흐름 완성 (Step 1~12)"
-parent: "S2. Excel 분석 17단계"
+parent: "S2. 엑셀 업로드 활용 실습"
 grand_parent: "📗 심화과정"
 nav_order: 1
 ---

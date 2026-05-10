@@ -1,6 +1,6 @@
 ---
 title: "실습⑤ — Tier 5: 멀티모달 + 결정적 폼"
-parent: "S1. 문서 자동화 5-Tier"
+parent: "S1. 문서 업로드 활용 실습"
 grand_parent: "📗 심화과정"
 nav_order: 5
 ---
@@ -78,4 +78,4 @@ Tier 1 (5분, 빌트인) 부터 Tier 5 (멀티모달 + 결정적 폼) 까지 같
 
 ## 다음 모듈
 
-[S2. Excel 분석 17단계](s02-excel-analysis)
+[S2. 엑셀 업로드 활용 실습](s02-excel-analysis)
