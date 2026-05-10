@@ -84,7 +84,7 @@ has_children: true
 | # | 그룹 | 패턴 | 한 문장 의도 |
 |:--|:--|:--|:--|
 | 1 | Inform | Knowledge Q&A | 사내 문서 RAG로 답변 |
-| 2 | Inform | Document Generator | 표준 양식 문서 자동 생성 (5-Tier) |
+| 2 | Inform | Document Generator | 표준 양식 문서 자동 생성 (4-Tier) |
 | 3 | Inform | External Monitor | 외부 웹/규제 주기 수집·요약 |
 | 9 | Inform | Aggregator/Multi-Agent | 다중 소스 합성 종합 답변 |
 | 4 | Act | Form Workflow | 현장 정형 입력 → 워크플로 |
@@ -175,7 +175,7 @@ Q4. 데이터·시스템 관련?
 
 ## 7. 다음 세션으로 — 점심 후 외부 연결
 
-오전의 3세션(S1 5-Tier · S2 Excel · S3 12 패턴)으로 "오늘 무엇을 만들 수 있는지" 와 "어떻게 분류·선택하는지" 의 큰 그림이 잡혔습니다.
+오전의 3세션(S1 4-Tier · S2 Excel · S3 12 패턴)으로 "오늘 무엇을 만들 수 있는지" 와 "어떻게 분류·선택하는지" 의 큰 그림이 잡혔습니다.
 
 점심 후 [S4 커스텀 커넥터](s04-custom-connector) 부터는 외부 연결의 폭을 넓힙니다.
 
