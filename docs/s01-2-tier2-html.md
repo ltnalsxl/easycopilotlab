@@ -93,10 +93,58 @@ nav_order: 2
    - 안건/결정사항 같은 배열은 <li>...</li> 를 항목 수만큼 반복
    - 액션아이템 표 행은 항목 수만큼 <tr> 반복 (마지막 행은 border-bottom 제거)
 3. 완성된 HTML 전체를 도구 "회의록_Word_저장" 의 콘텐츠 인자로 전달.
+   - 파일명: 회의록_{회의일자YYYYMMDD}_{회의제목핵심키워드}
 4. 사용자에게 한 줄 안내: "회의록을 저장했습니다. 파일명: ..."
 
 [HTML 템플릿]
-... (V3 디자인 인라인 CSS HTML 전체) ...
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head>
+<body style="font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:11pt;color:#222;max-width:780px;margin:24px auto;padding:0 20px;">
+
+<hr style="border:none;border-top:3px solid #1F3864;margin:0;">
+<h1 style="text-align:center;font-size:36pt;color:#1F3864;margin:18px 0;letter-spacing:12px;font-weight:bold;">회의록</h1>
+<hr style="border:none;border-top:3px solid #1F3864;margin:0 0 24px 0;">
+
+<p style="margin:24px 0 8px 0;color:#1F3864;font-size:18pt;font-weight:bold;">1. 기본 정보</p>
+<table style="width:100%;border:1px solid #B4C7E7;border-collapse:collapse;border-spacing:0;">
+<tr><td style="width:20%;background:#EAF1FB;padding:14px 16px;font-weight:bold;vertical-align:top;">회의 제목</td><td style="padding:14px 16px;vertical-align:top;">{{title}}</td></tr>
+<tr><td style="width:20%;background:#EAF1FB;padding:14px 16px;font-weight:bold;vertical-align:top;">일시</td><td style="padding:14px 16px;vertical-align:top;">{{meetingDate}}</td></tr>
+<tr><td style="width:20%;background:#EAF1FB;padding:14px 16px;font-weight:bold;vertical-align:top;">장소</td><td style="padding:14px 16px;vertical-align:top;">{{location}}</td></tr>
+</table>
+
+<p style="margin:24px 0 8px 0;color:#1F3864;font-size:18pt;font-weight:bold;">2. 참석자</p>
+<table style="width:100%;border:1px solid #B4C7E7;border-collapse:collapse;border-spacing:0;"><tr><td style="padding:14px 16px;">{{attendees}}</td></tr></table>
+
+<p style="margin:24px 0 8px 0;color:#1F3864;font-size:18pt;font-weight:bold;">3. 안건</p>
+<table style="width:100%;border:1px solid #B4C7E7;border-collapse:collapse;border-spacing:0;"><tr><td style="padding:14px 16px;"><ol style="margin:0;padding-left:22px;line-height:1.8;">{{agenda_items}}</ol></td></tr></table>
+
+<p style="margin:24px 0 8px 0;color:#1F3864;font-size:18pt;font-weight:bold;">4. 결정 사항</p>
+<table style="width:100%;border:1px solid #B4C7E7;border-collapse:collapse;border-spacing:0;"><tr><td style="padding:14px 16px;"><ul style="margin:0;padding-left:22px;line-height:1.8;">{{decision_items}}</ul></td></tr></table>
+
+<p style="margin:24px 0 8px 0;color:#1F3864;font-size:18pt;font-weight:bold;">5. 액션 아이템</p>
+<table style="width:100%;border:1px solid #B4C7E7;border-collapse:collapse;border-spacing:0;">
+<tr><td style="width:20%;background:#EAF1FB;padding:12px 16px;font-weight:bold;text-align:center;border-right:1px solid #B4C7E7;border-bottom:1px solid #B4C7E7;">담당자</td><td style="width:20%;background:#EAF1FB;padding:12px 16px;font-weight:bold;text-align:center;border-right:1px solid #B4C7E7;border-bottom:1px solid #B4C7E7;">기한</td><td style="background:#EAF1FB;padding:12px 16px;font-weight:bold;text-align:center;border-bottom:1px solid #B4C7E7;">내용</td></tr>
+{{action_rows}}
+</table>
+
+<p style="margin:24px 0 8px 0;color:#1F3864;font-size:18pt;font-weight:bold;">6. 다음 회의 일정</p>
+<table style="width:100%;border:1px solid #B4C7E7;border-collapse:collapse;border-spacing:0;"><tr><td style="padding:14px 16px;">{{nextMeeting}}</td></tr></table>
+
+<hr style="border:none;border-top:3px solid #1F3864;margin:28px 0 0 0;">
+
+</body></html>
+
+[배열 자리표시자 채우는 법]
+- {{agenda_items}}: <li>안건1</li><li>안건2</li>... (항목 수만큼)
+- {{decision_items}}: <li>결정1</li><li>결정2</li>... (항목 수만큼)
+- {{action_rows}}: 각 행을 아래 형태로 항목 수만큼.
+  마지막 행은 모든 셀의 border-bottom 을 제거합니다.
+
+  중간 행:
+  <tr><td style="padding:12px 16px;text-align:center;border-right:1px solid #B4C7E7;border-bottom:1px solid #B4C7E7;vertical-align:top;">{{owner}}</td><td style="padding:12px 16px;text-align:center;border-right:1px solid #B4C7E7;border-bottom:1px solid #B4C7E7;vertical-align:top;">{{dueDate}}</td><td style="padding:12px 16px;border-bottom:1px solid #B4C7E7;vertical-align:top;">{{task}}</td></tr>
+
+  마지막 행:
+  <tr><td style="padding:12px 16px;text-align:center;border-right:1px solid #B4C7E7;vertical-align:top;">{{owner}}</td><td style="padding:12px 16px;text-align:center;border-right:1px solid #B4C7E7;vertical-align:top;">{{dueDate}}</td><td style="padding:12px 16px;vertical-align:top;">{{task}}</td></tr>
 ```
 
 > **8000자 제한 주의**: Copilot Studio 에이전트 지침은 약 8000자 제한이 있습니다. 위 지침은 약 7500자로 한계에 가깝습니다. 실제 적용 시 화이트스페이스 정리, 인라인 CSS 약어화 등으로 여유를 만들어 두세요.
