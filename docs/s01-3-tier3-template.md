@@ -73,7 +73,12 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
      - 행 위에 작은 ⊕ 핸들이 생기면 성공
    - 그 반복 섹션을 선택 → **속성 → 태그: `actionItems`**
    - {: .warning } **주의**: 표 바깥에 별도로 `actionItems` 라는 일반 텍스트 컨트롤을 따로 만들지 마세요. 반복 섹션 자체가 그 역할을 합니다.
-5. 저장 → OneDrive `/Apps/회의록/회의록_템플릿.docx` 업로드
+
+   ![Word 템플릿 — 콘텐츠 컨트롤 배치 (개발 도구 탭, 디자인 모드)](../assets/images/s01-3/001_click.png)
+
+5. 저장 → OneDrive 의 적당한 폴더 (예: `/myTemplates/회의록_템플릿_Tier3.docx`) 에 업로드
+
+   ![OneDrive — 회의록_템플릿_Tier3.docx 업로드 완료](../assets/images/s01-3/002_click.png)
 
 > **포인트**: 태그 이름 = 흐름의 입력 키. 오타 주의.
 
@@ -96,6 +101,20 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
   - `actionItemsJson` — 객체 배열을 **JSON 문자열**로 전달 (예: `[{"owner":"홍길동","dueDate":"2026-05-15","task":"초안 작성"}, ...]`)
 
 > **왜 JSON 문자열인가**: Copilot Studio (V2) 트리거 입력 타입은 텍스트·숫자·부울·날짜·파일 수준이라, **객체 배열(행이 여러 개인 표)** 같은 구조를 그대로 받을 수 없습니다. 실전에서는 **텍스트로 JSON 문자열을 받고, 흐름 안에서 Parse JSON 으로 객체 배열로 변환**합니다. 이게 표준 패턴입니다.
+
+Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 흐름을 만듭니다.
+
+![Copilot Studio — 새 에이전트 흐름](../assets/images/s01-3/003_click.png)
+
+빈 흐름은 **에이전트가 흐름을 호출할 때** (트리거) 와 **에이전트에게 응답** 두 노드로 시작합니다.
+
+![새 흐름 — 트리거 + 응답 기본 노드](../assets/images/s01-3/004_click.png)
+
+트리거를 클릭 → **매개 변수 → + 입력 추가** 로 8 개 입력을 모두 **텍스트** 타입으로 추가합니다.
+
+![트리거 — 입력 추가](../assets/images/s01-3/005_click.png)
+
+![트리거 — 8 개 텍스트 입력 (title, meetingDate, location, attendees, agenda, decisions, nextMeeting, actionItemsJson)](../assets/images/s01-3/006_click.png)
 
 작업 순서:
 
@@ -125,11 +144,43 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
      }
      ```
 
+   트리거 아래 **+** 클릭 → 작업 추가:
+
+   ![트리거 아래 + 클릭](../assets/images/s01-3/007_click.png)
+
+   검색창에 `json` → **JSON 구문 분석** 선택:
+
+   ![작업 추가 — JSON 구문 분석](../assets/images/s01-3/008_click.png)
+
+   Content 입력란 옆 동적 콘텐츠 픽커에서 트리거 입력 더 보기 (9):
+
+   ![Content — 동적 콘텐츠 더 보기](../assets/images/s01-3/009_click.png)
+
+   트리거 입력 목록에서 **`actionItemsJson`** 클릭:
+
+   ![트리거 입력 — actionItemsJson 선택](../assets/images/s01-3/010_click.png)
+
+   Content 박스에 `actionItemsJson` 칩이 들어갑니다:
+
+   ![Content 에 actionItemsJson 칩 삽입 완료](../assets/images/s01-3/011_click.png)
+
+   Schema 박스 아래 **샘플 페이로드를 사용하여 스키마 생성** 링크 클릭:
+
+   ![샘플 페이로드를 사용하여 스키마 생성](../assets/images/s01-3/012_click.png)
+
+   대화상자에 위 샘플 JSON 한 줄 붙여넣고 **완료**:
+
+   ![샘플 JSON 페이로드 붙여넣기 → 완료](../assets/images/s01-3/013_click.png)
+
+   자동 생성된 스키마 (array → items → object → owner/dueDate/task):
+
+   ![자동 생성 스키마 확인](../assets/images/s01-3/014_click.png)
+
 2. **Word Online (Business) → Microsoft Word 템플릿 채우기 (Populate a Microsoft Word template)**
-   - 위치: OneDrive
-   - 라이브러리: OneDrive
-   - 파일: `/Apps/회의록/회의록_템플릿.docx`
-   - 컨트롤별 입력값 매핑:
+   - 위치: **OneDrive for Business**
+   - 라이브러리: **OneDrive**
+   - 파일: `/myTemplates/회의록_템플릿_Tier3.docx` (Step 3-1 5번에서 업로드한 파일)
+   - 컨트롤별 입력값 매핑 (트리거 입력의 평면 7 개):
      - `title` ← 트리거 입력 `title`
      - `meetingDate` ← 트리거 입력 `meetingDate`
      - `location` ← 트리거 입력 `location`
@@ -139,6 +190,31 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
      - `nextMeeting` ← 트리거 입력 `nextMeeting`
      - `actionItems` (반복 섹션) ← **1번 단계 Parse JSON 의 산출 본문(Body)**
        - 그 안의 `owner`, `dueDate`, `task` 는 자동으로 행별 매핑 UI 가 뜨고, 각각 Parse JSON 출력의 동일 필드로 매핑
+
+   JSON 구문 분석 아래 **+** 클릭 → 작업 추가:
+
+   ![JSON 구문 분석 아래 + 클릭](../assets/images/s01-3/015_click.png)
+
+   검색창에 `word` → **Microsoft Word 템플릿 채우기** 선택:
+
+   ![작업 추가 — Microsoft Word 템플릿 채우기](../assets/images/s01-3/016_click.png)
+
+   매개 변수 패널이 비어 있는 초기 상태:
+
+   ![Word 템플릿 채우기 — 위치/문서 라이브러리/파일 비어 있음](../assets/images/s01-3/017_click.png)
+
+   위치·라이브러리·파일 선택 (캡쳐에서는 `/myTemplates/회의록_템플릿_Tier3.docx`):
+
+   ![위치=OneDrive for Business / 라이브러리=OneDrive / 파일=회의록_템플릿_Tier3.docx](../assets/images/s01-3/018_click.png)
+
+   파일을 선택하면 **고급 매개 변수** 영역이 0/8 로 나타납니다 → **모두 보기** 클릭해 8 개를 펼침:
+
+   ![고급 매개 변수 — 모두 보기](../assets/images/s01-3/019_click.png)
+
+   평면 7 개 입력 (Title/MeetingDate/NextMeeting/Agenda/Decisions/Attendees/Location) 에 트리거 입력 동명을 매핑. **ActionItems 는 아직 손대지 않은 상태** (다음 단계에서 전체 배열 모드로 전환):
+
+   ![Title~Location 7 개 + ActionItems 박스 (개별 행 모드 — 새 항목 추가)](../assets/images/s01-3/020_click.png)
+
 3. **OneDrive → 파일 만들기**
    - 폴더: `/Apps/회의록/생성결과/`
    - 파일 이름: 평문 `회의록_` + 동적 콘텐츠 픽커로 트리거 입력 **`title`** 삽입 + 평문 `.docx`
