@@ -141,8 +141,10 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
        - 그 안의 `owner`, `dueDate`, `task` 는 자동으로 행별 매핑 UI 가 뜨고, 각각 Parse JSON 출력의 동일 필드로 매핑
 3. **OneDrive → 파일 만들기**
    - 폴더: `/Apps/회의록/생성결과/`
-   - 파일 이름: `회의록_@{triggerBody()?['meetingDate']}_@{triggerBody()?['title']}.docx`
-     (트리거 입력값 조합으로 안전한 파일명)
+   - 파일 이름: 평문 `회의록_` + 동적 콘텐츠 픽커로 트리거 입력 **`title`** 삽입 + 평문 `.docx`
+     - 즉 입력란이 이렇게 보여야 함: `회의록_[title 칩].docx`
+     - {: .warning } **`@{triggerBody()?['title']}` 같은 raw 표현식을 텍스트로 붙여넣지 마세요** — Copilot Studio 새 디자이너에서는 "식이 잘못되었습니다" 에러가 뜹니다. 반드시 입력란 옆 **번개 아이콘(동적 콘텐츠)** 으로 트리거 입력 칩을 삽입해야 합니다.
+     - {: .note } 굳이 날짜를 파일명에 넣고 싶다면 `meetingDate` 가 콜론(`:`) 을 포함할 수 있으므로 OneDrive 가 거부합니다. 강의 시연용으로는 `title` 만 쓰는 것이 가장 실패 없습니다 (동명 충돌 시 OneDrive 가 자동으로 `(1)` 부여).
    - 콘텐츠: 2번 단계의 출력 (Microsoft Word 문서)
 4. **OneDrive → 항목 링크 가져오기** (또는 공유 링크 만들기)
 5. **Copilot Studio 에 응답**
