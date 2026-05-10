@@ -215,16 +215,80 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
    ![Title~Location 7 개 + ActionItems 박스 (개별 행 모드 — 새 항목 추가)](../assets/images/s01-3/020_click.png)
 
+   `ActionItems` 박스 **우측 상단** 의 **격자/배열 모양 아이콘** 클릭 → "전체 배열 입력으로 전환":
+
+   ![ActionItems — 격자 아이콘 클릭 (전체 배열 입력으로 전환)](../assets/images/s01-3/021_click.png)
+
+   박스가 단일 입력란("배열 입력") 으로 바뀝니다:
+
+   ![ActionItems — 단일 배열 입력 모드](../assets/images/s01-3/022_click.png)
+
+   동적 콘텐츠 픽커 (번개 아이콘) → **JSON 구문 분석 → Body** 클릭:
+
+   ![동적 콘텐츠 — JSON 구문 분석 Body](../assets/images/s01-3/023_click.png)
+
+   `ActionItems` 에 **Body** 칩이 통째로 들어가면 완료:
+
+   ![ActionItems ← Body 칩 매핑 완료](../assets/images/s01-3/024_click.png)
+
 3. **OneDrive → 파일 만들기**
-   - 폴더: `/Apps/회의록/생성결과/`
-   - 파일 이름: 평문 `회의록_` + 동적 콘텐츠 픽커로 트리거 입력 **`title`** 삽입 + 평문 `.docx`
-     - 즉 입력란이 이렇게 보여야 함: `회의록_[title 칩].docx`
-     - {: .warning } **`@{triggerBody()?['title']}` 같은 raw 표현식을 텍스트로 붙여넣지 마세요** — Copilot Studio 새 디자이너에서는 "식이 잘못되었습니다" 에러가 뜹니다. 반드시 입력란 옆 **번개 아이콘(동적 콘텐츠)** 으로 트리거 입력 칩을 삽입해야 합니다.
-     - {: .note } 굳이 날짜를 파일명에 넣고 싶다면 `meetingDate` 가 콜론(`:`) 을 포함할 수 있으므로 OneDrive 가 거부합니다. 강의 시연용으로는 `title` 만 쓰는 것이 가장 실패 없습니다 (동명 충돌 시 OneDrive 가 자동으로 `(1)` 부여).
-   - 콘텐츠: 2번 단계의 출력 (Microsoft Word 문서)
-4. **OneDrive → 항목 링크 가져오기** (또는 공유 링크 만들기)
+   - 폴더 경로: `/` (루트) 또는 `/Apps/회의록/생성결과/` 같은 본인 폴더
+   - 파일 이름: 평문 `템플릿회의록_` + 함수 **`utcNow()`** + 평문 `.docx`
+     - {: .note } `utcNow()` 가 반환하는 ISO 타임스탬프는 콜론(`:`) 을 포함하지만 OneDrive 가 자동으로 밑줄로 치환하여 매번 고유한 파일명이 보장됩니다.
+     - {: .warning } **`@{triggerBody()?['title']}` 같은 raw 표현식을 텍스트로 붙여넣지 마세요** — Copilot Studio 새 디자이너에서는 "식이 잘못되었습니다" 에러가 뜹니다. 반드시 입력란 옆 **fx 아이콘(식)** 또는 **번개 아이콘(동적 콘텐츠)** 으로 칩을 삽입해야 합니다.
+   - 파일 콘텐츠: 2번 단계 (Microsoft Word 템플릿 채우기) 의 출력
+
+   Word 템플릿 채우기 아래 **+** 클릭 → 작업 추가:
+
+   ![Word 템플릿 채우기 아래 + 클릭](../assets/images/s01-3/025_click.png)
+
+   검색 `파일 만` → **비즈니스용 OneDrive → 파일 만들기** 선택:
+
+   ![작업 추가 — 비즈니스용 OneDrive 파일 만들기](../assets/images/s01-3/026_click.png)
+
+   파일 만들기 매개 변수 — 폴더 경로 입력:
+
+   ![파일 만들기 — 폴더 경로](../assets/images/s01-3/027_click.png)
+
+   폴더 경로 `/`, 파일 이름 `템플릿회의록_[utcNow() 칩].docx`, 파일 콘텐츠는 Microsoft Word 템플릿 채우기 출력:
+
+   ![파일 만들기 — 폴더 경로/파일 이름/콘텐츠 매핑 완료](../assets/images/s01-3/028_click.png)
+
+4. **OneDrive → 공유 링크 만들기**
+   - 파일: 3번 단계 파일 만들기의 **ID**
+   - 링크 유형: **Edit** (또는 View)
+
+   파일 만들기 아래 **+** 클릭:
+
+   ![파일 만들기 아래 + 클릭](../assets/images/s01-3/029_click.png)
+
+   검색 `링크` → **비즈니스용 OneDrive → 공유 링크 만들기** 선택:
+
+   ![작업 추가 — 비즈니스용 OneDrive 공유 링크 만들기](../assets/images/s01-3/030_click.png)
+
+   파일 = 3번의 ID, 링크 유형 = Edit:
+
+   ![공유 링크 만들기 — 파일=ID, 링크 유형=Edit](../assets/images/s01-3/031_click.png)
+
 5. **Copilot Studio 에 응답**
-   - 출력: `다운로드링크` (텍스트), `파일이름` (텍스트)
+   - 출력 `파일이름` (텍스트) ← 3번 파일 만들기의 **이름**
+   - 출력 `파일링크` (텍스트) ← 4번 공유 링크 만들기의 **웹 URL**
+
+   완성된 흐름 캔버스 (트리거 → JSON 구문 분석 → Word 템플릿 채우기 → 파일 만들기 → 공유 링크 만들기 → 에이전트에게 응답):
+
+   ![완성된 흐름 — 6 개 노드](../assets/images/s01-3/032_click.png)
+
+   에이전트에게 응답 — 출력 두 개 매핑:
+
+   ![에이전트에게 응답 — 파일이름=이름, 파일링크=웹 URL](../assets/images/s01-3/033_click.png)
+
+흐름 우측 상단 **게시** 버튼 클릭:
+
+![흐름 — 게시 버튼](../assets/images/s01-3/034_click.png)
+
+세부 정보 패널에서 흐름 이름 (예: `meetingnote_template` 또는 `회의록_생성_흐름_Tier3`) 입력 → **저장**:
+
+![게시 — 흐름 이름 입력 후 저장](../assets/images/s01-3/035_click.png)
 
 > **포인트 1**: 흐름 안에 LLM 이 한 번도 등장하지 않습니다. 흐름은 **JSON 구문분석 → 템플릿 채우기 → 저장 → 링크** 의 단순 plumbing 만 합니다.
 >
