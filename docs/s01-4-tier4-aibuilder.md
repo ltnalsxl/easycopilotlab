@@ -116,22 +116,13 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 
 ---
 
-## Step 4-3. Power Automate 흐름 — `회의록_생성_흐름_Tier4`
+## Step 4-3. Power Automate 흐름 — `meetingnote_AI`
 
-- 트리거: **Copilot Studio (V2)**
-- 입력: `meetingFile` (파일 콘텐츠)
+흐름은 최종적으로 **5개 노드** 로 구성됩니다: 트리거 → 프롬프트 실행 → OneDrive 파일 만들기 → OneDrive 공유 링크 만들기 → 에이전트에게 응답. 시작·끝 노드 먼저 놓고 중간에 차례로 끼워 넣는 순서로 진행합니다.
 
-작업 순서:
+### 1) 흐름 생성 · 트리거 선택 · 응답 노드 자리 잡기
 
-1. **AI Builder → 프롬프트 실행 (Run a prompt)**
-   - 프롬프트: `회의록_표준화_프롬프트`
-   - `meetingFile` ← 트리거 입력 `meetingFile`
-2. **OneDrive → 파일 만들기**
-   - 폴더: `/Apps/회의록/생성결과/`
-   - 파일 이름: `회의록_AI빌더_@{utcNow('yyyyMMdd_HHmmss')}.docx`
-   - 콘텐츠: 1번 단계의 `Document Output Content Bytes`
-3. **OneDrive → 항목 링크 가져오기**
-4. **Copilot Studio 에 응답**: `다운로드링크`, `파일이름`
+Copilot Studio 좌측 메뉴의 에이전트 흐름 목록에서 새 흐름을 시작하고, 트리거는 에이전트 호출에 맞춘 V2 트리거를 고릅니다. 마지막에 놓을 응답 노드(`에이전트에게 응답`)를 먼저 올려두고, 중간의 ⊕ 를 활용해 프롬프트·파일 저장·링크 액션을 차례로 끼워 넣을 계획입니다.
 
 ![Copilot Studio 에이전트 흐름 목록 화면 — 우측 상단 `+ 새 에이전트 흐름` 클릭](../assets/images/s01-4/002_click.png)
 
@@ -139,43 +130,67 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 
 ![트리거 노드만 놓인 빈 캔버스 — 아래 ⊕ 버튼으로 첫 작업 추가](../assets/images/s01-4/004_click.png)
 
-![작업 추가 패널에서 `에이전트` 검색 → 기술 그룹의 `에이전트에게 응답` 액션 선택 (마지막 응답 노드 자리 미리 두기)](../assets/images/s01-4/005_click.png)
+![작업 추가 패널에서 `에이전트` 검색 → `에이전트에게 응답` 선택 — 마지막 응답 노드 먼저 자리 잡기](../assets/images/s01-4/005_click.png)
 
-![트리거와 `에이전트에게 응답` 사이의 ⊕ 를 눌러 추출+채우기 단일 액션을 끼워 넣을 자리 지정](../assets/images/s01-4/006_click.png)
+### 2) `프롬프트 실행` 액션 끼워 넣기
 
-![작업 추가 패널의 `AI 기능` 섹션에서 `프롬프트 실행` 선택 — AI 빌더 호출 액션](../assets/images/s01-4/007_click.png)
+트리거와 응답 노드 사이의 ⊕ 를 눌러 **AI 기능 → 프롬프트 실행** 을 넣습니다. 이 액션이 Step 4-2 에서 만든 `meetingnote_AI` 프롬프트를 호출해 "추출 + 양식 채우기" 를 **한 번에** 처리합니다.
 
-![캔버스에 트리거 · 프롬프트 실행 · 에이전트에게 응답 세 노드가 쓰이자마자 다시 트리거 노드 클릭해 매개 변수 패널 열기](../assets/images/s01-4/018_click.png)
+![트리거와 `에이전트에게 응답` 사이의 ⊕ 클릭](../assets/images/s01-4/006_click.png)
 
-![트리거 매개 변수 탭에 입력 추가 — 이름 `meetingfile`, 타입 `파일 또는 이미지` 선택](../assets/images/s01-4/019_click.png)
+![작업 추가 패널의 `AI 기능` 섹션에서 `프롬프트 실행` 선택](../assets/images/s01-4/007_click.png)
 
-![트리거 매개 변수 설정 후 `프롬프트 실행` 노드 클릭 — 매개 변수 패널 열기](../assets/images/s01-4/020_click.png)
+### 3) 트리거 입력 `meetingfile` 정의
 
-![프롬프트 드롭다운에서 `meetingnote_AI` 선택 후 `문서 입력` 입력란에 동적 콘텐츠로 `meetingfile contentBytes` 선택](../assets/images/s01-4/021_click.png)
+프롬프트에 넘겨줄 파일을 에이전트로부터 받기 위해 트리거 노드를 다시 열고 **입력 추가** 로 `meetingfile` 파일 매개변수를 만듭니다. 타입은 `파일 또는 이미지`.
 
-![`문서 입력` 에 `meetingfile cont…` 칩이 들어간 프롬프트 실행 매개 변수 완성 상태](../assets/images/s01-4/022_click.png)
+![5개 노드 구성 직전 상태에서 트리거 노드 다시 클릭 — 매개 변수 패널 열기](../assets/images/s01-4/018_click.png)
 
-![프롬프트 실행과 에이전트에게 응답 사이의 ⊕ 클릭 — OneDrive 파일 저장 액션을 끼워 넣을 자리](../assets/images/s01-4/023_click.png)
+![트리거 매개 변수 탭에서 `입력 추가` → 이름 `meetingfile`, 타입 `파일 또는 이미지`](../assets/images/s01-4/019_click.png)
 
-![작업 추가 패널에서 `파일만` 검색 → 비즈니스용 OneDrive 그룹의 `파일 만들기` 액션 선택](../assets/images/s01-4/024_click.png)
+### 4) `프롬프트 실행` 매개 변수 연결
 
-![`파일 만들기` 매개 변수 패널 — `파일 콘텐츠` 필드에 동적 콘텐츠로 프롬프트 실행의 `Document Output Content Bytes` 선택](../assets/images/s01-4/025_click.png)
+프롬프트 실행 노드를 열고 `meetingnote_AI` 선택, `문서 입력` 칸에는 트리거의 `meetingfile contentBytes` 동적 콘텐츠를 넘겨줍니다.
+
+![프롬프트 실행 노드 클릭 — 우측 매개 변수 패널이 열림](../assets/images/s01-4/020_click.png)
+
+![프롬프트 드롭다운 `meetingnote_AI` 선택 후 `문서 입력` 칸에 동적 콘텐츠로 `meetingfile contentBytes` 선택](../assets/images/s01-4/021_click.png)
+
+![매개 변수 연결 완성 — `문서 입력` 칸에 `meetingfile cont…` 칩이 들어감](../assets/images/s01-4/022_click.png)
+
+### 5) OneDrive `파일 만들기` 추가
+
+프롬프트의 `Document Output Content Bytes` 가 완성된 .docx 바이너리입니다. 이걸 OneDrive 에 저장하는 게 다음 단계. 프롬프트 실행과 응답 노드 사이 ⊕ 에 `파일 만들기` 액션을 끼워 넣습니다.
+
+![프롬프트 실행과 응답 사이의 ⊕ 클릭 — 이 자리에 OneDrive 파일 저장 끌어 넣을 예정](../assets/images/s01-4/023_click.png)
+
+![작업 추가 패널에서 `파일만` 검색 → `비즈니스용 OneDrive` 그룹의 `파일 만들기` 선택](../assets/images/s01-4/024_click.png)
+
+![`파일 콘텐츠` 칸에 동적 콘텐츠로 `프롬프트 실행` 그룹의 `Document Output Content Bytes` 선택](../assets/images/s01-4/025_click.png)
 
 ![파일 만들기 세 필드 완성 — 폴더 경로 `/`, 파일 이름 `AI회의록_<utcNow()>.docx`, 파일 콘텐츠 = `Document Output…`](../assets/images/s01-4/026_click.png)
 
-![캔버스에 `파일 만들기` 노드가 추가된 상태 — `파일 만들기` 와 `에이전트에게 응답` 사이 ⊕ 으로 공유 링크 액션 추가](../assets/images/s01-4/027_click.png)
+### 6) `공유 링크 만들기` 추가
 
-![작업 추가 패널에서 `링크` 검색 → 비즈니스용 OneDrive 그룹의 `공유 링크 만들기` 선택](../assets/images/s01-4/028_click.png)
+저장된 파일의 공유 가능한 URL 을 받아서 에이전트 응답에 넘길 차례. 다시 ⊕ 로 다음 액션을 끼워 넣습니다.
 
-![`공유 링크 만들기` 매개 변수의 `파일` 입력란에 동적 콘텐츠로 파일 만들기 액션의 `ID` (파일의 고유 식별자) 선택](../assets/images/s01-4/029_click.png)
+![파일 만들기와 응답 사이의 ⊕ 클릭 — 링크 생성 액션 끼워 넣을 자리](../assets/images/s01-4/027_click.png)
 
-![공유 링크 만들기 매개 변수 완성 — `파일 = ID`, `링크 유형 = Edit`, `링크 범위 = Anonymous`](../assets/images/s01-4/030_click.png)
+![작업 추가 패널에서 `링크` 검색 → `비즈니스용 OneDrive` 그룹의 `공유 링크 만들기` 선택](../assets/images/s01-4/028_click.png)
 
-### 에이전트에게 응답 설정
+![`파일` 칸에 동적 콘텐츠로 `파일 만들기` 그룹의 `ID` (파일의 고유 식별자) 선택](../assets/images/s01-4/029_click.png)
 
-![다시 맨 아래 `에이전트에게 응답` 노드는 `⚠ 잘못된 매개 변수` 경고 상태 — 아직 출력을 연결하지 않아 발생, 이제 연결할 차례](../assets/images/s01-4/031_click.png)
+![공유 링크 만들기 완성 — `파일 = ID`, `링크 유형 = Edit`, `링크 범위 = Anonymous`](../assets/images/s01-4/030_click.png)
 
-![`에이전트에게 응답` 노드의 매개 변수 탭 — `파일이름` (이름 동적) · `파일링크` (웹 URL 동적) 두 출력 추가](../assets/images/s01-4/032_click.png)
+### 7) 응답 노드 출력 연결 · 게시 · 흐름 이름 저장
+
+마지막으로 `에이전트에게 응답` 노드에 출력 2개를 매답니다 — 파일 이름과 공유 링크. 이걸 연결하기 전에는 응답 노드에 `⚠ 잘못된 매개 변수` 경고가 떠 있습니다.
+
+![응답 노드가 `⚠ 잘못된 매개 변수` 경고 상태 — 아직 출력을 연결하지 않아 발생](../assets/images/s01-4/031_click.png)
+
+![응답 노드의 매개 변수 탭 — `파일이름` (이름 동적) · `파일링크` (웹 URL 동적) 두 출력 추가](../assets/images/s01-4/032_click.png)
+
+경고가 사라지면 5개 노드가 모두 그린 체크 상태로 돌아옵니다. 게시 후 흐름 이름을 `meetingnote_AI` 로 확정합니다.
 
 ![5개 노드(트리거 → 프롬프트 실행 → 파일 만들기 → 공유 링크 → 응답)가 경고 없이 완성된 흐름 — 우측 상단 `게시` 클릭](../assets/images/s01-4/033_click.png)
 
@@ -185,7 +200,11 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 
 ## Step 4-4. 에이전트에 도구 등록 · 지침 작성
 
-에이전트 `Tier4 HOL` 의 도구 탭에서 방금 저장한 `meetingnote_AI` 흐름을 추가합니다.
+이제 흐름을 에이전트에서 부를 수 있게 도구로 등록하고, 언제 어떻게 호출할지는 지침으로 알려줍니다.
+
+### 1) 도구 추가 · 입력 조사 · 저장
+
+에이전트 `Tier4 HOL` 의 도구 탭에서 조금 전 만들어 저장한 `meetingnote_AI` 흐름을 골라 추가하고, 입력은 흐름 트리거와 맞추어 `contentBytes (File)` · `name (String)` 을 조사합니다.
 
 ![에이전트 도구 탭의 빈 상태 — `첫 번째 툴 만들기 / + 도구 추가`](../assets/images/s01-4/035_click.png)
 
@@ -195,11 +214,11 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 
 ![도구 구성 화면 — 입력 섹션의 `+ 입력 추가` 를 눌러 `contentBytes (File)` · `name (String)` 을 하나씩 추가](../assets/images/s01-4/038_click.png)
 
-![입력에 `contentBytes` · `name` 이 추가되고 `다음을 사용하여 채우기 = AI로 동적으로 채우기` 기본 값 — 우측 상단 `저장` 클릭](../assets/images/s01-4/039_click.png)
+![입력이 추가되고 각 입력의 `다음을 사용하여 채우기 = AI로 동적으로 채우기` 기본 값으로 잡힌 모습 — 우측 상단 `저장` 클릭](../assets/images/s01-4/039_click.png)
 
-### 지침 편집
+### 2) 지침 편집 — 도구를 직접 언급해라
 
-아래 지침 본문을 그대로 지침 편집기에 붙여넣습니다. 중간의 `흐름 ` 다음에는 `/` 를 입력해 제안 패널에서 `meetingnote_AI` 도구를 직접 링크합니다.
+에이전트가 PDF 를 보면 "내가 추출하지 말고 `meetingnote_AI` 흐름에 파일 그대로 넘겨라" 고 명시적으로 알려주는 게 해심입니다. 아래 코드 블록 의 지침을 그대로 붙여넣고, 중간의 `흐름 ` 다음에는 `/` 를 입력해 제안 패널에서 `meetingnote_AI` 도구를 직접 링크합니다.
 
 ```
 당신은 회의록 표준화 에이전트입니다.
@@ -216,7 +235,7 @@ PDF 본문 추출은 AI 빌더 프롬프트가 처리하므로 LLM 추출은 하
 
 ![지침 본문에 위 코드 블록의 내용을 그대로 입력 — 213/8000 글자](../assets/images/s01-4/041_click.png)
 
-![지침 본문에서 `흐름 ` 다음에 `/` 입력 → 제안 패널이 떠오르면 `meetingnote_AI` 도구 선택 — 지침이 도구를 직접 링크하도록 설정](../assets/images/s01-4/042_click.png)
+![지침 본문에서 `흐름 ` 다음에 `/` 입력 → 제안 패널이 떠오르면 `meetingnote_AI` 도구 선택](../assets/images/s01-4/042_click.png)
 
 ![지침 반영 완료 — `meetingnote_AI` 칩이 흐름 이름 자리에 들어가고 `의 meetingFile 매개변수에 전달합니다` 가 따라붙음 → 우측 상단 `저장` 클릭](../assets/images/s01-4/043_click.png)
 
