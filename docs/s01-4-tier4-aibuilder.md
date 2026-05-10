@@ -110,6 +110,10 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 
 ![`문서 입력` 변수의 샘플 데이터로 `회의록_샘플1_줄글형식.pdf` 를 업로드하고 우측 상단 `테스트` 버튼으로 동작 확인](../assets/images/s01-4/015_click.png)
 
+![테스트 실행 직후 우측 모델 응답 영역 — `출력.docx` 다운로드 링크와 함께 {{title}}·{{meetingDate}}·{{location}}·{{attendees}}·{{agenda}}·{{decisions}}·{{nextMeeting}}·{{actionItems}} 가 실제 값으로 치환된 요약 표시](../assets/images/s01-4/016_click.png)
+
+![응답 하단을 스크롤하면 실행 소요 시간·Copilot 크레딧 표시 — 하단 `저장` 버튼으로 프롬프트 확정](../assets/images/s01-4/017_click.png)
+
 ---
 
 ## Step 4-3. Power Automate 흐름 — `회의록_생성_흐름_Tier4`
@@ -140,6 +144,32 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 ![트리거와 `에이전트에게 응답` 사이의 ⊕ 를 눌러 추출+채우기 단일 액션을 끼워 넣을 자리 지정](../assets/images/s01-4/006_click.png)
 
 ![작업 추가 패널의 `AI 기능` 섹션에서 `프롬프트 실행` 선택 — AI 빌더 호출 액션](../assets/images/s01-4/007_click.png)
+
+![캔버스에 트리거 · 프롬프트 실행 · 에이전트에게 응답 세 노드가 쓰이자마자 다시 트리거 노드 클릭해 매개 변수 패널 열기](../assets/images/s01-4/018_click.png)
+
+![트리거 매개 변수 탭에 입력 추가 — 이름 `meetingfile`, 타입 `파일 또는 이미지` 선택](../assets/images/s01-4/019_click.png)
+
+![트리거 매개 변수 설정 후 `프롬프트 실행` 노드 클릭 — 매개 변수 패널 열기](../assets/images/s01-4/020_click.png)
+
+![프롬프트 드롭다운에서 `meetingnote_AI` 선택 후 `문서 입력` 입력란에 동적 콘텐츠로 `meetingfile contentBytes` 선택](../assets/images/s01-4/021_click.png)
+
+![`문서 입력` 에 `meetingfile cont…` 칩이 들어간 프롬프트 실행 매개 변수 완성 상태](../assets/images/s01-4/022_click.png)
+
+![프롬프트 실행과 에이전트에게 응답 사이의 ⊕ 클릭 — OneDrive 파일 저장 액션을 끼워 넣을 자리](../assets/images/s01-4/023_click.png)
+
+![작업 추가 패널에서 `파일만` 검색 → 비즈니스용 OneDrive 그룹의 `파일 만들기` 액션 선택](../assets/images/s01-4/024_click.png)
+
+![`파일 만들기` 매개 변수 패널 — `파일 콘텐츠` 필드에 동적 콘텐츠로 프롬프트 실행의 `Document Output Content Bytes` 선택](../assets/images/s01-4/025_click.png)
+
+![파일 만들기 세 필드 완성 — 폴더 경로 `/`, 파일 이름 `AI회의록_<utcNow()>.docx`, 파일 콘텐츠 = `Document Output…`](../assets/images/s01-4/026_click.png)
+
+![캔버스에 `파일 만들기` 노드가 추가된 상태 — `파일 만들기` 와 `에이전트에게 응답` 사이 ⊕ 으로 공유 링크 액션 추가](../assets/images/s01-4/027_click.png)
+
+![작업 추가 패널에서 `링크` 검색 → 비즈니스용 OneDrive 그룹의 `공유 링크 만들기` 선택](../assets/images/s01-4/028_click.png)
+
+![`공유 링크 만들기` 매개 변수의 `파일` 입력란에 동적 콘텐츠로 파일 만들기 액션의 `ID` (파일의 고유 식별자) 선택](../assets/images/s01-4/029_click.png)
+
+![공유 링크 만들기 매개 변수 완성 — `파일 = ID`, `링크 유형 = Edit`, `링크 범위 = Anonymous`](../assets/images/s01-4/030_click.png)
 
 ---
 
