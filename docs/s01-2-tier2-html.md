@@ -147,15 +147,37 @@ nav_order: 2
   <tr><td style="padding:12px 16px;text-align:center;border-right:1px solid #B4C7E7;vertical-align:top;">{{owner}}</td><td style="padding:12px 16px;text-align:center;border-right:1px solid #B4C7E7;vertical-align:top;">{{dueDate}}</td><td style="padding:12px 16px;vertical-align:top;">{{task}}</td></tr>
 ```
 
+입력 후 **저장** 클릭. 우하단의 글자수 카운터 (예: `824/8000`) 가 한계 이내인지 확인하세요.
+
+![지침 영역에 HTML 템플릿 포함 지침을 붙여넣고 우상단 저장](../assets/images/s01-2/001_click.png)
+
 > **8000자 제한 주의**: Copilot Studio 에이전트 지침은 약 8000자 제한이 있습니다. 위 지침은 약 7500자로 한계에 가깝습니다. 실제 적용 시 화이트스페이스 정리, 인라인 CSS 약어화 등으로 여유를 만들어 두세요.
 
 ---
 
 ## Step 2-4. 테스트
 
-- Tier 1 과 동일한 PDF 둘 첨부 — [샘플1 줄글형식.pdf](../assets/files/회의록_샘플1_줄글형식.pdf) · [샘플2 표형식.pdf](../assets/files/회의록_샘플2_표형식.pdf)
-- 결과 .docx 를 열어 V3 디자인 (네이비 표지, 라벨 셀 음영, 액션 아이템 표) 이 그대로 나오는지 확인
-- HTML 이 그대로 텍스트로 남아 있다면 → 지침의 "★★★ 절대 규칙" 강도가 부족한 것. "LITERAL OUTPUT" 문구를 더 강조하거나 도구 호출 전후 자유 서술 금지 문구를 추가
+1. 테스트 패널 우상단 **+ 새 테스트 세션시작** → 메시지란에 "이거 보고 회의록 작성해줘" 입력 + [샘플1 줄글형식.pdf](../assets/files/회의록_샘플1_줄글형식.pdf) 첨부
+
+   ![새 테스트 세션에 메시지+PDF 첨부](../assets/images/s01-2/002_click.png)
+
+2. 에이전트가 도구를 호출할 때 **도구 카드를 펼쳐서 입력값 검증** — LLM 이 HTML 을 평문으로 요약해서 넘기는 경우가 가장 자주 일어나는 실패입니다. **입력 영역을 열어 다음 두 가지가 둘 다 충족되는지 확인**해야 합니다.
+
+   - `create_word_file_with_content_file_name`: `회의록_20260421_DT추진협의회1차.docx` 처럼 지침 규칙이 적용되었는지
+   - `create_word_file_with_content_content`: 첫 줄이 `<!DOCTYPE html>` 으로 시작하는지 (일반 텍스트면 실패)
+
+   ![도구 호출 카드 입력 영역에 file_name=회의록_..., content=<!DOCTYPE html>... 가 더 보기까지 펼쳐진 모습](../assets/images/s01-2/003_click.png)
+
+3. 도구 호출 완료 후 응답에 **지침의 한 줄 안내가 그대로 출력**되는지— 자유 서술이 더 붙어 나오면 지침의 "도구 호출 전후 자유 서술 금지" 조항을 더 강하게 적어야 합니다.
+
+   ![응답 메시지 "회의록을 저장했습니다. 파일명: 회의록_20260421_DT추진협의회1차.docx"](../assets/images/s01-2/004_click.png)
+
+4. **OneDrive 열기** → 생성된 .docx 클릭 → V3 디자인(네이비 표지 + 공백 이중선 + 라벨 셀 #EAF1FB 음영 + 액션 아이템 표) 이 그대로 떨어졌는지 확인
+
+   ![생성된 Word 문서가 네이비 표지·라벨 셀 음영·구분선을 갖춘 V3 디자인으로 열린 모습](../assets/images/s01-2/005_click.png)
+
+5. 샘플2 표형식 PDF — [회의록_샘플2_표형식.pdf](../assets/files/회의록_샘플2_표형식.pdf) 도 새 세션으로 임포트해서 같은 디자인으로 떨어지는지 비교
+6. HTML 이 결과 문서에 그대로 텍스트로 남아 있다면 → 지침의 "★★★ 절대 규칙" 강도가 부족한 것. "LITERAL OUTPUT" 문구를 더 강조하거나 도구 호출 전후 자유 서술 금지 문구를 추가
 
 ---
 
