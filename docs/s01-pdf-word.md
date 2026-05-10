@@ -1,11 +1,11 @@
----
-title: "S3. 문서 자동화 5-Tier"
+﻿---
+title: "S1. 문서 자동화 5-Tier"
 parent: "📗 심화과정"
-nav_order: 4
+nav_order: 2
 has_children: true
 ---
 
-# 세션 1 — 문서 자동화: 빌트인 도구부터 멀티모달 AI 빌더까지
+# S1. 문서 자동화 — 빌트인 도구부터 멀티모달 AI 빌더까지
 {: .no_toc }
 
 | 시간 | 소요 | 수강생 역할 |
@@ -59,7 +59,7 @@ has_children: true
 
 > "Copilot Studio 에이전트는 채팅창에 PDF를 던져주면 자동으로 읽어주잖아. 굳이 흐름을 따로 만들 필요가 있어?"
 
-맞습니다. **Copilot Studio의 오케스트레이터는 PDF · Word · 이미지 같은 일반 문서를 채팅에 첨부만 해도 잘 처리**합니다. 다음 세션 2에서 다룰 Excel과는 큰 차이입니다 (Excel은 오케스트레이터가 기본적으로 받지 않습니다).
+맞습니다. **Copilot Studio의 오케스트레이터는 PDF · Word · 이미지 같은 일반 문서를 채팅에 첨부만 해도 잘 처리**합니다. 다음 [S2 — Excel 분석 17단계](s02-excel-analysis) 에서 다룰 Excel과는 큰 차이입니다 (Excel은 오케스트레이터가 기본적으로 받지 않습니다).
 
 그러나 현업에서는 다음 두 가지 요구가 거의 항상 따라붙습니다.
 
@@ -117,6 +117,6 @@ has_children: true
 
 | 페이지 | 다루는 Tier |
 |:---|:---|
-| [실습① — Tier 1·2: 빌트인 도구 (Markdown / HTML)](s03-1-pdf-extract) | 흐름 없이 5분에 만드는 Tier 1, 인라인 CSS로 한국 비즈니스 양식을 입히는 Tier 2 |
-| [실습② — Tier 3: 책임 분리 + Word 콘텐츠 컨트롤](s03-2-word-output) | LLM은 추출만, 흐름이 Word 템플릿을 채운다 |
-| [실습③ — Tier 4·5: AI 빌더 문서 출력 + 멀티모달](s03-3-tier4-aibuilder) | AI 빌더 프롬프트의 문서 출력 + 토픽 질문 노드로 결정적 폼 만들기 |
+| [실습① — Tier 1·2: 빌트인 도구 (Markdown / HTML)](s01-1-pdf-extract) | 흐름 없이 5분에 만드는 Tier 1, 인라인 CSS로 한국 비즈니스 양식을 입히는 Tier 2 |
+| [실습② — Tier 3: 책임 분리 + Word 콘텐츠 컨트롤](s01-2-word-output) | LLM은 추출만, 흐름이 Word 템플릿을 채운다 |
+| [실습③ — Tier 4·5: AI 빌더 문서 출력 + 멀티모달](s01-3-tier4-aibuilder) | AI 빌더 프롬프트의 문서 출력 + 토픽 질문 노드로 결정적 폼 만들기 |

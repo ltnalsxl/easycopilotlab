@@ -1,6 +1,6 @@
----
+﻿---
 title: "실습② — Tier 3: 책임 분리"
-parent: "S3. 문서 자동화 5-Tier"
+parent: "S1. 문서 자동화 5-Tier"
 grand_parent: "📗 심화과정"
 nav_order: 2
 ---
@@ -160,4 +160,4 @@ PDF 가 아닌 파일이 들어오면 회의록 PDF 를 요청하세요.
 
 ## 다음 페이지
 
-[실습③ — Tier 4·5: AI 빌더 문서 출력 + 멀티모달](s03-3-tier4-aibuilder)
+[실습③ — Tier 4·5: AI 빌더 문서 출력 + 멀티모달](s01-3-tier4-aibuilder)

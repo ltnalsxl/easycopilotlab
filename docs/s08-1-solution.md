@@ -1,6 +1,6 @@
----
+﻿---
 title: "실습① — 사용자 정의 솔루션 만들기"
-parent: "S10. ALM과 환경 변수"
+parent: "S8. ALM과 환경 변수"
 grand_parent: "📗 심화과정"
 nav_order: 1
 ---
@@ -10,7 +10,7 @@ nav_order: 1
 
 | 시간 | 소요 | 수강생 역할 |
 |:-----|:-----|:-----------|
-| 16:55 | 15분 | 🟢 직접 실습 |
+| 16:25 | 15분 | 🟢 직접 실습 |
 
 ## 목차
 {: .no_toc .text-delta }
@@ -81,9 +81,9 @@ nav_order: 1
 | 종류 | 추가할 것 |
 |:-----|:--------|
 | Copilot | 오늘 사용한 메인 에이전트 |
-| 클라우드 흐름 | S2 `RecordExpense` 흐름, S3 `SummarizeDoc` 흐름 |
+| 클라우드 흐름 | S1 `SummarizeDoc` 흐름, S2 `RecordExpense` 흐름, S6 `AssetQuery` 흐름 |
 | 연결 참조 | Excel Online · SharePoint · Power Automate |
-| AI 프롬프트 | S2 `ReceiptExtractor`, S3 `DocExtractor` |
+| AI 프롬프트 | S1 `DocExtractor`, S2 `ExcelInsight` |
 | 사용자 지정 커넥터 | S4 `ExchangeRate` |
 
 > **연결(Connections)** 자체는 솔루션에 못 담습니다. 그 대신 **연결 참조(Connection Reference)** 를 만들어서 흐름이 어떤 종류의 연결을 쓰는지를 묶습니다. 다음 환경으로 이동할 때 그 환경의 사용자가 자기 계정으로 연결을 다시 인증하면 됩니다.
@@ -114,4 +114,4 @@ nav_order: 1
 
 ---
 
-다음: [실습 ② — 환경 변수 적용하기](s10-2-env-variable)
+다음: [실습 ② — 환경 변수 적용하기](s08-2-env-variable)

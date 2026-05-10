@@ -1,7 +1,7 @@
----
-title: "S8. 입력 구조화 — 엔티티 + AI 프롬프트"
+﻿---
+title: "S7. 입력 구조화 — 엔티티 + AI 프롬프트"
 parent: "📗 심화과정"
-nav_order: 9
+nav_order: 8
 has_children: true
 ---
 
@@ -10,7 +10,7 @@ has_children: true
 
 | 시간 | 소요 | 수강생 역할 |
 |:-----|:-----|:-----------|
-| 15:25 | 50분 | 🟢 직접 실습 |
+| 15:15 | 55분 | 🟢 직접 실습 |
 
 ## 목차
 {: .no_toc .text-delta }
@@ -55,8 +55,8 @@ has_children: true
 
 → 실습은 두 단계로 분리되어 있습니다.
 
-- [실습 ① — Entity + Router + 입력변수](s08-1-entity-router)
-- [실습 ② — AI 프롬프트(DateParser + Summarizer)](s08-2-ai-prompt)
+- [실습 ① — Entity + Router + 입력변수](s07-1-entity-router)
+- [실습 ② — AI 프롬프트(DateParser + Summarizer)](s07-2-ai-prompt)
 
 ---
 
@@ -137,5 +137,5 @@ T0_Router (입구)
 
 ## 다음 단계
 
-- [실습 ① — Entity + Router + 입력변수](s08-1-entity-router) (35분)
-- [실습 ② — AI 프롬프트(DateParser + Summarizer)](s08-2-ai-prompt) (25분)
+- [실습 ① — Entity + Router + 입력변수](s07-1-entity-router) (35분)
+- [실습 ② — AI 프롬프트(DateParser + Summarizer)](s07-2-ai-prompt) (25분)

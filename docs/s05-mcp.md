@@ -1,4 +1,4 @@
----
+﻿---
 title: "S5. MCP"
 parent: "📗 심화과정"
 nav_order: 6
@@ -10,7 +10,7 @@ has_children: true
 
 | 시간 | 소요 | 수강생 역할 |
 |:-----|:-----|:-----------|
-| 13:35 | 25분 | 🟢 직접 실습 |
+| 13:45 | 25분 | 🟢 직접 실습 |
 
 ## 목차
 {: .no_toc .text-delta }
@@ -80,4 +80,4 @@ has_children: true
 
 ---
 
-다음 모듈: [S6. 데이터 × 지식·도구 매트릭스](s06-data-matrix)
+다음 모듈: [S6. Excel 케이스 스터디](s06-excel-case)

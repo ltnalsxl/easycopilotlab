@@ -1,11 +1,11 @@
----
-title: "S9. 12 패턴 카탈로그"
+﻿---
+title: "S3. 12 패턴 카탈로그"
 parent: "📗 심화과정"
-nav_order: 10
+nav_order: 4
 has_children: true
 ---
 
-# 세션 3 — 에이전트 설계 패턴 카탈로그
+# S3. 에이전트 설계 패턴 카탈로그
 {: .no_toc }
 
 | 시간 | 소요 | 수강생 역할 |
@@ -100,9 +100,9 @@ has_children: true
 
 | 페이지 | 다루는 패턴 |
 |:---|:---|
-| [A. Inform 그룹 (패턴 1·2·3·9)](s09-1-inform) | Knowledge Q&A · Document Generator · External Monitor · Aggregator |
-| [B. Act 그룹 (패턴 4·5·6·10)](s09-2-act) | Form Workflow · Approval Routing · Scheduled Alerter · Conversational Form |
-| [C. Integrate 그룹 (패턴 7·8·11·12)](s09-3-integrate) | Data Analyst · Backend Reader · OCR · Backend RW+HITL |
+| [A. Inform 그룹 (패턴 1·2·3·9)](s03-1-inform) | Knowledge Q&A · Document Generator · External Monitor · Aggregator |
+| [B. Act 그룹 (패턴 4·5·6·10)](s03-2-act) | Form Workflow · Approval Routing · Scheduled Alerter · Conversational Form |
+| [C. Integrate 그룹 (패턴 7·8·11·12)](s03-3-integrate) | Data Analyst · Backend Reader · OCR · Backend RW+HITL |
 
 ---
 
@@ -175,6 +175,6 @@ Q4. 데이터·시스템 관련?
 
 ## 7. 다음 세션으로 — 점심 후 외부 연결
 
-오전의 3세션(S3 5-Tier · S2 Excel · S9 12 패턴)으로 "오늘 무엇을 만들 수 있는지" 와 "어떻게 분류·선택하는지" 의 큰 그림이 잡혔습니다.
+오전의 3세션(S1 5-Tier · S2 Excel · S3 12 패턴)으로 "오늘 무엇을 만들 수 있는지" 와 "어떻게 분류·선택하는지" 의 큰 그림이 잡혔습니다.
 
 점심 후 [S4 커스텀 커넥터](s04-custom-connector) 부터는 외부 연결의 폭을 넓힙니다.

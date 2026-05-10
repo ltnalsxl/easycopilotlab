@@ -1,6 +1,6 @@
----
+﻿---
 title: "실습② — AI 프롬프트 (DateParser + Summarizer)"
-parent: "S8. 입력 구조화 — 엔티티 + AI 프롬프트"
+parent: "S7. 입력 구조화 — 엔티티 + AI 프롬프트"
 grand_parent: "📗 심화과정"
 nav_order: 2
 ---
@@ -10,7 +10,7 @@ nav_order: 2
 
 | 시간 | 소요 | 수강생 역할 |
 |:-----|:-----|:-----------|
-| 11:05 | 25분 | 🟢 직접 실습 |
+| 15:50 | 25분 | 🟢 직접 실습 |
 
 ## 목차
 {: .no_toc .text-delta }
@@ -22,7 +22,7 @@ nav_order: 2
 
 ## 이 실습의 목표
 
-- [실습 ①](s08-1-entity-router)에서 못 한 **자연어 날짜 변환**을 AI로 해결
+- [실습 ①](s07-1-entity-router)에서 못 한 **자연어 날짜 변환**을 AI로 해결
 - **누락 체크 + 티켓 문구 생성**까지 AI로 고도화
 - AI 결과는 반드시 **사용자 확인** + 실패 시 **Adaptive Card 폴백**
 
@@ -258,4 +258,4 @@ confidence: HIGH 또는 LOW
 
 ---
 
-다음 모듈: [S9. 설계 패턴 정리](s09-design-patterns)
+다음 모듈: [S8. ALM과 환경 변수](s08-alm-env)

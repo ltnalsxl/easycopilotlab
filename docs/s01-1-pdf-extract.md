@@ -1,6 +1,6 @@
----
+﻿---
 title: "실습① — Tier 1·2: 빌트인 도구"
-parent: "S3. 문서 자동화 5-Tier"
+parent: "S1. 문서 자동화 5-Tier"
 grand_parent: "📗 심화과정"
 nav_order: 1
 ---
@@ -225,4 +225,4 @@ V3 디자인이 그대로 떨어집니다. 임원에게 보내도 손색없는 �
 
 ## 다음 페이지
 
-[실습② — Tier 3: 책임 분리 + Word 콘텐츠 컨트롤](s03-2-word-output)
+[실습② — Tier 3: 책임 분리 + Word 콘텐츠 컨트롤](s01-2-word-output)

@@ -1,6 +1,6 @@
----
+﻿---
 title: "B. Act 그룹 (패턴 4·5·6·10)"
-parent: "S9. 12 패턴 카탈로그"
+parent: "S3. 12 패턴 카탈로그"
 grand_parent: "📗 심화과정"
 nav_order: 2
 ---
@@ -175,4 +175,4 @@ nav_order: 2
 
 ## 다음 페이지
 
-[C. Integrate 그룹 (패턴 7·8·11·12)](s09-3-integrate)
+[C. Integrate 그룹 (패턴 7·8·11·12)](s03-3-integrate)

@@ -1,6 +1,6 @@
----
+﻿---
 title: "실습① — Entity + Router + 입력변수"
-parent: "S8. 입력 구조화 — 엔티티 + AI 프롬프트"
+parent: "S7. 입력 구조화 — 엔티티 + AI 프롬프트"
 grand_parent: "📗 심화과정"
 nav_order: 1
 ---
@@ -10,7 +10,7 @@ nav_order: 1
 
 | 시간 | 소요 | 수강생 역할 |
 |:-----|:-----|:-----------|
-| 10:30 | 35분 | 🟢 직접 실습 |
+| 15:20 | 30분 | 🟢 직접 실습 |
 
 ## 목차
 {: .no_toc .text-delta }
@@ -157,7 +157,7 @@ Copilot Studio → **Entities → + New entity**
 > 하지만 **'다음주 수요일'이 실제로 몇 월 며칠인지**는  
 > Copilot Studio가 자체적으로 해결하지 못합니다.
 >
-> 이제 [실습 ②](s08-2-ai-prompt)에서 **AI 프롬프트로 이걸 해결**합니다."
+> 이제 [실습 ②](s07-2-ai-prompt)에서 **AI 프롬프트로 이걸 해결**합니다."
 
 ---
 
@@ -172,5 +172,5 @@ Copilot Studio → **Entities → + New entity**
 
 ## 다음 단계
 
-[실습 ② — AI 프롬프트(DateParser + Summarizer)](s08-2-ai-prompt)로 이동해서  
+[실습 ② — AI 프롬프트(DateParser + Summarizer)](s07-2-ai-prompt)로 이동해서  
 "다음주 수요일"을 실제 날짜로 변환하고, 누락 체크 + 티켓 생성을 자동화합니다.
