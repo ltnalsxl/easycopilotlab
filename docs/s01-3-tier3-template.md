@@ -104,15 +104,23 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
 
 Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 흐름을 만듭니다.
 
+**Copilot Studio**
+
 ![Copilot Studio — 새 에이전트 흐름](../assets/images/s01-3/003_click.png)
 
 빈 흐름은 **에이전트가 흐름을 호출할 때** (트리거) 와 **에이전트에게 응답** 두 노드로 시작합니다.
+
+**새 흐름**
 
 ![새 흐름 — 트리거 + 응답 기본 노드](../assets/images/s01-3/004_click.png)
 
 트리거를 클릭 → **매개 변수 → + 입력 추가** 로 8 개 입력을 모두 **텍스트** 타입으로 추가합니다.
 
+**트리거**
+
 ![트리거 — 입력 추가](../assets/images/s01-3/005_click.png)
+
+**트리거**
 
 ![트리거 — 8 개 텍스트 입력 (title, meetingDate, location, attendees, agenda, decisions, nextMeeting, actionItemsJson)](../assets/images/s01-3/006_click.png)
 
@@ -284,9 +292,13 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
 흐름 우측 상단 **게시** 버튼 클릭:
 
+**흐름**
+
 ![흐름 — 게시 버튼](../assets/images/s01-3/034_click.png)
 
 세부 정보 패널에서 흐름 이름 (예: `meetingnote_template` 또는 `회의록_생성_흐름_Tier3`) 입력 → **저장**:
+
+**게시**
 
 ![게시 — 흐름 이름 입력 후 저장](../assets/images/s01-3/035_click.png)
 
@@ -322,9 +334,13 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
 Copilot Studio 좌측 **에이전트** → **+ 빈 에이전트 만들기** → 이름 `Tier3 HOL` → **만들기**:
 
+**에이전트 이름 지정**
+
 ![에이전트 이름 지정 — Tier3 HOL → 만들기](../assets/images/s01-3/036_click.png)
 
 생성된 에이전트의 개요 화면에서 **에이전트의 모델 선택** 을 `Claude Sonnet 4.6` 로 두고, **지침** 박스 우측의 **편집** 클릭:
+
+**에이전트 개요**
 
 ![에이전트 개요 — 모델=Claude Sonnet 4.6 / 지침 편집](../assets/images/s01-3/037_click.png)
 
@@ -357,6 +373,8 @@ PDF 가 아닌 파일이 들어오면 회의록 PDF 를 요청하세요.
 원본에 없는 정보는 절대 추측하지 마세요.
 ```
 
+**지침 입력**
+
 ![지침 입력 — 8 개 추출 필드 (actionItemsJson 포함) → 저장](../assets/images/s01-3/038_click.png)
 
 지침 분량 약 500자 — Tier 2 의 1/15 입니다.
@@ -370,21 +388,31 @@ PDF 가 아닌 파일이 들어오면 회의록 PDF 를 요청하세요.
 
 상단 탭 **도구** → **+ 도구 추가** 클릭:
 
+**도구 탭**
+
 ![도구 탭 — 첫 번째 툴 만들기 → + 도구 추가](../assets/images/s01-3/039_click.png)
 
 도구 추가 패널에서 **흐름** 카테고리 → 위에서 게시한 흐름 (예: `meetingnote_template`) 선택:
+
+**도구 추가**
 
 ![도구 추가 — 흐름 → meetingnote_template 선택](../assets/images/s01-3/040_click.png)
 
 미리보기 화면에서 **추가 및 구성** 클릭:
 
+**도구 추가 미리보기 → 추가 및 구성**
+
 ![도구 추가 미리보기 → 추가 및 구성](../assets/images/s01-3/041_click.png)
 
 세부 정보 패널 — 이름·설명을 모두 `회의록_생성_흐름_Tier3` 으로 입력하고 **저장**:
 
+**도구 구성**
+
 ![도구 구성 — 이름/설명 입력 → 저장](../assets/images/s01-3/042_click.png)
 
 다시 개요 → 지침 편집으로 돌아가, "**2. 추출 결과를 흐름**" 다음 위치에 **흐름 칩** 을 삽입합니다 (평문 텍스트 `회의록_생성_흐름_Tier3` 대신 도구 픽커로 칩 삽입). **저장**:
+
+**지침에 흐름 칩 삽입**
 
 ![지침에 흐름 칩 삽입 — "흐름 [회의록_생성_흐름_Tier3] 에 매개변수로 그대로 전달" → 저장](../assets/images/s01-3/043_click.png)
 
@@ -400,25 +428,37 @@ PDF 가 아닌 파일이 들어오면 회의록 PDF 를 요청하세요.
 이 메모를 보고 회의록 작성해줘
 ```
 
+**테스트**
+
 ![테스트 — PDF 첨부 + "이 메모를 보고 회의록 작성해줘"](../assets/images/s01-3/044_click.png)
 
 흐름이 호출되어 **작업 중** 상태 — 활동 패널에서 추출된 입력 매개변수 미리보기 (`nextMeeting`, `attendees`, `decisions`, `location`):
+
+**흐름 작업 중**
 
 ![흐름 작업 중 — 입력 매개변수 추출 결과 미리보기](../assets/images/s01-3/045_click.png)
 
 흐름 **완료** → 응답에 다운로드 링크가 한 줄로 안내됨:
 
+**흐름 완료**
+
 ![흐름 완료 — "회의록 저장 완료: <SharePoint URL>" + 회의록 요약 표](../assets/images/s01-3/046_click.png)
 
 OneDrive 의 **내 파일** 에서 새 파일 (예: `템플릿회의록_2026-05-10T...docx`) 확인:
+
+**OneDrive**
 
 ![OneDrive — 새 .docx 파일 생성 확인](../assets/images/s01-3/047_click.png)
 
 Word Online 으로 열어 1 페이지 — 회의 제목·일시·장소·참석자·안건·결정 사항이 모두 정확히 들어갔는지 확인:
 
+**Word 1 페이지**
+
 ![Word 1 페이지 — 기본 정보/참석자/안건/결정 사항](../assets/images/s01-3/048_click.png)
 
 2 페이지 — **액션 아이템 표가 행 4 줄로 반복 출력** + 다음 회의 일정:
+
+**Word 2 페이지**
 
 ![Word 2 페이지 — 액션 아이템 4 행 (반복 섹션 정상) + 다음 회의 일정](../assets/images/s01-3/049_click.png)
 
