@@ -131,7 +131,9 @@ has_children: true
 |:---|:---|:---|:---|
 | [실습① — Tier 1: Markdown + 빌트인](s01-1-tier1-markdown) | 8분 | 🟢 직접 | 흐름 없이 5분에 만드는 가장 쉬운 경로 |
 | [실습② — Tier 2: HTML 인라인 CSS](s01-2-tier2-html) | 15분 | 🟢 직접 | 인라인 CSS로 한국 비즈니스 양식을 입힌다 |
-| [실습③ — Tier 3: 책임 분리 (Word 템플릿)](s01-3-tier3-template) | 22분 | 🟡 따라보기 | LLM은 추출만, 흐름이 Word 템플릿을 채운다 |
-| [실습④ — Tier 4: AI 빌더 문서 출력](s01-4-tier4-aibuilder) | 8분 | 🟡 따라보기 | AI 빌더 프롬프트가 추출+채우기를 한 번에 처리 |
+| [실습③-A — Tier 3 백엔드: 템플릿 + 흐름](s01-3a-tier3-template) | 14분 | 🟡 따라보기 | Word 템플릿 + Power Automate 흐름로 백엔드 구축 |
+| [실습③-B — Tier 3 에이전트 연결](s01-3b-tier3-agent) | 8분 | 🟡 따라보기 | 흐름을 에이전트 도구로 등록·테스트 |
+| [실습④-A — Tier 4 백엔드: 템플릿 + 프롬프트 + 흐름](s01-4a-tier4-aibuilder) | 5분 | 🟡 따라보기 | AI 빌더 프롬프트가 추출+채우기를 한 번에 처리 |
+| [실습④-B — Tier 4 에이전트 연결](s01-4b-tier4-agent) | 3분 | 🟡 따라보기 | 흐름을 에이전트 도구로 등록·테스트 |
 
 <!-- build-trigger: 2026-05-10 -->
