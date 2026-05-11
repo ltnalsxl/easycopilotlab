@@ -24,7 +24,7 @@ nav_order: 1
 
 ![Microsoft Forms 홈 화면에서 새 양식 버튼 클릭](../assets/images/m16/image.png)
 
-## Step 2 — 초간간 설문양식 생성
+## Step 2 — 초간단 설문양식 생성
 
 > 사용자들의 HR 관련 문의 사항을 받기 위한 설문입니다
 
