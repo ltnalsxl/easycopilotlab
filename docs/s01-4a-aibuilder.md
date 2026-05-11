@@ -1,11 +1,11 @@
 ---
-title: "실습④-A — Tier 4 백엔드: 템플릿 + 프롬프트 + 흐름"
+title: "실습④-A — 백엔드: 템플릿 + 프롬프트 + 흐름"
 parent: "S1. 문서 업로드 활용 실습"
 grand_parent: "📗 심화과정"
 nav_order: 5
 ---
 
-# 실습 ④-A: Tier 4 백엔드 — Word 템플릿 + AI 빌더 프롬프트 + Power Automate 흐름
+# 실습 ④-A: 백엔드 — Word 템플릿 + AI 빌더 프롬프트 + Power Automate 흐름
 {: .no_toc }
 
 | 시간 | 소요 | 수강생 역할 |
@@ -20,7 +20,7 @@ nav_order: 5
 
 ---
 
-![Tier 4 책임 분리 — 에이전트(파일 위임) → 흐름(AI 빌더 + OneDrive)](../assets/images/s03/11_세션1_Tier4_책임분리.png)
+![실습 ④ 책임 분리 — 에이전트(파일 위임) → 흐름(AI 빌더 + OneDrive)](../assets/images/s03/11_세션1_실습4_책임분리.png)
 
 ## 핵심 아이디어
 
@@ -43,7 +43,7 @@ AI 빌더 프롬프트의 **"문서 출력 (Document output, 미리 보기)"** �
 - **동작**: AI 가 입력에서 정보를 추출 + 양식의 `{{}}` 자리를 채움 (한 번의 호출)
 - **출력**: `Document Output Content Bytes` (완성된 .docx 바이너리)
 
-Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단계였는데, Tier 4 에서는 **흐름이 AI 빌더 프롬프트 한 번 호출하면** 추출+채우기가 동시에 일어납니다. 흐름이 더 단순해집니다.
+이전 실습에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단계였는데, 이번 실습에서는 **흐름이 AI 빌더 프롬프트 한 번 호출하면** 추출+채우기가 동시에 일어납니다. 흐름이 더 단순해집니다.
 
 ```
 [사용자] PDF 첨부 + "표준 회의록으로 만들어줘"
@@ -61,21 +61,21 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 
 ---
 
-## Step 4-1. Word 템플릿 — `회의록_템플릿_Tier4.docx`
+## Step 4-1. Word 템플릿 — `회의록_템플릿_AI빌더.docx`
 
 {: .tip }
-> 미리 만들어 둔 템플릿: [회의록_템플릿_Tier4.docx 다운로드](../assets/files/회의록_템플릿_Tier4.docx). Tier 3 와 호환되지 않으니 반드시 이 파일을 사용하세요.
+> 미리 만들어 둔 템플릿: [회의록_템플릿_AI빌더.docx 다운로드](../assets/files/회의록_템플릿_AI빌더.docx). 이전 실습의 콘텐츠 컨트롤 템플릿과 호환되지 않으니 반드시 이 파일을 사용하세요.
 
-**Tier 3 와 디자인은 같지만 자리표시자 형식이 다릅니다.**
+**이전 실습과 디자인은 같지만 자리표시자 형식이 다릅니다.**
 
-| | Tier 3 (Word Online 채우기) | Tier 4 (AI 빌더 문서 출력) |
+| | 실습 ③ (Word Online 채우기) | 실습 ④ (AI 빌더 문서 출력) |
 |---|---|---|
 | 자리표시자 형식 | **콘텐츠 컨트롤** (SDT, 태그 = 변수명) | **`{{필드명}}` 텍스트** |
 | 반복 섹션 | 반복 섹션 컨트롤 | 표 셀에 `{{actionItems.owner}}` 형식 |
 
-> 두 양식은 **호환되지 않습니다.** Tier 3 에 Tier 4 양식을 넣으면 빈 .docx 가 떨어지고, 그 반대도 마찬가지. 반드시 두 파일을 따로 둡니다.
+> 두 양식은 **호환되지 않습니다.** 이전 실습 양식과 이번 양식을 섞어 넣으면 빈 .docx 가 떨어집니다. 반드시 두 파일을 따로 둡니다.
 
-직접 만들 때 순서 (Tier 4):
+직접 만들 때 순서 (AI 빌더 용 양식):
 
 1. Word 데스크톱에서 새 문서 → V3 디자인으로 양식 작성
 2. 각 자리에 **그냥 텍스트로** `{{title}}`, `{{meetingDate}}`, ... 입력 (콘텐츠 컨트롤 아님)
@@ -84,7 +84,7 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 
 **① Word Online 에서 양식 내용 확인 — `{{}}` 가 그냥 텍스트로 박혀 있어야 함**
 
-![Word Online 에서 회의록_템플릿_Tier4.docx 를 연 모습 — {{title}}, {{meetingDate}}, {{location}}, {{attendees}}, {{agenda}} 가 그냥 텍스트로 박혀 있다 (콘텐츠 컨트롤 아님)](../assets/images/s01-4/001_click.png)
+![Word Online 에서 회의록_템플릿_AI빌더.docx 를 연 모습 — {{title}}, {{meetingDate}}, {{location}}, {{attendees}}, {{agenda}} 가 그냥 텍스트로 박혀 있다 (콘텐츠 컨트롤 아닔)](../assets/images/s01-4/001_click.png)
 {% endraw %}
 
 ---
@@ -101,7 +101,7 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
    ```
 3. **입력 추가** → 종류: **파일** → 이름: `meetingFile`
 4. **출력 형식** → **문서 (Document)** 선택
-5. **양식 업로드** → Step 4-1 의 `회의록_템플릿_Tier4.docx` 업로드
+5. **양식 업로드** → Step 4-1 의 `회의록_템플릿_AI빌더.docx` 업로드
 6. **테스트** 탭에서 회의록 PDF 한 번 올려 동작 확인 → 저장
 
 > **제약**: 솔루션 이동 시 양식 재업로드 필요. 5MB 이상 양식은 저장-재오픈 후에야 테스트 가능.
@@ -131,11 +131,11 @@ Tier 3 에서는 **에이전트가 추출 → 흐름이 채우기** 의 두 단�
 
 **② `문서 설정` 패널 열기**
 
-![`문서 설정` 패널의 `문서 레이아웃 업로드` 영역 — Tier 4 양식 .docx 를 끌어서 놓거나 찾아보기로 업로드](../assets/images/s01-4/013_click.png)
+![`문서 설정` 패널의 `문서 레이아웃 업로드` 영역 — AI 빌더용 양식 .docx 를 끌어서 놓거나 찾아보기로 업로드](../assets/images/s01-4/013_click.png)
 
-**③ Tier 4 양식 업로드 → 필드 자동 인식 확인**
+**③ 양식 업로드 → 필드 자동 인식 확인**
 
-![`회의록_템플릿_Tier4.docx` 업로드 직후 — 10 식별된 필드(title · meetingDate · location · attendees · agenda · decisions · nextMeeting · actionItems 테이블 등)가 자동 인식](../assets/images/s01-4/014_click.png)
+![`회의록_템플릿_AI빌더.docx` 업로드 직후 — 10 식별된 필드(title · meetingDate · location · attendees · agenda · decisions · nextMeeting · actionItems 테이블 등)가 자동 인식](../assets/images/s01-4/014_click.png)
 
 **① 샘플 PDF 올리고 `테스트` 실행**
 
@@ -286,7 +286,7 @@ Copilot Studio 좌측 메뉴의 에이전트 흐름 목록에서 새 흐름을 �
 
 ## 백엔드 완성 — 다음 페이지에서 에이전트와 연결
 
-Word 템플릿(`{{}}` 자리표시자), AI 빌더 프롬프트(`meetingnote_AI`), Power Automate 흐름(`meetingnote_AI`)까지 — Tier 4 백엔드가 완성됐습니다. 흐름 단독 테스트에서 .docx 가 OneDrive 에 생성되는 것까지 확인했다면 백엔드는 끝.
+Word 템플릿(`{{}}` 자리표시자), AI 빌더 프롬프트(`meetingnote_AI`), Power Automate 흐름(`meetingnote_AI`)까지 — 백엔드가 완성됐습니다. 흐름 단독 테스트에서 .docx 가 OneDrive 에 생성되는 것까지 확인했다면 백엔드는 끝.
 
 다음 페이지에서는 이 흐름을 에이전트가 부를 수 있게 도구로 등록하고 지침을 다듬어, 채팅에서 실제 PDF 를 첨부해 동작을 확인합니다.
 
@@ -294,6 +294,6 @@ Word 템플릿(`{{}}` 자리표시자), AI 빌더 프롬프트(`meetingnote_AI`)
 
 ## 다음 페이지
 
-[실습④-B — Tier 4 에이전트 연결 (도구 + 테스트)](s01-4b-tier4-agent)
+[실습④-B — 에이전트 연결 (도구 + 테스트)](s01-4b-agent)
 
 <!-- build-trigger: 2026-05-11 -->

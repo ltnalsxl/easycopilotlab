@@ -1,11 +1,11 @@
 ---
-title: "실습③-A — Tier 3 백엔드: 템플릿 + 흐름"
+title: "실습③-A — 백엔드: 템플릿 + 흐름"
 parent: "S1. 문서 업로드 활용 실습"
 grand_parent: "📗 심화과정"
 nav_order: 3
 ---
 
-# 실습 ③-A: Tier 3 백엔드 — Word 템플릿 + Power Automate 흐름
+# 실습 ③-A: 백엔드 — Word 템플릿 + Power Automate 흐름
 {: .no_toc }
 
 | 시간 | 소요 | 수강생 역할 |
@@ -22,9 +22,9 @@ nav_order: 3
 
 ## 핵심 아이디어 — 책임 분리
 
-![Tier 3 책임 분리 다이어그램](../assets/images/s03/05_세션1_Tier3_책임분리.png)
+![실습 ③ 책임 분리 다이어그램](../assets/images/s03/05_세션1_실습3_책임분리.png)
 
-Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) HTML 디자인 만들기** — 을 한꺼번에 했습니다. Tier 3 는 이 둘을 분리합니다.
+이전 실습의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) HTML 디자인 만들기** — 을 한꺼번에 했습니다. 이번 실습은 이 둘을 분리합니다.
 
 - **에이전트(LLM)**: PDF 에서 정보 추출만 — 결과는 단순 JSON
 - **흐름(Power Automate)**: 정해진 Word 템플릿의 콘텐츠 컨트롤에 값을 꽂아 넣는 plumbing 만
@@ -59,10 +59,10 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
 
 ---
 
-## Step 3-1. Word 템플릿 — `회의록_템플릿_Tier3.docx`
+## Step 3-1. Word 템플릿 — `회의록_템플릿_콘텐츠컨트롤.docx`
 
 {: .tip }
-> 미리 만들어 둔 템플릿을 받아 쓰면 빠릅니다 — [회의록_템플릿_Tier3.docx 다운로드](../assets/files/회의록_템플릿_Tier3.docx). 직접 만드는 절차는 아래 순서대로.
+> 미리 만들어 둔 템플릿을 받아 쓰면 빠릅니다 — [회의록_템플릿_콘텐츠컨트롤.docx 다운로드](../assets/files/회의록_템플릿_콘텐츠컨트롤.docx). 직접 만드는 절차는 아래 순서대로.
 
 직접 만들 때 순서:
 
@@ -87,11 +87,11 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
 
    ![Word 템플릿 — 콘텐츠 컨트롤 배치 (개발 도구 탭, 디자인 모드)](../assets/images/s01-3/001_click.png)
 
-5. 저장 → OneDrive 의 적당한 폴더 (예: `/myTemplates/회의록_템플릿_Tier3.docx`) 에 업로드
+5. 저장 → OneDrive 의 적당한 폴더 (예: `/myTemplates/회의록_템플릿_콘텐츠컨트롤.docx`) 에 업로드
 
    **② OneDrive**
 
-   ![OneDrive — 회의록_템플릿_Tier3.docx 업로드 완료](../assets/images/s01-3/002_click.png)
+   ![OneDrive — 회의록_템플릿_콘텐츠컨트롤.docx 업로드 완료](../assets/images/s01-3/002_click.png)
 
 > **포인트**: 태그 이름 = 흐름의 입력 키. 오타 주의.
 
@@ -106,7 +106,7 @@ Tier 2 의 LLM 이 두 가지 일 — **(a) PDF에서 정보 추출** 과 **(b) 
 
 ---
 
-## Step 3-2. Power Automate 흐름 — `회의록_생성_흐름_Tier3`
+## Step 3-2. Power Automate 흐름 — `meetingnote_template`
 
 - 트리거: **Copilot Studio (V2)**
 - 입력 파라미터: 8 개 (**모두 텍스트**)
@@ -216,7 +216,7 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 2. **Word Online (Business) → Microsoft Word 템플릿 채우기 (Populate a Microsoft Word template)**
    - 위치: **OneDrive for Business**
    - 라이브러리: **OneDrive**
-   - 파일: `/myTemplates/회의록_템플릿_Tier3.docx` (Step 3-1 5번에서 업로드한 파일)
+   - 파일: `/myTemplates/회의록_템플릿_콘텐츠컨트롤.docx` (Step 3-1 5번에서 업로드한 파일)
    - 컨트롤별 입력값 매핑 (트리거 입력의 평면 7 개):
      - `title` ← 트리거 입력 `title`
      - `meetingDate` ← 트리거 입력 `meetingDate`
@@ -246,11 +246,11 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
    ![Word 템플릿 채우기 — 위치/문서 라이브러리/파일 비어 있음](../assets/images/s01-3/017_click.png)
 
-   위치·라이브러리·파일 선택 (캡쳐에서는 `/myTemplates/회의록_템플릿_Tier3.docx`):
+   위치·라이브러리·파일 선택 (캡쳐에서는 `/myTemplates/회의록_템플릿_콘텐츠컨트롤.docx`):
 
-   **⑯ 위치=OneDrive for Business / 라이브러리=OneDrive / 파일=회의록…**
+   **⑰ 위치=OneDrive for Business / 라이브러리=OneDrive / 파일=회의록…**
 
-   ![위치=OneDrive for Business / 라이브러리=OneDrive / 파일=회의록_템플릿_Tier3.docx](../assets/images/s01-3/018_click.png)
+   ![위치=OneDrive for Business / 라이브러리=OneDrive / 파일=회의록_템플릿_콘텐츠컨트롤.docx](../assets/images/s01-3/018_click.png)
 
    파일을 선택하면 **고급 매개 변수** 영역이 0/8 로 나타납니다 → **모두 보기** 클릭해 8 개를 펼침:
 
@@ -363,7 +363,7 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
 ![흐름 — 게시 버튼](../assets/images/s01-3/034_click.png)
 
-세부 정보 패널에서 흐름 이름 (예: `meetingnote_template` 또는 `회의록_생성_흐름_Tier3`) 입력 → **저장**:
+세부 정보 패널에서 흐름 이름 (예: `meetingnote_template`) 입력 → **저장**:
 
 **⑥ 흐름 이름 `meetingnote_template` 입력 후 `저장`**
 
@@ -407,6 +407,6 @@ Copilot Studio 좌측 **흐름** → **+ 새 에이전트 흐름** 으로 빈 �
 
 ## 다음 페이지
 
-[실습③-B — Tier 3 에이전트 연결 (지침 + 도구 + 테스트)](s01-3b-tier3-agent)
+[실습③-B — 에이전트 연결 (지침 + 도구 + 테스트)](s01-3b-agent)
 
 <!-- build-trigger: 2026-05-11 -->
