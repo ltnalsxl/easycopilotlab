@@ -38,6 +38,8 @@ Copilot Studio 에이전트는 흥미롭게도 **채팅창에 첨부된 PDF·Wor
 
 **안 됩니다.** 같은 채팅창인데 PDF는 되고 Excel은 안 됩니다. 왜 그럴까요?
 
+![excel](../assets/images/s02/image.png)
+
 ---
 
 ## 2. 왜 Excel은 다른가 — 두 가지 벽
