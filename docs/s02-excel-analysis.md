@@ -134,7 +134,7 @@ Teams 한쪽만 동작하는 우회로를 짤 수는 있지만, **양쪽 채널�
 
 | 파일 | 형식 | 용도 |
 |:--|:--|:--|
-| [과일판매_Table.xlsx](../assets/files/과일판매_Table.xlsx) | Excel **Table** 적용 (`FruitSales`) | 실습 ① "되는" 케이스 |
+| [과일판매_Table.xlsx](../assets/files/과일판매_Table.xlsx) | Excel **Table** 적용 (테이블 `표1`) | 실습 ① "되는" 케이스 |
 | [과일판매_raw.xlsx](../assets/files/과일판매_raw.xlsx) | 단순 셀 데이터 (테이블 없음) | 실습 ① "안 되는" 케이스 |
 
 두 파일은 **데이터가 완전히 동일** 합니다. 차이는 오직 "Excel Table로 등록됐는가" 하나입니다.

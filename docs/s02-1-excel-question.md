@@ -24,7 +24,7 @@ nav_order: 1
 
 ## Step 1. 두 샘플 파일 확보
 
-- [과일판매_Table.xlsx](../assets/files/과일판매_Table.xlsx) — **Excel Table 적용** (`FruitSales`, `A1:D193`)
+- [과일판매_Table.xlsx](../assets/files/과일판매_Table.xlsx) — **Excel Table 적용** (테이블 이름 `표1`, 범위 `A1:D193`)
 - [과일판매_raw.xlsx](../assets/files/과일판매_raw.xlsx) — **단순 셀** (테이블 미적용)
 
 두 파일은 데이터가 **완전히 동일** 합니다. 차이는 오직 "Excel Table로 등록됐는가" 하나뿐입니다. 이 차이가 답변 품질을 가르는지 직접 확인해봅니다.
