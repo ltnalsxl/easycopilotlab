@@ -24,7 +24,7 @@ nav_order: 1
 
 ## Step 1. 두 샘플 파일 확보
 
-- [과일판매.xlsx](../assets/files/과일판매.xlsx) — **Excel Table 적용** (`FruitSales`, `A1:D193`)
+- [과일판매_Table.xlsx](../assets/files/과일판매_Table.xlsx) — **Excel Table 적용** (`FruitSales`, `A1:D193`)
 - [과일판매_raw.xlsx](../assets/files/과일판매_raw.xlsx) — **단순 셀** (테이블 미적용)
 
 두 파일은 데이터가 **완전히 동일** 합니다. 차이는 오직 "Excel Table로 등록됐는가" 하나뿐입니다. 이 차이가 답변 품질을 가르는지 직접 확인해봅니다.
@@ -114,7 +114,7 @@ nav_order: 1
 
 1. 좌측 패널에서 **새 대화 시작** (이전 컨텍스트 초기화)
 2. 입력: `엑셀파일을 분석하고 싶은데`
-3. "먼저 엑셀파일을 업로드 해주세요." → **`과일판매.xlsx`** (또는 `과일판매_Table.xlsx`) 첨부
+3. "먼저 엑셀파일을 업로드 해주세요." → **`과일판매_Table.xlsx`** 첨부
 4. "이 엑셀에 대해 어떤 내용이 궁금하신가요?" 가 표시되는 것까지 확인
 
    ![테스트 패널: 트리거 → 파일 첨부 → 두 번째 질문 표시](../assets/images/s02-1/image08.png)
