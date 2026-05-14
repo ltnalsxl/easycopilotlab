@@ -1,11 +1,11 @@
 ---
-title: "실습② — Record Topic + Excel 커넥터"
+title: "실습③ — Record Topic + Excel 커넥터"
 parent: "M12. 도구 — 커넥터"
 grand_parent: "📘 기본과정"
 nav_order: 3
 ---
 
-# 실습 ②: Record Topic에서 Excel 커넥터 연결하기
+# 실습 ③: Record Topic에서 Excel 커넥터 연결하기
 {: .no_toc }
 
 | 시간 | 소요 | 수강생 역할 |

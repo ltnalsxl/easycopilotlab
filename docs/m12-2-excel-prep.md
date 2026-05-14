@@ -1,11 +1,11 @@
 ---
-title: "실습① — Excel 파일 준비"
+title: "실습② — Excel 파일 준비"
 parent: "M12. 도구 — 커넥터"
 grand_parent: "📘 기본과정"
 nav_order: 2
 ---
 
-# 실습 ①: Excel 파일 준비
+# 실습 ②: Excel 파일 준비
 {: .no_toc }
 
 | 시간 | 소요 | 수강생 역할 |

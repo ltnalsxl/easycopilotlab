@@ -100,19 +100,19 @@ flowchart LR
 
 ---
 
-## 실습 ①: Excel 파일 준비
+## 실습 ②: Excel 파일 준비
 
 {: .important }
 > 📌 이 실습은 별도 페이지에서 진행합니다.  
-> [실습 ①: Excel 파일 준비](m12-2-excel-prep)를 완료하고 돌아오세요.
+> [실습 ②: Excel 파일 준비](m12-2-excel-prep)를 완료하고 돌아오세요.
 
 ---
 
-## 실습 ②: Record Topic에서 Excel 커넥터 연결하기
+## 실습 ③: Record Topic에서 Excel 커넥터 연결하기
 
 {: .important }
 > 📌 이 실습은 별도 페이지에서 진행합니다.  
-> [실습 ②: Record Topic + Excel 커넥터](m12-3-record-topic)를 완료하고 돌아오세요.
+> [실습 ③: Record Topic + Excel 커넥터](m12-3-record-topic)를 완료하고 돌아오세요.
 
 ---
 
