@@ -51,11 +51,18 @@
     btnAdvanced.textContent = '📗심화';
     btnAdvanced.setAttribute('data-track', 'advanced');
 
+    var btnExpert = document.createElement('button');
+    btnExpert.type = 'button';
+    btnExpert.className = 'course-switcher-tab';
+    btnExpert.textContent = '📕고급';
+    btnExpert.setAttribute('data-track', 'expert');
+
     tabWrap.appendChild(btnBasic);
     tabWrap.appendChild(btnAdvanced);
+    tabWrap.appendChild(btnExpert);
     siteNav.insertBefore(tabWrap, siteNav.firstChild);
 
-    var buttons = [btnBasic, btnAdvanced];
+    var buttons = [btnBasic, btnAdvanced, btnExpert];
 
     // --- top-level nav-list-item 찾기 ---
     function getTopItems() {
@@ -83,6 +90,7 @@
 
     var basicItem = findByText('기본과정');
     var advancedItem = findByText('심화과정');
+    var expertItem = findByText('고급과정');
 
     // --- 현재 페이지 기준으로 기본 트랙 결정 ---
     function isInsideBranch(item) {
@@ -95,6 +103,7 @@
     var currentTrack = '';
     if (isInsideBranch(basicItem)) currentTrack = 'basic';
     else if (isInsideBranch(advancedItem)) currentTrack = 'advanced';
+    else if (isInsideBranch(expertItem)) currentTrack = 'expert';
 
     var defaultTrack = currentTrack || 'basic';
 
@@ -138,6 +147,23 @@
         }
       }
 
+      // 고급과정 분기
+      if (expertItem) {
+        if (track === 'expert') {
+          expertItem.style.display = '';
+          expertItem.style.padding = '0';
+          expertItem.style.margin = '0';
+          expertItem.style.minHeight = '0';
+          expertItem.classList.add('active');
+          var eLink = expertItem.querySelector(':scope > .nav-list-link');
+          var eExp = expertItem.querySelector(':scope > .nav-list-expander');
+          if (eLink) eLink.style.display = 'none';
+          if (eExp) eExp.style.display = 'none';
+        } else {
+          expertItem.style.display = 'none';
+        }
+      }
+
       // Home 숨기기
       try { localStorage.setItem(storageKey, track); } catch (e) {}
     }
@@ -145,6 +171,7 @@
     // --- 고정 URL ---
     var basicUrl = '{{ "/docs/basic-course" | relative_url }}';
     var advancedUrl = '{{ "/docs/advanced-course" | relative_url }}';
+    var expertUrl = '{{ "/docs/expert-course" | relative_url }}';
 
     btnBasic.addEventListener('click', function () {
       setTrack('basic');
@@ -153,6 +180,10 @@
     btnAdvanced.addEventListener('click', function () {
       setTrack('advanced');
       window.location.href = advancedUrl;
+    });
+    btnExpert.addEventListener('click', function () {
+      setTrack('expert');
+      window.location.href = expertUrl;
     });
 
     setTrack(defaultTrack);
