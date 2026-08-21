@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microsoft Copilot Studio 시작하기 · 한국어 가이드</title>
+<link rel="stylesheet" href="../assets/guide/style.css">
+</head>
+<body>
+<div class="sitenav"><div class="inner"><a href="../">업무에 바로 쓰는 Copilot Studio</a><span class="sep">/</span><a href="../module-guide/" class="here">모듈 가이드</a><a href="../handson-lab/">실습 가이드</a></div></div>
+<div class="wrap">
+
+<nav class="toc">
+  <h2>목차</h2>
+  <a href="#top" class="lead">개요</a>
+  <div class="rule"></div>
+  <a href="#u1" class="lead">1. 소개</a>
+  <a href="#u1-agent" class="sub">에이전트란</a>
+  <a href="#u1-benefit" class="sub">도입 효과</a>
+  <a href="#u1-make" class="sub">제작 방식</a>
+  <a href="#u1-case" class="sub">활용 사례</a>
+
+  <a href="#u2" class="lead">2. 환경 다루기</a>
+  <a href="#u2-trial" class="sub">체험판 시작</a>
+  <a href="#u2-home" class="sub">홈 화면과 환경 선택</a>
+  <a href="#u2-env" class="sub">환경이란</a>
+
+  <a href="#u3" class="lead">3. 에이전트 만들기</a>
+  <a href="#u3-tool" class="sub">제작 도구 세 가지</a>
+  <a href="#u3-arch" class="sub">에이전트 구조</a>
+  <a href="#u3-harness" class="sub">하네스 고르기</a>
+  <a href="#u3-each" class="sub">세 도구의 성격</a>
+
+  <a href="#u4" class="lead">4. 선언형 에이전트</a>
+  <a href="#u4-what" class="sub">선언형 에이전트란</a>
+  <a href="#u4-how" class="sub">만드는 세 가지 방법</a>
+  <a href="#u4-after" class="sub">만든 뒤에</a>
+
+  <a href="#u5" class="lead">5. Copilot Studio 에이전트</a>
+  <a href="#u5-compare" class="sub">두 제작 환경 비교</a>
+  <a href="#u5-create" class="sub">만드는 네 가지 방법</a>
+  <a href="#u5-ui" class="sub">화면 구조</a>
+  <a href="#u5-basic" class="sub">기본 설정</a>
+  <a href="#u5-inst" class="sub">지침 쓰기</a>
+  <a href="#u5-etc" class="sub">그 밖의 기능</a>
+
+  <a href="#u6" class="lead">6. 토픽 다루기</a>
+  <a href="#u6-what" class="sub">토픽이란</a>
+  <a href="#u6-sys" class="sub">시스템 토픽</a>
+  <a href="#u6-custom" class="sub">사용자 지정 토픽</a>
+  <a href="#u6-orch" class="sub">오케스트레이션</a>
+
+  <a href="#u7" class="lead">7. 생성형 AI</a>
+  <a href="#u7-orch" class="sub">오케스트레이션 설정</a>
+  <a href="#u7-diff" class="sub">동작 차이</a>
+  <a href="#u7-know" class="sub">지식과 생성형 답변</a>
+  <a href="#u7-tool" class="sub">도구</a>
+
+  <a href="#u8" class="lead">8. 테스트하기</a>
+  <a href="#u9" class="lead">9. 게시와 분석</a>
+  <a href="#u10" class="lead">10. 실습</a>
+  <a href="#u11" class="lead">11. 지식 확인</a>
+  <a href="#u12" class="lead">12. 요약</a>
+  <div class="rule"></div>
+  <a href="#appendix" class="lead">부록 · 헷갈리는 개념</a>
+  <a href="#links" class="lead">참고 링크</a>
+</nav>
+
+<main id="top">
+
+<header class="hero">
+  <span class="eyebrow">Microsoft Learn 모듈 한국어 가이드</span>
+  <h1>Microsoft Copilot Studio 시작하기</h1>
+  <p class="sub">원문 모듈 <em>Get started with Microsoft Copilot Studio</em>의 12개 단원을 우리말로 옮기고, 실무에서 걸리는 지점에 설명을 덧붙였습니다. 원문에 실린 화면 이미지를 모두 포함했습니다.</p>
+  <div class="meta">
+    <span>단원 12개</span>
+    <span>화면 이미지 36장</span>
+    <span>기준 2026년 8월</span>
+    <span>원문은 한국어 미제공</span>
+  </div>
+</header>
+
+<div class="key">
+  <div class="t">이 가이드를 읽고 나면</div>
+  <ul style="margin-bottom:0">
+    <li>GitHub Copilot, 표준, Copilot chat 세 가지 하네스를 구분한다</li>
+    <li>기존(표준) 제작 환경과 새 GitHub Copilot 제작 환경을 비교한다</li>
+    <li>에이전트를 만들고 설정한다</li>
+    <li>토픽과 생성형 오케스트레이션을 다룬다</li>
+    <li>에이전트를 테스트하고, 게시하고, 분석한다</li>
+  </ul>
+</div>
+
+<div class="box note">
+  <span class="t">읽는 법</span>
+  <p>인용 상자 안 문장은 원문을 옮긴 것이고, 그 아래 본문은 이해를 돕기 위해 덧붙인 설명입니다. 화면에서 찾아야 하는 버튼과 메뉴는 <span class="ui">이런 표시</span>로 원문 표기를 그대로 두었습니다.</p>
+</div>
+
+<!-- ============ 1 ============ -->
+<h2 id="u1">1단원 · 소개</h2>
+
+<h3>왜 필요한가</h3>
+<p>고객은 더 빠르고 정확한 셀프서비스를 원합니다. 기업은 더 나은 고객 서비스를 원합니다. Copilot Studio는 그 접점에 있습니다. 가장 쉽게 답할 수 있는 질문들을 라이브러리로 만들어 두면 고객은 간단한 질의만으로 답을 얻습니다.</p>
+<p>인터넷에서 검색해 답을 찾는 데 익숙한 고객에게 잘 맞는 방식입니다. 기술 전문가가 아닌 사용자도 빠르게 쓰고 넓혀 나갈 수 있습니다.</p>
+
+<h3 id="u1-agent">에이전트란 무엇인가</h3>
+<div class="key">
+  <div class="t">정의</div>
+  <p>업무 맥락을 이해하고, 질문에 답하고, 사용자를 대신해 행동하는 AI 어시스턴트.</p>
+</div>
+<p>하네스와 설정에 따라 다음을 할 수 있습니다.</p>
+<ul>
+  <li>목표를 두고 추론한다</li>
+  <li>지식을 활용한다</li>
+  <li>도구를 호출한다</li>
+  <li>작성된 대화 경로를 따른다</li>
+  <li>다른 에이전트와 협업한다</li>
+</ul>
+
+<h3 id="u1-benefit">도입 효과 네 가지</h3>
+<div class="tablewrap">
+<table>
+<thead><tr><th>효과</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td><strong>상담 문의 감소</strong></td><td>단순하거나 흔한 문제는 토픽, 기술 문서, FAQ로 해결됩니다. 고객이 매번 상담사와 연결될 필요가 없습니다.</td></tr>
+<tr><td><strong>시스템 연동</strong></td><td>CRM 정보를 대화에 끌어오고, 필요하면 대화와 맥락을 함께 상담사에게 넘깁니다.</td></tr>
+<tr><td><strong>작업 자동화</strong></td><td>회의 예약, 사례 배정, 메일 발송, 설문 발송 같은 후속 조치를 시작합니다. 고객 동의가 있으면 워크플로와 도구가 해결 단계까지 자동화합니다.</td></tr>
+<tr><td><strong>생성형 답변</strong></td><td>공개 웹사이트, 내부 SharePoint, 문서, Azure OpenAI 등을 근거 자료로 써서 더 개인화된 대화를 만듭니다.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="u1-make">제작 방식의 특징</h3>
+<p>가이드형 노코드 GUI로 만듭니다. 데이터 과학자나 개발자에게 기대지 않아도 된다는 뜻입니다. 이 방식이 해결하는 기존 문제는 세 가지입니다.</p>
+<ol class="steps">
+  <li><strong>현업 전문가와 개발팀 사이의 간극</strong><br>매뉴얼을 아는 사람과 만드는 사람이 달랐습니다.</li>
+  <li><strong>반영 지연</strong><br>문제를 발견하고 에이전트에 고치기까지 걸리던 시간이 사라집니다.</li>
+  <li><strong>진입 장벽</strong><br>대화형 AI의 복잡한 내부 사정을 몰라도, 복잡한 코드를 쓰지 않아도 됩니다.</li>
+</ol>
+
+<div class="cards">
+  <div class="card"><h5>팀 역량 강화</h5><p>중개자, 코딩, AI 전문성 없이 직접 만듭니다.</p></div>
+  <div class="card"><h5>비용 절감</h5><p>흔한 문의를 자동화하고 인력은 복잡한 건에 집중합니다.</p></div>
+  <div class="card"><h5>만족도 향상</h5><p>24시간 셀프 해결 경로가 생깁니다.</p></div>
+</div>
+
+<p>배포도 간단합니다. 가입, 에이전트 생성, 웹사이트 삽입이 몇 번의 클릭으로 끝납니다. 원하는 토픽의 예시 몇 개만 주면 다중 턴 대화가 구성됩니다.</p>
+
+<div class="box tip">
+  <span class="t">실무 예시</span>
+  <p>유입 문의를 분석했더니 매장 영업시간과 배송 문제가 큰 비중을 차지했습니다. 이 두 가지로 에이전트를 만들면 고객은 사람을 거치지 않고 바로 답을 얻습니다.</p>
+</div>
+
+<h4>대화만 하는 게 아니다</h4>
+<p>에이전트는 고객을 대신해 행동합니다. 기본 제공 연동이나 수백 개의 Power Platform 커넥터로 서비스와 시스템에 연결됩니다.</p>
+<p>처리 범위를 벗어난 요청은 대화 내용과 맥락을 함께 사람 담당자에게 넘깁니다. 고객이 같은 정보를 두 번 말하지 않아도 됩니다. 고객 동의가 있으면 IoT 명령 실행까지 오케스트레이션할 수 있습니다.</p>
+
+<div class="box note">
+  <span class="t">하네스 세 가지</span>
+  <p>Copilot Studio는 표준 하네스 제작 환경, GitHub Copilot 하네스 기반의 새 환경, 그리고 Microsoft 365 Copilot Chat 확장을 위한 Copilot chat 하네스를 지원합니다. 자세한 비교는 3단원에서 다룹니다.</p>
+</div>
+
+<h3 id="u1-case">활용 사례</h3>
+<figure>
+  <img src="media/copilot-use-cases.png" alt="Microsoft Copilot Studio 활용 사례 다이어그램">
+  <figcaption>원문 그림 · Copilot Studio 활용 사례. 데이터 과학자나 개발자 없이도 에이전트를 만들 수 있습니다.</figcaption>
+</figure>
+<ul>
+  <li>영업 지원 및 문제 해결</li>
+  <li>영업시간과 매장 정보</li>
+  <li>임직원 건강과 휴가 복리후생</li>
+  <li>공중보건 추적 정보</li>
+  <li>사내 공통 문의</li>
+</ul>
+
+<h3>책임 있는 AI</h3>
+<p>책임 있는 AI FAQ는 AI의 작동 방식, 성능과 동작에 영향을 주는 선택, 그리고 기술과 사람과 환경을 아우르는 시스템 전체를 함께 봐야 한다는 관점을 다룹니다. 자세한 내용은 <a href="https://learn.microsoft.com/ko-kr/microsoft-copilot-studio/responsible-ai-overview">Copilot Studio 책임 있는 AI 개요</a>를 참고하세요.</p>
+
+<!-- ============ 2 ============ -->
+<h2 id="u2">2단원 · 환경 다루기</h2>
+
+<h3 id="u2-trial">체험판 시작하기</h3>
+<div class="box note">
+  <span class="t">이미 라이선스가 있다면</span>
+  <p>Copilot Studio에 접근할 수 있다면 이 절을 건너뛰고 아래 <a href="#u2-home">홈 화면과 환경 선택</a>으로 바로 가세요.</p>
+</div>
+<div class="box stop">
+  <span class="t">중요</span>
+  <p>Copilot Studio는 <strong>회사 또는 학교 계정</strong>이 필요합니다. 개인 Microsoft 계정은 지원하지 않습니다. 체험판 라이선스로 에이전트를 만들고 테스트할 수는 있지만 <strong>게시는 못 합니다.</strong></p>
+</div>
+
+<ol class="steps">
+  <li><a href="https://go.microsoft.com/fwlink/?LinkId=2107702">Copilot Studio 체험판 가입 페이지</a>로 이동합니다.</li>
+  <li>회사 또는 학교 이메일 주소를 입력하고 <span class="ui">Next</span>를 선택합니다.</li>
+  <li>안내에 따라 가입을 완료합니다.</li>
+  <li><a href="https://copilotstudio.microsoft.com">copilotstudio.microsoft.com</a>에 접속합니다.</li>
+</ol>
+
+<div class="box warn">
+  <span class="t">막힐 때</span>
+  <p>이메일이 거부되면 회사 계정인지 먼저 확인합니다. 그래도 가입이 안 되면 관리자가 셀프서비스 체험판을 꺼 두었을 수 있습니다. 관리자에게 문의하세요.</p>
+</div>
+
+<h3 id="u2-home">홈 화면과 환경 선택</h3>
+<ol class="steps">
+  <li><a href="https://copilotstudio.microsoft.com">Copilot Studio</a>로 이동해 회사 또는 학교 계정으로 로그인합니다.</li>
+  <li>홈 화면을 확인합니다.</li>
+</ol>
+<figure>
+  <img src="media/copilot-studio-home.png" alt="Copilot Studio 홈 화면">
+  <figcaption>Copilot Studio 홈 화면</figcaption>
+</figure>
+
+<h4>환경 선택하기</h4>
+<ol class="steps">
+  <li>화면 <strong>오른쪽 위</strong>의 <span class="ui">Environment selector</span> 상자를 찾습니다. 조직은 이 환경에 에이전트, 업무 데이터, 앱, Power Automate 흐름을 저장하고 관리하고 공유합니다.</li>
+  <li>강사와 함께 진행한다면 어느 환경을 쓸지 확인합니다. 혼자라면 기본 환경을 써도 됩니다. 테넌트가 허용한다면 <a href="https://admin.powerplatform.microsoft.com/manage/environments">Power Platform 관리 센터</a>에서 직접 만들 수도 있습니다.</li>
+</ol>
+
+<div class="box tip">
+  <span class="t">라이선스가 없다면</span>
+  <p>Power Platform 라이선스나 환경이 없다면 <a href="https://www.microsoft.com/power-platform/try-free?tsapp=powerappsdeveloper">Power Apps 개발자 플랜</a>에 가입할 수 있습니다.</p>
+</div>
+
+<h3 id="u2-env">환경이란 무엇인가</h3>
+<div class="key">
+  <div class="t">정의</div>
+  <p>조직의 업무 데이터를 저장하고 관리하고 공유하는 공간.</p>
+</div>
+<p>만드는 에이전트는 모두 어느 한 환경에 저장됩니다. 모델 기반 앱, 캔버스 앱, Power Automate 흐름도 마찬가지입니다. 환경마다 역할, 보안 요건, 대상 사용자가 다를 수 있습니다.</p>
+
+<div class="box stop">
+  <span class="t">주의</span>
+  <p>환경 자체는 Copilot Studio에서 만들지 않습니다. <strong>Power Platform 관리 센터</strong>에서 만듭니다. 만들고 나면 그 환경 안에 Copilot Studio 에이전트를 만들 수 있습니다.</p>
+</div>
+
+<h4>왜 여러 개가 필요한가</h4>
+<p>조직이 여러 지역과 국가에 서비스를 하면, 지역마다 쓸 수 있는 데이터가 다르고 해결 방식도 부서나 지역에 따라 달라집니다. 비슷한 에이전트를 지역별로 배포해야 하는 상황이 생깁니다.</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>기준</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td><strong>부서별</strong></td><td>팀이나 부서에 맞춰 환경을 만들면, 그 안의 에이전트는 해당 대상에게 맞는 정보만 담습니다.</td></tr>
+<tr><td><strong>지역별</strong></td><td>지역에 따라 표시할 데이터가 다르므로 글로벌 지사별로 나눕니다.</td></tr>
+</tbody>
+</table>
+</div>
+<p>이 밖에 개발과 테스트와 운영을 분리하거나, 보안 경계, 사업부 소유권, 애플리케이션 수명 주기 관리, 용량, 지역별 데이터 보존 요건 때문에 나누기도 합니다.</p>
+
+<h4>기본 환경</h4>
+<p>처음 로그인해서 에이전트를 만들면 <strong>기본 환경</strong>이 자동으로 생성됩니다. 따로 지정하지 않는 한 이후 에이전트도 모두 여기에 만들어집니다. 지역이나 조직 사정으로 환경이 더 필요하면 Power Platform 관리 센터에서 추가합니다.</p>
+
+<!-- ============ 3 ============ -->
+<h2 id="u3">3단원 · 에이전트 만들기</h2>
+
+<h3>시작 전에 정할 것</h3>
+<p>만들기 전에 <strong>무엇에 쓸지</strong>부터 정합니다. 계정 문의 처리인지, 기술 문서 접근 같은 셀프서비스 지원인지. 용도를 알아야 대화 경로를 짜고 토픽 개수를 가늠할 수 있습니다.</p>
+<p>계정 기본 정보 조회, 고급 계정 처리, 특정 동작 실행 같은 기능도 함께 검토할 만합니다. 처음에 시나리오를 많이 떠올려 볼수록 필요한 세부 사항이 분명해집니다.</p>
+
+<h3 id="u3-tool">제작 도구 세 가지</h3>
+<div class="box stop">
+  <span class="t">헷갈리기 쉬운 지점</span>
+  <p>제작 도구(authoring tool)와 하네스(harness)는 다른 개념입니다. 제작 도구는 <strong>어떻게 설정하고 관리하는가</strong>이고, 하네스는 <strong>무엇이 에이전트를 실행하는가</strong>입니다.</p>
+</div>
+<div class="tablewrap">
+<table>
+<thead><tr><th>제작 도구</th><th>주 대상</th><th>쓰임새</th></tr></thead>
+<tbody>
+<tr><td><strong>Microsoft 365 Copilot의 Agent Builder</strong></td><td>일반 업무 사용자</td><td>개인과 팀을 위한 빠른 지식 중심 선언형 에이전트</td></tr>
+<tr><td><strong>Microsoft Copilot Studio</strong></td><td>메이커, 로우코드 개발자</td><td>전사 지식, 도구, 거버넌스, 다중 게시 채널을 쓰는 에이전트와 워크플로</td></tr>
+<tr><td><strong>Microsoft Foundry</strong></td><td>전문 개발자</td><td>커스텀 모델, 로직, 인프라, 앱 통합이 필요한 코드 우선 에이전트</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="u3-arch">에이전트 구조</h3>
+<p>대부분의 에이전트는 클라이언트 인터페이스, 기반 인프라, 오케스트레이터, 언어 모델, 지식, 도구 호출 기능으로 이뤄집니다. 이 표준 구조가 여러 Microsoft 플랫폼에 에이전트를 구현하는 뼈대가 됩니다.</p>
+<figure>
+  <img src="media/agent-components.png" alt="에이전트 구조와 구성 요소 다이어그램">
+  <figcaption>원문 그림 · 에이전트 구조와 구성 요소</figcaption>
+</figure>
+<p>플랫폼 간 차이는 결국 <strong>각 구성 요소를 얼마나 통제할 수 있는가</strong>와 <strong>설정 도구가 무엇이 있는가</strong>의 문제입니다.</p>
+
+<h3 id="u3-harness">하네스 고르기</h3>
+<div class="key">
+  <div class="t">하네스란</div>
+  <p>모델과 에이전트 구성 요소 사이의 런타임. 언제 모델을 호출할지, 어떤 지침과 맥락을 보낼지, 결과를 어떻게 해석할지, 어떤 도구를 부를지를 결정합니다. 모델은 추론과 콘텐츠 생성을 맡고, 하네스는 그 바깥의 진행을 맡습니다.</p>
+</div>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>기준</th><th>GitHub Copilot 하네스</th><th>표준 하네스</th><th>Copilot chat 하네스</th></tr></thead>
+<tbody>
+<tr><td><strong>적합한 곳</strong></td><td>추론이 많은 다단계 업무 프로세스</td><td>규칙 기반 에이전트, 구조화된 반복 대화</td><td>조직 지식으로 M365 Copilot Chat 확장</td></tr>
+<tr><td><strong>작동 방식</strong></td><td>목표를 단계로 쪼개고, 도구와 에이전트를 호출하고, 상황이 바뀌면 적응</td><td>토픽, 규칙, 지식, 설정된 오케스트레이션 사용</td><td>M365 Copilot Chat을 연결된 사내 콘텐츠에 그라운딩(grounding)</td></tr>
+<tr><td><strong>고유 기능</strong></td><td>네이티브 파일 생성과 편집, 스킬, 메모리, 연결된 에이전트, 보안 작업 샌드박스</td><td>작성 토픽, 결정적 경로, 생성형·클래식 오케스트레이션, 에이전트 흐름(agent flows)</td><td>M365 Copilot Chat에서 도는 지식 우선 에이전트</td></tr>
+<tr><td><strong>게시 범위</strong></td><td>사내 또는 외부 고객</td><td>사내 또는 외부 고객</td><td>사내</td></tr>
+<tr><td><strong>과금</strong></td><td>Copilot Credits</td><td>Copilot Studio 라이선스와 용량</td><td>사용량 기반 또는 M365 Copilot 사용자 구독에 포함</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>어떻게 고르나</h4>
+<div class="ascii">긴 작업 추론, 여러 도구, 파일 다루기, 실패 복구가 필요한가?
+   예   →  GitHub Copilot 하네스
+   아니오 ↓
+예측 가능한 토픽 기반 대화가 필요한가?
+   예   →  표준 하네스
+   아니오 ↓
+M365 Copilot Chat에서 사내 지식 기반 답변만 주면 되는가?
+   예   →  Copilot chat 하네스</div>
+
+<div class="box stop">
+  <span class="t">중요</span>
+  <p>하네스는 <strong>에이전트를 만들 때 정합니다.</strong> 기존 에이전트를 GitHub Copilot 하네스와 표준 하네스 사이에서 옮길 수 없습니다.</p>
+</div>
+<div class="box note">
+  <span class="t">참고</span>
+  <p>이 모듈의 실습은 <strong>표준 하네스</strong>를 씁니다.</p>
+</div>
+
+<h3 id="u3-each">세 도구 각각의 성격</h3>
+
+<h4>Microsoft 365 Copilot · Agent Builder</h4>
+<p>단순하고 빠르고 유지보수 부담이 적은 에이전트를 M365 Copilot 안에서 만듭니다.</p>
+<ul>
+  <li>팀 문서, 메일, SharePoint, OneDrive 콘텐츠로 답합니다</li>
+  <li>소규모 팀이나 개인에게 일관되고 승인된 답을 줍니다</li>
+  <li>코드가 필요 없고 일반 업무 사용자를 위해 설계됐습니다</li>
+</ul>
+<div class="box note">
+  <span class="t">용어</span>
+  <p>M365 Copilot에서 만든 에이전트를 <strong>선언형 에이전트(declarative agent)</strong>라고 부릅니다.</p>
+</div>
+<p>적합한 용도는 개인 또는 팀 단위 어시스턴트, 지식 조회, FAQ형 에이전트, 사내 전용입니다. 지식 범위는 Microsoft Graph, 즉 메일, Teams 회의와 채팅, SharePoint와 OneDrive 파일 같은 일상 업무 데이터입니다.</p>
+
+<h4>Copilot Studio · 로우코드와 노코드</h4>
+<p>구조화된 작업과 전사 통합을 지원합니다.</p>
+<ul>
+  <li>다단계 워크플로를 실행합니다</li>
+  <li>토픽으로 안내형 대화를 만듭니다</li>
+  <li>커넥터, API, 자동화로 업무 시스템과 연동합니다</li>
+  <li>지식, 도구, 생성형 오케스트레이션을 씁니다</li>
+  <li>Teams, 웹, 메시징 앱, 외부 대상까지 폭넓게 게시합니다</li>
+</ul>
+<p>적합한 용도는 부서나 전사 단위 에이전트, 고객 대면 에이전트, 규정 준수와 거버넌스와 분석이 필요한 경우, 그리고 실제 동작을 수행하는 프로세스 에이전트입니다.</p>
+
+<div class="box tip">
+  <span class="t">언제 Copilot Studio를 쓰나</span>
+  <ul style="margin-bottom:0">
+    <li>워크플로, 커스텀 동작, 업무 시스템 연동</li>
+    <li>전사 지식 원본과 근거 기반 답변</li>
+    <li>Teams, M365 Copilot, 웹사이트 등 지원 채널로 게시</li>
+    <li>Power Platform 거버넌스, 데이터 정책, 보안 역할, 애플리케이션 수명 주기 관리</li>
+    <li>연결된 에이전트 또는 다단계 업무 프로세스</li>
+  </ul>
+</div>
+
+<h4>Microsoft Foundry</h4>
+<p>코드 우선으로, 모델 선택과 미세 조정, 데이터 오케스트레이션과 파이프라인, 도구 호출, 복잡한 다중 에이전트와 자율 워크플로, 보안과 규정 준수와 커스텀 인프라, 클라우드 시스템 및 애플리케이션 통합을 모두 통제합니다.</p>
+<p>적합한 대상은 모델과 데이터와 시스템을 완전히 통제해야 하는 대기업, 커스텀 로직이나 높은 수준의 자율성이 필요한 고도로 특화된 에이전트, 그리고 다중 에이전트 시스템이나 전사 규모 워크로드입니다.</p>
+<div class="box note">
+  <span class="t">참고</span>
+  <p>이 모듈에서는 Foundry를 더 다루지 않습니다.</p>
+</div>
+
+<!-- ============ 4 ============ -->
+<h2 id="u4">4단원 · M365 Copilot에서 선언형 에이전트 만들기</h2>
+
+<h3 id="u4-what">선언형 에이전트란</h3>
+<div class="key">
+  <div class="t">정의</div>
+  <p>Microsoft 365 Copilot을 사용자 지정으로 확장한 것. 지침, 지식, 기능은 내가 정의하고, 오케스트레이션과 응답 생성은 M365 Copilot이 맡습니다.</p>
+</div>
+<p>M365 Copilot과 같은 인프라, 오케스트레이터, 파운데이션 모델, 보안 통제를 그대로 씁니다.</p>
+
+<h4>업무 사용자가 얻는 것</h4>
+<ul>
+  <li>복잡한 코드 없이 Copilot 확장을 만듭니다</li>
+  <li>에이전트가 무엇을 알고 어떻게 행동할지 통제합니다</li>
+  <li>비개발자도 맞춤 어시스턴트를 만듭니다</li>
+  <li>전문 지식을 팀 전체로 확산합니다</li>
+</ul>
+
+<h4>핵심 성격</h4>
+<ul>
+  <li><strong>코드가 필요 없습니다.</strong> 지침, 지식 원본, 동작으로 설정합니다</li>
+  <li><strong>M365 Copilot을 대체하지 않고 확장합니다</strong></li>
+  <li><strong>목표 지향적입니다.</strong> 기능을 정의하면 오케스트레이터가 단계를 계획합니다</li>
+  <li><strong>Microsoft의 Copilot과 오케스트레이션 엔진</strong>이 추론, 계획, 도구 선택을 맡습니다</li>
+  <li><strong>같은 UI, 보안, 규정 준수 경계</strong>를 공유합니다</li>
+</ul>
+<p>만들 수 있는 곳은 M365 Copilot Chat의 Agent Builder, SharePoint, Copilot Studio입니다.</p>
+
+<div class="box stop">
+  <span class="t">헷갈리기 쉬운 지점</span>
+  <p>Agent Builder로 만든 선언형 에이전트는 <strong>Copilot chat 하네스</strong>로 구동되는 예입니다. 하지만 Copilot Studio에서도 다른 하네스로 M365 Copilot용 에이전트를 만들 수 있습니다. 즉 <strong>게시 채널만으로는 하네스를 알 수 없습니다.</strong></p>
+</div>
+
+<h3 id="u4-how">만드는 세 가지 방법</h3>
+<p>시작점은 <strong>M365 Copilot 에이전트 스토어</strong>입니다. 접근 가능한 에이전트, 관리형 에이전트, 템플릿이 모두 보입니다.</p>
+<figure>
+  <img src="media/declarative-agent-create.png" alt="Microsoft 365 Copilot 에이전트 화면">
+  <figcaption>M365 Copilot 에이전트 목록</figcaption>
+</figure>
+
+<h4>① 관리형 에이전트 설치</h4>
+<p>스토어에서 Microsoft나 서드파티가 제공하는 관리형 에이전트를 고르고 팝업에서 <span class="ui">Add</span>를 누릅니다. 사용 가능한 에이전트 목록에 추가됩니다.</p>
+<figure>
+  <img src="media/declarative-agent-store.png" alt="Microsoft 365 Copilot 에이전트 스토어">
+  <figcaption>M365 Copilot 에이전트 스토어</figcaption>
+</figure>
+<div class="box note">
+  <span class="t">참고</span>
+  <p>관리형 에이전트는 <strong>편집할 수 없습니다.</strong> M365 관리자가 어떤 것을 쓸 수 있게 할지 통제합니다.</p>
+</div>
+
+<h4>② 템플릿으로 만들기</h4>
+<p><span class="ui">Create agent</span>를 선택하면 Agent Builder가 열립니다. <span class="ui">Configure</span> 탭에 템플릿 드롭다운 목록이 있습니다.</p>
+<figure>
+  <img src="media/declarative-agent-templates.png" alt="선언형 에이전트 템플릿 목록">
+  <figcaption>선언형 에이전트 템플릿 목록</figcaption>
+</figure>
+<ol class="steps">
+  <li>템플릿을 고르면 이름, 설명, 지침, 제안 프롬프트, 기타 기능이 미리 채워집니다.</li>
+  <li>필요한 대로 고치고 <span class="ui">Create</span>를 누릅니다.</li>
+</ol>
+<figure>
+  <img src="media/declarative-agent-template-example.png" alt="선언형 에이전트 템플릿 예시">
+  <figcaption>템플릿을 고른 뒤 값이 미리 채워진 모습</figcaption>
+</figure>
+
+<h4>③ 직접 만들기</h4>
+<p><span class="ui">Create agent</span>로 Agent Builder를 열면 두 갈래입니다.</p>
+<ul>
+  <li><strong>Configure</strong> · 이름, 설명, 지침을 직접 입력합니다</li>
+  <li><strong>Describe</strong> · 에이전트가 무엇을 알아야 하고 무엇을 해야 하는지 자연어로 말하면 나머지는 Copilot이 알아서 합니다</li>
+</ul>
+<figure>
+  <img src="media/declarative-agent-create-options.png" alt="Agent Builder의 Configure 탭">
+  <figcaption>Agent Builder 탭 · Configure가 선택된 상태</figcaption>
+</figure>
+
+<h3 id="u4-after">만든 뒤에</h3>
+<p>테스트 채팅으로 대화해 보고 지식 원본을 추가합니다. Agent Builder는 SharePoint 콘텐츠와 M365 Copilot 커넥터 같은 원본을 지원합니다. 쓸 수 있는 원본은 라이선스와 관리자 설정에 따라 다릅니다.</p>
+<p>만든 에이전트는 <strong>M365 Copilot 앱의 Agents 탭</strong>에 나타납니다.</p>
+<div class="box warn">
+  <span class="t">주의</span>
+  <p>선언형 에이전트는 커스텀 에이전트가 아니므로 <strong>Copilot Studio의 Agents 목록에는 보이지 않습니다.</strong></p>
+</div>
+<p>게시 대상은 M365 Copilot과 Microsoft Teams입니다.</p>
+
+<h4>Copilot Studio로 복사하기</h4>
+<p>M365 Copilot에서 만들기 시작했는데 Copilot Studio에만 있는 기능이 필요해졌다면, 편집 중 <span class="ui">More options (…)</span> 메뉴의 <span class="ui">Copy to Copilot Studio</span>를 씁니다. 처음부터 다시 만들지 않아도 됩니다.</p>
+<figure>
+  <img src="media/declarative-agent-copy.png" alt="Copy to Copilot Studio 옵션">
+  <figcaption>Copy to Copilot Studio 옵션 위치</figcaption>
+</figure>
+<!-- ============ 5 ============ -->
+<h2 id="u5">5단원 · Copilot Studio에서 에이전트 만들고 설정하기</h2>
+
+<h3 id="u5-compare">두 가지 제작 환경 비교</h3>
+<p>Copilot Studio에는 커스텀 에이전트 제작 환경이 두 개 있습니다. 만들 때 고른 하네스에 따라 화면과 탐색 구조가 달라집니다.</p>
+<div class="box note">
+  <span class="t">용어 주의</span>
+  <p>예전 문서는 표준 하네스 환경을 <strong>클래식 환경</strong>이라고 불렀습니다. 현재 문서는 새 GitHub Copilot 하네스와 런타임을 구분하려고 <strong>표준 하네스</strong>라는 말을 씁니다.</p>
+</div>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>영역</th><th>새 환경 · GitHub Copilot 하네스</th><th>표준(클래식) 하네스</th></tr></thead>
+<tbody>
+<tr><td><strong>생성 방식</strong></td><td>업무 목표를 설명하고, 생성된 에이전트나 워크플로를 다듬음</td><td>설명, 템플릿, 관리형 에이전트, 빈 에이전트에서 만듦</td></tr>
+<tr><td><strong>주 작업 화면</strong></td><td><span class="ui">Build</span> 탭 하나에 지침, 지식, 도구, 스킬, 모델, 연결된 에이전트, 메모리가 모임</td><td><span class="ui">Overview</span>, <span class="ui">Knowledge</span>, <span class="ui">Tools</span>, <span class="ui">Agents</span>, <span class="ui">Topics</span> 등 탭이 나뉨</td></tr>
+<tr><td><strong>대화 설계</strong></td><td>자연어 지침과 향상된 오케스트레이션</td><td>토픽과 노드, 생성형 또는 클래식 오케스트레이션</td></tr>
+<tr><td><strong>테스트</strong></td><td><span class="ui">Preview</span>로 대화 테스트, <span class="ui">Evaluate</span>로 테스트 세트 실행</td><td><span class="ui">Test your agent</span> 패널, 활동 맵, 평가 기능</td></tr>
+<tr><td><strong>운영 점검</strong></td><td><span class="ui">Monitor</span>로 작업, 접근 파일, 활동 확인</td><td><span class="ui">Activity</span>와 <span class="ui">Analytics</span>로 세션과 성능 확인</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="box tip">
+  <span class="t">전환 방법</span>
+  <p>홈 화면의 <span class="ui">New experience</span> 토글로 정합니다. 켜면 GitHub Copilot 하네스 기반 에이전트나 워크플로를 만듭니다. 표준 하네스로 만들려면 토글을 끄거나 <span class="ui">Other ways to build</span>를 선택합니다. 기존 에이전트는 <span class="ui">Agents</span> 목록에서 엽니다.</p>
+</div>
+
+<h3 id="u5-create">만드는 네 가지 방법</h3>
+<figure>
+  <img src="media/create-agent-options.png" alt="Copilot Studio 에이전트 생성 옵션">
+  <figcaption>Copilot Studio에서 에이전트를 만드는 여러 방법</figcaption>
+</figure>
+<div class="box note">
+  <span class="t">참고</span>
+  <p>에이전트는 Power Platform 환경 안에 만들어집니다. 따로 지정하지 않으면 조직 또는 테넌트의 <strong>기본 Power Apps 환경</strong>에 만들어집니다. <span class="ui">Environments</span> 드롭다운에서 바꿀 수 있습니다.</p>
+</div>
+
+<h4>① 관리형 에이전트 설치</h4>
+<p>바로 쓸 수 있게 준비된 에이전트입니다. 설치하고 설정하면 되고, 업데이트가 나오면 반영됩니다. 원하는 것을 고르고 <span class="ui">Install</span> 후 안내를 따릅니다.</p>
+<figure>
+  <img src="media/create-managed-agent.png" alt="Copilot Studio의 관리형 에이전트">
+  <figcaption>Copilot Studio의 관리형 에이전트</figcaption>
+</figure>
+
+<h4>② 템플릿 사용</h4>
+<figure>
+  <img src="media/create-agent-templates.png" alt="Copilot Studio 에이전트 템플릿">
+  <figcaption>Copilot Studio 에이전트 템플릿 목록</figcaption>
+</figure>
+<ol class="steps">
+  <li>템플릿을 고릅니다.</li>
+  <li>설명과 지침을 상황에 맞게 고칩니다.</li>
+  <li>지식 원본을 내 시나리오에 맞는 콘텐츠로 바꿉니다.</li>
+  <li><span class="ui">Create</span> 버튼이 회색이면 연결 추가 같은 문제를 해결합니다.</li>
+  <li><span class="ui">Create</span>를 누릅니다.</li>
+</ol>
+<figure>
+  <img src="media/create-agent-template-weather.png" alt="날씨 에이전트 템플릿">
+  <figcaption>날씨 에이전트 템플릿 예시</figcaption>
+</figure>
+<p>만든 뒤에도 설정을 계속 편집할 수 있습니다.</p>
+
+<h4>③ 자연어로 만들기</h4>
+<p>대화형 생성 방식입니다. 하고 싶은 일을 내 말로 설명합니다.</p>
+<ol class="steps">
+  <li>Copilot Studio <span class="ui">Home</span> 페이지로 이동합니다.</li>
+  <li>에이전트가 할 일을 설명하는 프롬프트를 입력합니다.</li>
+</ol>
+<div class="prompt"><span class="prompt-label">프롬프트 예시</span>Create an agent that helps users understand how to create agents with Copilot Studio</div>
+<figure>
+  <img src="media/create-agent-prompt.png" alt="에이전트 생성 프롬프트 입력 화면">
+  <figcaption>에이전트 생성 프롬프트 입력 화면</figcaption>
+</figure>
+<ol class="steps" start="3">
+  <li><span class="ui">Settings</span> 아이콘(톱니바퀴)에서 기본 언어, 솔루션, 스키마 이름을 바꿉니다.</li>
+</ol>
+<figure>
+  <img src="media/create-agent-settings.png" alt="에이전트 생성 시 설정 화면">
+  <figcaption>에이전트 생성 시 설정 대화 상자</figcaption>
+</figure>
+<ol class="steps" start="4">
+  <li><span class="ui">Send</span> 아이콘을 선택합니다.</li>
+  <li>에이전트가 만들어지고, 지침이 채워지고, 트리거와 지식과 도구 제안이 붙습니다.</li>
+</ol>
+<figure>
+  <img src="media/newly-created-agent.png" alt="새로 만들어진 에이전트">
+  <figcaption>새로 만들어진 에이전트 화면</figcaption>
+</figure>
+<div class="box tip">
+  <span class="t">팁</span>
+  <p>Copilot Studio는 기본적으로 <strong>현재 기본 설정 솔루션(Current preferred solution)</strong>을 씁니다. 에이전트를 만들기 전에 원하는 솔루션을 기본 설정으로 지정해 두는 것이 좋습니다.</p>
+</div>
+
+<h4>④ 빈 에이전트로 직접 만들기</h4>
+<ol class="steps">
+  <li>왼쪽 메뉴에서 <span class="ui">Agents</span>를 선택합니다.</li>
+  <li><span class="ui">Create blank agent</span>를 선택합니다.</li>
+</ol>
+<figure>
+  <img src="media/create-agent-blank.png" alt="빈 에이전트 만들기">
+  <figcaption>빈 에이전트 만들기 진입 화면</figcaption>
+</figure>
+<ol class="steps" start="3">
+  <li>에이전트 이름을 입력합니다.</li>
+  <li><span class="ui">Agent settings (Optional)</span>을 펼칩니다.</li>
+</ol>
+<figure>
+  <img src="media/create-agent-advanced.png" alt="빈 에이전트 만들기 대화 상자">
+  <figcaption>빈 에이전트 만들기 대화 상자</figcaption>
+</figure>
+<ol class="steps" start="5">
+  <li><span class="ui">Language</span>와 <span class="ui">Solution</span>을 고르고 <span class="ui">Schema name</span>을 입력합니다.</li>
+  <li><span class="ui">Create</span>를 선택합니다.</li>
+  <li>설명과 지침이 빈 상태로 만들어집니다.</li>
+</ol>
+<figure>
+  <img src="media/create-agent-advanced-details.png" alt="빈 에이전트 고급 설정">
+  <figcaption>빈 에이전트 고급 설정 대화 상자</figcaption>
+</figure>
+<figure>
+  <img src="media/newly-created-blank-agent.png" alt="새로 만든 빈 에이전트">
+  <figcaption>새로 만들어진 빈 에이전트</figcaption>
+</figure>
+
+<h3 id="u5-ui">Copilot Studio 화면 구조</h3>
+<p>Copilot Studio 화면에는 에이전트를 만들고, 테스트하고, 게시하고, 성능을 지켜보는 데 필요한 도구가 모두 있습니다.</p>
+<figure>
+  <img src="media/copilot-studio-interface.png" alt="Copilot Studio 에이전트 화면">
+  <figcaption>Copilot Studio 에이전트 화면 구성</figcaption>
+</figure>
+<div class="tablewrap">
+<table>
+<thead><tr><th>영역</th><th>하는 일</th></tr></thead>
+<tbody>
+<tr><td><span class="ui">Home</span></td><td>빠르게 만들고 최근 쓴 에이전트에 접근</td></tr>
+<tr><td><span class="ui">Agents</span> 페이지</td><td>모든 에이전트 접근, 새로 만들기</td></tr>
+<tr><td><span class="ui">Flows</span> 페이지</td><td>모든 워크플로 접근, 새로 만들기</td></tr>
+<tr><td><span class="ui">Tools</span> 페이지</td><td>모든 도구 접근, 도구 만들기</td></tr>
+<tr><td><span class="ui">Overview</span> 탭</td><td>현재 에이전트의 홈 화면. 지침을 지정</td></tr>
+<tr><td><span class="ui">Knowledge</span> 탭</td><td>지식 원본 제공</td></tr>
+<tr><td><span class="ui">Tools</span> 탭</td><td>추가된 도구 확인, 도구 추가</td></tr>
+<tr><td><span class="ui">Agents</span> 탭</td><td>연결된 에이전트 접근, 다른 에이전트 추가</td></tr>
+<tr><td><span class="ui">Topics</span> 탭</td><td>토픽 관련 동작 접근</td></tr>
+<tr><td><span class="ui">Activity</span> 탭</td><td>활동 맵. 세션 안의 입력, 판단, 출력 순서를 시각화</td></tr>
+<tr><td><span class="ui">Evaluation</span> 탭</td><td>답변의 정확도, 관련성, 품질을 재는 테스트 케이스 관리</td></tr>
+<tr><td><span class="ui">Analytics</span> 탭</td><td>성능과 사용량 분석</td></tr>
+<tr><td><span class="ui">Channels</span> 탭</td><td>게시와 채널 배포</td></tr>
+<tr><td><span class="ui">Publish</span> 버튼</td><td>게시와 채널 배포</td></tr>
+<tr><td><span class="ui">Settings</span> 버튼</td><td>생성형 AI 오케스트레이션 옵션, 인증, 스킬 관리</td></tr>
+<tr><td><span class="ui">Test your agent</span> 패널</td><td>최종 사용자처럼 테스트</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="u5-basic">기본 설정하기</h3>
+<p><span class="ui">Details</span> 섹션의 편집 아이콘에서 <span class="ui">Name</span>과 <span class="ui">Description</span>을 넣고 저장합니다.</p>
+<h4>아이콘 추가</h4>
+<p>상단 바의 에이전트 아이콘을 선택하고 <span class="ui">Change icon</span>에서 이미지를 골라 저장합니다.</p>
+<div class="box note">
+  <span class="t">참고</span>
+  <p>아이콘은 <strong>PNG 형식</strong>이어야 합니다.</p>
+</div>
+
+<h4>에이전트 모델</h4>
+<p>기본값은 GPT 모델입니다. 추론과 응답에 쓸 모델을 직접 고를 수 있습니다.</p>
+<figure>
+  <img src="media/agent-models.png" alt="Copilot Studio 모델 선택 화면">
+  <figcaption>모델 선택 화면</figcaption>
+</figure>
+<div class="box warn">
+  <span class="t">참고</span>
+  <p>쓸 수 있는 모델은 <strong>환경의 지역에 따라 다릅니다.</strong> 모델은 계속 추가되고 퇴역합니다. 모든 지역에 모든 모델이 있지는 않습니다.</p>
+</div>
+
+<h3 id="u5-inst">지침 쓰기 · 가장 중요한 부분</h3>
+<div class="key">
+  <div class="t">왜 중요한가</div>
+  <p>지침이 없으면 에이전트는 무엇을 할지 모릅니다. 지침은 에이전트가 따르는 중심 방향이자 매개변수입니다.</p>
+</div>
+<p>에이전트는 지침에 기대어 다음을 합니다.</p>
+<ul>
+  <li>사용자 질의나 자율 트리거에 대응할 때 <strong>어떤 자원</strong>(도구, 지식, 토픽, 다른 에이전트)을 부를지 정합니다</li>
+  <li>주어진 맥락으로 <strong>도구의 입력값</strong>을 채웁니다</li>
+  <li>최종 사용자에게 줄 <strong>응답을 생성</strong>합니다</li>
+</ul>
+<p>지침이 불분명하면 응답도 나쁩니다. 무엇을, 어떻게, 무엇을 피할지 정확히 말해 주지 않으면 예측 불가능하거나 쓸모없는 결과가 나옵니다.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>요소</th><th>답해야 할 질문</th></tr></thead>
+<tbody>
+<tr><td><strong>Role · 역할</strong></td><td>이 에이전트의 목적은 무엇인가?</td></tr>
+<tr><td><strong>Scope · 범위</strong></td><td>무엇을 해야 하고 무엇을 피해야 하는가?</td></tr>
+<tr><td><strong>Context · 맥락</strong></td><td>무엇을 알고 있어야 하는가?</td></tr>
+<tr><td><strong>Tone · 어조</strong></td><td>어떻게 응답해야 하는가?</td></tr>
+<tr><td><strong>Error handling · 오류 처리</strong></td><td>확신이 없을 때 어떻게 하는가?</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="u5-etc">그 밖의 기능</h3>
+
+<h4>제안 프롬프트</h4>
+<p>최대 <strong>10개</strong>까지 설정합니다. Teams나 M365 Copilot Chat에서 대화를 시작할 때 고를 수 있는 문구로, 에이전트 시작 페이지에서 새 채팅 전에 나타납니다.</p>
+<figure>
+  <img src="media/edit-suggested-prompts.png" alt="제안 프롬프트 편집 화면">
+  <figcaption>제안 프롬프트 편집 화면</figcaption>
+</figure>
+<div class="box warn">
+  <span class="t">참고</span>
+  <p>Copilot Studio 안에서 테스트할 때는 제안 프롬프트가 보이지도 않고 쓸 수도 없습니다.</p>
+</div>
+
+<h4>Power Apps 캔버스 앱에서 만들기</h4>
+<p>캔버스 앱을 이미 만들었다면 <a href="https://make.powerapps.com/">Power Apps 메이커 포털</a>에서 앱을 에이전트로 바꿀 수 있습니다.</p>
+<figure>
+  <img src="media/app-agents.png" alt="Power Apps 메이커 포털의 에이전트 페이지">
+  <figcaption>Power Apps 메이커 포털의 Agents 페이지</figcaption>
+</figure>
+<ol class="steps">
+  <li>메이커 포털에서 <span class="ui">Agents</span>를 선택합니다.</li>
+  <li><span class="ui">Create an agent from an app</span>을 선택합니다.</li>
+  <li>앱을 고르고 <span class="ui">Next</span>를 선택합니다.</li>
+  <li>Agent builder가 앱과 연결을 분석해 도울 수 있는 일을 제안합니다.</li>
+  <li>제안을 고르거나, 자동화하려는 프로세스를 직접 설명하고 <span class="ui">Next</span>를 선택합니다.</li>
+  <li>수동 프로세스를 대체할 단계별 지침이 생성되고 트리거와 지식이 추출됩니다.</li>
+  <li><span class="ui">Create</span>를 선택합니다.</li>
+</ol>
+
+<h4>음성 기능</h4>
+<p>Copilot Studio는 IVR(대화형 음성 응답)을 지원합니다. 음성과 DTMF(전화 키패드) 입력, 컨텍스트 변수, 통화 전환, 음성과 DTMF 사용자 지정이 포함됩니다.</p>
+<p>음성 지원 에이전트는 채팅 기반 에이전트와 다릅니다. 음성 시나리오를 처리하는 전용 음성 시스템 토픽이 들어 있습니다. 채팅 기반은 텍스트 모달리티가 기본이고, 음성 지원은 Speech와 DTMF 모달리티를 씁니다.</p>
+<p>설정에서 <span class="ui">Optimize for voice</span>를 켜거나, 만들 때 <span class="ui">Voice</span> 템플릿을 고릅니다.</p>
+
+<h4>에이전트 삭제</h4>
+<p>다른 에이전트로 대체하거나 더는 조직에 맞지 않을 때 삭제합니다.</p>
+<ol class="steps">
+  <li>편집 중이라면 명령 모음의 <span class="ui">Delete</span>를 누르고 확인용으로 에이전트 이름을 입력합니다.</li>
+  <li>또는 <span class="ui">Agents</span> 페이지에서 해당 에이전트 메뉴를 열고 <span class="ui">Delete</span>를 선택합니다.</li>
+</ol>
+<figure>
+  <img src="media/delete-agent.png" alt="에이전트 목록의 삭제 버튼">
+  <figcaption>에이전트 목록에서 삭제하기</figcaption>
+</figure>
+
+<!-- ============ 6 ============ -->
+<h2 id="u6">6단원 · 토픽 다루기</h2>
+
+<h3 id="u6-what">토픽이란</h3>
+<div class="key">
+  <div class="t">정의</div>
+  <p>표준 하네스 에이전트에서 토픽은 대화의 한 부분이 어떻게 진행되는지를 정의합니다.</p>
+</div>
+<p><strong>작성 캔버스</strong>에서 정의합니다. 토픽은 하나 이상의 <strong>노드</strong>로 이뤄지고, 이 노드들이 모여 대화 경로를 만듭니다. 노드 하나는 메시지 보내기나 질문하기 같은 <strong>동작 하나</strong>를 합니다.</p>
+<div class="ascii">토픽   = 상담 매뉴얼 한 권
+노드   = 그 안의 한 줄 한 줄
+캔버스 = 노드를 블록처럼 이어 붙이는 화면</div>
+<p>"인사하고 이름 물어보기"는 노드 한 개가 아니라 두 개입니다.</p>
+
+<div class="box stop">
+  <span class="t">중요한 예외</span>
+  <p>GitHub Copilot 하네스 에이전트는 <strong>작성된 토픽과 대화 경로를 쓰지 않습니다.</strong> 대신 <span class="ui">Build</span> 탭에서 자연어 지침, 지식, 도구, 스킬, 연결된 에이전트, 메모리로 동작을 설정합니다.</p>
+</div>
+
+<h4>미리 들어 있는 토픽 두 종류</h4>
+<div class="tablewrap">
+<table>
+<thead><tr><th></th><th>시스템 · System</th><th>사용자 지정 · Custom</th></tr></thead>
+<tbody>
+<tr><td><strong>성격</strong></td><td>필수 동작 지원</td><td>예제 삼아 미리 만들어 둔 것</td></tr>
+<tr><td><strong>예시</strong></td><td>사람 연결 요청, 대화 종료, 폴백, 다중 매칭 처리</td><td>인사, 작별, 처음부터 다시</td></tr>
+<tr><td><strong>비유</strong></td><td>없으면 대화가 망가지는 부품</td><td>참고용 샘플</td></tr>
+</tbody>
+</table>
+</div>
+<div class="box tip">
+  <span class="t">배우는 요령</span>
+  <p>처음에는 인사(Greeting) 토픽을 열어 노드가 어떻게 연결됐는지 뜯어보는 것이 가장 빠릅니다.</p>
+</div>
+
+<h4>토픽의 두 요소</h4>
+<div class="cards">
+  <div class="card"><h5>트리거 · Trigger</h5><p><strong>언제</strong> 이 매뉴얼을 펴는가. 사용자가 입력하는, 특정 사안과 관련된 문구, 키워드, 질문입니다.</p></div>
+  <div class="card"><h5>대화 노드 · Nodes</h5><p>펴서 <strong>무엇을</strong> 하는가. 메시지 보내기, 질문하기, 동작 수행하기입니다.</p></div>
+</div>
+
+<h3 id="u6-sys">시스템 토픽</h3>
+<p>시스템 토픽은 고객이 마주칠 가능성이 높은 시나리오를 담고, 시나리오에 맞는 기본 구조가 이미 갖춰져 있습니다. 여러 토픽이 동시에 매칭됐을 때, 대화를 종료할 때, 사람 담당자에게 넘길 때 등입니다. 예를 들어 <strong>폴백(fallback)</strong> 토픽은 답할 토픽을 찾지 못했을 때 제시됩니다.</p>
+<figure>
+  <img src="media/system-topics.png" alt="시스템 토픽 탭과 트리거, 상태">
+  <figcaption>System 탭에서 본 트리거와 상태</figcaption>
+</figure>
+<div class="tablewrap">
+<table>
+<thead><tr><th>할 수 있나</th><th></th></tr></thead>
+<tbody>
+<tr><td>새로 만들기</td><td>안 됩니다</td></tr>
+<tr><td>삭제하기</td><td>안 됩니다. 다만 끌 수는 있습니다</td></tr>
+<tr><td>수정하기</td><td>됩니다. 일부는 트리거 문구도 가집니다</td></tr>
+</tbody>
+</table>
+</div>
+<div class="box tip">
+  <span class="t">실무 팁</span>
+  <p>가장 자주 손대는 것이 폴백입니다. 기본 문구가 딱딱하니 브랜드 말투로 바꾸거나 "못 찾았으니 상담사 연결할까요?"로 흐름을 이어붙입니다.</p>
+</div>
+
+<h3 id="u6-custom">사용자 지정 토픽 만들기</h3>
+<p><span class="ui">Topics</span> 탭에서 <span class="ui">Add a topic</span>을 선택해 두 가지 중 고릅니다.</p>
+<ul>
+  <li><strong>From blank</strong> · 트리거부터 대화 흐름까지 전부 직접 만듭니다</li>
+  <li><strong>Create from description with Copilot</strong> · 원하는 바를 설명하면 Copilot이 토픽을 만듭니다</li>
+</ul>
+<div class="box tip">
+  <span class="t">실무 팁</span>
+  <p>두 번째로 초안을 뽑고 손보는 쪽이 빠릅니다. 다만 Copilot 초안은 트리거 문구가 빈약할 때가 많으니, 클래식 방식이라면 고객이 실제로 쓸 표현을 직접 더 넣으세요.</p>
+</div>
+
+<h3 id="u6-orch">어떤 토픽을 고를지 정하는 방식</h3>
+<div class="key">
+  <div class="t">오케스트레이션이란</div>
+  <p>지휘. 여러 토픽과 도구와 지식 중 무엇을 언제 쓸지 정하는 판단 방식입니다.</p>
+</div>
+
+<h4>생성형 AI 오케스트레이션</h4>
+<p>토픽, 도구, 지식 중 가장 적절한 <strong>조합</strong>을 골라 응답합니다. 각 토픽에는 목적을 알려주는 <strong>설명(description)</strong>이 있습니다.</p>
+<div class="box note">
+  <span class="t">참고</span>
+  <p>이 방식에서는 <strong>사용자 지정 토픽을 추가하지 않고도</strong> 에이전트를 만들 수 있습니다. 추가된 지식, 도구, 워크플로만으로 응답합니다.</p>
+</div>
+<p>설명이 클래식의 트리거 문구를 대신합니다. "언제 쓰는지"를 문구 나열이 아니라 <strong>문장으로</strong> 알려주는 것입니다. 설명을 성의 없이 쓰면 엉뚱한 토픽이 불려 나옵니다.</p>
+
+<h4>클래식 오케스트레이션</h4>
+<p>각 토픽이 <strong>트리거 문구</strong> 집합을 가집니다. 자연어 이해, 고객 메시지, 트리거 문구를 조합해 가장 적합한 토픽을 찾습니다.</p>
+<div class="ascii">등록해 둔 문구:  "check store hours"
+고객이 입력:     "see store opening hours"
+결과:            매칭됨</div>
+<p>정확히 일치할 필요가 없다는 것이 핵심입니다. 키워드 검색이 아니라 의미를 이해합니다. 토픽은 보통 고객이 겪는 흔한 문제, 질문, 작업을 나타냅니다. 예를 들어 반품 절차를 안내하는 토픽을 만들 수 있습니다.</p>
+<div class="box tip">
+  <span class="t">실무 팁</span>
+  <p>토픽 하나당 서로 다른 표현으로 5~10개를 넣습니다. 다른 토픽에 비슷한 문구를 넣으면 충돌하고, 그때 "여러 토픽이 매칭됐을 때" 시스템 토픽이 등장합니다.</p>
+</div>
+
+<!-- ============ 7 ============ -->
+<h2 id="u7">7단원 · 생성형 AI로 생산성 높이기</h2>
+
+<h3>생성형 AI를 쓰는 네 가지 방법</h3>
+<ol class="steps">
+  <li><strong>Copilot으로 에이전트와 토픽 만들기</strong> · 짧은 설명만 주면 만들어 줍니다.</li>
+  <li><strong>토픽에 생성형 답변 넣기</strong> · 생성형 답변 노드로 토픽 안에 통합합니다.</li>
+  <li><strong>대화 향상(conversational boosting)</strong> · 질문에 맞는 것을 못 찾았을 때 생성형 답변을 씁니다.</li>
+  <li><strong>폴백으로 생성형 답변 쓰기</strong> · 관련 답을 못 찾았을 때 대안으로 씁니다.</li>
+</ol>
+
+<h3 id="u7-orch">오케스트레이션 설정</h3>
+<p>예전 에이전트는 미리 정한 트리거 문구와 하드코딩된 동작에 크게 기댔습니다. 사용자가 특정한 방식으로 말해야 원하는 응답이 나왔습니다. 생성형 AI가 들어오면서 에이전트가 적절한 토픽과 내용을 <strong>스스로 판단</strong>하게 됐고, 대화가 더 자연스럽고 매끄러워졌습니다.</p>
+
+<div class="box stop">
+  <span class="t">적용 범위</span>
+  <p>이 설정은 <strong>표준 하네스</strong> 에이전트에만 해당합니다. 표준 하네스는 생성형과 클래식을 모두 지원하고, 새로 만든 표준 하네스 에이전트는 <strong>생성형이 기본값</strong>입니다. 관리자가 끄거나 사전 제작 에이전트가 다른 설정을 지정한 경우는 예외입니다.</p>
+  <p>GitHub Copilot 하네스 에이전트는 언제나 자체의 향상된 오케스트레이션 런타임을 씁니다. 생성형과 클래식 사이를 오가지 않습니다. 명시적 토픽 경로를 작성하는 대신 <span class="ui">Build</span> 탭에서 지침, 지식, 도구, 스킬, 연결된 에이전트, 메모리를 설정합니다.</p>
+</div>
+
+<p>설정 위치는 <span class="ui">Settings</span> 메뉴의 <span class="ui">Generative AI</span>입니다.</p>
+<figure>
+  <img src="media/generative-ai.png" alt="생성형 AI 설정 화면">
+  <figcaption>Generative AI 설정 화면</figcaption>
+</figure>
+
+<div class="cards">
+  <div class="card">
+    <h5>클래식 오케스트레이션</h5>
+    <p>미리 정한 트리거, 토픽, 동작에 집중하는 전통 방식. 질의가 미리 정한 트리거와 맞을 때만 토픽이 트리거되고, 동작은 특정 토픽 안에서만 호출됩니다.</p>
+  </div>
+  <div class="card">
+    <h5>생성형 AI 오케스트레이션</h5>
+    <p>새 표준 하네스 에이전트의 기본값. 어떤 토픽, 동작, 도구, 워크플로, 지식을 쓸지 에이전트가 자율적으로 결정합니다. 정확한 트리거 문구 없이도 맥락을 아는 상호작용이 가능합니다.</p>
+  </div>
+</div>
+
+<h3 id="u7-diff">동작 차이 한눈에</h3>
+<div class="tablewrap">
+<table>
+<thead><tr><th>동작</th><th>생성형 오케스트레이션</th><th>클래식 오케스트레이션</th></tr></thead>
+<tbody>
+<tr><td><strong>토픽</strong></td><td>목적 <strong>설명</strong>을 근거로 선택</td><td>질의와 <strong>트리거 문구</strong> 매칭으로 선택</td></tr>
+<tr><td><strong>자식·연결 에이전트</strong></td><td>설명을 근거로 선택</td><td>해당 없음</td></tr>
+<tr><td><strong>도구</strong></td><td>이름과 설명을 근거로 호출 여부를 판단</td><td>토픽 안에서 명시적으로만 호출</td></tr>
+<tr><td><strong>지식</strong></td><td>답하려고 먼저 알아서 검색</td><td>토픽이 안 맞을 때 폴백으로, 또는 토픽 안에서 명시 호출</td></tr>
+<tr><td><strong>여러 자원 동시 사용</strong></td><td>토픽, 도구, 지식을 조합해 사용</td><td>토픽 하나를 고르려 하고, 설정돼 있으면 지식으로 폴백</td></tr>
+<tr><td><strong>사용자에게 되묻기</strong></td><td>부족한 정보를 채우려고 질문을 자동 생성</td><td>토픽 안에 질문 노드를 직접 만들어야 함</td></tr>
+<tr><td><strong>응답 생성</strong></td><td>사용한 토픽, 도구, <strong>다른 에이전트</strong>, 지식의 정보를 모아 자동 생성</td><td>토픽 안에 메시지 노드를 직접 만들거나 도구를 호출해야 함</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>선택 기준</h4>
+<p>사용자가 메시지를 보내면 에이전트는 응답을 준비하려고 하나 이상의 동작이나 토픽을 고릅니다. 가장 중요한 요인은 <strong>토픽과 도구의 설명</strong>입니다. 그 밖에 이름, 입출력 매개변수와 그 이름과 설명도 영향을 줍니다. 설명이 좋아야 사용자 의도를 도구와 토픽에 정확히 연결합니다.</p>
+<p>생성형 모드에서는 여러 도구나 토픽을 <strong>한꺼번에</strong> 골라 다중 의도 질의를 처리합니다. 지식, 도구, 토픽이 정해지면 실행 순서를 정하는 <strong>계획(plan)</strong>을 만듭니다.</p>
+
+<h3 id="u7-know">지식으로 생성형 답변 만들기</h3>
+<p>생성형 답변을 쓰면 전용 토픽을 만들지 않고도 내부와 외부의 여러 원본에서 정보를 찾아 제시합니다. 주 정보원으로 쓸 수도 있고, 작성한 토픽이 답하지 못할 때 폴백으로 쓸 수도 있습니다. 덕분에 모든 질문을 커버하지도 못할 토픽을 잔뜩 만들지 않고도 쓸 만한 에이전트를 배포할 수 있습니다.</p>
+<div class="key">
+  <div class="t">근거 데이터 · grounding data</div>
+  <p>생성형 답변은 지식 원본을 근거 데이터로 씁니다. 내부 데이터 원본을 지식으로 쓰면, 공개 사이트의 일반적 정보보다 훨씬 우리 상황에 맞는 답이 나옵니다.</p>
+</div>
+
+<h4>콘텐츠 검토 · Content moderation</h4>
+<p>생성된 답변을 얼마나 엄격하게 거르는지를 정합니다.</p>
+<ul>
+  <li>수준 범위는 <span class="ui">Lowest</span>부터 <span class="ui">Highest</span>까지이고 기본값은 <strong>High</strong>입니다</li>
+  <li><strong>낮추면</strong> 답이 더 많이 나오지만 유해 콘텐츠 위험이 커집니다</li>
+  <li><strong>높이면</strong> 필터가 엄격해지고 반환되는 답의 수가 줄어들 수 있습니다</li>
+</ul>
+
+<h3 id="u7-tool">도구 · Tools</h3>
+<div class="key">
+  <div class="t">정의</div>
+  <p>각 도구는 에이전트가 수행할 수 있는 특정 기능 하나를 뜻합니다.</p>
+</div>
+<p>예를 들면 Office 365 Outlook 커넥터로 메일 보내기, 현재 날씨와 예보 확인하기, Dataverse 데이터 읽고 쓰기, Microsoft Teams에 메시지 올리기 같은 것들입니다.</p>
+<p>생성형 오케스트레이션에서 도구 호출은 외부 시스템과의 상호작용, 그리고 단순 정보 조회를 넘어선 동작을 결정합니다. Copilot Studio는 기존 구성 요소들을 동적으로 이어 붙여 대화를 만들고 동작을 수행합니다. 미리 예상하거나 만들어 두지 않은 질의도 처리할 수 있습니다.</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>종류</th><th>하는 일</th></tr></thead>
+<tbody>
+<tr><td><strong>Prompt</strong></td><td>자연어, AI 추론, 지식으로 텍스트·문서·이미지·데이터를 분석하고 변환</td></tr>
+<tr><td><strong>Workflow</strong></td><td>백엔드 작업을 자동화해 외부 시스템에서 동작 수행</td></tr>
+<tr><td><strong>Computer Use</strong></td><td>전용 가상 환경을 주어 레거시 앱 RPA와 웹 브라우징 수행</td></tr>
+<tr><td><strong>Connector</strong></td><td>Power Platform 커넥터로 자체 API와 서비스에 연결</td></tr>
+<tr><td><strong>REST API</strong></td><td>API 엔드포인트와 메서드에 유연하게 연결</td></tr>
+<tr><td><strong>MCP</strong></td><td>MCP(Model Context Protocol) 서버에 연결해 도구와 리소스에 접근</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ============ 8 ============ -->
+<h2 id="u8">8단원 · 에이전트 테스트하기</h2>
+
+<p>에이전트는 지침, 토픽, 도구, 지식으로 이뤄집니다. 각 구성 요소가 제대로 작동하고 <strong>서로 맞물려 돌아가는지</strong> 확인해야 합니다. 대화를 어떻게 안내하는지, 흐름이 의도대로 흘러가는지 검증합니다.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>하네스</th><th>쓰는 도구</th></tr></thead>
+<tbody>
+<tr><td><strong>GitHub Copilot</strong></td><td><span class="ui">Preview</span>로 대화 테스트, <span class="ui">Evaluate</span>로 테스트 세트 실행, <span class="ui">Monitor</span>로 완료 작업과 활동 검토</td></tr>
+<tr><td><strong>표준</strong></td><td><span class="ui">Test your agent</span> 패널로 대화 테스트. 생성형이면 활동 맵, 클래식이면 토픽 추적</td></tr>
+</tbody>
+</table>
+</div>
+<p>아래는 표준 하네스 기준입니다.</p>
+
+<h3>테스트 패널</h3>
+<p>오른쪽 위 <span class="ui">Test</span>를 누르면 열리고, 다시 누르면 닫힙니다. 실제 사용자와 똑같이 동작합니다. 입력하면 사용자에게 보일 그대로 표시됩니다.</p>
+<figure>
+  <img src="media/test-bot-button.png" alt="Test 버튼과 테스트 패널">
+  <figcaption>Test 버튼과 테스트 패널</figcaption>
+</figure>
+<div class="box tip">
+  <span class="t">습관</span>
+  <p>만드는 내내 자주 테스트합니다. 대화가 의도와 다르면 고쳐서 저장하면 되고, 최신 내용이 테스트 에이전트에 바로 반영됩니다.</p>
+</div>
+
+<h3>클래식 오케스트레이션 테스트</h3>
+<p>클래식이면 토픽이 여러 개일 가능성이 높습니다. 특정 토픽에 들어갔을 때 그 토픽 화면으로 바로 데려가 주면 편합니다. 패널 위쪽에서 <span class="ui">Track between topics</span>를 <span class="ui">On</span>으로 켭니다.</p>
+<figure>
+  <img src="media/track-topics.png" alt="Track between topics 토글">
+  <figcaption>Track between topics 토글</figcaption>
+</figure>
+<p>예를 들어 "hello"를 입력하면 인사 토픽이 트리거되고, 해당 토픽이 열리며 대화 경로가 표시됩니다. 경로가 어떻게 진행되는지 눈으로 보면서 토픽을 평가할 수 있습니다.</p>
+
+<h3>생성형 AI 오케스트레이션 테스트</h3>
+<p>생성형이면 여러 도구나 토픽을 한꺼번에 고릅니다. 그다음 실행 순서를 정하는 <strong>계획</strong>을 만듭니다. 이 계획과 실행 단계를 볼 수 있습니다. 패널 위쪽에서 <span class="ui">Show activity map when testing</span>을 <span class="ui">On</span>으로 켭니다.</p>
+<figure>
+  <img src="media/show-activity-map.png" alt="Show activity map 토글">
+  <figcaption>Show activity map 토글</figcaption>
+</figure>
+<div class="key">
+  <div class="t">활동 맵 · activity map</div>
+  <p>세션 안에서 일어난 입력, 판단, 출력의 순서를 시각화한 것.</p>
+</div>
+<figure>
+  <img src="media/activity-map.png" alt="활동 맵 화면">
+  <figcaption>활동 맵 화면</figcaption>
+</figure>
+
+<h3>변수 값 확인</h3>
+<ol class="steps">
+  <li>보조 도구 모음에서 <span class="ui">Variables</span>를 선택하면 변수 패널이 열립니다.</li>
+  <li><span class="ui">Test</span> 탭으로 전환하고 원하는 변수 범주를 펼칩니다. 대화를 진행하며 변수 값이 어떻게 바뀌는지 지켜봅니다.</li>
+</ol>
+<figure>
+  <img src="media/variables-pane-test-tab.png" alt="변수 패널 Test 탭">
+  <figcaption>변수 패널의 Test 탭</figcaption>
+</figure>
+
+<h3>생성형 답변 테스트</h3>
+<p>클래식에서는 적절한 답을 주는 토픽을 못 찾았을 때 폴백으로 생성형 답변을 씁니다. 생성형에서는 계획의 일부로 지식 원본을 먼저 검색합니다.</p>
+<div class="box tip">
+  <span class="t">테스트 요령</span>
+  <p>정의한 데이터 원본과는 관련이 있지만 <strong>어느 토픽으로도 답할 수 없는</strong> 질문을 던집니다. 그래야 생성형 답변 경로를 확인할 수 있습니다.</p>
+</div>
+<p>답이 나오면 후속 질문을 이어서 합니다. 맥락을 기억하므로 매번 다시 설명하지 않아도 됩니다.</p>
+<div class="ascii">질문: "Excel에서 IF 문은 무엇에 쓰나요?"
+답변: IF 함수 설명
+질문: "예시를 하나 보여주세요."
+답변: 여전히 Excel 얘기임을 알아채고 예시 제공</div>
+
+<!-- ============ 9 ============ -->
+<h2 id="u9">9단원 · 게시와 성능 분석</h2>
+
+<h3>게시가 먼저다</h3>
+<p>만든 내용은 게시해야 고객이 쓸 수 있습니다. 채널에 추가하거나 팀원이 쓰려면 <strong>최소 한 번은 게시</strong>해야 합니다. 조직 웹사이트, 모바일 앱, Teams나 Facebook 같은 메시징 플랫폼에 배포할 수 있습니다.</p>
+<div class="box warn">
+  <span class="t">잊기 쉬운 것</span>
+  <p>내용을 바꿨으면 <strong>다시 게시해야 합니다.</strong> 매장 영업시간이 바뀌어 토픽을 고쳤다면, Copilot Studio 포털에서 다시 게시해야 모든 채널에 반영됩니다.</p>
+</div>
+
+<h3>보안과 인증</h3>
+<p>게시 전에 보안과 인증을 설정합니다. 사용자가 데이터에 접근할 수 있게 하고, 이후 필요한 채널에 배포할 수 있게 하려는 것입니다. <span class="ui">Settings &gt; Security</span>에서 세 가지 중 고릅니다.</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>옵션</th><th>내용</th></tr></thead>
+<tbody>
+<tr><td><strong>No authentication</strong></td><td>인증 없음. 어떤 채널에서든 공개적으로 쓸 수 있습니다.</td></tr>
+<tr><td><strong>Authenticate with Microsoft</strong></td><td>Microsoft Entra ID로 인증합니다. Teams, Power Apps, M365 Copilot에서 사용자를 인증하고, Teams + Microsoft 365 채널과 네이티브 앱, 커스텀 앱 채널에서 쓸 수 있습니다. <strong>기본값</strong>입니다.</td></tr>
+<tr><td><strong>Authenticate manually</strong></td><td>Microsoft Entra ID 또는 일반 OAuth 2를 직접 설정합니다. 모든 채널에서 쓸 수 있습니다.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>전사 보안</h4>
+<p>새 표준 하네스 에이전트는 <span class="ui">Authenticate with Microsoft</span>가 기본입니다.</p>
+<div class="box stop">
+  <span class="t">주의</span>
+  <p>메이커와 관리자는 <strong>대화 기록(transcript) 접근을 제한</strong>해야 합니다. 기록에는 민감한 사용자 데이터가 들어 있을 수 있습니다.</p>
+</div>
+<p>테넌트 관리자는 Microsoft Purview 감사 레코드에서 Copilot Studio 활동을 검색할 수 있습니다. 인벤토리, 도입, 거버넌스 보고서는 Power Platform 관리와 거버넌스 도구, 그리고 Copilot Studio Kit에서 제공됩니다.</p>
+<p>감사 로그를 보려면 <a href="https://compliance.microsoft.com/">Microsoft Purview 포털</a>에서 왼쪽 메뉴 <span class="ui">Solutions</span>, <span class="ui">Explore all</span>을 거쳐 <span class="ui">Core</span> 아래 <span class="ui">Audit</span>을 선택합니다.</p>
+<figure>
+  <img src="media/purview-audit.png" alt="Microsoft Purview의 Audit 솔루션">
+  <figcaption>Microsoft Purview의 Audit 솔루션</figcaption>
+</figure>
+
+<h3>청구와 사용량</h3>
+<p>시스템 관리자와 에이전트 관리자는 Power Platform 관리 센터에서 청구와 사용량을 봅니다. 조직 내 팀들이 Copilot Studio를 어떻게 쓰는지 파악하고 보고할 수 있습니다.</p>
+<p>경로는 <a href="https://admin.powerplatform.microsoft.com/">Power Platform 관리 센터</a>의 왼쪽 <span class="ui">Licensing</span> 탭에서 <span class="ui">Copilot Studio</span>입니다.</p>
+<p><span class="ui">Summary</span> 탭 첫 섹션에는 다음 링크가 있습니다.</p>
+<ul>
+  <li><strong>용량 라이선스 구매</strong> · 라이선스 요청 관리 포털로 이동</li>
+  <li><strong>청구 플랜 관리</strong> · 종량제 플랜 관리 탭으로 이동</li>
+  <li><strong>Copilot credits 관리</strong> · 환경별로 Copilot Credits를 배정하는 패널</li>
+  <li><strong>세션 관리</strong> · 선택한 환경의 상태, 배정 용량, 소비 세션 표시</li>
+  <li><strong>요약 보고서 다운로드</strong> · 테넌트의 Copilot Credit 소비 보고서</li>
+</ul>
+<p>이어서 청구 플랜 권장 사항이 나옵니다. 운영 환경에서 에이전트를 쓰고 사용량을 추적하려면 청구 플랜이 필요합니다. 그 아래에 종량제 Copilot Credits와 선불 용량을 보여 주는 용량 요약이 있습니다.</p>
+<ul>
+  <li><span class="ui">Copilot credits capacity</span> 탭 · 제품별 소비, 소비 추이, 환경별 사용량</li>
+  <li><span class="ui">Environments</span> 탭 · 특정 환경의 제품별 용량 소비와 개별 에이전트 단위 소비 상세</li>
+  <li><span class="ui">Sessions capacity</span> 탭 · 배정된 세션 용량과 소비량</li>
+</ul>
+
+<h3>게시하기</h3>
+<p>상단 탐색 창의 <span class="ui">Publish</span> 버튼을 누릅니다. 게시 과정에서 오류를 검사합니다. 보통 몇 분 걸립니다. 성공하면 페이지 위에 초록 배너가 뜨고, 오류가 있으면 메시지로 알려 줍니다.</p>
+
+<h4>데모 웹사이트</h4>
+<p>채널에 배포하기 전에 팀원 의견을 받고 싶을 수 있습니다. 처음 게시하면 <strong>데모 웹사이트</strong>로 공개할 수 있습니다. URL을 팀원이나 이해관계자에게 주고 써 보게 합니다.</p>
+<div class="box tip">
+  <span class="t">왜 유용한가</span>
+  <p>테스트 패널은 <strong>제작자만</strong> 쓰라고 만든 것입니다. 데모 사이트는 실제 사용자 경험에 가깝고, 테스트에 참여할 사람의 폭을 넓혀 줍니다.</p>
+</div>
+<p><span class="ui">Share your agent</span> 아래 데모 웹사이트 링크를 선택합니다. 사용자가 보게 될 모습이 그대로 나오고, 에이전트 캔버스는 화면 아래쪽에 있습니다. 직접 입력하거나 제공된 시작 문구를 골라 대화합니다.</p>
+<figure>
+  <img src="media/demo-website.png" alt="Share your agent의 데모 웹사이트 옵션">
+  <figcaption>Share your agent의 데모 웹사이트 옵션</figcaption>
+</figure>
+<div class="box stop">
+  <span class="t">제약</span>
+  <p>데모 웹사이트는 인증이 <span class="ui">No authentication</span> 또는 <span class="ui">Authenticate manually</span>일 때만 쓸 수 있습니다. <span class="ui">Authenticate with Microsoft</span>면 쓸 수 없습니다.</p>
+</div>
+
+<h4>채널 배포</h4>
+<ul>
+  <li><strong>표준 하네스</strong> · Microsoft 채널, 웹사이트와 앱, 컨택 센터 연동, 메시징 채널. 일부 메시징 채널은 Azure Bot Service를 씁니다</li>
+  <li><strong>GitHub Copilot 하네스</strong> · 현재는 채널 수가 더 적습니다. 게시 대화 상자에 나오며, 미리 보기가 진행되면서 바뀔 수 있습니다</li>
+  <li><strong>Copilot chat 하네스</strong> · M365 Copilot Chat의 사내 사용자에게 게시됩니다</li>
+</ul>
+
+<h3>성능 분석</h3>
+<p>배포하고 고객이 쓰기 시작하면 통계가 쌓입니다. 왼쪽 탐색 창의 <span class="ui">Analytics</span> 탭에서 봅니다.</p>
+<figure>
+  <img src="media/analytics.png" alt="분석 요약 페이지">
+  <figcaption>Analytics 요약 페이지</figcaption>
+</figure>
+<ul>
+  <li>처리한 <strong>세션 수</strong></li>
+  <li>사용자를 얼마나 잘 붙들고 문제를 얼마나 <strong>해결</strong>했는지</li>
+  <li>사람 담당자로의 <strong>에스컬레이션 비율</strong></li>
+  <li>대화 중 <strong>이탈률</strong></li>
+</ul>
+<p>고객 만족도는 KPI 수준과 <span class="ui">Customer Satisfaction</span> 탭에서 확인합니다.</p>
+
+<h3>Copilot Studio Kit</h3>
+<p>Power CAT(Power Customer Advisory Team)이 만들고 유지하는 도구 모음입니다. 커스텀 에이전트를 만들고, 통제하고, 테스트하고, 최적화하는 데 씁니다.</p>
+<figure>
+  <img src="media/copilot-studio-kit.png" alt="Copilot Studio Kit 요약 페이지">
+  <figcaption>Copilot Studio Kit 요약 페이지</figcaption>
+</figure>
+
+<!-- ============ 10 ============ -->
+<h2 id="u10">10단원 · 실습 <span class="badge time">약 9분</span></h2>
+<p>Copilot Studio에서 직접 에이전트를 하나 만드는 실습입니다. 실습은 <strong>표준 하네스</strong>를 씁니다. 2단원에서 체험판을 준비했다면 바로 진행할 수 있습니다.</p>
+<div class="box tip">
+  <span class="t">들어가기 전 확인</span>
+  <ul style="margin-bottom:0">
+    <li>회사 또는 학교 계정으로 로그인했는가</li>
+    <li>쓸 환경을 정했는가. 강사와 함께라면 강사에게 확인</li>
+    <li>홈 화면에서 <span class="ui">New experience</span> 토글이 꺼져 있는가. 표준 하네스로 만들려면 꺼야 합니다</li>
+  </ul>
+</div>
+<p>이 모듈 실습보다 자세한 단계별 랩은 별도 문서인 <a href="../handson-lab/"><strong>Copilot Studio 실습 랩 한국어 가이드</strong></a>에 정리해 두었습니다.</p>
+
+<!-- ============ 11 ============ -->
+<h2 id="u11">11단원 · 지식 확인 <span class="badge time">약 5분</span></h2>
+<p>퀴즈로 나올 만한 대목을 모았습니다.</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>확인</th><th>답</th></tr></thead>
+<tbody>
+<tr><td>시스템 토픽을 새로 만들 수 있나?</td><td>없습니다. 삭제도 못 합니다. 끄거나 수정만 됩니다</td></tr>
+<tr><td>하네스를 나중에 바꿀 수 있나?</td><td>GitHub Copilot과 표준 사이는 못 옮깁니다. 만들 때 정합니다</td></tr>
+<tr><td>새 표준 하네스 에이전트의 기본 오케스트레이션은?</td><td>생성형 AI 오케스트레이션</td></tr>
+<tr><td>생성형 오케스트레이션에서 토픽 선택의 가장 중요한 근거는?</td><td>토픽과 도구의 설명(description)</td></tr>
+<tr><td>클래식에서 트리거 문구가 정확히 일치해야 하나?</td><td>아닙니다. 자연어 이해로 비슷한 뜻이면 매칭됩니다</td></tr>
+<tr><td>환경은 어디서 만드나?</td><td>Copilot Studio가 아니라 Power Platform 관리 센터</td></tr>
+<tr><td>체험판 라이선스로 게시할 수 있나?</td><td>없습니다. 만들기와 테스트만 됩니다</td></tr>
+<tr><td>데모 웹사이트를 못 쓰는 인증 설정은?</td><td>Authenticate with Microsoft</td></tr>
+<tr><td>콘텐츠 검토 기본값은?</td><td>High</td></tr>
+<tr><td>지침에 담아야 할 다섯 요소는?</td><td>Role, Scope, Context, Tone, Error handling</td></tr>
+<tr><td>제안 프롬프트는 몇 개까지?</td><td>10개</td></tr>
+<tr><td>아이콘 형식은?</td><td>PNG</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ============ 12 ============ -->
+<h2 id="u12">12단원 · 요약 <span class="badge time">약 3분</span></h2>
+<p>에이전트는 자연어 대화로 셀프서비스 지원을 제공합니다. 흔한 문제를 해결하고, 사람의 도움이 필요하면 대화와 맥락을 함께 상담사에게 넘깁니다.</p>
+<p>다른 시스템의 정보를 끌어오고, 도구로 회의를 잡고 사례를 배정하고 메일을 보낼 수 있습니다. Copilot Studio는 현업 전문가와 메이커와 개발자가 이런 에이전트를 만들고 관리하도록 그래픽 기반 로우코드 환경을 제공합니다.</p>
+
+<h4>이 모듈에서 다룬 것</h4>
+<ul>
+  <li>에이전트 소개와 활용처, Copilot Studio로 만드는 방식 개요</li>
+  <li>GitHub Copilot, 표준, Copilot chat 하네스 비교</li>
+  <li>표준 하네스 환경과 새 GitHub Copilot 하네스 환경 비교</li>
+  <li>팀과 지역 같은 조건에 따라 내용을 달리하기 위한 환경 활용</li>
+  <li>에이전트에서 생성형 AI를 쓰는 방법</li>
+  <li>에이전트 생성 절차와 Copilot Studio 화면 다루기</li>
+  <li>생성형 AI로 사용자 질문에 답하기</li>
+  <li>테스트 도구</li>
+  <li>게시 절차와 게시 후 분석</li>
+</ul>
+
+<h4>다음 단계</h4>
+<p>효과적인 에이전트 동작 설계를 더 깊이 배우는 단계입니다.</p>
+<ul>
+  <li>대화 노드를 더 깊이 이해하기</li>
+  <li>변수로 데이터를 담고 저장하는 방법</li>
+  <li>지식 원본으로 에이전트를 근거에 묶기</li>
+  <li>도구로 기능 확장하기</li>
+  <li>Copilot Studio 워크플로로 동작 강화하기</li>
+</ul>
+
+<!-- ============ appendix ============ -->
+<h2 id="appendix">부록 · 자주 헷갈리는 개념</h2>
+
+<h3>제작 도구와 하네스</h3>
+<div class="ascii">제작 도구(authoring tool) = 어떻게 만들고 관리하는가
+하네스(harness)          = 무엇이 실행하는가</div>
+<p>같은 Copilot Studio에서 만들어도 하네스는 다를 수 있습니다. 게시 채널만 보고 하네스를 짐작하면 안 됩니다.</p>
+
+<h3>환경과 솔루션</h3>
+<div class="cards">
+  <div class="card"><h5>환경 · Environment</h5><p>데이터와 앱과 에이전트가 사는 공간. Power Platform 관리 센터에서 만듭니다.</p></div>
+  <div class="card"><h5>솔루션 · Solution</h5><p>환경 안에서 관련 구성 요소를 묶어 이동하고 배포하는 단위. 에이전트를 만들기 전에 기본 솔루션을 지정해 두는 것이 좋습니다.</p></div>
+</div>
+
+<h3>토픽과 도구와 지식</h3>
+<div class="tablewrap">
+<table>
+<thead><tr><th>구성 요소</th><th>맡는 일</th><th>언제 쓰나</th></tr></thead>
+<tbody>
+<tr><td><strong>토픽</strong></td><td>정해진 순서대로 대화를 진행</td><td>순서와 결과가 보장돼야 할 때</td></tr>
+<tr><td><strong>도구</strong></td><td>외부 시스템에서 동작을 수행하거나 데이터를 가져옴</td><td>실제로 무언가를 해야 할 때</td></tr>
+<tr><td><strong>지식</strong></td><td>답변의 근거가 되는 자료</td><td>사실을 알려줘야 할 때</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="links">참고 링크</h2>
+<ul>
+  <li><a href="https://learn.microsoft.com/en-us/training/modules/power-virtual-agents-bots/">원문 모듈 · Get started with Microsoft Copilot Studio</a></li>
+  <li><a href="https://learn.microsoft.com/ko-kr/microsoft-copilot-studio/harnesses-overview">하네스 선택하기</a></li>
+  <li><a href="https://learn.microsoft.com/ko-kr/microsoft-copilot-studio/guidance/generative-mode-guidance">생성형 오케스트레이션 지침 작성 가이드</a></li>
+  <li><a href="https://learn.microsoft.com/ko-kr/microsoft-copilot-studio/advanced-generative-actions">생성형 AI로 에이전트 동작 오케스트레이션</a></li>
+  <li><a href="https://learn.microsoft.com/ko-kr/microsoft-copilot-studio/authoring-select-agent-model">에이전트 기본 AI 모델 선택</a></li>
+  <li><a href="https://learn.microsoft.com/ko-kr/microsoft-copilot-studio/guidance/kit-overview">Copilot Studio Kit 개요</a></li>
+  <li><a href="https://learn.microsoft.com/ko-kr/microsoft-copilot-studio/responsible-ai-overview">책임 있는 AI 개요</a></li>
+</ul>
+
+<div class="footer">
+  <p>Microsoft Learn 모듈 <em>Get started with Microsoft Copilot Studio</em>를 우리말로 옮기고 설명을 덧붙인 학습 자료입니다. 화면 이미지와 원문 내용의 저작권은 Microsoft에 있습니다. 제품 화면은 계속 바뀌므로 최신 정보는 원문을 함께 확인하세요.</p>
+  <p>이어서 볼 문서 · <a href="../handson-lab/">Copilot Studio 실습 랩 한국어 가이드</a></p>
+</div>
+
+</main>
+</div>
+</body>
+</html>
