@@ -150,6 +150,18 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
   padding:1px 7px;margin-right:7px;vertical-align:1px;
 }
 
+/* 이번 개정에서 새로 넣은 부분. 캡처할 때 실제 화면과 대조한다 */
+.new{border-left:3px solid #2f8f6b;padding-left:20px;margin:22px 0}
+.new>.tag{
+  display:inline-block;font-size:11.5px;font-weight:600;
+  color:#1f6b50;background:#e8f4ef;border-radius:4px;
+  padding:2px 8px;margin:0 0 8px;
+}
+.new>.tag::before{content:'신규 · 화면 확인 필요'}
+.new>:first-child{margin-top:0}
+.new>:last-child{margin-bottom:0}
+.pill.opt{background:#fdf3e3;color:#9a6a1f;border-color:transparent}
+
 .pager{display:flex;gap:10px;margin-top:52px;padding-top:22px;border-top:1px solid var(--line)}
 .pager a{flex:1;border:1px solid var(--line);border-radius:var(--radius);
   padding:12px 16px;font-size:14px;color:var(--ink-soft)}
@@ -636,6 +648,44 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <img class="shot" src="ecl-shots/m04-02-other-ways-standard.png" alt="기타 빌드 방식 영역의 표준 에이전트">
 <p class="cap">기타 빌드 방식을 펼친 화면. 에이전트(표준)를 선택합니다</p>
+
+<div class="new"><span class="tag"></span>
+
+<h3>에이전트가 만들어지는 자리, 환경</h3>
+<p>에이전트를 만들기 전에 지금 어디에 만들고 있는지 알아야 합니다. Copilot Studio 화면 오른쪽 위에는 <strong>환경</strong> 이름이 표시됩니다. 실습 중 만든 것이 보이지 않는다면 대부분 환경이 다른 경우입니다.</p>
+
+<p>환경은 조직의 앱과 에이전트, 흐름, 데이터를 담아두는 공간입니다. 동시에 서로 다른 대상이나 목적을 가진 것들을 갈라놓는 칸막이 역할도 합니다. 부서별로 나누기도 하고, 개발용과 운영용을 나누기도 합니다.</p>
+
+<table>
+<tr><th>알아둘 것</th><th>내용</th></tr>
+<tr><td>테넌트 안에 있음</td><td>환경은 회사 테넌트 안에서 만들어지고, 그 테넌트 사용자만 접근합니다</td></tr>
+<tr><td>지역에 묶임</td><td>환경을 만들 때 정한 지역의 데이터 센터에 데이터가 저장됩니다</td></tr>
+<tr><td>안에서만 연결됨</td><td>같은 환경 안의 연결과 흐름, 데이터에만 연결할 수 있습니다</td></tr>
+<tr><td>옮기려면 솔루션</td><td>다른 환경으로 보내려면 솔루션으로 내보내고 가져옵니다</td></tr>
+</table>
+
+<h4>환경 유형</h4>
+<table>
+<tr><th>유형</th><th>쓰임</th></tr>
+<tr><td>기본(Default)</td><td>테넌트마다 하나씩 자동으로 만들어지고 모두가 함께 씁니다. 시험 삼아 만들어 보는 자리이며 실제 업무용으로는 권장하지 않습니다</td></tr>
+<tr><td>프로덕션</td><td>실제로 쓰는 에이전트를 두는 자리입니다</td></tr>
+<tr><td>샌드박스</td><td>개발과 테스트용입니다. 복사와 초기화를 할 수 있습니다</td></tr>
+<tr><td>평가판(Trial)</td><td>짧게 써보는 용도이며 30일 뒤 사라집니다</td></tr>
+</table>
+
+<h4>두 가지 역할</h4>
+<table>
+<tr><th>역할</th><th>할 수 있는 일</th></tr>
+<tr><td>환경 제작자</td><td>앱, 에이전트, 흐름, 연결을 만듭니다. 실습에 필요한 역할입니다</td></tr>
+<tr><td>환경 관리자</td><td>여기에 더해 사용자 추가, 데이터베이스 준비, DLP 정책 설정을 합니다</td></tr>
+</table>
+
+<div class="note">
+<span class="t">커넥터가 막히는 이유</span>
+<p>오후 실습에서 커넥터가 보이지 않거나 연결이 거부되면 환경에 걸린 DLP 정책 때문인 경우가 많습니다. 이 정책은 환경 관리자가 정하며, 어떤 커넥터를 함께 쓸 수 있는지를 제한합니다. 실습 전에 관리자에게 확인해 두면 좋습니다.</p>
+</div>
+
+</div>
 
 <h3>실습</h3>
 <ol class="steps">
@@ -1257,6 +1307,13 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <h3>실습 &#9312; MSN 날씨 커넥터</h3>
 <p>인증 설정 없이 바로 쓸 수 있는 커넥터로 동작 원리를 먼저 익힙니다.</p>
 
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">이 커넥터가 보이지 않는다면</span>
+<p>MSN 날씨는 Microsoft 외부 서비스로 분류되어, 조직의 DLP 정책에서 막혀 있는 경우가 있습니다. 검색해도 나오지 않거나 연결이 거부되면 이 실습은 건너뛰고 다음 실습 &#9313;로 넘어가세요. 배우려는 내용은 같습니다.</p>
+</div>
+</div>
+
 <h4>1단계. 커넥터 추가</h4>
 <p>상단 도구 탭에서 도구 추가를 클릭합니다.</p>
 <img class="shot" src="ecl-img/m12-1_image1.png" alt="도구 탭에서 도구 추가 버튼을 클릭하는 화면">
@@ -1296,7 +1353,48 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <img class="shot" src="ecl-img/m12-1_image11.png" alt="커넥터의 입력과 출력을 상세히 확인하는 화면">
 <p class="cap">테스트 패널에서 커넥터 동작을 클릭하면 입력값과 출력값을 볼 수 있습니다</p>
 
-<h3>실습 &#9313; Excel 파일 준비</h3>
+<div class="new"><span class="tag"></span>
+
+<h3>실습 &#9313; Outlook 메일 보내기 커넥터</h3>
+<p>같은 원리를 Microsoft 365 커넥터로 한 번 더 해봅니다. 이번에는 <strong>어떤 값을 에이전트가 채우게 하고 어떤 값을 고정할지</strong>를 직접 정합니다. 커넥터를 쓸 때 가장 중요한 판단입니다.</p>
+
+<h4>1단계. 커넥터 추가</h4>
+<ol class="steps">
+<li><b>도구 탭에서 도구 추가</b>앞의 실습과 같은 자리에서 시작합니다.</li>
+<li><b>커넥터 선택</b>검색창에 outlook을 입력하고 Office 365 Outlook을 고릅니다.</li>
+<li><b>전자 메일 보내기 선택</b>목록에서 전자 메일 보내기 동작을 고릅니다.</li>
+<li><b>연결 만들기</b>연결이 없으면 새 연결을 만듭니다. 회사 계정으로 로그인되어 있으므로 별도 입력 없이 진행됩니다.</li>
+<li><b>추가 및 구성</b>도구 구성 페이지가 열립니다.</li>
+</ol>
+
+<h4>2단계. 입력값 정하기</h4>
+<p>구성 페이지의 입력 항목에서 각 값을 어떻게 채울지 고릅니다. 여기가 이번 실습의 핵심입니다.</p>
+
+<table>
+<tr><th>입력</th><th>채우는 방식</th><th>값</th></tr>
+<tr><td>받는 사람</td><td>고정값</td><td>본인 회사 메일 주소</td></tr>
+<tr><td>제목</td><td>에이전트가 채움</td><td>대화 내용에서 판단</td></tr>
+<tr><td>본문</td><td>에이전트가 채움</td><td>대화 내용에서 판단</td></tr>
+</table>
+
+<p>받는 사람을 고정하는 이유는 분명합니다. 에이전트가 주소를 정하게 두면 엉뚱한 사람에게 갈 수 있습니다. 반대로 제목과 본문까지 고정하면 매번 같은 메일만 나가므로 쓸모가 없습니다. <strong>바뀌면 안 되는 값은 고정하고, 상황에 따라 달라져야 하는 값은 맡깁니다.</strong></p>
+
+<h4>3단계. 자격 증명 확인</h4>
+<p>추가 세부 정보에서 사용할 자격 증명을 확인합니다. 기본값은 사용자 자격 증명이며, 이 경우 메일은 대화 중인 사용자 이름으로 나갑니다. 제작자 제공으로 바꾸면 만든 사람 계정으로 나갑니다.</p>
+
+<h4>4단계. 테스트</h4>
+<p>테스트 창에서 이렇게 말해 봅니다.</p>
+<pre><code>오늘 연차 신청 방법 정리해서 메일로 보내줘</code></pre>
+<p>받은 편지함을 확인하면 제목과 본문은 대화에 맞게 채워졌고 받는 사람은 지정한 주소 그대로인 것을 볼 수 있습니다. 같은 요청을 내용만 바꿔 한 번 더 해보면 제목과 본문만 달라집니다.</p>
+
+<div class="note">
+<span class="t">두 실습을 비교해 보세요</span>
+<p>날씨 커넥터에서는 도시 이름을 에이전트가 대화에서 알아서 뽑아냈습니다. 메일 커넥터에서는 받는 사람만 고정하고 나머지를 맡겼습니다. 커넥터를 붙일 때마다 입력값 하나하나에 대해 같은 판단을 하게 됩니다.</p>
+</div>
+
+</div>
+
+<h3>실습 &#9314; Excel 파일 준비</h3>
 <p>대화를 기록할 Excel 파일을 만듭니다. 반드시 <strong>표</strong>로 지정해야 커넥터가 행을 추가할 수 있습니다.</p>
 
 <h4>1단계. 새 파일 만들기</h4>
@@ -1324,7 +1422,14 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p>일반 셀 범위로 두면 커넥터가 행을 추가하지 못합니다. 표 디자인 탭이 보이는지 확인하세요. OneDrive 사용이 제한된 조직은 SharePoint 문서 라이브러리로 같은 구조를 만들 수 있습니다.</p>
 </div>
 
-<h3>실습 &#9314; Record 토픽과 Excel 연결</h3>
+<h3>실습 &#9315; Record 토픽과 Excel 연결</h3>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">잘 안 되면 넘어가도 됩니다</span>
+<p>이 실습은 AI 응답이 나갈 때마다 자동으로 실행되는 트리거를 씁니다. 매번 안정적으로 동작하지는 않아 기록이 빠질 때가 있습니다. 두어 번 시도해도 행이 추가되지 않으면 넘어가세요. 배울 내용인 <strong>토픽 안에서 커넥터를 호출한다</strong>는 구조는 앞의 실습에서 이미 확인했습니다.</p>
+</div>
+</div>
 
 <h4>1단계. 토픽 생성과 트리거 변경</h4>
 <img class="shot old" src="ecl-img/m12_image6.png" alt="토픽을 새로 추가하는 화면">
@@ -1729,8 +1834,17 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <p>M13에서 사용한 것은 텍스트 입력 방식입니다. 프롬프트 문장만 변경하면 동작이 바뀌므로 코드 작성이 필요하지 않습니다. AI 프롬프트는 에이전트 없이 Power Automate 흐름에서 단독으로도 사용할 수 있습니다.</p>
 
-</section><section class="pg" data-pg="m15"><h2 class="mod" id="m15"><span class="num">M15</span>도구 · 멀티에이전트 <span class="pill">실습</span></h2>
+</section><section class="pg" data-pg="m15"><h2 class="mod" id="m15"><span class="num">M15</span>도구 · 멀티에이전트 <span class="pill">실습</span> <span class="pill opt">선택</span></h2>
 <p class="lead">에이전트가 다른 에이전트를 호출하는 구조를 구성합니다.</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">시작하기 전에</span>
+<p>이 모듈은 법무 에이전트의 지식으로 <strong>공개 웹사이트</strong>를 씁니다. 외부 사이트 수집이 막힌 조직에서는 진행되지 않습니다. 두 가지 중에 고르시면 됩니다.</p>
+<p><b>대체 방법</b> — 웹사이트 대신 <a href="#prep">사전 준비</a>에서 받은 실습 파일 중 <code>휴가_근태_가이드.docx</code>를 법무 에이전트의 지식으로 올립니다. 내용은 다르지만 위임 구조를 확인하는 데는 문제가 없습니다.</p>
+<p><b>건너뛰기</b> — 시간이 부족하면 이 모듈은 넘어가도 됩니다. 뒤의 M16은 이 실습 결과가 없어도 진행됩니다.</p>
+</div>
+</div>
 
 <p>에이전트는 다른 에이전트를 도구로 호출할 수 있습니다. 공식 문서에서는 <strong>연결된 에이전트</strong> 또는 <strong>자식 에이전트</strong>라고 부릅니다. 사용자의 질문을 받아 적절한 전문 에이전트에게 위임하는 구조를 만듭니다.</p>
 
