@@ -61,14 +61,15 @@ a:hover{text-decoration:underline}
 .sb a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
 
 .doc{flex:1;min-width:0;padding:44px 0 130px}
+.doc p,.doc ul,.doc ol,.doc dl,.doc .lead{max-width:44em}
 .doc h1{font-size:31px;line-height:1.38;margin:0 0 12px}
 .doc h2{
   font-size:23px;line-height:1.45;margin:64px 0 16px;
   padding-bottom:12px;border-bottom:1px solid var(--line);
 }
 .doc h2:first-of-type{margin-top:40px}
-.doc h3{font-size:17.5px;margin:34px 0 8px}
-.doc h4{font-size:16px;margin:22px 0 6px}
+.doc h3{font-size:18.5px;margin:40px 0 10px}
+.doc h4{font-size:16px;margin:26px 0 6px;color:var(--ink-soft)}
 .doc p,.doc ul,.doc ol{margin:14px 0}
 .doc li{margin:6px 0}
 .doc ul,.doc ol{padding-left:1.3rem}
@@ -116,9 +117,9 @@ a:hover{text-decoration:underline}
 }
 .steps>li b{display:block;font-weight:600}
 
-.doc table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;line-height:1.65}
+.doc table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px;line-height:1.65}
 .doc th{text-align:left;font-weight:600;background:var(--paper-soft);color:var(--ink-soft)}
-.doc th,.doc td{border:1px solid var(--line);padding:9px 14px;vertical-align:top}
+.doc th,.doc td{border:1px solid var(--line);padding:11px 15px;vertical-align:top}
 
 code{font-family:Consolas,'Courier New',monospace;font-size:.88em;
   background:var(--paper-soft);border:1px solid var(--line-soft);
@@ -127,7 +128,7 @@ code{font-family:Consolas,'Courier New',monospace;font-size:.88em;
 pre{
   background:var(--paper-soft);border:1px solid var(--line);
   border-radius:var(--radius);padding:18px 20px;margin:16px 0;
-  overflow-x:auto;font-size:13.5px;line-height:1.72;
+  overflow-x:auto;font-size:14.5px;line-height:1.8;
 }
 pre code{background:none;border:0;padding:0;font-size:inherit;color:var(--ink-soft)}
 
@@ -200,6 +201,10 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
   overflow:hidden;margin:0 0 26px;
 }
 .prog i{display:block;height:100%;background:var(--accent);transition:width .25s ease}
+
+/* 페이지 첫머리에서는 모듈 구분선이 필요 없다 */
+.prog + h2.mod{margin-top:0;border-top:0;padding-top:0}
+.prog + h2{margin-top:0}
 
 @media (max-width:1080px){
   .sb{display:none}
