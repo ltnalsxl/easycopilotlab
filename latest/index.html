@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>처음 만나는 Copilot Studio · 기본과정</title>
+<title>처음 만나는 Copilot Studio 기본과정</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
@@ -138,7 +138,7 @@ dl.qa dd{margin:5px 0 0;color:var(--ink-soft);font-size:15px}
 
 .doc table th:first-child,
 .doc table td:first-child{color:var(--ink)}
-.doc table td:empty::after{content:'—';color:var(--line)}
+.doc table td:empty::after{content:'-';color:var(--line)}
 
 img.shot{width:100%;border:1px solid var(--line);border-radius:var(--radius);margin:16px 0 6px;display:block}
 img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
@@ -157,7 +157,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
   color:#1f6b50;background:#e8f4ef;border-radius:4px;
   padding:2px 8px;margin:0 0 8px;
 }
-.new>.tag::before{content:'신규 · 화면 확인 필요'}
+.new>.tag::before{content:'화면 확인 필요'}
 .new>:first-child{margin-top:0}
 .new>:last-child{margin-bottom:0}
 .pill.opt{background:#fdf3e3;color:#9a6a1f;border-color:transparent}
@@ -240,12 +240,12 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
   <a href="#m3">M3. 에이전트 만들기 시작</a>
   <a href="#m4">M4. 에이전트 복사하기</a>
   <a href="#m5">M5. 에이전트의 구성요소</a>
-  <a href="#m6">M6. 1요소 · 오케스트레이터</a>
-  <a href="#m7">M7. 2요소 · 지침</a>
-  <a href="#m8">M8. 3요소 · 지식</a>
+  <a href="#m6">M6. 오케스트레이터</a>
+  <a href="#m7">M7. 지침</a>
+  <a href="#m8">M8. 지식</a>
 
   <div class="grp">오후</div>
-  <a href="#m9">M9. 4요소 · 도구들</a>
+  <a href="#m9">M9. 도구들</a>
   <a href="#m10">M10. 토픽과 변수</a>
   <a href="#m11">M11. 게시와 공유</a>
   <a href="#m12">M12. 커넥터</a>
@@ -267,7 +267,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p class="lead">개발 지식 없이 만드는 나의 첫 AI 에이전트. 코드를 쓰지 않고 실제 업무를 처리하는 에이전트를 직접 만들어 봅니다.</p>
 
 <div class="meta">
-  <div><b>5–6시간</b>과정 길이</div>
+  <div><b>5~6시간</b>과정 길이</div>
   <div><b>모듈 17개</b>구성</div>
   <div><b>에이전트 3개</b>만드는 것</div>
   <div><b>2026년 8월</b>화면 기준</div>
@@ -293,7 +293,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <table>
 <tr><th>만드는 것</th><th>내용</th><th>모듈</th></tr>
-<tr><td>HR 도우미</td><td>사내 규정과 담당자를 안내하는 에이전트</td><td>M3–M12</td></tr>
+<tr><td>HR 도우미</td><td>사내 규정과 담당자를 안내하는 에이전트</td><td>M3~M12</td></tr>
 <tr><td>토픽 3종</td><td>Echo, Contact, Record</td><td>M10, M12</td></tr>
 <tr><td>에이전트 흐름</td><td>Teams로 문의를 전달하는 자동화</td><td>M13</td></tr>
 <tr><td>법무 에이전트</td><td>계약과 규정을 담당하는 두 번째 에이전트</td><td>M15</td></tr>
@@ -382,14 +382,14 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <h3>전체 흐름</h3>
 <table>
 <tr><th>단계</th><th>내용</th><th>모듈</th></tr>
-<tr><td>원리 이해</td><td>Copilot의 작동 방식과 사용 형태</td><td>M1–M2</td></tr>
+<tr><td>원리 이해</td><td>Copilot의 작동 방식과 사용 형태</td><td>M1~M2</td></tr>
 <tr><td>에이전트 생성</td><td>에이전트 빌더로 만들고 파일 업로드</td><td>M3</td></tr>
 <tr><td>Copilot Studio로 이동</td><td>솔루션 만들고 복사</td><td>M4</td></tr>
-<tr><td>기본기 구성</td><td>구성 요소 이해, 지침 작성, 지식 연결</td><td>M5–M8</td></tr>
-<tr><td>대화 흐름 설계</td><td>도구의 원리, 토픽과 변수</td><td>M9–M10</td></tr>
+<tr><td>기본기 구성</td><td>구성 요소 이해, 지침 작성, 지식 연결</td><td>M5~M8</td></tr>
+<tr><td>대화 흐름 설계</td><td>도구의 원리, 토픽과 변수</td><td>M9~M10</td></tr>
 <tr><td>게시</td><td>Copilot에서 사용할 수 있도록 배포</td><td>M11</td></tr>
-<tr><td>행동 연결</td><td>커넥터와 에이전트 흐름</td><td>M12–M13</td></tr>
-<tr><td>확장</td><td>AI 프롬프트, 멀티에이전트, 트리거</td><td>M14–M16</td></tr>
+<tr><td>행동 연결</td><td>커넥터와 에이전트 흐름</td><td>M12~M13</td></tr>
+<tr><td>확장</td><td>AI 프롬프트, 멀티에이전트, 트리거</td><td>M14~M16</td></tr>
 </table>
 
 </section><section class="pg" data-pg="m1"><h2 class="mod" id="m1"><span class="num">M1</span>코파일럿 동작원리</h2>
@@ -782,7 +782,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <tr><td>오케스트레이터</td><td>엔진</td><td>어떤 AI 모델을 두뇌로 쓸지 결정</td><td>M6</td></tr>
 <tr><td>지침</td><td>행동매뉴얼</td><td>역할, 범위, 태도, 원칙 정의</td><td>M7</td></tr>
 <tr><td>지식</td><td>교과서</td><td>답변의 근거 자료</td><td>M8</td></tr>
-<tr><td>도구</td><td>손발</td><td>실제로 수행하는 행동</td><td>M9–M16</td></tr>
+<tr><td>도구</td><td>손발</td><td>실제로 수행하는 행동</td><td>M9~M16</td></tr>
 </table>
 
 <p>오케스트레이터와 지침, 지식을 제외한 나머지는 모두 도구입니다. 토픽, 커넥터, 에이전트 흐름, AI 프롬프트, 멀티에이전트, 트리거가 여기에 해당하며 오후 시간의 대부분을 차지합니다.</p>
@@ -854,8 +854,8 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <p>과정 이후 직접 접속했을 때 화면이 다르게 보인다면 하네스가 다른 것입니다. 홈 화면에서 기타 빌드 방식을 펼쳐 에이전트(표준)를 선택하면 이 과정과 같은 환경으로 들어갑니다.</p>
 
-</section><section class="pg" data-pg="m6"><h2 class="mod" id="m6"><span class="num">M6</span>1요소 · 오케스트레이터 <span class="pill">실습</span></h2>
-<p class="lead">AI 모델을 변경하고 답변의 차이를 확인합니다.</p>
+</section><section class="pg" data-pg="m6"><h2 class="mod" id="m6"><span class="num">M6</span>오케스트레이터 <span class="pill">실습</span></h2>
+<p class="lead">네 가지 구성 요소 중 첫 번째입니다. AI 모델을 변경하고 답변의 차이를 확인합니다.</p>
 
 <p>오케스트레이터는 사용자의 요청을 받아 어떤 도구를 사용할지 판단하고 최종 답변을 생성하는 AI 모델입니다. 의도 파악, 도구 선택, 답변 생성 세 가지를 수행합니다. 어떤 모델을 사용하느냐에 따라 답변의 깊이와 속도가 달라집니다.</p>
 
@@ -927,8 +927,8 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <span class="t">이후 실습의 기반이 됩니다</span>
 <p>실습 중 에이전트가 예상과 다르게 동작하면 이 설정을 먼저 확인합니다.</p>
 </div>
-</section><section class="pg" data-pg="m7"><h2 class="mod" id="m7"><span class="num">M7</span>2요소 · 지침 <span class="pill">실습</span></h2>
-<p class="lead">에이전트의 역할과 태도를 정의합니다.</p>
+</section><section class="pg" data-pg="m7"><h2 class="mod" id="m7"><span class="num">M7</span>지침 <span class="pill">실습</span></h2>
+<p class="lead">두 번째 구성 요소입니다. 에이전트의 역할과 태도를 정의합니다.</p>
 
 <p>지침은 에이전트에게 주는 행동매뉴얼입니다. 지침의 품질이 에이전트의 품질을 결정합니다.</p>
 
@@ -949,7 +949,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <tr><td>태도는 행동으로 서술</td><td>친절하게</td><td>존칭 사용, 핵심부터 전달</td></tr>
 <tr><td>모를 때의 행동 정의</td><td>(누락)</td><td>HR팀 내선 1234로 안내</td></tr>
 <tr><td>언어와 형식 명시</td><td>(미지정)</td><td>한국어로 답변, 200자 이내</td></tr>
-<tr><td>길이는 짧게</td><td>1,000자 이상 장문</td><td>200–500자, 항목별 구조화</td></tr>
+<tr><td>길이는 짧게</td><td>1,000자 이상 장문</td><td>200~500자, 항목별 구조화</td></tr>
 </table>
 
 <div class="note">
@@ -966,7 +966,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p>오전 <a href="#m3">M3</a>에서 쓴 지침과 비교해 보세요. 범위에 답변 불가 항목이 생겼고, 거절할 때 안내할 부서가 유형별로 나뉘었고, 답변 길이가 질문 종류에 따라 달라졌고, 예시 대화가 붙었습니다.</p>
 
 <pre><code>## 역할
-당신은 ABC 주식회사 경영지원본부 소속 HR·총무 전담 도우미입니다.
+당신은 ABC 주식회사 경영지원본부 소속 HR과 총무 전담 도우미입니다.
 전 직원을 대상으로 사내 규정 안내를 담당합니다.
 
 ## 범위
@@ -980,7 +980,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 - 채용과 면접: 채용팀으로 안내
 - 급여와 성과급 금액: 급여팀으로 안내
 - 인사평가와 승진: HR 담당자로 안내
-- 업무와 무관한 질문: HR·총무 관련 질문만 답변한다고 안내
+- 업무와 무관한 질문: HR과 총무 관련 질문만 답변한다고 안내
 
 ## 태도
 - 한국어 존칭을 사용합니다
@@ -1012,15 +1012,15 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p>지식을 연결하기 전이므로 지금은 범위를 벗어난 질문에 어떻게 반응하는지만 확인합니다.</p>
 <table>
 <tr><th>질문</th><th>기대 반응</th></tr>
-<tr><td>오늘 날씨 어때?</td><td>HR·총무 관련 질문만 답변한다고 안내</td></tr>
+<tr><td>오늘 날씨 어때?</td><td>HR과 총무 관련 질문만 답변한다고 안내</td></tr>
 <tr><td>내 급여가 얼마야?</td><td>급여팀 연락처 안내</td></tr>
 <tr><td>채용 절차 알려줘</td><td>채용팀 연락처 안내</td></tr>
 </table>
 
 <p>이 시점에서 에이전트는 행동매뉴얼만 받은 상태입니다. 말투와 답변 범위는 지침을 따르지만 사내 규정의 구체적인 내용은 아직 알지 못합니다. 다음 모듈에서 지식을 연결합니다.</p>
 
-</section><section class="pg" data-pg="m8"><h2 class="mod" id="m8"><span class="num">M8</span>3요소 · 지식 <span class="pill">실습</span></h2>
-<p class="lead">답변의 근거가 되는 문서를 연결합니다.</p>
+</section><section class="pg" data-pg="m8"><h2 class="mod" id="m8"><span class="num">M8</span>지식 <span class="pill">실습</span></h2>
+<p class="lead">세 번째 구성 요소입니다. 답변의 근거가 되는 문서를 연결합니다.</p>
 
 <p>지식은 에이전트가 답변의 근거로 삼는 자료입니다. 지침만 있을 때는 정확한 답변을 드리기 어렵다고 응답하던 질문이, 지식을 연결하면 문서 내용을 근거로 한 구체적인 답변으로 바뀝니다.</p>
 
@@ -1111,8 +1111,8 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <span class="t">지식과 지침은 함께 작동합니다</span>
 <p>지식만 있으면 정확하지만 형식이 일정하지 않고, 지침만 있으면 형식은 갖춰지지만 내용이 부정확합니다. 둘이 결합해야 정확하면서 읽기 좋은 답변이 나옵니다.</p>
 </div>
-</section><section class="pg" data-pg="m9"><h2 class="mod" id="m9"><span class="num">M9</span>4요소 · 도구들</h2>
-<p class="lead">오후에 다룰 도구의 종류와 선택 원리를 확인합니다.</p>
+</section><section class="pg" data-pg="m9"><h2 class="mod" id="m9"><span class="num">M9</span>도구들</h2>
+<p class="lead">네 번째 구성 요소입니다. 오후에 다룰 도구의 종류와 선택 원리를 확인합니다.</p>
 
 <p>오전까지 에이전트는 질문에 답하는 것만 할 수 있습니다. 도구를 연결하면 실제로 업무를 수행할 수 있게 됩니다.</p>
 
@@ -1142,7 +1142,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p>이 도구를 언제 사용하는지 설명에 명확히 작성합니다. 오후 실습에서 도구가 호출되지 않는다면 대부분 설명이 원인입니다.</p>
 </div>
 
-</section><section class="pg" data-pg="m10"><h2 class="mod" id="m10"><span class="num">M10</span>도구 · 토픽과 변수 <span class="pill">실습</span></h2>
+</section><section class="pg" data-pg="m10"><h2 class="mod" id="m10"><span class="num">M10</span>토픽과 변수 <span class="pill">실습</span></h2>
 <p class="lead">대화 흐름을 설계하고 정보를 저장하는 방법을 익힙니다.</p>
 
 <h3>토픽</h3>
@@ -1401,7 +1401,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <h3>실습 &#9314; In-context로 호출</h3>
 <p>Copilot 채팅에서 <code>@</code>를 입력해 에이전트를 호출합니다. 하던 대화의 흐름을 유지한 채 필요할 때만 부를 수 있습니다.</p>
-</section><section class="pg" data-pg="m12"><h2 class="mod" id="m12"><span class="num">M12</span>도구 · 커넥터 <span class="pill">실습</span></h2>
+</section><section class="pg" data-pg="m12"><h2 class="mod" id="m12"><span class="num">M12</span>커넥터 <span class="pill">실습</span></h2>
 <p class="lead">Microsoft 365 앱을 연결해 대화 내용을 자동으로 기록합니다.</p>
 
 <p>커넥터는 Excel, Outlook, Teams, SharePoint 같은 앱에 에이전트를 연결하는 도구입니다. 하나의 앱에 하나의 동작을 연결할 때 사용하며, 여러 단계를 묶어야 하는 경우에는 <a href="#m13">에이전트 흐름</a>을 사용합니다.</p>
@@ -1633,7 +1633,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <tr><td>부서별 사용 현황</td><td>사용자 열 기준 집계</td><td>추가 안내 대상 파악</td></tr>
 </table>
 
-</section><section class="pg" data-pg="m13"><h2 class="mod" id="m13"><span class="num">M13</span>도구 · 에이전트 흐름 <span class="pill">실습</span></h2>
+</section><section class="pg" data-pg="m13"><h2 class="mod" id="m13"><span class="num">M13</span>에이전트 흐름 <span class="pill">실습</span></h2>
 <p class="lead">여러 단계를 묶어 자동화하고 Teams로 문의를 전달합니다.</p>
 
 <p>커넥터가 하나의 앱에 하나의 동작을 연결한다면, 에이전트 흐름은 여러 단계를 묶어 처리합니다. 이 모듈에서는 사용자가 문의를 요청하면 내용을 정리해 Teams 채널에 메시지를 보내는 흐름을 만듭니다.</p>
@@ -1929,7 +1929,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <span class="t">규칙 기반에서 판단하는 자동화로</span>
 <p>같은 흐름인데 AI 단계 하나가 들어가면서 결과의 품질이 달라집니다. 코드가 아니라 프롬프트 문장 하나로 만든 차이입니다.</p>
 </div>
-</section><section class="pg" data-pg="m14"><h2 class="mod" id="m14"><span class="num">M14</span>도구 · AI 프롬프트</h2>
+</section><section class="pg" data-pg="m14"><h2 class="mod" id="m14"><span class="num">M14</span>AI 프롬프트</h2>
 <p class="lead">흐름 안에서 AI를 활용하는 네 가지 방식을 정리합니다.</p>
 
 <p>Power Automate 흐름은 기본적으로 규칙 기반 자동화입니다. 정해진 입력에 정해진 동작을 수행합니다. 여기에 AI 프롬프트를 추가하면 생성과 분류, 요약 같은 판단 단계가 들어갑니다.</p>
@@ -1944,7 +1944,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <p>M13에서 사용한 것은 텍스트 입력 방식입니다. 프롬프트 문장만 변경하면 동작이 바뀌므로 코드 작성이 필요하지 않습니다. AI 프롬프트는 에이전트 없이 Power Automate 흐름에서 단독으로도 사용할 수 있습니다.</p>
 
-</section><section class="pg" data-pg="m15"><h2 class="mod" id="m15"><span class="num">M15</span>도구 · 멀티에이전트 <span class="pill">실습</span> <span class="pill opt">선택</span></h2>
+</section><section class="pg" data-pg="m15"><h2 class="mod" id="m15"><span class="num">M15</span>멀티에이전트 <span class="pill">실습</span> <span class="pill opt">선택</span></h2>
 <p class="lead">에이전트가 다른 에이전트를 호출하는 구조를 구성합니다.</p>
 
 <div class="new"><span class="tag"></span>
@@ -2093,7 +2093,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <tr><td>복지포인트 사용처 알려줘</td><td>HR 도우미</td></tr>
 <tr><td>개인정보 보호법에서 동의 철회 절차가 어떻게 돼?</td><td>법무 도우미</td></tr>
 </table>
-</section><section class="pg" data-pg="m16"><h2 class="mod" id="m16"><span class="num">M16</span>도구 · 트리거 <span class="pill">실습</span></h2>
+</section><section class="pg" data-pg="m16"><h2 class="mod" id="m16"><span class="num">M16</span>트리거 <span class="pill">실습</span></h2>
 <p class="lead">대화 없이 외부 이벤트로 에이전트를 실행합니다.</p>
 
 <p>지금까지 만든 에이전트는 사용자가 말을 걸어야 동작했습니다. 트리거를 연결하면 설문 제출이나 메일 수신, 일정 도래 같은 이벤트가 에이전트를 실행합니다.</p>
@@ -2374,7 +2374,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <tr><td>범위를 벗어난 질문에도 답한다</td><td>지침의 범위가 불명확</td><td>M7에서 범위를 특정 영역으로 한정</td></tr>
 <tr><td>모르는 내용을 지어낸다</td><td>모를 때의 행동이 미정의</td><td>M7의 원칙에 안내 메시지 추가</td></tr>
 <tr><td>토픽이 실행되지 않는다</td><td>토픽 설명이 불명확</td><td>M10에서 토픽 설명을 구체적으로 수정</td></tr>
-<tr><td>Copilot에 에이전트가 보이지 않는다</td><td>게시 미완료 또는 반영 지연</td><td>M11에서 게시 확인 후 1–3분 대기</td></tr>
+<tr><td>Copilot에 에이전트가 보이지 않는다</td><td>게시 미완료 또는 반영 지연</td><td>M11에서 게시 확인 후 1~3분 대기</td></tr>
 <tr><td>Excel에 기록이 쌓이지 않는다</td><td>표 서식 미지정</td><td>M12에서 Excel이 표로 지정되었는지 확인</td></tr>
 <tr><td>흐름이 실행되지 않는다</td><td>커넥션 미승인</td><td>M13에서 연결 상태 확인</td></tr>
 <tr><td>멀티에이전트 라우팅이 부정확하다</td><td>에이전트 설명이 모호</td><td>M15에서 각 에이전트 설명을 구체화</td></tr>
@@ -2421,7 +2421,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <footer class="ft">
   <div class="row">
-    <span><b>처음 만나는 Copilot Studio</b> · 기본과정</span>
+    <span><b>처음 만나는 Copilot Studio</b> 기본과정</span>
     <span>2026년 8월 Copilot Studio 화면 기준</span>
   </div>
   <div class="row">
