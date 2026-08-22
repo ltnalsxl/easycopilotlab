@@ -89,7 +89,7 @@ nav_exclude: true
 
 ## 📙 Microsoft Learn 한국어 가이드
 
-Microsoft Learn의 Copilot Studio 학습 모듈과 실습 랩을 우리말로 옮기고 설명을 덧붙인 자료입니다. 원문 화면 이미지를 모두 포함했습니다.
+Microsoft Learn의 Copilot Studio 학습 모듈과 실습 랩을 한국어로 옮기고 설명을 덧붙인 자료입니다. 원문 화면 이미지를 모두 포함했습니다.
 
 | 자료 | 내용 | 분량 |
 |:-----|:-----|:-----|
