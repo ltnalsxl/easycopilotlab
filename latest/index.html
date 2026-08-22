@@ -61,7 +61,7 @@ a:hover{text-decoration:underline}
 .sb a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
 
 /* 현재 모듈의 소제목 목록 */
-.sb .sub{margin:2px 0 6px;padding-left:11px;border-left:2px solid var(--accent-soft)}
+.sb .sub{margin:2px 0 6px;padding-left:11px}
 .sb .sub a{
   display:block;font-size:13.5px;color:var(--ink-mute);
   padding:4px 10px;border-radius:6px;line-height:1.45;font-weight:400;
@@ -178,7 +178,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 }
 
 /* 이번 개정에서 새로 넣은 부분. 캡처할 때 실제 화면과 대조한다 */
-.new{border-left:3px solid #2f8f6b;padding-left:20px;margin:22px 0}
+.new{margin:22px 0}
 .new>.tag{
   display:inline-block;font-size:11.5px;font-weight:600;
   color:#1f6b50;background:#e8f4ef;border-radius:4px;
@@ -680,7 +680,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <tr><th>질문</th><th>확인할 점</th></tr>
 <tr><td>경비처리 어떻게 해?</td><td>모른다고 하거나, 우리 회사 절차가 아닌 일반적인 내용을 답함</td></tr>
 <tr><td>복지포인트 사용처 알려줘</td><td>같은 이유로 제대로 답하지 못함</td></tr>
-<tr><td>오늘 주식 시세 알려줘</td><td>범위 밖이므로 거절하는지 확인</td></tr>
+<tr><td>오늘 주식 시세 알려줘</td><td>범위 밖인데도 HR팀에 문의하라고 안내하는지 확인</td></tr>
 </table>
 
 <img class="shot old" src="ecl-img/m03_image3.png" alt="시도 탭에서 세 가지 질문에 대한 답변을 확인하는 화면">
@@ -691,16 +691,29 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p>에이전트 빌더의 한계가 아니라 아직 지식을 연결하지 않았기 때문입니다. 지침에 "모르면 담당자를 안내하라"고 적어 두었으므로, 사내 규정을 묻는 질문은 대부분 안내로 돌아옵니다. 다음 실습에서 문서를 연결하면 달라집니다.</p>
 </div>
 
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">세 번째 질문에서 드러난 문제</span>
+<p>주식 시세는 HR도 총무도 아닙니다. 그런데 에이전트는 이것도 HR팀에 문의하라고 안내합니다. 지침이 <strong>모를 때</strong>와 <strong>범위 밖일 때</strong>를 구분하지 않았기 때문입니다. 둘 다 "답할 수 없는 상황"으로 뭉뚱그려져 있으니 하나뿐인 처리 방법으로 몰립니다.</p>
+<p>다음 단계에서 이 부분을 고칩니다.</p>
+</div>
+</div>
+
 <h4>5단계. 지침 수정 체험</h4>
-<p>지침의 <strong>태도</strong> 부분만 바꿔 봅니다. 예를 들어 이렇게 씁니다.</p>
+<p>이번에는 두 군데를 고칩니다. <strong>태도</strong>로 말투를 바꾸고, <strong>원칙</strong>으로 범위 밖 질문의 처리를 분리합니다. 해당 두 부분만 아래 내용으로 바꿉니다.</p>
 
 <pre><code># 태도
 - 한국어 반말로 답합니다
 - 핵심을 먼저 말하고 부가 설명은 뒤에 붙입니다
-- 100자 이내로 짧게, 문장 끝에 이모지 하나를 붙입니다</code></pre>
+- 100자 이내로 짧게, 문장 끝에 이모지 하나를 붙입니다
+
+# 원칙
+- 범위 밖 주제는 답할 수 있는 영역이 아니라고 알리고 마칩니다. 담당자를 안내하지 않습니다
+- 범위 안이지만 답을 모를 때만 모른다고 말하고 HR팀 김인사(02-1234-5601)로 안내합니다
+- 급여와 인사평가는 개인정보이므로 답하지 않고 담당자를 안내합니다</code></pre>
 
 <img class="shot old" src="ecl-img/m03_image5.png" alt="지침의 태도 항목을 수정한 화면">
-<p class="cap old">태도 항목만 수정합니다</p>
+<p class="cap old">태도와 원칙을 수정합니다</p>
 
 <p>저장하고 <strong>새 대화를 시작한 뒤</strong> 아까와 같은 질문을 다시 던집니다.</p>
 
@@ -710,12 +723,13 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <div class="new"><span class="tag"></span>
 <div class="note">
 <span class="t">무엇을 볼 것인가</span>
-<p>아직 지식이 없어 <strong>답의 내용은 그대로</strong>입니다. 봐야 할 것은 <strong>같은 내용을 어떻게 말하는가</strong>입니다.</p>
+<p>아직 지식이 없어 <strong>답의 내용은 그대로</strong>입니다. 봐야 할 것은 두 가지입니다.</p>
 <table>
-<tr><th>존칭일 때</th><th>반말일 때</th></tr>
-<tr><td>정확한 답변을 드리기 어렵습니다. HR팀 김인사(02-1234-5601)로 문의해 주세요.</td><td>그건 잘 모르겠어. HR팀 김인사(02-1234-5601)한테 물어봐 🙂</td></tr>
+<tr><th>질문</th><th>수정 전</th><th>수정 후</th></tr>
+<tr><td>복지포인트 사용처 알려줘</td><td>정확한 답변을 드리기 어렵습니다. HR팀 김인사(02-1234-5601)로 문의해 주세요.</td><td>그건 잘 모르겠어. HR팀 김인사(02-1234-5601)한테 물어봐 🙂</td></tr>
+<tr><td>오늘 주식 시세 알려줘</td><td>HR팀 김인사(02-1234-5601)로 문의해 주세요.</td><td>그건 내가 답할 수 있는 주제가 아니야 🙂</td></tr>
 </table>
-<p>거절하는 말투까지 지침을 따릅니다. 내용이 아니라 태도가 바뀐 것입니다.</p>
+<p>첫째, 거절하는 말투까지 지침을 따릅니다. 내용이 아니라 태도가 바뀐 것입니다. 둘째, 범위 밖 질문에서 엉뚱한 담당자 안내가 사라졌습니다. 원칙에서 두 상황을 나눠 적었기 때문입니다.</p>
 <p>바뀌지 않으면 두 가지를 확인하세요. <strong>저장했는지</strong>, 그리고 <strong>새 대화를 시작했는지</strong>입니다. 이어지던 대화는 앞의 말투를 유지하는 경우가 있습니다.</p>
 </div>
 </div>
