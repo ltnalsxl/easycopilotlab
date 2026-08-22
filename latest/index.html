@@ -60,6 +60,15 @@ a:hover{text-decoration:underline}
 .sb a:hover{background:var(--paper-soft);text-decoration:none;color:var(--ink)}
 .sb a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
 
+/* 현재 모듈의 소제목 목록 */
+.sb .sub{margin:2px 0 6px;padding-left:11px;border-left:2px solid var(--accent-soft)}
+.sb .sub a{
+  display:block;font-size:13.5px;color:var(--ink-mute);
+  padding:4px 10px;border-radius:6px;line-height:1.45;font-weight:400;
+}
+.sb .sub a:hover{background:var(--paper-soft);color:var(--ink);text-decoration:none}
+.sb .sub a.cur{color:var(--accent);font-weight:600;background:transparent}
+
 .doc{flex:1;min-width:0;padding:44px 0 130px}
 .doc h1{font-size:31px;line-height:1.38;margin:0 0 12px}
 .doc h2{
@@ -2504,10 +2513,64 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
     links.forEach(function(a){
       a.classList.toggle('on', a.getAttribute('href') === '#' + id);
     });
+    buildSub(id);
     window.scrollTo(0,0);
     var cur = document.querySelector('.sb a.on');
     if (cur && cur.scrollIntoViewIfNeeded) cur.scrollIntoViewIfNeeded();
   }
+
+  // 현재 모듈의 소제목을 사이드바에 펼친다. 실습이 여럿인 모듈에서
+  // 원하는 실습으로 바로 건너뛸 수 있게 하는 것이 목적이다.
+  var heads = [];
+  function buildSub(id){
+    var old = document.querySelector('.sb .sub');
+    if (old) old.parentNode.removeChild(old);
+    heads = [];
+
+    var page = document.querySelector('.pg[data-pg="' + id + '"]');
+    var link = document.querySelector('.sb a.on');
+    if (!page || !link) return;
+
+    var hs = [].slice.call(page.querySelectorAll('h3'));
+    if (hs.length < 2) return;
+
+    var box = document.createElement('div');
+    box.className = 'sub';
+    hs.forEach(function(h, i){
+      if (!h.id) h.id = id + '-s' + i;
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        h.scrollIntoView({behavior:'smooth', block:'start'});
+        markCurrent(i);
+      });
+      box.appendChild(a);
+      heads.push(h);
+    });
+    link.parentNode.insertBefore(box, link.nextSibling);
+  }
+
+  function markCurrent(n){
+    var as = document.querySelectorAll('.sb .sub a');
+    for (var i = 0; i < as.length; i++) as[i].classList.toggle('cur', i === n);
+  }
+
+  // 스크롤 위치에 맞춰 현재 소제목을 표시한다
+  var tick = false;
+  window.addEventListener('scroll', function(){
+    if (tick || !heads.length) return;
+    tick = true;
+    requestAnimationFrame(function(){
+      tick = false;
+      var n = 0;
+      for (var i = 0; i < heads.length; i++) {
+        if (heads[i].getBoundingClientRect().top <= 100) n = i;
+      }
+      markCurrent(n);
+    });
+  });
 
   window.addEventListener('hashchange', function(){
     show(location.hash.slice(1));
