@@ -140,6 +140,24 @@ pre{
 }
 pre code{background:none;border:0;padding:0;font-size:inherit;color:var(--ink-soft)}
 
+/* 복사 버튼 */
+.copybox{position:relative;margin:16px 0}
+.copybox pre{margin:0;padding-right:76px}
+.copybox > .copybtn{position:absolute;top:10px;right:10px}
+.copybtn{
+  appearance:none;cursor:pointer;font:inherit;font-size:12.5px;line-height:1;
+  padding:6px 10px;border-radius:6px;border:1px solid var(--line);
+  background:var(--paper);color:var(--ink-soft);
+  letter-spacing:-0.01em;transition:border-color .12s,color .12s,background .12s;
+}
+.copybtn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.copybtn.done{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.copybox > .copybtn{opacity:0;transition:opacity .12s}
+.copybox:hover > .copybtn,.copybox > .copybtn:focus,.copybox > .copybtn.done{opacity:1}
+td .copybtn{margin-left:8px;padding:3px 8px;font-size:11.5px;vertical-align:middle;opacity:0}
+tr:hover td .copybtn,td .copybtn:focus,td .copybtn.done{opacity:1}
+@media (hover:none){.copybox > .copybtn,td .copybtn{opacity:1}}
+
 dl.qa{margin:14px 0}
 dl.qa dt{font-weight:600;margin-top:18px;color:var(--ink);font-size:15.5px}
 dl.qa dt:first-child{margin-top:8px}
@@ -2752,6 +2770,81 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
   });
 
   show(location.hash.slice(1) || ids[0]);
+})();
+
+// 복사 버튼
+(function(){
+  function copy(text, btn){
+    var done = function(){
+      var old = btn.textContent;
+      btn.textContent = '복사됨';
+      btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1400);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done);
+      return;
+    }
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  function makeBtn(label, getText){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'copybtn';
+    b.textContent = label;
+    b.setAttribute('aria-label', '내용 복사');
+    b.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      copy(getText(), b);
+    });
+    return b;
+  }
+
+  // 코드 블록
+  var pres = document.querySelectorAll('.doc pre');
+  for (var i = 0; i < pres.length; i++) {
+    (function(pre){
+      var box = document.createElement('div');
+      box.className = 'copybox';
+      pre.parentNode.insertBefore(box, pre);
+      box.appendChild(pre);
+      box.appendChild(makeBtn('복사', function(){
+        return pre.innerText.replace(/\s+$/, '');
+      }));
+    })(pres[i]);
+  }
+
+  // 입력값 열이 있는 표
+  var tables = document.querySelectorAll('.doc table');
+  for (var t = 0; t < tables.length; t++) {
+    var rows = tables[t].rows;
+    if (!rows.length) continue;
+    var head = rows[0], col = -1;
+    for (var c = 0; c < head.cells.length; c++) {
+      if (head.cells[c].tagName !== 'TH') continue;
+      var h = head.cells[c].textContent.trim();
+      if (h === '입력값' || h === '값' || h === '입력') { col = c; break; }
+    }
+    if (col < 0) continue;
+    for (var r = 1; r < rows.length; r++) {
+      var cell = rows[r].cells[col];
+      if (!cell || cell.tagName !== 'TD') continue;
+      var txt = cell.textContent.trim();
+      if (!txt || txt.length > 200 || txt === '-') continue;
+      (function(cell, txt){
+        cell.appendChild(makeBtn('복사', function(){ return txt; }));
+      })(cell, txt);
+    }
+  }
 })();
 </script></body>
 </html>
