@@ -87,17 +87,17 @@ nav_exclude: true
 
 ---
 
-## 📙 Microsoft Learn 한국어 가이드
+## 📙 Microsoft Learn 한국어 번역본
 
-Microsoft Learn의 Copilot Studio 학습 모듈과 실습 랩을 한국어로 옮기고 설명을 덧붙인 자료입니다. 원문 화면 이미지를 모두 포함했습니다.
+Microsoft Learn의 Copilot Studio 학습 모듈과 실습 랩을 한국어로 옮긴 자료입니다. 별도 사이트에서 보실 수 있습니다.
 
-| 자료 | 내용 | 분량 |
+| 자료 | 내용 | 원문 |
 |:-----|:-----|:-----|
-| [모듈 가이드](module-guide/) | 에이전트·환경·하네스·토픽·생성형 오케스트레이션 개념 | 12개 단원 · 이미지 36장 |
-| [실습 가이드](handson-lab/) | 환경 준비부터 워크플로 도구, 새 제작 환경까지 | 랩 6개 · 이미지 81장 |
+| [Copilot Studio 시작하기](https://ltnalsxl.github.io/mslearn-copilotstudio-ko/ms-learn/get-started/) | 에이전트·환경·하네스·토픽·생성형 오케스트레이션 개념 (12개 단원) | Get started with Microsoft Copilot Studio |
+| [Copilot Studio 실습](https://ltnalsxl.github.io/mslearn-copilotstudio-ko/ms-learn/exercises/) | 환경 준비부터 워크플로 도구, 새 제작 환경까지 (랩 6개) | Copilot Studio exercises |
 
-{: .note }
-> 원문은 한국어로 제공되지 않는 모듈입니다. 화면 이미지와 원문 내용의 저작권은 Microsoft에 있습니다.
+{: .warning }
+> 위 자료는 **Microsoft의 공식 한국어 번역이 아닙니다.** 학습 편의를 위해 개인이 옮긴 비공식 번역본이며, 원문 내용과 화면 이미지의 저작권은 Microsoft에 있습니다. 정확한 내용은 각 문서에 표시된 원문 링크에서 확인해 주세요.
 
 ---
 
