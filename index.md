@@ -97,7 +97,7 @@ Microsoft Learn의 Copilot Studio 학습 모듈과 실습 랩을 한국어로 �
 | [Copilot Studio 실습](https://ltnalsxl.github.io/mslearn-copilotstudio-ko/ms-learn/exercises/) | 환경 준비부터 워크플로 도구, 새 제작 환경까지 (랩 6개) | Copilot Studio exercises |
 
 {: .warning }
-> 위 자료는 **Microsoft의 공식 한국어 번역이 아닙니다.** 학습 편의를 위해 개인이 옮긴 비공식 번역본이며, 원문 내용과 화면 이미지의 저작권은 Microsoft에 있습니다. 정확한 내용은 각 문서에 표시된 원문 링크에서 확인해 주세요.
+> 위 자료는 **Microsoft의 공식 한국어 번역이 아닙니다.** 학습 편의를 위해 만든 비공식 번역본이며, 원문 내용과 화면 이미지의 저작권은 Microsoft에 있습니다. 정확한 내용은 각 문서에 표시된 원문 링크에서 확인해 주세요.
 
 ---
 
