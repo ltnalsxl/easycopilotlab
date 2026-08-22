@@ -590,6 +590,12 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p>선언형 에이전트는 Copilot Studio의 에이전트 목록에 나타나지 않습니다. Copilot Studio에만 있는 기능이 필요해지면 편집 화면의 <strong>...</strong> 메뉴에서 Copilot Studio로 복사할 수 있습니다. 처음부터 다시 만들지 않아도 됩니다. <a href="#m4">M4</a>에서 이 작업을 합니다.</p>
 </div>
 
+<div class="note">
+<span class="t">여기서도 공유가 됩니다</span>
+<p>에이전트 빌더에서 만든 것은 처음에는 나만 볼 수 있습니다. 만들기를 누른 뒤 공유에서 사람을 더하면 됩니다. 권한은 <strong>편집 가능</strong>과 <strong>채팅 가능</strong> 두 가지이고, 조직 전체 공유 토글을 켜면 같은 회사 사람이 에이전트 스토어에서 찾을 수 있습니다.</p>
+<p>다만 여기서 하는 공유는 사람에게 직접 열어 주는 방식입니다. Teams나 웹사이트 같은 여러 창구로 내보내려면 Copilot Studio가 필요합니다. <a href="#m11">M11</a>에서 다룹니다.</p>
+</div>
+
 </div>
 
 <p>웹사이트나 SharePoint 문서를 근거로 답하는 정도의 에이전트라면 에이전트 빌더만으로 충분한 경우가 많습니다. 이 과정에서는 토픽과 커넥터, 흐름 같은 기능을 다루기 위해 이후 Copilot Studio로 옮깁니다.</p>
@@ -698,6 +704,23 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p>지침 전체를 보려면 <strong>안내</strong> 오른쪽의 펼침 아이콘을 누릅니다.</p>
 <img class="shot" src="ecl-shots/m03-07-instr-formal.png" alt="입력한 지침을 확대해서 확인하는 화면">
 <p class="cap">태도에 존칭과 200자를 적어 두었습니다. 다음 단계에서 이 두 줄을 바꿉니다</p>
+
+<div class="new"><span class="tag"></span>
+<h4>구성 탭에 있는 것들</h4>
+<p>오늘은 이름과 설명, 지침, 지식만 씁니다. 나머지는 실무에서 쓸 일이 있어 적어 둡니다.</p>
+<table>
+<tr><th>항목</th><th>하는 일</th><th>한도</th></tr>
+<tr><td>이름</td><td>목록과 <code>@호출</code>에 뜨는 이름입니다</td><td>30자</td></tr>
+<tr><td>아이콘</td><td>AI로 만들거나 직접 올립니다</td><td>PNG, 1MB</td></tr>
+<tr><td>모델</td><td>빠르게 답할지 오래 생각할지 정합니다. 쓰는 사람이 바꿀 수 있습니다</td><td></td></tr>
+<tr><td>설명</td><td>이 에이전트를 언제 부를지 판단하는 근거입니다. 짧고 분명하게 씁니다</td><td>1,000자</td></tr>
+<tr><td>지침</td><td>역할과 범위, 태도를 정합니다</td><td>8,000자</td></tr>
+<tr><td>지식</td><td>답변의 근거가 될 자료를 붙입니다</td><td>20개</td></tr>
+<tr><td>기능</td><td>문서와 차트 만들기, 이미지 만들기를 켭니다</td><td></td></tr>
+<tr><td>시작 프롬프트</td><td>처음 여는 사람에게 예시 질문을 보여 줍니다</td><td></td></tr>
+</table>
+<p>화면 오른쪽 위의 <strong>자동</strong>이 모델 설정입니다. 그대로 두면 됩니다.</p>
+</div>
 
 <div class="note">
 <span class="t">방금 무엇이 달라졌나</span>
@@ -1658,9 +1681,9 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p class="cap">추가가 완료되면 메시지가 표시됩니다</p>
 
 <h4>3단계. Microsoft 365에 등록</h4>
-<p>같은 패널에서 Microsoft 365에서 에이전트 보기 링크를 클릭합니다.</p>
-<img class="shot old" src="ecl-img/m11_image9.png" alt="Microsoft 365에서 에이전트 보기 링크">
-<p class="cap old">링크를 눌러 Microsoft 365 Copilot으로 이동합니다</p>
+<p>같은 패널에서 Teams에서 에이전트 보기 링크를 클릭합니다. 채널을 추가할 때 Microsoft 365 켜기를 선택했다면, 이 버튼 하나로 Teams와 Microsoft 365 Copilot 양쪽에 설치됩니다.</p>
+<img class="shot old" src="ecl-img/m11_image9.png" alt="Teams에서 에이전트 보기 링크">
+<p class="cap old">링크를 눌러 설치 화면으로 이동합니다</p>
 
 <img class="shot old" src="ecl-img/m11_image10.png" alt="Microsoft 365 Copilot에서 에이전트를 추가하는 화면">
 <p class="cap old">추가 버튼을 클릭합니다</p>
@@ -1690,23 +1713,47 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <div class="new"><span class="tag"></span>
 <h3>공유</h3>
-<p>여기까지 하면 만든 사람만 쓸 수 있습니다. 다른 사람도 쓰게 하려면 공유해야 합니다.</p>
+<p>여기까지 하면 만든 사람만 쓸 수 있습니다. 다른 사람도 쓰게 하려면 두 가지를 해야 합니다. <strong>권한을 주는 것</strong>과 <strong>설치할 방법을 알려주는 것</strong>입니다. 둘은 다른 단계입니다.</p>
 
+<h4>권한 주기</h4>
 <ol class="steps">
-<li><b>에이전트 화면에서 공유</b>오른쪽 위 공유 버튼을 누릅니다.</li>
-<li><b>대상 지정</b>동료의 이름이나 메일 주소를 넣습니다. 조직 전체에 열 수도 있습니다.</li>
-<li><b>권한 선택</b>사용만 하게 할지, 함께 편집하게 할지 정합니다.</li>
+<li><b>점 세 개 메뉴 열기</b>에이전트 화면 위쪽의 <strong>...</strong>를 누르고 공유를 고릅니다. 별도의 공유 버튼이 있는 것이 아닙니다.</li>
+<li><b>대상 지정</b>동료의 이름이나 메일 주소를 넣습니다. 보안 그룹이나 조직 전체를 고를 수도 있습니다.</li>
+<li><b>권한 선택</b>대화만 하게 할지, 함께 편집하게 할지 정합니다.</li>
+<li><b>공유</b>공유를 눌러 마칩니다.</li>
+</ol>
+
+<table>
+<tr><th>권한</th><th>할 수 있는 일</th></tr>
+<tr><td>사용자</td><td>에이전트와 대화만 합니다</td></tr>
+<tr><td>공동 작성자</td><td>보고, 고치고, 게시하고, 다시 공유합니다. 삭제는 못 합니다</td></tr>
+</table>
+
+<h4>설치 방법 알려주기</h4>
+<p>권한만 주면 상대방 화면에 저절로 나타나지 않습니다. 채널 설정에서 설치 링크를 받아 전달해야 합니다.</p>
+<ol class="steps">
+<li><b>채널 탭 열기</b>Teams 및 Microsoft 365 Copilot 채널을 다시 엽니다.</li>
+<li><b>가용성 옵션</b>패널에서 가용성 옵션을 누릅니다.</li>
+<li><b>링크 복사</b>복사한 링크를 동료에게 보냅니다. 받은 사람이 링크를 열어 설치합니다.</li>
 </ol>
 
 <div class="note">
-<span class="t">공유해도 안 보인다면</span>
-<p>게시하지 않은 에이전트는 공유해도 상대방 화면에 나타나지 않습니다. 공유 전에 게시가 끝났는지 확인하세요.</p>
-<p>게시 직후에는 목록에 뜨기까지 몇 분이 걸립니다. 바로 보이지 않으면 새로 고침하고 다시 확인합니다.</p>
+<span class="t">공유가 안 될 때</span>
+<p><strong>게시부터 확인합니다.</strong> 게시하지 않은 에이전트는 공유해도 상대방이 설치할 수 없습니다.</p>
+<p><strong>상대방에게 라이선스가 있어야 합니다.</strong> Copilot Studio 사용자 라이선스가 없으면 공유해도 쓸 수 없습니다.</p>
+<p><strong>공동 작성자로 공유할 때는 권한이 하나 더 필요합니다.</strong> 상대방에게 Dataverse의 환경 메이커 역할이 있어야 합니다. 없으면 관리자에게 요청해야 하고, 환경에 처음 들어오는 사람은 목록에 뜨기까지 10분 정도 걸립니다.</p>
+<p><strong>모바일에서는 설치 링크가 동작하지 않습니다.</strong> Teams 모바일 사용자에게 배포하려면 앱 스토어에 올려야 합니다.</p>
+</div>
+
+<div class="note">
+<span class="t">조직 전체에 열려면</span>
+<p>링크를 하나씩 보내는 방식은 인원이 늘면 감당하기 어렵습니다. 전 직원이 쓰게 하려면 관리자 승인을 받아 Teams 앱 스토어와 Microsoft 365 에이전트 스토어에 올려야 합니다. 실습 환경에서는 다루지 않지만, 실제로 배포할 때 반드시 거치는 단계입니다.</p>
 </div>
 
 <h3>수정하면 다시 게시합니다</h3>
 <p>게시는 한 번으로 끝나지 않습니다. 오후에 커넥터와 흐름을 붙일 때마다 다시 게시해야 Copilot에 반영됩니다.</p>
 <p>채널은 다시 설정하지 않아도 됩니다. 게시만 누르면 연결된 채널에 모두 반영됩니다.</p>
+<p>다만 아이콘이나 설명을 바꾼 경우는 다릅니다. 이미 설치한 사람에게는 반영되지 않으므로 다시 설치해야 합니다.</p>
 </div>
 </section><section class="pg" data-pg="m12"><h2 class="mod" id="m12"><span class="num">M12</span>커넥터 <span class="pill">실습</span></h2>
 <p class="lead">Microsoft 365 앱을 연결해 대화 내용을 자동으로 기록합니다.</p>
