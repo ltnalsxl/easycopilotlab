@@ -594,7 +594,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <div class="note">
 <span class="t">여기서도 공유가 됩니다</span>
-<p>에이전트 빌더에서 만든 것은 처음에는 나만 볼 수 있습니다. 만들기를 누른 뒤 공유에서 사람을 더하면 됩니다. 권한은 <strong>편집 가능</strong>과 <strong>채팅 가능</strong> 두 가지이고, 조직 전체 공유 토글을 켜면 같은 회사 사람이 에이전트 스토어에서 찾을 수 있습니다.</p>
+<p>에이전트 빌더에서 만든 것은 처음에는 나만 볼 수 있습니다. 만들기를 누른 뒤 공유에서 사람을 더하면 됩니다. 자세한 방법은 <a href="#m3">실습 ③</a>에서 다룹니다.</p>
 <p>다만 여기서 하는 공유는 사람에게 직접 열어 주는 방식입니다. Teams나 웹사이트 같은 여러 창구로 내보내려면 Copilot Studio가 필요합니다. <a href="#m11">M11</a>에서 다룹니다.</p>
 </div>
 
@@ -844,11 +844,11 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <tr><td>경비처리 담당자 누구예요?</td><td>담당자정보</td></tr>
 </table>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m03-2_image6.png" alt="연차 사용 절차 질문에 문서 기반으로 답변하는 화면">
-<p class="cap old">업로드한 문서를 근거로 정확한 절차를 안내합니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-20-doc-answers.png" alt="연차와 복지포인트 질문에 문서를 근거로 답한 화면">
+<p class="cap">연차 신청 절차와 복지포인트 사용처를 문서에서 찾아 답합니다</p>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m03-2_image7.png" alt="복지포인트 사용처 질문에 문서 기반으로 답변하는 화면">
-<p class="cap old">복리후생 안내 문서를 참조해 답변합니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-21-doc-answers2.png" alt="경비처리와 담당자 질문에 답한 화면">
+<p class="cap">경비 정산 기한과 담당자 연락처까지 문서에서 찾아냅니다. 문장 끝의 아이콘을 누르면 어느 문서를 봤는지 확인할 수 있습니다</p>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
@@ -865,34 +865,59 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <h3>실습 ③ 만들기와 사용</h3>
 
+<div class="new"><span class="tag"></span>
+<p>지금까지는 만드는 화면에서만 써 봤습니다. 이제 실제로 만들어서 Copilot 안에서 사용합니다.</p>
+
 <h4>1단계. 에이전트 만들기</h4>
-<p>화면 우측 상단의 <strong>만들기</strong> 버튼을 클릭합니다.</p>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m03_image6.png" alt="에이전트 빌더 우측 상단의 만들기 버튼">
-<p class="cap old">만들기를 누르면 배포가 시작됩니다</p>
+<p>화면 오른쪽 위의 <strong>만들기</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-15-create-btn.png" alt="에이전트 빌더 오른쪽 위의 만들기 버튼">
+<p class="cap">오른쪽 위 만들기를 누릅니다</p>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m03_image7.png" alt="에이전트를 만드는 중인 화면">
-<p class="cap old">완료될 때까지 기다립니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-16-creating.png" alt="에이전트를 만드는 중인 화면">
+<p class="cap">만드는 동안 이 창을 닫지 않습니다</p>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m03_image8.png" alt="에이전트 생성이 완료되어 에이전트로 이동 버튼이 나타난 화면">
-<p class="cap old">에이전트로 이동을 눌러 대화를 시작합니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-17-created.png" alt="에이전트 생성이 완료되어 공유와 에이전트로 이동 버튼이 나타난 화면">
+<p class="cap">만들어지면 공유와 에이전트로 이동 두 가지를 고를 수 있습니다</p>
 
-<h4>2단계. Immersive로 대화</h4>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m03_image9.png" alt="HR 도우미 전용 화면이 열린 모습">
-<p class="cap old">에이전트와 1대 1로 대화하는 전용 화면입니다</p>
+<div class="note">
+<span class="t">지금은 나만 쓸 수 있습니다</span>
+<p>화면에 <strong>이 에이전트는 현재 개인 및 사용자에게만 제공됩니다</strong>라고 나옵니다. 만든 사람 외에는 보이지 않는다는 뜻입니다. 오늘은 혼자 실습하므로 그대로 두고 <strong>에이전트로 이동</strong>을 누릅니다.</p>
+<p>위에 붙은 <code>General \ All Employees</code>는 민감도 레이블입니다. 올린 파일에 적용된 것 중 가장 높은 수준을 표시합니다.</p>
+</div>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m03_image10.png" alt="Immersive 화면에서 질문에 답변하는 모습">
-<p class="cap old">질문을 입력하면 에이전트가 답변합니다</p>
+<h4>2단계. 다른 사람과 함께 쓰려면 <span class="pill opt">참고</span></h4>
+<p>동료도 쓰게 하려면 <strong>공유</strong>를 누릅니다. 만든 뒤에 언제든 다시 열 수 있습니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-18-share-dialog.png" alt="공유 대화상자">
+<p class="cap">이름이나 메일 주소를 넣고 권한을 정합니다</p>
 
-<h4>3단계. In-context로 호출</h4>
-<p>Copilot 대화창에서 <code>@</code>를 입력하면 에이전트 목록이 표시됩니다.</p>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m03_image11.png" alt="@ 입력 후 에이전트 목록에서 HR 도우미를 선택하는 화면">
-<p class="cap old">목록에서 HR 도우미를 선택합니다</p>
+<table>
+<tr><th>권한</th><th>할 수 있는 일</th></tr>
+<tr><td>편집할 수 있음</td><td>고치고, 공유하고, 관리합니다. 소유자와 같은 권한입니다</td></tr>
+<tr><td>채팅할 수 있음</td><td>대화만 합니다</td></tr>
+</table>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m03_image12.png" alt="@HR 도우미 태그가 표시된 상태에서 질문을 입력하는 화면">
-<p class="cap old">태그가 표시된 상태에서 질문을 입력합니다</p>
+<p><strong>채팅 액세스를 위한 조직 전체 공유</strong>를 켜면 같은 회사 사람이 에이전트 스토어에서 찾아 쓸 수 있습니다. <strong>채팅 링크 복사</strong>로 링크를 보내도 됩니다.</p>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m03_image13.png" alt="HR 도우미가 답변하는 화면">
-<p class="cap old">대화 흐름을 유지한 채 에이전트를 호출합니다</p>
+<div class="note">
+<span class="t">그룹은 편집 권한을 줄 수 없습니다</span>
+<p>보안 그룹이나 팀을 넣으면 채팅 권한만 받습니다. 함께 편집하게 하려면 사람을 한 명씩 넣어야 합니다.</p>
+</div>
+
+<h4>3단계. Immersive로 대화</h4>
+<p>에이전트로 이동을 누르면 전용 화면이 열립니다. 에이전트와 1대 1로 대화하는 자리입니다.</p>
+
+<h4>4단계. In-context로 호출</h4>
+<p>Copilot 대화창에서 <code>@</code>를 입력하면 쓸 수 있는 에이전트 목록이 뜹니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-19-at-mention.jpeg" alt="@ 입력 후 에이전트 목록에서 HR 도우미를 고르는 화면">
+<p class="cap">목록에서 HR 도우미를 고릅니다. 구성 탭에 적은 설명이 이름 아래에 그대로 보입니다</p>
+
+<p>고른 뒤 그대로 질문하면 됩니다. 하던 대화를 끊지 않고 필요할 때만 부르는 방식입니다.</p>
+
+<div class="note">
+<span class="t">고치면 업데이트를 눌러야 합니다</span>
+<p>만든 뒤에는 오른쪽 위 버튼이 만들기에서 <strong>업데이트</strong>로 바뀝니다. 지침이나 지식을 고치면 자동으로 저장되지만, 쓰는 사람 화면에 반영되려면 업데이트를 눌러야 합니다. 반영까지 몇 분이 걸립니다.</p>
+</div>
+</div>
 
 <h3>다른 유형도 만들어 보기</h3>
 <p>지침 텍스트만 바꾸면 완전히 다른 에이전트가 됩니다. 시간이 남거나 과정 이후 복습할 때 관심 있는 유형을 한두 개 골라 만들어 보세요.</p>
