@@ -392,15 +392,17 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 </div>
 
 <h3>실습 파일</h3>
-<p>다음 다섯 개 파일을 미리 내려받아 주세요. 에이전트의 지식 소스로 사용하며, 오전 실습부터 계속 씁니다. 파일 이름을 누르면 받을 수 있습니다.</p>
+<p>오늘 만들 에이전트는 우리 회사 규정을 안내하는 도우미입니다. 그러려면 회사 규정이 적힌 문서가 있어야 합니다. 에이전트는 이 문서를 읽고 답을 찾습니다.</p>
+<p>실습에 쓸 가상의 회사 문서 다섯 개를 준비했습니다. 아래 파일 이름을 눌러 미리 내려받아 주세요. 오전 실습에서 에이전트에 붙이고, 하루 내내 사용합니다.</p>
 <table>
-<tr><th>파일</th><th>내용</th></tr>
-<tr><td><a href="files/FAQ.docx">FAQ.docx</a></td><td>자주 묻는 질문 모음</td></tr>
-<tr><td><a href="files/%EA%B2%BD%EB%B9%84%EC%B2%98%EB%A6%AC_%EA%B0%80%EC%9D%B4%EB%93%9C.docx">경비처리_가이드.docx</a></td><td>경비 처리 절차</td></tr>
-<tr><td><a href="files/%EB%8B%B4%EB%8B%B9%EC%9E%90%EC%A0%95%EB%B3%B4.docx">담당자정보.docx</a></td><td>부서별 담당자 연락처</td></tr>
-<tr><td><a href="files/%EB%B3%B5%EB%A6%AC%ED%9B%84%EC%83%9D_%EC%95%88%EB%82%B4.docx">복리후생_안내.docx</a></td><td>복리후생 제도</td></tr>
-<tr><td><a href="files/%ED%9C%B4%EA%B0%80_%EA%B7%BC%ED%83%9C_%EA%B0%80%EC%9D%B4%EB%93%9C.docx">휴가_근태_가이드.docx</a></td><td>휴가와 근태 규정</td></tr>
+<tr><th>파일</th><th>담긴 내용</th><th>이런 질문에 답합니다</th></tr>
+<tr><td><a href="files/FAQ.docx">FAQ.docx</a></td><td>자주 묻는 질문 모음</td><td>재직증명서는 어떻게 발급받나요</td></tr>
+<tr><td><a href="files/%EA%B2%BD%EB%B9%84%EC%B2%98%EB%A6%AC_%EA%B0%80%EC%9D%B4%EB%93%9C.docx">경비처리_가이드.docx</a></td><td>경비 처리 절차</td><td>영수증은 언제까지 내야 하나요</td></tr>
+<tr><td><a href="files/%EB%8B%B4%EB%8B%B9%EC%9E%90%EC%A0%95%EB%B3%B4.docx">담당자정보.docx</a></td><td>부서별 담당자 연락처</td><td>경비 담당자가 누구인가요</td></tr>
+<tr><td><a href="files/%EB%B3%B5%EB%A6%AC%ED%9B%84%EC%83%9D_%EC%95%88%EB%82%B4.docx">복리후생_안내.docx</a></td><td>복리후생 제도</td><td>복지포인트는 어디에 쓰나요</td></tr>
+<tr><td><a href="files/%ED%9C%B4%EA%B0%80_%EA%B7%BC%ED%83%9C_%EA%B0%80%EC%9D%B4%EB%93%9C.docx">휴가_근태_가이드.docx</a></td><td>휴가와 근태 규정</td><td>연차가 며칠인가요</td></tr>
 </table>
+<p>다섯 개를 한 폴더에 모아 두면 실습할 때 한 번에 올릴 수 있습니다.</p>
 
 </section><section class="pg" data-pg="terms"><h2 id="terms">용어 정리</h2>
 
@@ -715,7 +717,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <tr><td>모델</td><td>빠르게 답할지 오래 생각할지 정합니다. 쓰는 사람이 바꿀 수 있습니다</td><td></td></tr>
 <tr><td>설명</td><td>이 에이전트를 언제 부를지 판단하는 근거입니다. 짧고 분명하게 씁니다</td><td>1,000자</td></tr>
 <tr><td>지침</td><td>역할과 범위, 태도를 정합니다</td><td>8,000자</td></tr>
-<tr><td>지식</td><td>답변의 근거가 될 자료를 붙입니다</td><td>20개</td></tr>
+<tr><td>지식</td><td>답변의 근거가 될 자료를 붙입니다</td><td>올린 파일 20개</td></tr>
 <tr><td>기능</td><td>문서와 차트 만들기, 이미지 만들기를 켭니다</td><td></td></tr>
 <tr><td>추천 프롬프트</td><td>처음 여는 사람에게 예시 질문을 보여 줍니다</td><td></td></tr>
 </table>
@@ -803,14 +805,14 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p>지식 영역은 두 부분으로 나뉩니다.</p>
 <table>
 <tr><th>영역</th><th>붙이는 것</th></tr>
-<tr><td>지식</td><td>내가 고른 파일과 사이트입니다. 오늘 실습 파일이 여기 들어갑니다</td></tr>
-<tr><td>회사 콘텐츠</td><td>클라우드 파일, Outlook, Teams처럼 회사 전체 범위를 토글로 켜고 끕니다</td></tr>
+<tr><td>지식</td><td>내가 하나씩 고른 파일과 사이트입니다. 오늘 실습 파일이 여기 들어갑니다</td></tr>
+<tr><td>회사 콘텐츠</td><td>내 OneDrive와 메일, Teams 대화 전체를 토글 하나로 열어 줍니다</td></tr>
 </table>
 
 <div class="note">
-<span class="t">회사 콘텐츠는 모두 끕니다</span>
-<p><strong>클라우드 파일은 기본으로 켜져 있습니다.</strong> 이름 옆에 모두 검색이라는 표시가 붙어 있으면 켜진 상태입니다. 실습을 시작하기 전에 여섯 개를 모두 꺼 주세요.</p>
-<p>켜 두면 내 OneDrive와 메일, Teams 대화까지 뒤져서 답합니다. 실습에서는 <strong>업로드한 문서만</strong> 근거로 삼아야 모두 같은 결과를 보고, 사내 교육이라면 남의 문서 제목이 화면에 뜨는 일도 막을 수 있습니다.</p>
+<span class="t">회사 콘텐츠는 꺼 두고 시작합니다</span>
+<p>클라우드 파일이 켜진 채로 만들어지는 경우가 있습니다. 이름 옆에 <strong>모두 검색</strong> 표시가 붙어 있으면 켜진 상태입니다.</p>
+<p>켜 두면 내 OneDrive 파일이나 메일 전체가 답변 근거에 들어갑니다. 실습에서는 업로드한 문서 다섯 개만 근거로 삼아야 모두 같은 결과를 보게 되므로, 시작 전에 전부 꺼 주세요. 화면을 공유하는 자리라면 내 파일 이름이 인용으로 노출되는 것도 막을 수 있습니다.</p>
 </div>
 
 <p><strong>지식 추가</strong>를 누르면 검색창이 열립니다. 로컬 파일을 올리려면 오른쪽 <strong>클립 아이콘</strong>을 누릅니다.</p>
@@ -1329,7 +1331,8 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <div class="note">
 <span class="t">지식 소스 제한</span>
-<p>파일 하나의 크기는 512MB까지, 업로드 파일은 최대 500개까지 지원합니다. 에이전트 하나에 연결할 수 있는 지식 소스는 모든 유형을 합쳐 500개입니다.</p>
+<p>파일 하나의 크기는 512MB까지이고, 에이전트 하나에 파일 500개까지 붙일 수 있습니다. 이미지와 영상, 음성 파일은 지식으로 쓸 수 없고 암호가 걸린 파일도 안 됩니다.</p>
+<p>지식 소스가 25개를 넘어가면 오케스트레이터가 그중 어느 것을 볼지 먼저 추려냅니다. 이때 각 소스에 적어 둔 설명을 보고 판단하므로, 개수가 많아질수록 설명을 정확히 써야 합니다. 업로드한 파일은 이 25개에 포함되지 않습니다.</p>
 </div>
 
 <h3 id="m8-idx">지식 문서 작성 방법</h3>
@@ -1822,7 +1825,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <div class="new"><span class="tag"></span>
 <div class="note">
 <span class="t">이 커넥터가 보이지 않는다면</span>
-<p>MSN 날씨는 Microsoft 외부 서비스로 분류되어, 조직의 DLP 정책에서 막혀 있는 경우가 있습니다. 검색해도 나오지 않거나 연결이 거부되면 이 실습은 건너뛰고 다음 실습 &#9313;로 넘어가세요. 배우려는 내용은 같습니다.</p>
+<p>MSN 날씨 커넥터가 조직의 DLP 정책에서 막혀 있는 경우가 있습니다. 검색해도 나오지 않거나 연결이 거부되면 이 실습은 건너뛰고 다음 실습 &#9313;로 넘어가세요. 배우려는 내용은 같습니다.</p>
 </div>
 </div>
 
@@ -2846,7 +2849,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <h3>도구 연결</h3>
 <dl class="qa">
 <dt>토픽은 몇 개까지 만들 수 있나요?</dt>
-<dd>수량 제한보다 역할이 명확한지가 중요합니다. 도구와 토픽, 연결된 에이전트를 합쳐 30~40개를 넘기면 선택 정확도가 떨어질 수 있습니다.</dd>
+<dd>정해진 상한은 없습니다. 다만 지식 소스가 25개를 넘으면 오케스트레이터가 어느 것을 볼지 먼저 추려내므로, 개수가 늘수록 설명을 정확히 써 두어야 합니다. 수량보다 각각의 역할이 겹치지 않는지가 중요합니다.</dd>
 <dt>변수 이름은 자유롭게 정해도 되나요?</dt>
 <dd>자유롭게 정할 수 있습니다. <code>Global.</code> 접두사가 붙으면 글로벌 변수입니다.</dd>
 <dt>Excel 대신 다른 곳에 저장할 수 있나요?</dt>
