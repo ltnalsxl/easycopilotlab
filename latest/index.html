@@ -188,6 +188,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 .new>:first-child{margin-top:0}
 .new>:last-child{margin-bottom:0}
 .pill.opt{background:#fdf3e3;color:#9a6a1f;border-color:transparent}
+.sm{display:block;font-size:12px;color:var(--ink-mute);font-weight:400;margin-top:1px}
 
 .pager{display:flex;gap:10px;margin-top:52px;padding-top:22px;border-top:1px solid var(--line)}
 .pager a{flex:1;border:1px solid var(--line);border-radius:var(--radius);
@@ -885,37 +886,64 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p>위에 붙은 <code>General \ All Employees</code>는 민감도 레이블입니다. 올린 파일에 적용된 것 중 가장 높은 수준을 표시합니다.</p>
 </div>
 
-<h4>2단계. 다른 사람과 함께 쓰려면 <span class="pill opt">참고</span></h4>
-<p>동료도 쓰게 하려면 <strong>공유</strong>를 누릅니다. 만든 뒤에 언제든 다시 열 수 있습니다.</p>
+<h4>2단계. Immersive로 대화</h4>
+<p><strong>에이전트로 이동</strong>을 누르면 전용 화면이 열립니다. 에이전트와 1대 1로 대화하는 자리입니다. M2에서 본 몰입형 방식입니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-22-immersive.png" alt="HR 도우미 전용 화면이 열린 모습">
+<p class="cap">왼쪽 에이전트 목록에 HR 도우미가 생겼습니다. 이제부터는 여기를 눌러 바로 들어옵니다</p>
+
+<p>만든 사람 이름이 함께 표시됩니다. 나중에 여러 사람이 만든 에이전트가 쌓이면 누구에게 물어야 할지 알 수 있습니다.</p>
+
+<h4>3단계. In-context로 호출</h4>
+<p>Copilot 대화창에서 <code>@</code>를 입력하면 쓸 수 있는 에이전트 목록이 렃니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-19-at-mention.jpeg" alt="@ 입력 후 에이전트 목록에서 HR 도우미를 고르는 화면">
+<p class="cap">목록에서 HR 도우미를 고릅니다. 이름 아래에 설명이 그대로 보입니다</p>
+
+<p>고른 뒤 그대로 질문하면 됩니다. 하던 대화를 끊지 않고 필요할 때만 부르는 방식입니다.</p>
+
+<div class="note">
+<span class="t">설명을 잘 써야 하는 이유</span>
+<p>목록에는 에이전트 이름과 설명만 보입니다. 쓰는 사람은 이 한 줄로 무엇을 물을지 판단합니다. 구성에서 설명을 고치면 여기에 그대로 반영됩니다.</p>
+</div>
+
+<h4>4단계. 다른 사람과 함께 쓰려면 <span class="pill opt">참고</span></h4>
+<p>동료도 쓰게 하려면 <strong>공유</strong>를 누릅니다. 만들기 직후의 안내창에서도, 나중에 에이전트를 다시 열어서도 됩니다.</p>
+
+<p>나중에 다시 열 때는 왼쪽 목록에서 에이전트 이름 위에 마우스를 올리고 <strong>...</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-23-agent-menu.jpeg" alt="에이전트 이름 옆의 점 세 개 메뉴">
+<p class="cap">정보, 에이전트 공유, 편집, 제거를 여기서 고릅니다</p>
+
+<table>
+<tr><th>메뉴</th><th>하는 일</th></tr>
+<tr><td>정보</td><td>설명과 만든 사람을 봅니다</td></tr>
+<tr><td>에이전트 공유</td><td>공유 대화상자를 엽니다</td></tr>
+<tr><td>편집</td><td>구성 화면으로 돌아가 지침과 지식을 고칩니다</td></tr>
+<tr><td>제거</td><td>에이전트를 지웁니다. 되돌릴 수 없습니다</td></tr>
+</table>
+
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-18-share-dialog.png" alt="공유 대화상자">
 <p class="cap">이름이나 메일 주소를 넣고 권한을 정합니다</p>
 
+<p>권한은 두 가지입니다. 화면에서는 사람 이름 오른쪽에 표시됩니다.</p>
 <table>
 <tr><th>권한</th><th>할 수 있는 일</th></tr>
-<tr><td>편집할 수 있음</td><td>고치고, 공유하고, 관리합니다. 소유자와 같은 권한입니다</td></tr>
-<tr><td>채팅할 수 있음</td><td>대화만 합니다</td></tr>
+<tr><td>편집할 수 있음<br><span class="sm">Can edit</span></td><td>고치고, 공유하고, 관리합니다. 만든 사람과 같은 권한입니다</td></tr>
+<tr><td>채팅<br><span class="sm">Can chat</span></td><td>대화만 합니다</td></tr>
 </table>
 
 <p><strong>채팅 액세스를 위한 조직 전체 공유</strong>를 켜면 같은 회사 사람이 에이전트 스토어에서 찾아 쓸 수 있습니다. <strong>채팅 링크 복사</strong>로 링크를 보내도 됩니다.</p>
 
 <div class="note">
 <span class="t">그룹은 편집 권한을 줄 수 없습니다</span>
-<p>보안 그룹이나 팀을 넣으면 채팅 권한만 받습니다. 함께 편집하게 하려면 사람을 한 명씩 넣어야 합니다.</p>
+<p>그룹을 넣으면 채팅 권한만 받습니다. 함께 편집하게 하려면 사람을 한 명씩 넣어야 합니다.</p>
+<p>관리자가 공유를 제한해 둔 조직도 있습니다. 조직 전체 공유 토글이 회색으로 눈금어져 있으면 그 경우입니다.</p>
 </div>
-
-<h4>3단계. Immersive로 대화</h4>
-<p>에이전트로 이동을 누르면 전용 화면이 열립니다. 에이전트와 1대 1로 대화하는 자리입니다.</p>
-
-<h4>4단계. In-context로 호출</h4>
-<p>Copilot 대화창에서 <code>@</code>를 입력하면 쓸 수 있는 에이전트 목록이 뜹니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-19-at-mention.jpeg" alt="@ 입력 후 에이전트 목록에서 HR 도우미를 고르는 화면">
-<p class="cap">목록에서 HR 도우미를 고릅니다. 구성 탭에 적은 설명이 이름 아래에 그대로 보입니다</p>
-
-<p>고른 뒤 그대로 질문하면 됩니다. 하던 대화를 끊지 않고 필요할 때만 부르는 방식입니다.</p>
 
 <div class="note">
 <span class="t">고치면 업데이트를 눌러야 합니다</span>
-<p>만든 뒤에는 오른쪽 위 버튼이 만들기에서 <strong>업데이트</strong>로 바뀝니다. 지침이나 지식을 고치면 자동으로 저장되지만, 쓰는 사람 화면에 반영되려면 업데이트를 눌러야 합니다. 반영까지 몇 분이 걸립니다.</p>
+<p>만든 뒤에는 오른쪽 위 버튼이 만들기에서 <strong>업데이트</strong>로 바뀝니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-24-update-btn.jpeg" alt="만들기가 업데이트로 바뀐 화면 상단">
+<p class="cap">만든 뒤의 화면 위쪽. 만들기 자리에 업데이트가 있습니다</p>
+<p>지침이나 지식을 고치면 자동으로 저장되지만, 쓰는 사람 화면에 반영되려면 업데이트를 눌러야 합니다. 반영까지 몇 분이 걸립니다.</p>
 </div>
 </div>
 
