@@ -2746,6 +2746,19 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <img loading="lazy" decoding="async" class="shot old" src="ecl-img/m15_image1.png" alt="언어와 솔루션을 선택하는 화면">
 <p class="cap old">솔루션이 보이지 않으면 솔루션 검색으로 찾습니다</p>
 
+<div class="new"><span class="tag"></span>
+<p>이름과 설명은 다음과 같이 넣습니다.</p>
+<table>
+<tr><th>항목</th><th>입력값</th></tr>
+<tr><td>이름</td><td><code>법무_도우미_이름</code></td></tr>
+<tr><td>설명</td><td>법무 도우미</td></tr>
+</table>
+<div class="note">
+<span class="t">이름에 본인 표시를 넣으세요</span>
+<p>여러 사람이 같은 환경에서 실습하면 이름이 겹칩니다. 뒤에 이름이나 사번을 붙여 두면 목록에서 내 것을 바로 찾을 수 있습니다.</p>
+</div>
+</div>
+
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m15_image2.png" alt="에이전트 이름과 설명을 입력한 화면">
 <p class="cap">이름과 설명을 입력하고 저장합니다</p>
 
@@ -2774,6 +2787,12 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m15_image4.png" alt="참조 자료 추가에서 공개 웹 사이트를 선택하는 화면">
 <p class="cap">공개 웹 사이트를 고릅니다</p>
 
+<div class="new"><span class="tag"></span>
+<p>주소 칸에 다음을 넣고 <strong>추가</strong>를 누릅니다.</p>
+<pre><code>https://law.go.kr/</code></pre>
+<p>국가법령정보센터입니다. 법령 원문이 공개되어 있어 실습에 쓰기 좋습니다.</p>
+</div>
+
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m15_image5.png" alt="법령 사이트 URL을 입력하는 화면">
 <p class="cap">국가법령정보센터 주소를 입력합니다</p>
 
@@ -2801,6 +2820,12 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <p class="cap">검색 범위를 좁혀야 답변이 정확해집니다</p>
 
 <h4>5단계. 테스트와 게시</h4>
+
+<div class="new"><span class="tag"></span>
+<p>테스트 패널에서 법률 질문을 던져 봅니다.</p>
+<pre><code>형법상 절도죄를 설명해줘</code></pre>
+</div>
+
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m15_image11.png" alt="법률 질문에 근거 조항을 포함해 답변하는 화면">
 <p class="cap">결론을 먼저 말하고 근거 조항을 인용하는지 확인합니다</p>
 
@@ -2818,6 +2843,14 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m15_image15.png" alt="슈퍼 호스트 에이전트의 이름과 설명을 입력한 화면">
 <p class="cap">이름과 설명, 모델을 지정합니다</p>
+
+<div class="new"><span class="tag"></span>
+<table>
+<tr><th>항목</th><th>입력값</th></tr>
+<tr><td>이름</td><td><code>슈퍼호스트에이전트_이름</code></td></tr>
+<tr><td>설명</td><td>질문을 알맞은 담당 에이전트로 연결하는 조정자</td></tr>
+</table>
+</div>
 
 <h4>2단계. 에이전트 연결</h4>
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m15_image16.png" alt="에이전트 탭에서 추가를 클릭하는 화면">
@@ -2849,7 +2882,12 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m15_image23.png" alt="라우팅 지침이 입력된 화면">
 <p class="cap">어느 질문을 누구에게 보낼지 정합니다</p>
 
-<h4>4단계. 테스트</h4>
+<h4>4단계. 게시와 테스트</h4>
+
+<div class="new"><span class="tag"></span>
+<p>테스트 전에 슈퍼 호스트도 <strong>게시</strong>합니다. 앞의 두 에이전트와 마찬가지입니다. 게시하지 않으면 연결이 반영되지 않아 라우팅이 동작하지 않습니다.</p>
+</div>
+
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m15_image24.png" alt="HR 질문이 HR 도우미로 전달된 화면">
 <p class="cap">연차 질문은 HR 도우미가 처리합니다</p>
 
@@ -2894,6 +2932,10 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 
 <h3>실습 &#9312; Forms 설문 만들기</h3>
 <p>문의를 접수할 설문을 만듭니다. 여기에 응답이 제출되면 에이전트가 자동으로 실행됩니다.</p>
+
+<div class="new"><span class="tag"></span>
+<p><a href="https://forms.office.com">forms.office.com</a>에 접속해 <strong>새 양식</strong>을 누릅니다.</p>
+</div>
 
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m16_image.png" alt="Microsoft Forms에서 새 양식을 만드는 화면">
 <p class="cap">Microsoft Forms에서 새 양식을 시작합니다</p>
