@@ -1468,6 +1468,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 - 채용과 면접: 채용팀으로 안내
 - 급여와 성과급 금액: 급여팀으로 안내
 - 인사평가와 승진: HR 담당자로 안내
+- 법률과 세무 판단이 필요한 질문: 전문가 확인이 필요하다고 안내
 - 업무와 무관한 질문: HR과 총무 관련 질문만 답변한다고 안내
 
 # 맥락
@@ -1516,7 +1517,16 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <tr><td>오늘 날씨 어때?</td><td>HR과 총무 관련 질문만 답변한다고 안내</td></tr>
 <tr><td>내 급여가 얼마야?</td><td>급여팀 연락처 안내</td></tr>
 <tr><td>채용 절차 알려줘</td><td>채용팀 연락처 안내</td></tr>
+<tr><td>계약서 위반이면 소송 가능해?</td><td>전문가 확인이 필요하다고 안내</td></tr>
 </table>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">네 번째 질문을 눈여겨보세요</span>
+<p>거절하는 방식이 유형마다 다릅니다. 급여는 담당자를 알려주고, 법률은 전문가 확인이 필요하다고만 합니다. 지침에 적은 그대로입니다.</p>
+<p>법률 질문을 아예 답하게 하려면 다른 지식과 다른 지침이 필요합니다. <a href="#m15">M15</a>에서 법무 전용 에이전트를 따로 만들어 이 질문을 넘기는 구조를 실습합니다.</p>
+</div>
+</div>
 
 <p>이 시점에서 에이전트는 행동매뉴얼만 받은 상태입니다. 말투와 답변 범위는 지침을 따르지만 사내 규정의 구체적인 내용은 아직 알지 못합니다. 다음 모듈에서 지식을 연결합니다.</p>
 
@@ -3102,7 +3112,9 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <tr><td>지침 작성</td><td>M7</td></tr>
 <tr><td>지식 문서 다섯 개 연결</td><td>M8</td></tr>
 <tr><td>Echo 토픽과 Contact 토픽</td><td>M10</td></tr>
+<tr><td>STRICT RULES로 토픽 호출 규칙 지정</td><td>M10</td></tr>
 <tr><td>게시와 Copilot 연결</td><td>M11</td></tr>
+<tr><td>MSN 날씨와 Outlook 커넥터 체험</td><td>M12</td></tr>
 <tr><td>커넥터로 대화 기록 저장</td><td>M12</td></tr>
 <tr><td>에이전트 흐름과 Teams 전달</td><td>M13</td></tr>
 <tr><td>멀티에이전트 구성</td><td>M15</td></tr>
@@ -3122,6 +3134,7 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <li>파일 업로드 방식을 SharePoint 지식 소스로 전환</li>
 <li>부서별 시나리오에 맞는 토픽 추가</li>
 <li>다른 업무 영역의 에이전트를 만들어 멀티에이전트로 확장</li>
+<li>MCP 서버를 붙여 외부 서비스로 도구 범위 넓히기</li>
 </ul>
 
 </section><section class="pg" data-pg="faq"><h2 id="faq">자주 묻는 질문</h2>
@@ -3148,6 +3161,8 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <dd>Word, PDF, 텍스트, Excel 모두 지원합니다.</dd>
 <dt>문서를 수정하면 자동으로 반영되나요?</dt>
 <dd>파일 업로드 방식은 기존 파일을 삭제하고 새 파일을 올려야 합니다. SharePoint를 사용하면 문서 변경이 반영됩니다.</dd>
+<dt>기밀 문서도 올려도 되나요?</dt>
+<dd>올린 문서는 에이전트 안에서만 쓰이고 조직의 보안 정책이 그대로 적용됩니다. 다만 에이전트를 공유하면 그 사람도 문서 내용을 답변으로 보게 되므로, 공유 범위를 함께 정하고 올리세요.</dd>
 </dl>
 
 <h3>게시와 사용</h3>
@@ -3166,10 +3181,14 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 <dl class="qa">
 <dt>토픽은 몇 개까지 만들 수 있나요?</dt>
 <dd>정해진 상한은 없습니다. 다만 지식 소스가 25개를 넘으면 오케스트레이터가 어느 것을 볼지 먼저 추려내므로, 개수가 늘수록 설명을 정확히 써 두어야 합니다. 수량보다 각각의 역할이 겹치지 않는지가 중요합니다.</dd>
+<dt>토픽과 지침이 서로 다른 말을 하면 어떻게 되나요?</dt>
+<dd>지침에 적은 STRICT RULES가 우선합니다. 그래서 M10에서 언제 어느 토픽을 부를지 지침에 적어 두는 것입니다.</dd>
 <dt>변수 이름은 자유롭게 정해도 되나요?</dt>
 <dd>자유롭게 정할 수 있습니다. <code>Global.</code> 접두사가 붙으면 글로벌 변수입니다.</dd>
 <dt>Excel 대신 다른 곳에 저장할 수 있나요?</dt>
 <dd>Dataverse, SharePoint 목록 등에 저장할 수 있습니다. Excel이 가장 간단합니다.</dd>
+<dt>Excel에 저장할 수 있는 양에 한계가 있나요?</dt>
+<dd>있습니다. 기록이 계속 쌓이는 용도로 오래 쓸 계획이라면 Dataverse나 데이터베이스를 쓰는 편이 낫습니다. 실습이나 소규모 운영에는 Excel로 충분합니다.</dd>
 <dt>OneDrive를 사용할 수 없는 환경이라면?</dt>
 <dd>SharePoint 문서 라이브러리나 Dataverse로 같은 구조를 만들 수 있습니다.</dd>
 <dt>AI 프롬프트에 추가 비용이 드나요?</dt>
