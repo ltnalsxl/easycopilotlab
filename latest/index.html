@@ -1038,41 +1038,64 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 </div>
 </div>
 
-<ol class="steps">
-<li><b>환경 확인</b>Copilot Studio에 접속해 오른쪽 위 환경이 맞는지 먼저 봅니다. 강사가 지정한 환경이 있으면 그것으로 바꿉니다.</li>
-<li><b>솔루션 열기</b>왼쪽 메뉴에서 솔루션을 고릅니다.</li>
-<li><b>새 솔루션</b>이름을 <code>HR_Solution_이름</code>처럼 겹치지 않게 짓습니다. 게시자는 기본값을 씁니다.</li>
-<li><b>만들기</b>빈 솔루션이 만들어집니다.</li>
-</ol>
+<h4>1단계. 접속과 환경 확인</h4>
+<p><a href="https://copilotstudio.microsoft.com">copilotstudio.microsoft.com</a>에 접속해 왼쪽 위 <strong>환경</strong>이 맞는지 먼저 봅니다. 강사가 지정한 환경이 있으면 그것으로 바꿉니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-1_env.png" alt="환경 선택 팝업">
+<p class="cap old">환경 목록에서 실습용 환경을 고릅니다</p>
+
+<h4>2단계. 솔루션 만들기</h4>
+<p>왼쪽 메뉴에서 <strong>솔루션</strong>을 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-1_sol-menu.png" alt="살펴보기 메뉴에서 솔루션 선택">
+<p class="cap old">왼쪽 메뉴의 솔루션</p>
+
+<p><strong>새 솔루션</strong>을 누르고 이름을 넣습니다. 게시자는 기본값을 그대로 씁니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-1_sol-new.png" alt="새 솔루션 이름 입력">
+<p class="cap old">이름을 넣고 만들기를 누릅니다</p>
+
+<div class="note">
+<span class="t">이름은 겹치지 않게</span>
+<p>여러 사람이 같은 환경에서 실습하면 이름이 겹칩니다. <code>HR_Solution_이름</code>처럼 본인을 알아볼 수 있게 지어 주세요.</p>
+</div>
+
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-1_sol-done.png" alt="빈 솔루션이 만들어진 화면">
+<p class="cap old">빈 솔루션이 만들어집니다. 여기에 곧 에이전트가 들어옵니다</p>
 
 <h3>실습 ② Copilot Studio로 복사</h3>
 <p>M3에서 만든 HR 도우미를 Copilot Studio로 가져옵니다.</p>
 
-<ol class="steps">
-<li><b>에이전트 편집 열기</b>Microsoft 365 Copilot의 왼쪽 목록에서 HR 도우미의 <strong>...</strong>를 누르고 편집을 고릅니다.</li>
-<li><b>Copilot Studio에 복사</b>편집 화면 위쪽의 <strong>...</strong>에서 Copilot Studio에 복사를 누릅니다.</li>
-<li><b>복사 내용 확인</b>무엇이 넘어가고 무엇이 안 넘어가는지 표시됩니다. 시작을 누릅니다.</li>
-<li><b>환경 선택</b>어느 환경에 넣을지 묻습니다. 실습 ①에서 확인한 환경을 고릅니다.</li>
-</ol>
+<h4>1단계. 복사 시작</h4>
+<p>Microsoft 365 Copilot의 왼쪽 에이전트 목록에서 <strong>...</strong>를 누르고 <strong>편집</strong>을 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_edit.png" alt="에이전트 목록의 점 세 개 메뉴에서 편집">
+<p class="cap old">에이전트 목록에서 편집으로 들어갑니다</p>
+
+<p>편집 화면 위쪽의 <strong>...</strong>에서 <strong>Copilot Studio에 복사</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_copy.png" alt="편집 화면 상단 메뉴의 Copilot Studio에 복사">
+<p class="cap old">편집 화면 위쪽 메뉴에 있습니다</p>
+
+<p>무엇이 넘어가고 무엇이 안 넘어가는지 표시됩니다. 확인하고 <strong>시작</strong>을 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_scope.png" alt="복사되는 내용과 복사되지 않는 내용 안내">
+<p class="cap old">복사 범위를 알려 줍니다</p>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
 <span class="t">파일은 넘어가지 않습니다</span>
 <p>복사되는 것은 <strong>이름, 설명, 지침, 추천 프롬프트, 아이콘</strong>과 <strong>SharePoint 및 웹사이트 지식</strong>입니다.</p>
 <p>M3에서 올린 실습 파일 다섯 개는 <strong>넘어가지 않습니다.</strong> 내 컴퓨터에서 올린 파일은 에이전트 안에 박혀 있어서 따라오지 못합니다. <a href="#m8">M8</a>에서 같은 파일을 다시 올리게 되는데, 그 이유가 여기 있습니다.</p>
-<p>이미지 만들기도 Copilot Studio에는 없습니다. 문서와 차트 만들기는 복사 후 설정에서 다시 켜야 합니다.</p>
+<p>이미지 만들기도 Copilot Studio에는 없습니다. 문서와 차트 만들기는 복사한 뒤 설정에서 다시 켜야 합니다.</p>
 </div>
 </div>
 
-<h4>언어와 솔루션 지정</h4>
-<p>복사된 에이전트는 만들기 화면 상태로 열립니다. 저장하기 전에 두 가지를 바꿉니다.</p>
+<p>어느 환경에 복사할지 묻습니다. 강사가 지정한 환경이 있으면 그것을, 없으면 기본 환경을 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_env.png" alt="복사할 환경을 고르는 화면">
+<p class="cap old">실습 ①에서 확인한 환경과 같은 곳을 고릅니다</p>
 
-<ol class="steps">
-<li><b>언어</b>위쪽 <strong>...</strong>에서 언어 업데이트를 누르고 한국어를 고릅니다.</li>
-<li><b>솔루션</b>같은 메뉴의 고급 설정 업데이트에서 실습 ①의 솔루션을 지정합니다.</li>
-<li><b>이름</b><code>HR 도우미 이름</code>처럼 바꿔 두면 나중에 찾기 쉽습니다.</li>
-<li><b>만들기</b>위쪽 만들기를 눌러 저장합니다.</li>
-</ol>
+<h4>2단계. 언어와 솔루션 지정</h4>
+<p>복사된 에이전트는 기본 언어가 <strong>영어(en-US)</strong>로 설정되어 있습니다. 위쪽 <strong>...</strong>에서 바꿉니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_lang1.png" alt="언어 업데이트 메뉴">
+<p class="cap old">에이전트 언어 업데이트를 누릅니다</p>
+
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_lang2.png" alt="한국어를 고르는 화면">
+<p class="cap old">한국어(ko-KR)를 고르고 업데이트합니다</p>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
@@ -1081,11 +1104,26 @@ img.shot.old{border-color:#e8c9a0;box-shadow:0 0 0 3px #fdf6ec}
 </div>
 </div>
 
-<p>만든 직후에는 설정을 마칠 때까지 기다리라는 메시지가 잠시 보입니다. 사라지면 오른쪽 테스트 패널에서 대화가 되는지 확인합니다.</p>
+<p>같은 메뉴의 <strong>고급 설정 업데이트</strong>에서 실습 ①의 솔루션을 지정합니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_sol.png" alt="고급 설정에서 솔루션 선택">
+<p class="cap old">앞에서 만든 솔루션을 고릅니다</p>
+
+<h4>3단계. 저장과 확인</h4>
+<p>위쪽 <strong>만들기</strong>를 눌러 저장합니다. 이름도 <code>HR 도우미 이름</code>처럼 바꿔 두면 나중에 찾기 쉽습니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_create.png" alt="상단 만들기 버튼">
+<p class="cap old">위쪽 만들기를 눌러 저장합니다</p>
+
+<p>처음 만들어질 때 설정을 마칠 때까지 기다리라는 메시지가 잠시 보입니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_wait.png" alt="설정 완료를 기다리는 메시지">
+<p class="cap old">메시지가 사라질 때까지 기다립니다</p>
+
+<p>오른쪽 테스트 패널에서 대화가 되는지 확인합니다.</p>
+<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_test.png" alt="테스트 패널에서 정상 작동을 확인한 화면">
+<p class="cap old">답변이 돌아오면 복사가 끝난 것입니다</p>
 
 <div class="note">
 <span class="t">이 에이전트를 계속 씁니다</span>
-<p>오후 실습은 모두 여기에 붙여 나갑니다. M7 지침, M8 지식, M10 토픽, M13 흐름 순서로 하나씩 더합니다.</p>
+<p>오후 실습은 모두 여기에 붙여 나갑니다. <a href="#m7">M7 지침</a>, <a href="#m8">M8 지식</a>, <a href="#m10">M10 토픽</a>, <a href="#m13">M13 흐름</a> 순서로 하나씩 더합니다.</p>
 </div>
 
 </section><section class="pg" data-pg="m5"><h2 class="mod" id="m5"><span class="num">M5</span>에이전트의 구성요소</h2>
