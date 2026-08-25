@@ -2346,23 +2346,20 @@ details.fold .copybox{margin-top:0}
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-09-message-var.png" alt="메시지 노드에서 변수 삽입 버튼을 누르는 화면">
 <p class="cap">{x}가 변수 넣기, 옆의 fx는 수식 넣기입니다</p>
 
-<p>오른쪽에 <strong>변수 선택</strong> 패널이 열립니다. <strong>시스템</strong> 탭으로 넘어갑니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-10-var-system.png" alt="변수 선택 패널의 시스템 탭">
-<p class="cap">사용자 지정은 내가 만든 변수, 시스템은 처음부터 있는 변수입니다</p>
+<p>오른쪽에 <strong>변수 선택</strong> 패널이 열립니다. <strong>시스템</strong> 탭에서 <code>User.DisplayName</code>을 검색해 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-10-var-displayname.png" alt="변수 선택 패널의 시스템 탭에서 User.DisplayName을 검색한 화면">
+<p class="cap">목록이 길어서 검색창을 쓰는 편이 빠릅니다</p>
 
-<p>목록이 길어서 위쪽 검색창을 쓰는 편이 빠릅니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-11-var-search.png" alt="변수 검색창에 이름을 입력해 변수를 찾는 화면">
-<p class="cap">이름을 입력하면 바로 걸러집니다</p>
+<p>커서를 두었던 자리에 변수가 들어갑니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-11-greeting-done.png" alt="안녕하세요와 님 사이에 User.DisplayName 변수가 들어간 화면">
+<p class="cap">회색 칩으로 보이면 제대로 들어간 것입니다. 글자로 <code>User.DisplayName</code>이라고 적혀 있으면 변수가 아닙니다</p>
 
 <p>이 실습에서 쓸 시스템 변수입니다.</p>
 <table>
 <tr><th>변수</th><th>담고 있는 정보</th><th>어디에</th></tr>
 <tr><td><code>User.DisplayName</code></td><td>대화 중인 사용자의 이름</td><td>인사 메시지</td></tr>
 <tr><td><code>Activity.Text</code></td><td>사용자가 방금 입력한 메시지 전체</td><td>메아리 메시지</td></tr>
-<tr><td><code>User.Email</code></td><td>사용자의 이메일 주소</td><td>쓰지 않습니다</td></tr>
 </table>
-
-<p>인사 메시지에는 <code>User.DisplayName</code>을 넣습니다.</p>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
@@ -2372,19 +2369,58 @@ details.fold .copybox{margin-top:0}
 </div>
 
 <h4>6단계. 메아리 메시지 추가</h4>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-1_image8.png" alt="두 번째 메시지 보내기 노드를 추가하는 화면">
-<p class="cap">메시지 노드를 하나 더 추가합니다</p>
+<p>첫 메시지 아래 <strong>+</strong>를 누릅니다. 붙일 수 있는 노드 목록이 나옵니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-12-add-message.png" alt="노드 추가 메뉴에서 메시지 보내기를 선택하는 화면">
+<p class="cap">질문하기, 조건 추가, 도구 추가처럼 오후에 쓸 것들이 여기 다 있습니다. 지금은 <strong>메시지 보내기</strong></p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-1_image9.png" alt="Activity.Text 변수를 선택하는 화면">
-<p class="cap">사용자 입력을 그대로 돌려보낼 변수를 넣습니다</p>
+<p>빈 메시지 노드가 붙습니다. 아직 아무것도 없어서 빨간 표시가 떠 있습니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-13-second-node.png" alt="두 번째 메시지 노드가 비어 있고 오류 표시가 뜬 화면">
+<p class="cap">이번에는 글자를 치지 않고 바로 <strong>{x}</strong>를 누릅니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-1_image10.png" alt="같은 변수를 반복해 메아리 효과를 만든 화면">
-<p class="cap">변수를 여러 번 넣으면 메아리처럼 반복됩니다</p>
+<p>변수 선택 패널이 <strong>사용자 지정</strong> 탭으로 열립니다. 비어 있습니다. 아직 만든 변수가 없기 때문입니다. <strong>시스템</strong> 탭으로 넘어갑니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-14-var-tabs.png" alt="변수 선택 패널의 사용자 지정 탭이 비어 있고 시스템 탭을 가리키는 화면">
+<p class="cap">사용자 지정은 내가 만든 변수, 시스템은 처음부터 있는 변수입니다</p>
 
-<h4>7단계. 저장과 테스트</h4>
-<p>오른쪽 위 <strong>저장</strong>을 누른 뒤, 테스트 패널에서 <code>메아리 해줘</code> 같은 문장을 입력합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-1_image11.png" alt="테스트 패널에서 Echo 토픽이 실행된 화면">
-<p class="cap">설명에 맞는 질문이 들어오자 토픽이 자동으로 선택되었습니다</p>
+<p><code>Activity.Text</code>를 검색해 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-15-var-activity.png" alt="시스템 탭에서 Activity.Text를 검색한 화면">
+<p class="cap">사용자가 방금 입력한 문장이 담기는 변수입니다</p>
+
+<p>같은 변수를 <strong>세 번</strong> 넣습니다. 한 번 넣고 줄바꿈 없이 이어서 두 번 더 반복하면 됩니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-16-echo-done.png" alt="두 번째 메시지 노드에 Activity.Text가 세 번 들어간 화면">
+<p class="cap">같은 말이 세 번 돌아오는 것이 메아리입니다</p>
+
+<h4>7단계. 저장</h4>
+<p>오른쪽 위 <strong>저장</strong>을 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-17-save.png" alt="완성된 Echo 토픽과 저장 버튼">
+<p class="cap">노드마다 오른쪽에 체크 표시가 붙어 있으면 문제가 없다는 뜻입니다</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">빨간 표시가 남아 있으면</span>
+<p>저장이 안 됩니다. 대개 메시지 칸이 비어 있거나 변수가 제대로 안 들어간 경우입니다. 위쪽 <strong>토픽 검사기</strong>를 누르면 어느 노드가 문제인지 알려 줍니다.</p>
+</div>
+</div>
+
+<h4>8단계. 테스트</h4>
+<p>테스트 패널에서 <code>메아리 해줘. 야호~</code>처럼 입력합니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-18-test.png" alt="테스트 패널에서 Echo 토픽이 실행되고 왼쪽에 활동 화면이 표시된 화면">
+<p class="cap">인사말이 먼저 나오고, 그다음 같은 말이 세 번 돌아옵니다</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">왼쪽 화면이 오늘 가장 중요한 도구입니다</span>
+<p>테스트하면 왼쪽에 <strong>활동</strong>이 함께 뜹니다. <strong>Echo Topic</strong>이 <strong>완료</strong>로 표시되어 있고, 그 토픽의 설명이 그대로 보입니다. 오케스트레이터가 <strong>이 설명을 읽고 골랐다</strong>는 것을 눈으로 확인하는 자리입니다.</p>
+<p><strong>근거 표시</strong>를 누르면 왜 그렇게 판단했는지 더 볼 수 있고, <strong>토픽 편집</strong>으로 바로 고치러 갈 수도 있습니다.</p>
+<p>오후에 도구가 늘어나면 여기가 유일한 단서가 됩니다. 답이 이상할 때 지침을 고칠지 도구 설명을 고칠지는 대개 이 화면을 보고 정합니다.</p>
+</div>
+
+<div class="note">
+<span class="t">여기서 한 번 짚고 갑니다</span>
+<p>지침에는 HR과 총무 관련 질문에만 답하라고 적어 두었습니다. 그런데 메아리는 둘 다 아닌데도 실행됐습니다.</p>
+<p>지침의 범위 제한은 <strong>없는 것을 지어내지 말라</strong>는 규칙입니다. 메아리는 지어내는 것이 아니라 방금 여러분이 <strong>만들어 붙인 기능</strong>입니다. 도구를 붙이는 순간 그것은 이 에이전트가 할 수 있는 일이 됩니다.</p>
+<p>오후 내내 이런 식으로 능력을 하나씩 붙여 나갑니다.</p>
+</div>
+</div>
 
 <h3>실습 &#9313; Contact 토픽 만들기</h3>
 <p>담당자를 조회하고 결과를 글로벌 변수에 저장하는 실무형 토픽입니다.</p>
