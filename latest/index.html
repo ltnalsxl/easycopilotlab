@@ -2207,7 +2207,17 @@ details.fold .copybox{margin-top:0}
 
 <h3>토픽은 대본입니다</h3>
 <p>토픽은 <strong>특정 상황에서 대화가 어떻게 흘러갈지 미리 짜 둔 대본</strong>입니다. 언제 무엇을 묻고, 무엇을 찾아보고, 어디에 적어 둘지가 순서대로 적혀 있습니다.</p>
-<p>다만 한 줄로만 흐르지는 않습니다. 조건에 따라 갈라지는 대본입니다. 답에 따라 다음 장면이 달라지는 이야기라고 보면 됩니다.</p>
+<p>한 줄로만 흐르지는 않습니다. 조건에 따라 갈라지는 대본이라, 사용자가 무엇이라 답하느냐에 따라 다음 장면이 달라집니다.</p>
+<p>대본은 여러 개 만들어 두고 상황마다 꺼내 씁니다. 어느 대본을 꺼낼지 고르는 쪽이 오케스트레이터입니다.</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">이 대본에는 대사가 없습니다</span>
+<p>보통 대본이라고 하면 대사가 적혀 있습니다. 그런데 여기서 만드는 대본에는 <strong>무엇을 할지만</strong> 적습니다. 어느 부서인지 물어봐라, 담당자를 찾아라, 찾은 결과를 적어 둬라 같은 것들입니다.</p>
+<p>그것을 실제 문장으로 옮기는 일은 <strong>오케스트레이터</strong>가 합니다. 같은 대본을 써도 사용자가 어떻게 물었느냐에 따라 돌아오는 말이 달라지는 이유가 여기 있습니다. 지침에 적어 둔 말투도 이 단계에서 입혀집니다.</p>
+<p>그래서 실습에서 토픽을 만들 때 답변 문장을 짜느라 시간을 쓰지 않습니다. 무엇을 알아낼지만 정해 두면 됩니다.</p>
+</div>
+</div>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
@@ -2225,24 +2235,34 @@ details.fold .copybox{margin-top:0}
 </div>
 
 <h3>변수는 포스트잇입니다</h3>
-<p>변수는 대화 중에 알아낸 것을 적어 두는 <strong>포스트잇</strong>입니다. 적어 두면 나중에 다른 토픽이나 흐름에서 꺼내 씁니다. 적어 두지 않으면 같은 것을 다시 물어봐야 합니다.</p>
+<p>변수는 대화 중에 알아낸 것을 적어 두는 <strong>포스트잇</strong>입니다. 담당자를 찾았으면 이름과 연락처를 적어 붙여 둡니다. 잠시 뒤에 그 담당자에게 문의를 넣어야 할 때 붙여 둔 것을 떼어 보면 됩니다.</p>
+<p>적어 두지 않으면 같은 것을 다시 물어봐야 합니다. 방금 담당자를 알려줬는데 조금 뒤에 다시 누구냐고 되묻는 에이전트가 되는 것입니다.</p>
 
 <table>
-<tr><th>구분</th><th>유지 범위</th><th>어디에 붙이나</th><th>사용</th></tr>
-<tr><td>글로벌 변수</td><td>모든 토픽에서 공유. 대화가 끝날 때까지 남습니다</td><td>책상에 붙여 두는 포스트잇</td><td>이 과정에서 사용</td></tr>
-<tr><td>토픽 변수</td><td>그 토픽 안에서만</td><td>대본 여백에 적은 메모</td><td></td></tr>
-<tr><td>시스템 변수</td><td>모든 토픽. Copilot Studio가 알아서 채웁니다</td><td>이미 적혀 있는 쪽지</td><td>Echo 실습에서 사용</td></tr>
+<tr><th>구분</th><th>어디에 붙는가</th><th>누가 꺼내 쓰나</th><th>오늘</th></tr>
+<tr><td>글로벌 변수</td><td>대화 전체에 걸쳐 붙어 있습니다</td><td>모든 토픽과 흐름</td><td>사용</td></tr>
+<tr><td>토픽 변수</td><td>그 대본 안에만 붙습니다</td><td>그 토픽 안에서만</td><td></td></tr>
+<tr><td>시스템 변수</td><td>처음부터 붙어 있습니다</td><td>모든 토픽</td><td>Echo 실습에서 사용</td></tr>
 </table>
 
-<p>오늘은 <strong>글로벌 변수</strong>만 씁니다. 다루기 쉽고, <a href="#m13">M13</a>에서 흐름과 이어 붙일 때 필요합니다. 변수를 만들 때 속성 창에서 <strong>글로벌(모든 토픽에서 액세스 가능)</strong>을 고르면 이름 앞에 <code>Global.</code>이 붙습니다.</p>
+<p>오늘은 <strong>글로벌 변수</strong>만 씁니다. 다루기 쉽고, <a href="#m13">M13</a>에서 흐름과 이어 붙일 때 필요합니다. 변수를 만들 때 속성 창에서 <strong>글로벌(모든 토픽에서 액세스 가능)</strong>을 고르면 이름 앞에 <code>Global.</code>이 붙습니다. 이 접두사가 붙어 있는지로 구분하면 됩니다.</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">시스템 변수는 내가 붙이는 것이 아닙니다</span>
+<p>세 번째 줄의 시스템 변수는 Copilot Studio가 미리 붙여 둔 포스트잇입니다. 사용자가 방금 뭐라고 했는지(<code>Activity.Text</code>), 지금 말하고 있는 사람이 누구인지(<code>User.DisplayName</code>) 같은 것이 자동으로 적힙니다.</p>
+<p>Echo 실습에서 이 두 개를 꺼내 씁니다. 만들지 않고 골라서 쓰기만 하면 됩니다.</p>
+</div>
 
 <div class="note">
-<span class="t">대화를 새로 시작하면 지워집니다</span>
-<p>글로벌 변수는 <strong>한 번의 대화 동안만</strong> 남습니다. 테스트 패널에서 새 대화를 시작하면 붙여 둔 포스트잇이 전부 떨어집니다. 실습 중 앞에서 저장한 값이 안 보이면 대화를 새로 시작했는지부터 확인하세요.</p>
+<span class="t">대화를 새로 시작하면 떨어집니다</span>
+<p>글로벌 변수는 <strong>한 번의 대화 동안만</strong> 붙어 있습니다. 테스트 패널에서 새 대화를 시작하면 붙여 둔 포스트잇이 전부 떨어집니다.</p>
+<p>실습 중에 앞에서 저장한 값이 안 보이면 십중팔구 대화를 새로 시작한 것입니다. 다시 담당자를 물어보면 포스트잇이 새로 붙습니다.</p>
+</div>
 </div>
 
 <h3>토픽과 변수가 함께 도는 방식</h3>
-<p>토픽이 답을 직접 말하지 않는다는 점이 이 그림의 핵심입니다. 토픽은 알아낸 것을 포스트잇에 적어 두기만 하고, 그것을 문장으로 옮기는 일은 오케스트레이터가 맡습니다.</p>
+<p>지금까지의 이야기를 한 장으로 보면 이렇습니다. 대본을 고르는 것도 오케스트레이터, 포스트잇을 읽어 말로 옮기는 것도 오케스트레이터입니다. 토픽은 그 사이에서 알아낸 것을 적어 두는 일을 합니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/d-m10-topic-variable.svg" alt="사용자 질문에서 오케스트레이터가 토픽을 고르고, 토픽이 글로벌 변수에 결과를 저장하면 오케스트레이터가 그것을 읽어 답변을 만드는 흐름도">
 <p class="cap">토픽은 정보를 모으고, 말하는 것은 오케스트레이터입니다</p>
 
@@ -2259,8 +2279,8 @@ details.fold .copybox{margin-top:0}
 
 <h4>1단계. 새 토픽 생성</h4>
 <p>에이전트 위쪽 탭에서 <strong>토픽</strong>을 누릅니다. <strong>+ 토픽 추가</strong> 오른쪽의 화살표를 눌러 <strong>새로 시작</strong>을 고릅니다.</p>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m10-1_image1.png" alt="토픽 목록에서 토픽 추가와 새로 시작을 선택하는 화면">
-<p class="cap old">토픽을 새로 만듭니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-1_image1.png" alt="토픽 목록에서 토픽 추가와 새로 시작을 선택하는 화면">
+<p class="cap">토픽을 새로 만듭니다</p>
 
 <h4>2단계. 이름과 설명 입력</h4>
 <table>
@@ -2316,8 +2336,8 @@ details.fold .copybox{margin-top:0}
 <p>담당자를 조회하고 결과를 글로벌 변수에 저장하는 실무형 토픽입니다.</p>
 
 <h4>1단계. 새 토픽 생성</h4>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m10-2_image1.png" alt="토픽 목록에서 새 토픽을 추가하는 화면">
-<p class="cap old">앞서 만든 Echo Topic이 목록에 보입니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image1.png" alt="토픽 목록에서 새 토픽을 추가하는 화면">
+<p class="cap">앞서 만든 Echo Topic이 목록에 보입니다</p>
 
 <h4>2단계. 이름과 설명 입력</h4>
 <table>
@@ -2402,16 +2422,16 @@ details.fold .copybox{margin-top:0}
 <p>변수는 <strong><code>/gl</code></strong> 을 입력하면 글로벌 변수 목록이 나옵니다. <code>Global.Contact_Result</code>를 골라 넣습니다.</p>
 </div>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m10-3_rules.png" alt="지침에 STRICT RULES를 추가한 화면">
-<p class="cap old">슬래시로 토픽을 넣으면 아이콘이 함께 붙습니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-3_rules.png" alt="지침에 STRICT RULES를 추가한 화면">
+<p class="cap">슬래시로 토픽을 넣으면 아이콘이 함께 붙습니다</p>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m10-3_gl.png" alt="슬래시 gl 입력으로 글로벌 변수를 고르는 화면">
-<p class="cap old">/gl 을 입력해 Global.Contact_Result를 고릅니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-3_gl.png" alt="슬래시 gl 입력으로 글로벌 변수를 고르는 화면">
+<p class="cap">/gl 을 입력해 Global.Contact_Result를 고릅니다</p>
 
 <h4>2단계. 저장</h4>
 <p>토픽과 변수가 아이콘과 함께 들어갔는지 확인하고 <strong>저장</strong>합니다.</p>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m10-3_done.png" alt="토픽과 변수가 아이콘으로 삽입된 지침">
-<p class="cap old">글자가 아니라 아이콘으로 보이면 제대로 들어간 것입니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-3_done.png" alt="토픽과 변수가 아이콘으로 삽입된 지침">
+<p class="cap">글자가 아니라 아이콘으로 보이면 제대로 들어간 것입니다</p>
 
 <div class="note">
 <span class="t">이 규칙이 없으면</span>
@@ -2457,8 +2477,8 @@ details.fold .copybox{margin-top:0}
 <tr><td>아까 찾은 담당자한테 문의하고 싶어</td><td>글로벌 변수에 저장된 정보 활용</td></tr>
 </table>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m10-3_test.png" alt="경비처리 담당자를 물었을 때 토픽이 호출된 화면">
-<p class="cap old">토픽이 담당자 정보를 찾아오면 오케스트레이터가 문장으로 다듬어 답합니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-3_test.png" alt="경비처리 담당자를 물었을 때 토픽이 호출된 화면">
+<p class="cap">토픽이 담당자 정보를 찾아오면 오케스트레이터가 문장으로 다듬어 답합니다</p>
 
 <div class="new"><span class="tag"></span>
 <h3>정리</h3>
