@@ -2413,32 +2413,46 @@ details.fold .copybox{margin-top:0}
 <p><strong>근거 표시</strong>를 누르면 왜 그렇게 판단했는지 더 볼 수 있고, <strong>토픽 편집</strong>으로 바로 고치러 갈 수도 있습니다.</p>
 <p>오후에 도구가 늘어나면 여기가 유일한 단서가 됩니다. 답이 이상할 때 지침을 고칠지 도구 설명을 고칠지는 대개 이 화면을 보고 정합니다.</p>
 </div>
-
-<div class="note">
-<span class="t">여기서 한 번 짚고 갑니다</span>
-<p>지침에는 HR과 총무 관련 질문에만 답하라고 적어 두었습니다. 그런데 메아리는 둘 다 아닌데도 실행됐습니다.</p>
-<p>지침의 범위 제한은 <strong>없는 것을 지어내지 말라</strong>는 규칙입니다. 메아리는 지어내는 것이 아니라 방금 여러분이 <strong>만들어 붙인 기능</strong>입니다. 도구를 붙이는 순간 그것은 이 에이전트가 할 수 있는 일이 됩니다.</p>
-<p>오후 내내 이런 식으로 능력을 하나씩 붙여 나갑니다.</p>
-</div>
 </div>
 
 <h3>실습 &#9313; Contact 토픽 만들기</h3>
 <p>담당자를 조회하고 결과를 글로벌 변수에 저장하는 실무형 토픽입니다.</p>
 
-<h4>1단계. 새 토픽 생성</h4>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image1.png" alt="토픽 목록에서 새 토픽을 추가하는 화면">
-<p class="cap">앞서 만든 Echo Topic이 목록에 보입니다</p>
+<h4>1단계. 토픽 목록으로 돌아가기</h4>
+<p>Echo 토픽 편집 화면에 있다면 위쪽 <strong>토픽</strong> 탭을 다시 누릅니다. 왼쪽 화살표로 나가도 됩니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-19-back-to-topics.png" alt="Echo 토픽 편집 화면에서 상단 토픽 탭을 누르는 화면">
+<p class="cap">저장 버튼이 회색이면 저장할 것이 없다는 뜻입니다. 그대로 나가도 됩니다</p>
 
-<h4>2단계. 이름과 설명 입력</h4>
+<h4>2단계. 새 토픽 만들기</h4>
+<p>앞서와 같이 <strong>+ 토픽 추가</strong>에서 <strong>새로 시작</strong>을 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-20-add-topic2.png" alt="토픽 추가에서 새로 시작을 선택하는 화면">
+<p class="cap">사용자 지정 목록에 Echo Topic이 하나 늘어 있습니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-21-contact-new.png" alt="새로 만든 빈 토픽의 트리거 화면">
+<p class="cap">아까와 같은 빈 토픽입니다. 설명 칸에 회색 예시가 들어 있습니다</p>
+
+<h4>3단계. 이름과 설명 입력</h4>
 <table>
 <tr><th>항목</th><th>입력값</th></tr>
-<tr><td>이름</td><td>Contact Topic</td></tr>
+<tr><td>이름</td><td><code>Contact Topic</code></td></tr>
 <tr><td>설명</td><td>이 토픽은 담당자 이름, 연락처, 이메일을 조회하여 제공합니다</td></tr>
 </table>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image2.png" alt="Contact 토픽의 이름과 설명을 입력한 화면">
-<p class="cap">무엇을 하는 토픽인지 명확히 적습니다</p>
 
-<h4>3단계. 입력 변수 만들기</h4>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-22-contact-desc.png" alt="Contact 토픽의 트리거 설명을 입력한 화면">
+<p class="cap">무엇을 돌려주는지를 구체적으로 적습니다. 이름, 연락처, 이메일이라고 적어 두면 그런 질문에 걸립니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-23-contact-details.png" alt="Contact Topic 이름과 설명이 모두 채워진 화면">
+<p class="cap">이름을 <code>Contact Topic</code>으로 바꾸고 나면 이 상태가 됩니다</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">Echo 토픽과 겹치지 않게</span>
+<p>두 토픽 다 이 에이전트에 붙어 있으므로, 설명이 비슷하면 오케스트레이터가 헷갈립니다. Echo는 <strong>말을 그대로 돌려보낸다</strong>, Contact는 <strong>담당자를 조회해 제공한다</strong>로 하는 일이 분명히 다릅니다.</p>
+<p>위쪽 <strong>세부 정보</strong>를 누르면 이름과 설명을 한 창에서 확인하고 고칠 수 있습니다.</p>
+</div>
+</div>
+
+<h4>4단계. 입력 변수 만들기</h4>
 <p>오케스트레이터가 어느 분야의 담당자를 찾는지 토픽에 전달할 수 있도록 입력 변수를 만듭니다. 상단의 자세히에서 세부 정보를 클릭합니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image3.png" alt="자세히 메뉴에서 세부 정보를 선택하는 화면">
 <p class="cap">토픽의 세부 정보를 엽니다</p>
@@ -2450,7 +2464,7 @@ details.fold .copybox{margin-top:0}
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image5.png" alt="입력 변수의 이름과 설명을 설정한 화면">
 <p class="cap">변수에도 설명을 붙여야 오케스트레이터가 값을 채웁니다</p>
 
-<h4>4단계. 메시지 노드 추가</h4>
+<h4>5단계. 메시지 노드 추가</h4>
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image6.png" alt="메시지 보내기 노드를 추가하는 화면">
 <p class="cap">메시지 노드를 추가합니다</p>
 
@@ -2463,7 +2477,7 @@ details.fold .copybox{margin-top:0}
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image9.png" alt="메시지가 완성된 화면">
 <p class="cap">조회 중임을 알리는 메시지가 완성되었습니다</p>
 
-<h4>5단계. 생성형 답변 노드 추가</h4>
+<h4>6단계. 생성형 답변 노드 추가</h4>
 <p>더하기 버튼에서 고급, 생성형 답변을 차례로 선택합니다. 화면에 따라 생성 응답으로 표시되기도 합니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image10.png" alt="고급 메뉴에서 생성형 답변을 선택하는 화면">
 <p class="cap">생성형 답변 노드를 추가합니다</p>
@@ -2472,7 +2486,7 @@ details.fold .copybox{margin-top:0}
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image11.png" alt="생성형 답변의 입력과 데이터 원본을 설정한 화면">
 <p class="cap">검색 범위를 담당자 문서로 좁혀 관련 없는 내용이 섞이지 않게 합니다</p>
 
-<h4>6단계. 글로벌 변수에 결과 저장</h4>
+<h4>7단계. 글로벌 변수에 결과 저장</h4>
 <p>고급 설정에서 메시지 보내기 체크를 해제합니다. 답변은 오케스트레이터가 만들도록 맡기고 토픽은 정보만 저장합니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image12.png" alt="메시지 보내기를 해제하고 변수 선택을 클릭하는 화면">
 <p class="cap">메시지 보내기를 끄고 저장할 변수를 지정합니다</p>
