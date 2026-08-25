@@ -1324,18 +1324,40 @@ details.fold .copybox{margin-top:0}
 </div>
 </details>
 
-<h4>1단계. 에이전트 만들기 시작</h4>
-<p>Copilot Studio 홈 화면 가운데에 <strong>무엇을 빌드하시겠습니까?</strong>가 보입니다. 그 아래 <strong>처음부터 빌드 시작</strong> 줄에서 맨 왼쪽 <strong>에이전트</strong> 카드를 누릅니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-03-build-agent.png" alt="Copilot Studio 홈 화면의 처음부터 빌드 시작에서 에이전트 카드">
+<div class="note">
+<span class="t">오늘 지나갈 길</span>
+<p>홈 &rarr; 다른 빌드 방법 &rarr; 에이전트(표준) &rarr; 처음부터 빌드 시작의 에이전트 카드 &rarr; 이름 지정 &rarr; 에이전트 설정에서 언어와 솔루션 &rarr; 만들기</p>
+</div>
+
+<h4>1단계. 다른 빌드 방법 열기</h4>
+<p><a href="https://copilotstudio.microsoft.com">copilotstudio.microsoft.com</a>에 접속합니다. 홈 화면 가운데에 큰 카드 두 개가 보이는데, 둘 다 이름 옆에 <strong>GitHub Copilot</strong> 표시가 붙어 있습니다. 이 과정에서 쓰는 것이 아닙니다.</p>
+<p>맨 아래 <strong>다른 빌드 방법</strong>을 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-01-studio-home.png" alt="Copilot Studio 홈 화면 맨 아래의 다른 빌드 방법">
+<p class="cap">Microsoft 365 Copilot을 확장하는 에이전트를 만들거나, 규칙 기반 오케스트레이션으로 표준 에이전트와 자동화된 흐름을 빌드하세요라고 적혀 있습니다</p>
+
+<h4>2단계. 에이전트(표준) 고르기</h4>
+<p>카드 두 개가 나옵니다. 왼쪽 <strong>에이전트</strong> 카드에 <strong>표준</strong> 표시가 붙어 있습니다. 이것을 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-02-other-ways-standard.png" alt="에이전트(표준)와 에이전트 흐름 두 카드가 놓인 화면">
+<p class="cap">미리 정의된 토픽과 흐름으로 규칙 기반 대화형 에이전트를 만듭니다라고 적힌 쪽입니다</p>
+
+<div class="note">
+<span class="t">오른쪽 카드는 지나칩니다</span>
+<p><strong>에이전트 흐름</strong>은 대화 없이 작업만 처리하는 자동화입니다. 오늘은 대화형 에이전트를 만드므로 왼쪽을 고릅니다.</p>
+</div>
+
+<h4>3단계. 에이전트 카드 누르기</h4>
+<p>화면이 바뀌면서 <strong>무엇을 빌드하시겠습니까?</strong>가 나옵니다. 여기서부터가 표준 에이전트를 만드는 자리입니다. 왼쪽 메뉴도 홈, 에이전트, 흐름, 도구로 바뀌고 오른쪽 위에 지금 환경 이름이 표시됩니다.</p>
+<p><strong>처음부터 빌드 시작</strong> 줄에서 맨 왼쪽 <strong>에이전트</strong> 카드를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-03-build-agent.png" alt="무엇을 빌드하시겠습니까 화면의 처음부터 빌드 시작에서 에이전트 카드">
 <p class="cap">웹 사이트, Microsoft Teams 등에서 질문에 답변하고 작업을 수행합니다라고 적힌 카드입니다</p>
 
 <div class="note">
 <span class="t">옆의 두 카드는 지나칩니다</span>
 <p><strong>컴퓨터 사용 에이전트</strong>는 사람이 화면을 조작하듯 앱과 웹을 다루는 에이전트이고, <strong>새 에이전트 흐름</strong>은 에이전트 없이 자동화 흐름만 만드는 자리입니다. 오늘은 둘 다 쓰지 않습니다.</p>
-<p>가운데 입력 칸에 하고 싶은 일을 적어서 만드는 방법도 있습니다. 오전에 에이전트 빌더에서 한 것과 같은 방식인데, 오늘은 각 항목을 직접 채워 보기 위해 카드로 시작합니다.</p>
+<p>위쪽 입력 칸에 하고 싶은 일을 적어서 만드는 방법도 있습니다. 오전에 에이전트 빌더에서 한 것과 같은 방식인데, 오늘은 각 항목을 직접 채워 보기 위해 카드로 시작합니다.</p>
 </div>
 
-<h4>2단계. 이름 넣기</h4>
+<h4>4단계. 이름 넣기</h4>
 <p><strong>에이전트 이름 지정</strong> 창이 뜹니다. 이름을 <code>HR 도우미_사번</code>처럼 본인을 알아볼 수 있게 넣습니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-04-name-dialog.png" alt="에이전트 이름 지정 대화상자">
 <p class="cap">여러 사람이 같은 환경에서 실습하므로 이름이 겹치지 않게 합니다</p>
@@ -1345,7 +1367,7 @@ details.fold .copybox{margin-top:0}
 <p>아래 <strong>에이전트 설정(선택 사항)</strong>에 언어와 솔루션이 들어 있습니다. 선택 사항이라고 적혀 있지만 오늘 실습에서는 둘 다 지정해야 합니다.</p>
 </div>
 
-<h4>3단계. 언어와 솔루션 지정</h4>
+<h4>5단계. 언어와 솔루션 지정</h4>
 <p><strong>에이전트 설정(선택 사항)</strong> 왼쪽의 화살표를 눌러 펼칩니다. 세 항목이 나옵니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-05-agent-settings.png" alt="에이전트 설정을 펼쳐 언어, 솔루션, 스키마 이름이 보이는 화면">
 <p class="cap">펼치면 언어, 솔루션, 스키마 이름이 나옵니다</p>
@@ -1377,14 +1399,14 @@ details.fold .copybox{margin-top:0}
 
 <p>세 항목을 확인했으면 <strong>만들기</strong>를 누릅니다.</p>
 
-<h4>4단계. 만들어진 화면 확인</h4>
+<h4>6단계. 만들어진 화면 확인</h4>
 <p>에이전트의 <strong>개요</strong> 탭이 열립니다. 준비되는 데 잠시 걸리며, 그동안 Agent status 자리에 Loading이 표시됩니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-08-overview.png" alt="에이전트를 만든 직후의 개요 화면">
 <p class="cap">왼쪽은 에이전트를 채워 넣는 자리, 오른쪽은 바로 대화해 보는 테스트 패널입니다</p>
 
 <p>지금은 지침도 참조 자료도 비어 있습니다. 오른쪽 테스트 패널에는 인사말 하나만 돌아옵니다. 이 화면을 어떻게 읽는지는 <a href="#m5">M5</a>에서 하나씩 살펴봅니다.</p>
 
-<h4>5단계. 설명과 지침 넣기</h4>
+<h4>7단계. 설명과 지침 넣기</h4>
 <p><strong>세부 정보</strong> 오른쪽 <strong>편집</strong>을 누르면 이름과 설명을 고칠 수 있습니다. 설명에 이 에이전트가 무슨 일을 하는지 한 줄로 적습니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m05-02-details-edit.png" alt="세부 정보에서 이름과 설명을 편집하는 화면">
 <p class="cap">설명은 <code>우리 회사 HR과 총무 관련 질문에 답하는 도우미</code> 정도면 됩니다</p>
@@ -1421,7 +1443,7 @@ details.fold .copybox{margin-top:0}
 </div>
 </div>
 
-<h4>6단계. 테스트</h4>
+<h4>8단계. 테스트</h4>
 <p>오른쪽 테스트 패널에서 <code>연차 며칠이야?</code>를 물어봅니다. 지침에 적은 말투로 답하기는 하는데, 연차가 며칠인지는 모릅니다.</p>
 
 <div class="new"><span class="tag"></span>
@@ -1575,7 +1597,7 @@ details.fold .copybox{margin-top:0}
 </div>
 </div>
 
-<p>과정 이후 직접 접속했을 때 화면이 다르게 보인다면 하네스가 다른 것입니다. <a href="#m4">M4</a>에서 한 대로 홈 화면의 <strong>처음부터 빌드 시작</strong>에서 <strong>에이전트</strong> 카드로 시작하면 이 과정과 같은 화면으로 들어갑니다.</p>
+<p>과정 이후 직접 접속했을 때 화면이 다르게 보인다면 하네스가 다른 것입니다. <a href="#m4">M4</a>에서 한 대로 홈 화면 아래쪽의 <strong>다른 빌드 방법</strong>에서 <strong>에이전트(표준)</strong>를 고르면 이 과정과 같은 화면으로 들어갑니다.</p>
 
 <div class="new"><span class="tag"></span>
 <h4>표준 하네스로 만드는 네 가지 방법</h4>
@@ -3155,7 +3177,7 @@ details.fold .copybox{margin-top:0}
 <h3>실습 &#9312; 법무 에이전트 만들기</h3>
 
 <h4>1단계. 에이전트 생성</h4>
-<p><a href="#m4">M4</a>에서 HR 도우미를 만들 때와 같은 방법입니다. 홈 화면의 <strong>처음부터 빌드 시작</strong>에서 <strong>에이전트</strong> 카드를 누릅니다.</p>
+<p><a href="#m4">M4</a>에서 HR 도우미를 만들 때와 같은 방법입니다. 홈 화면 아래쪽 <strong>다른 빌드 방법</strong>에서 <strong>에이전트(표준)</strong>를 고른 뒤, <strong>처음부터 빌드 시작</strong>의 <strong>에이전트</strong> 카드를 누릅니다.</p>
 
 <p>이름을 넣고 <strong>에이전트 설정(선택 사항)</strong>을 펼쳐 언어를 한국어로, 솔루션을 앞서 만든 것으로 지정한 뒤 만들기를 누릅니다.</p>
 
