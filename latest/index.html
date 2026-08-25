@@ -114,6 +114,8 @@ a:hover{text-decoration:underline}
 .note p:last-child{margin-bottom:0}
 .note ul,.note ol{margin:8px 0}
 .note.plain{background:var(--paper)}
+.note.key{background:var(--accent-soft);border-color:transparent}
+.note.key .t{color:var(--accent)}
 
 .steps{counter-reset:s;list-style:none;padding:0;margin:16px 0}
 .steps>li{counter-increment:s;position:relative;padding:0 0 0 34px;margin:16px 0}
@@ -1324,31 +1326,47 @@ details.fold .copybox{margin-top:0}
 </div>
 </details>
 
-<div class="note">
-<span class="t">오늘 지나갈 길</span>
-<p>홈 &rarr; 다른 빌드 방법 &rarr; 에이전트(표준) &rarr; 처음부터 빌드 시작의 에이전트 카드 &rarr; 이름 지정 &rarr; 에이전트 설정에서 언어와 솔루션 &rarr; 만들기</p>
+<h4>들어가는 길은 두 가지입니다</h4>
+<p><a href="https://copilotstudio.microsoft.com">copilotstudio.microsoft.com</a>에 접속하면 처음에는 <strong>새로운 환경</strong> 화면이 뜹니다. 가운데 큰 카드 두 개에 <strong>GitHub Copilot</strong> 표시가 붙어 있는 화면입니다. 오늘 쓰는 화면이 아닙니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-01-studio-home.png" alt="새로운 환경이 켜진 Copilot Studio 홈 화면">
+<p class="cap">오른쪽 위에 <strong>New experience</strong> 토글이 있고, 맨 아래에 <strong>다른 빌드 방법</strong>이 있습니다</p>
+
+<table>
+<tr><th>방법</th><th>하는 일</th><th>그다음</th></tr>
+<tr><td><strong>New experience 토글 끄기</strong></td><td>화면 전체가 표준으로 바뀝니다</td><td>표준 홈에서 에이전트 카드를 누릅니다</td></tr>
+<tr><td>다른 빌드 방법 &rarr; 에이전트(표준)</td><td>토글은 그대로 두고 표준 에이전트만 하나 만듭니다</td><td>이름 지정 창이 바로 뜹니다</td></tr>
+</table>
+
+<p>어느 쪽으로 가도 같은 <strong>에이전트 이름 지정</strong> 창에서 만납니다. 오늘은 <strong>토글을 끄는 쪽</strong>으로 진행합니다. 오후 내내 토픽과 흐름을 오가야 하는데, 토글을 꺼 두면 화면이 계속 표준으로 유지되기 때문입니다.</p>
+
+<div class="note key">
+<span class="t">오늘 하루 지켜야 할 한 가지</span>
+<p>오른쪽 위 <strong>New experience</strong> 토글을 <strong>끈 채로</strong> 진행합니다. 오늘 실습은 표준 에이전트 기준입니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-img/m05-newexp.jpeg" alt="화면 오른쪽 위의 New experience 토글">
+<p class="cap">이 토글이 켜져 있으면 오늘 교안의 화면과 다르게 보입니다</p>
+<p>새로 고침하거나 다시 접속하면 토글이 <strong>다시 켜져 있을 수 있습니다.</strong> 화면이 교안과 달라 보이면 먼저 이 토글부터 확인하세요.</p>
 </div>
 
-<h4>1단계. 다른 빌드 방법 열기</h4>
-<p><a href="https://copilotstudio.microsoft.com">copilotstudio.microsoft.com</a>에 접속합니다. 홈 화면 가운데에 큰 카드 두 개가 보이는데, 둘 다 이름 옆에 <strong>GitHub Copilot</strong> 표시가 붙어 있습니다. 이 과정에서 쓰는 것이 아닙니다.</p>
-<p>맨 아래 <strong>다른 빌드 방법</strong>을 누릅니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-01-studio-home.png" alt="Copilot Studio 홈 화면 맨 아래의 다른 빌드 방법">
-<p class="cap">Microsoft 365 Copilot을 확장하는 에이전트를 만들거나, 규칙 기반 오케스트레이션으로 표준 에이전트와 자동화된 흐름을 빌드하세요라고 적혀 있습니다</p>
-
-<h4>2단계. 에이전트(표준) 고르기</h4>
-<p>카드 두 개가 나옵니다. 왼쪽 <strong>에이전트</strong> 카드에 <strong>표준</strong> 표시가 붙어 있습니다. 이것을 누릅니다.</p>
+<details class="fold">
+<summary>다른 빌드 방법으로 가는 경우<span class="use">토글을 건드리지 않을 때</span></summary>
+<div class="in">
+<p>홈 화면 맨 아래 <strong>다른 빌드 방법</strong>을 누르면 카드 두 개가 나옵니다. 왼쪽 <strong>에이전트</strong> 카드에 <strong>표준</strong> 표시가 붙어 있습니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-02-other-ways-standard.png" alt="에이전트(표준)와 에이전트 흐름 두 카드가 놓인 화면">
-<p class="cap">미리 정의된 토픽과 흐름으로 규칙 기반 대화형 에이전트를 만듭니다라고 적힌 쪽입니다</p>
+<p class="cap">오른쪽 <strong>에이전트 흐름</strong>은 대화 없이 작업만 처리하는 자동화라 오늘은 쓰지 않습니다</p>
 
-<div class="note">
-<span class="t">오른쪽 카드는 지나칩니다</span>
-<p><strong>에이전트 흐름</strong>은 대화 없이 작업만 처리하는 자동화입니다. 오늘은 대화형 에이전트를 만드므로 왼쪽을 고릅니다.</p>
+<p>누르면 홈 화면을 거치지 않고 <strong>에이전트 이름 지정</strong> 창이 바로 뜹니다. 아래 3단계로 이어집니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-11-name-dialog-direct.png" alt="다른 빌드 방법에서 바로 뜬 에이전트 이름 지정 대화상자">
+<p class="cap">에이전트 설정을 펼치면 언어, 솔루션, 스키마 이름이 똑같이 들어 있습니다</p>
 </div>
+</details>
 
-<h4>3단계. 에이전트 카드 누르기</h4>
-<p>화면이 바뀌면서 <strong>무엇을 빌드하시겠습니까?</strong>가 나옵니다. 여기서부터가 표준 에이전트를 만드는 자리입니다. 왼쪽 메뉴도 홈, 에이전트, 흐름, 도구로 바뀌고 오른쪽 위에 지금 환경 이름이 표시됩니다.</p>
-<p><strong>처음부터 빌드 시작</strong> 줄에서 맨 왼쪽 <strong>에이전트</strong> 카드를 누릅니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-03-build-agent.png" alt="무엇을 빌드하시겠습니까 화면의 처음부터 빌드 시작에서 에이전트 카드">
+<h4>1단계. New experience 토글 끄기</h4>
+<p>화면 오른쪽 위의 <strong>New experience</strong> 토글을 눌러 끕니다. 화면이 표준으로 바뀝니다.</p>
+<p>왼쪽 메뉴가 <strong>홈, 에이전트, 흐름, 도구</strong>로 바뀌고 오른쪽 위에 지금 <strong>환경</strong> 이름이 표시되면 제대로 넘어온 것입니다. 실습 &#9312;에서 고른 환경이 맞는지 여기서 한 번 더 확인하세요.</p>
+
+<h4>2단계. 에이전트 카드 누르기</h4>
+<p>가운데에 <strong>무엇을 빌드하시겠습니까?</strong>가 보입니다. 그 아래 <strong>처음부터 빌드 시작</strong> 줄에서 맨 왼쪽 <strong>에이전트</strong> 카드를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-03-build-agent.png" alt="표준 홈 화면의 처음부터 빌드 시작에서 에이전트 카드">
 <p class="cap">웹 사이트, Microsoft Teams 등에서 질문에 답변하고 작업을 수행합니다라고 적힌 카드입니다</p>
 
 <div class="note">
@@ -1357,7 +1375,7 @@ details.fold .copybox{margin-top:0}
 <p>위쪽 입력 칸에 하고 싶은 일을 적어서 만드는 방법도 있습니다. 오전에 에이전트 빌더에서 한 것과 같은 방식인데, 오늘은 각 항목을 직접 채워 보기 위해 카드로 시작합니다.</p>
 </div>
 
-<h4>4단계. 이름 넣기</h4>
+<h4>3단계. 이름 넣기</h4>
 <p><strong>에이전트 이름 지정</strong> 창이 뜹니다. 이름을 <code>HR 도우미_사번</code>처럼 본인을 알아볼 수 있게 넣습니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-04-name-dialog.png" alt="에이전트 이름 지정 대화상자">
 <p class="cap">여러 사람이 같은 환경에서 실습하므로 이름이 겹치지 않게 합니다</p>
@@ -1367,7 +1385,7 @@ details.fold .copybox{margin-top:0}
 <p>아래 <strong>에이전트 설정(선택 사항)</strong>에 언어와 솔루션이 들어 있습니다. 선택 사항이라고 적혀 있지만 오늘 실습에서는 둘 다 지정해야 합니다.</p>
 </div>
 
-<h4>5단계. 언어와 솔루션 지정</h4>
+<h4>4단계. 언어와 솔루션 지정</h4>
 <p><strong>에이전트 설정(선택 사항)</strong> 왼쪽의 화살표를 눌러 펼칩니다. 세 항목이 나옵니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-05-agent-settings.png" alt="에이전트 설정을 펼쳐 언어, 솔루션, 스키마 이름이 보이는 화면">
 <p class="cap">펼치면 언어, 솔루션, 스키마 이름이 나옵니다</p>
@@ -1399,14 +1417,14 @@ details.fold .copybox{margin-top:0}
 
 <p>세 항목을 확인했으면 <strong>만들기</strong>를 누릅니다.</p>
 
-<h4>6단계. 만들어진 화면 확인</h4>
+<h4>5단계. 만들어진 화면 확인</h4>
 <p>에이전트의 <strong>개요</strong> 탭이 열립니다. 준비되는 데 잠시 걸리며, 그동안 Agent status 자리에 Loading이 표시됩니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-08-overview.png" alt="에이전트를 만든 직후의 개요 화면">
 <p class="cap">왼쪽은 에이전트를 채워 넣는 자리, 오른쪽은 바로 대화해 보는 테스트 패널입니다</p>
 
 <p>지금은 지침도 참조 자료도 비어 있습니다. 오른쪽 테스트 패널에는 인사말 하나만 돌아옵니다. 이 화면을 어떻게 읽는지는 <a href="#m5">M5</a>에서 하나씩 살펴봅니다.</p>
 
-<h4>7단계. 설명과 지침 넣기</h4>
+<h4>6단계. 설명과 지침 넣기</h4>
 <p><strong>세부 정보</strong> 오른쪽 <strong>편집</strong>을 누르면 이름과 설명을 고칠 수 있습니다. 설명에 이 에이전트가 무슨 일을 하는지 한 줄로 적습니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m05-02-details-edit.png" alt="세부 정보에서 이름과 설명을 편집하는 화면">
 <p class="cap">설명은 <code>우리 회사 HR과 총무 관련 질문에 답하는 도우미</code> 정도면 됩니다</p>
@@ -1433,6 +1451,9 @@ details.fold .copybox{margin-top:0}
 - 답을 모를 때는 모른다고 말하고 HR팀 김인사(02-1234-5601)로 안내합니다
 - 급여와 인사평가는 개인정보이므로 답하지 않고 담당자를 안내합니다</code></pre>
 
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-12-instructions.png" alt="개요 탭의 지침 칸에 내용을 붙여넣고 저장 버튼이 보이는 화면">
+<p class="cap">지침 칸 오른쪽 위에 취소와 저장이 있고, 오른쪽 아래에 글자 수가 표시됩니다</p>
+
 <p>붙여넣은 뒤 지침 칸 오른쪽 위의 <strong>저장</strong>을 누릅니다.</p>
 
 <div class="new"><span class="tag"></span>
@@ -1443,7 +1464,7 @@ details.fold .copybox{margin-top:0}
 </div>
 </div>
 
-<h4>8단계. 테스트</h4>
+<h4>7단계. 테스트</h4>
 <p>오른쪽 테스트 패널에서 <code>연차 며칠이야?</code>를 물어봅니다. 지침에 적은 말투로 답하기는 하는데, 연차가 며칠인지는 모릅니다.</p>
 
 <div class="new"><span class="tag"></span>
@@ -1748,6 +1769,11 @@ details.fold .copybox{margin-top:0}
 </section><section class="pg" data-pg="m7"><h2 class="mod" id="m7"><span class="num">M7</span>지침 <span class="pill">실습</span></h2>
 <p class="lead">두 번째 구성 요소입니다. 에이전트의 역할과 태도를 정의합니다.</p>
 
+<div class="note key">
+<span class="t">시작 전에 확인</span>
+<p>화면 오른쪽 위 <strong>New experience</strong> 토글이 꺼져 있는지 보세요. 새로 고침하면 다시 켜져 있을 수 있습니다. 오늘 실습은 표준 에이전트 기준입니다.</p>
+</div>
+
 <p>지침은 에이전트에게 주는 행동매뉴얼입니다. 무엇을 하고 무엇을 하지 말지, 어떻게 말할지를 여기서 정합니다.</p>
 
 <div class="new"><span class="tag"></span>
@@ -1822,52 +1848,61 @@ details.fold .copybox{margin-top:0}
 <li>예시 대화가 붙었습니다</li>
 </ul>
 
-<pre><code># 역할
-당신은 ABC 주식회사 경영지원본부 소속 HR과 총무 전담 도우미입니다.
-전 직원을 대상으로 사내 규정 안내를 담당합니다.
+<pre><code>## 역할
+당신은 ABC 주식회사 경영지원본부 소속 HR/총무 전담 도우미입니다.
+전 직원(정규직, 계약직, 인턴)을 대상으로 사내 규정 안내를 담당합니다.
 
-# 범위
-답변 가능
-- 복리후생: 복지포인트, 건강검진, 동호회 지원
-- 연차와 휴가: 연차 일수, 반차, 경조사 휴가
-- 경비처리: 법인카드, 출장비, 택시비 정산
-- 사내 규정: 복장 규정, 근무시간, 재택근무
+## 범위
+### 답변 가능 (포함)
+- 복리후생 (복지포인트, 건강검진, 경조사 지원)
+- 연차/휴가 (연차 일수, 반차, 병가, 경조사 휴가)
+- 경비처리 (법인카드, 출장비, 개인카드 정산)
+- 사내 규정 (근무시간, 증명서 발급, 주차)
 
-답변 불가
-- 채용과 면접: 채용팀으로 안내
-- 급여와 성과급 금액: 급여팀으로 안내
-- 인사평가와 승진: HR 담당자로 안내
-- 법률과 세무 판단이 필요한 질문: 전문가 확인이 필요하다고 안내
-- 업무와 무관한 질문: HR과 총무 관련 질문만 답변한다고 안내
+### 답변 불가 (제외)
+- 채용/면접 프로세스 &rarr; "HR팀 김인사(02-1234-5601)에 문의해 주세요"
+- 급여/성과급 금액 &rarr; "HR팀 이복지(02-1234-5602)에 문의해 주세요"
+- 인사평가/승진 &rarr; "HR팀 박교육(02-1234-5603)에 문의해 주세요"
+- 업무와 무관한 질문 (날씨, 주식, 잡담) &rarr; "저는 HR/총무 관련 질문만 도와드릴 수 있습니다 &#128522;"
 
-# 맥락
-- 연차는 회계연도(1월 1일부터 12월 31일) 기준으로 관리하며, 미사용분은 12월 31일에 소멸합니다
+## 맥락
+- 연차는 회계연도(1월 1일~12월 31일) 기준으로 관리하며, 미사용분은 12월 31일에 소멸합니다
 - 복지포인트는 연간 120만 포인트가 매년 1월 1일에 일괄 지급되고 12월 31일에 소멸합니다
 - 법인카드는 사용일로부터 5영업일, 개인카드는 지출일로부터 10영업일 안에 정산합니다
-- 신청과 정산은 모두 그룹웨어에서, 증명서 발급과 복지몰은 사내 포털에서 처리합니다
+- 신청과 정산은 그룹웨어에서, 증명서 발급과 복지몰은 사내 포털에서 처리합니다
 
-# 태도
+## 태도
 - 한국어 존칭을 사용합니다
-- 핵심을 먼저 한 줄로 말하고 세부 내용은 번호 목록으로 정리합니다
-- 단순 질문은 100자 이내, 절차 안내는 300자 이내로 답합니다
+- 핵심을 먼저 한 줄로 말하고, 세부 내용은 번호 목록으로 정리합니다
+- 단순 질문: 100자 이내 / 절차 안내: 번호 목록으로 300자 이내
+- 각 답변 마지막에 "더 궁금한 점이 있으시면 말씀해 주세요 &#128522;"를 붙입니다
 
-# 원칙
-- 지식에 없는 내용은 추측하지 않습니다
-- 지식에 없으면 HR팀 김인사(02-1234-5601)로 안내합니다
-- 개인정보 관련 질문에는 답하지 않고 담당자를 안내합니다
+## 원칙
+- 지식에 없는 내용은 절대 추측하지 않습니다
+- 지식에 없으면: "정확한 답변을 드리기 어렵습니다. HR팀 김인사(02-1234-5601)에 문의해 주세요"
+- 개인정보 관련: 절대 답변하지 않고 담당자를 안내합니다
+- 법률/세무 관련: "전문가 확인이 필요한 사항입니다. 사내 문서로는 안내드릴 수 없습니다"
 
-# 예시
-사용자: 연차 며칠이야?
-도우미: 입사 1년 차 기준 15일입니다.
-1. 1년 미만: 매월 1일씩 발생, 최대 11일
-2. 1년 이상: 15일, 3년 차부터 2년마다 1일 추가
-3. 반차 사용 가능</code></pre>
+## 예시
+사용자: "연차 며칠이야?"
+도우미: "입사 1년 차 기준 15일입니다.
+1. 1년 미만: 매월 개근 시 1일씩 발생 (최대 11일)
+2. 1년 이상: 15일 (3년 이상부터 2년마다 1일 추가, 최대 25일)
+3. 반차(0.5일) 사용 가능
+
+더 궁금한 점이 있으시면 말씀해 주세요 &#128522;"</code></pre>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
-<span class="t">연락처는 지식 문서와 맞춰 둡니다</span>
-<p>위 지침의 담당자와 연락처는 <code>담당자정보.docx</code>에 있는 값 그대로입니다. 지침에 적은 연락처와 문서에 있는 연락처가 다르면 에이전트가 두 가지를 섞어 안내합니다. 실제 업무에 쓸 때도 이 둘은 한곳에서 관리하는 편이 안전합니다.</p>
+<span class="t">연락처와 숫자는 지식 문서와 맞춰 둡니다</span>
+<p>위 지침의 담당자와 연락처는 <code>담당자정보.docx</code>에 있는 값 그대로이고, 예시의 연차 일수는 <code>FAQ.docx</code>에 적힌 값 그대로입니다. 지침에 적은 값과 문서에 있는 값이 다르면 에이전트가 두 가지를 섞어 안내합니다. 실제 업무에 쓸 때도 이 둘은 한곳에서 관리하는 편이 안전합니다.</p>
+<p>법률과 세무는 문서에도 담당 부서가 없어서 담당자를 적지 않았습니다. <a href="#m15">M15</a>에서 법무 전용 에이전트를 따로 만들어 이 질문을 넘기는 구조를 실습합니다.</p>
 </div>
+</div>
+
+<div class="note">
+<span class="t">이모지와 맺음말이 왜 들어갔나</span>
+<p>겉치레처럼 보이지만 <strong>확인용 표시</strong>입니다. 답변 끝에 맺음말과 이모지가 붙어 있으면 지침의 태도 항목이 실제로 먹혔다는 뜻이고, 빠져 있으면 안 먹힌 것입니다. <a href="#m8">M8</a>에서 참조 자료를 붙인 뒤 이 표시가 그대로 남아 있는지로 지침과 지식이 함께 작동하는지 판단합니다.</p>
 </div>
 
 <div class="note">
@@ -1884,8 +1919,8 @@ details.fold .copybox{margin-top:0}
 <table>
 <tr><th>질문</th><th>기대 반응</th></tr>
 <tr><td>오늘 날씨 어때?</td><td>HR과 총무 관련 질문만 답변한다고 안내</td></tr>
-<tr><td>내 급여가 얼마야?</td><td>급여팀 연락처 안내</td></tr>
-<tr><td>채용 절차 알려줘</td><td>채용팀 연락처 안내</td></tr>
+<tr><td>내 급여가 얼마야?</td><td>HR팀 이복지(02-1234-5602) 안내</td></tr>
+<tr><td>채용 절차 알려줘</td><td>HR팀 김인사(02-1234-5601) 안내</td></tr>
 <tr><td>계약서 위반이면 소송 가능해?</td><td>전문가 확인이 필요하다고 안내</td></tr>
 </table>
 
@@ -1894,6 +1929,7 @@ details.fold .copybox{margin-top:0}
 <span class="t">네 번째 질문을 눈여겨보세요</span>
 <p>거절하는 방식이 유형마다 다릅니다. 급여는 담당자를 알려주고, 법률은 전문가 확인이 필요하다고만 합니다. 지침에 적은 그대로입니다.</p>
 <p>법률 질문을 아예 답하게 하려면 다른 지식과 다른 지침이 필요합니다. <a href="#m15">M15</a>에서 법무 전용 에이전트를 따로 만들어 이 질문을 넘기는 구조를 실습합니다.</p>
+<p>네 질문 모두에서 답변 끝에 맺음말과 이모지가 붙는지도 함께 보세요. 태도 항목이 먹히고 있다는 표시입니다.</p>
 </div>
 </div>
 
@@ -1904,32 +1940,66 @@ details.fold .copybox{margin-top:0}
 
 <p>지식은 에이전트가 답변의 근거로 삼는 자료입니다. 지침만 있을 때는 정확한 답변을 드리기 어렵다고 응답하던 질문에, 이제 문서 내용을 근거로 구체적으로 답하게 됩니다.</p>
 
-<h3>지식 연결 방식</h3>
+<h3>참조 자료를 붙이는 방식</h3>
+<p><strong>참조 자료 추가</strong>를 누르면 원본 종류가 나옵니다. 파일을 직접 올리는 방법이 맨 위에 있고, 그 아래로 사내 시스템에 연결하는 카드가 놓입니다.</p>
+
 <table>
-<tr><th>방식</th><th>난이도</th><th>최신 상태 유지</th><th>권한 제어</th><th>적합한 단계</th></tr>
-<tr><td>파일 업로드</td><td>쉬움</td><td>수동 교체</td><td>없음</td><td>입문</td></tr>
-<tr><td>공개 웹사이트</td><td>보통</td><td>주기적</td><td>없음</td><td>확장</td></tr>
-<tr><td>SharePoint</td><td>높음</td><td>반영됨</td><td>있음</td><td>운영</td></tr>
-<tr><td>Dataverse</td><td>높음</td><td>실시간</td><td>있음</td><td>고급</td></tr>
+<tr><th>방식</th><th>최신 상태 유지</th><th>권한 제어</th><th>적합한 단계</th></tr>
+<tr><td>파일 업로드</td><td>없음. 바뀌면 다시 올립니다</td><td>없음. 에이전트를 쓰는 사람 모두가 봅니다</td><td>입문</td></tr>
+<tr><td>OneDrive와 SharePoint 동기화</td><td>4~6시간마다</td><td>있음</td><td>확장</td></tr>
+<tr><td>공개 웹 사이트</td><td>질문할 때마다 검색합니다</td><td>없음. 공개된 주소만 됩니다</td><td>확장</td></tr>
+<tr><td>SharePoint 연결</td><td>실시간</td><td>있음</td><td>운영</td></tr>
+<tr><td>Dataverse, Dynamics 365</td><td>실시간</td><td>있음</td><td>고급</td></tr>
+<tr><td>Salesforce, ServiceNow</td><td>4~6시간마다</td><td>있음</td><td>고급</td></tr>
 </table>
 
-<p>이 과정에서는 파일 업로드를 사용합니다. 실제 운영 단계에서는 SharePoint로 전환하면 문서가 갱신될 때 반영되고 문서 접근 권한도 함께 적용됩니다. 사용자가 볼 수 없는 문서는 답변 근거로 사용되지 않습니다.</p>
+<p>이 과정에서는 파일 업로드를 사용합니다. 실제 운영 단계에서는 SharePoint 연결로 옮기면 문서가 갱신될 때 바로 반영되고 문서 접근 권한도 함께 적용됩니다. <strong>사용자가 볼 수 없는 문서는 답변 근거로 쓰이지 않습니다.</strong></p>
 
 <div class="note">
-<span class="t">지식 소스 제한</span>
-<p>파일 하나의 크기는 512MB까지이고, 에이전트 하나에 파일 500개까지 붙일 수 있습니다. 이미지와 영상, 음성 파일은 지식으로 쓸 수 없고 암호가 걸린 파일도 안 됩니다.</p>
-<p>지식 소스가 25개를 넘어가면 오케스트레이터가 그중 어느 것을 볼지 먼저 추려냅니다. 이때 각 소스에 적어 둔 설명을 보고 판단하므로, 개수가 많아질수록 설명을 정확히 써야 합니다. 업로드한 파일은 이 25개에 포함되지 않습니다.</p>
+<span class="t">권한 제어가 왜 중요한가</span>
+<p>파일을 직접 올리면 그 에이전트를 쓸 수 있는 사람은 누구나 그 내용을 답변으로 받습니다. 원본 파일의 권한이 무엇이었든 상관없습니다. 급여표나 인사 기록처럼 사람마다 볼 수 있는 범위가 다른 자료는 파일 업로드로 붙이면 안 됩니다.</p>
+<p>SharePoint 연결로 붙이면 질문한 사람의 계정으로 권한을 확인해서, 볼 수 없는 문서는 아예 답변에 쓰이지 않습니다. 이때 에이전트의 인증이 Microsoft 계정 인증으로 되어 있어야 합니다.</p>
+</div>
+
+<div class="note">
+<span class="t">파일 업로드 제한</span>
+<p>파일 하나는 512MB까지, 에이전트 하나에 파일 500개까지 붙일 수 있습니다. Word, Excel, PowerPoint, PDF, 텍스트, CSV, HTML, XML, JSON 등 텍스트를 뽑아낼 수 있는 형식이면 됩니다. 이미지와 영상, 음성 파일은 쓸 수 없습니다.</p>
+<p><strong>암호가 걸렸거나 민감도 레이블로 암호화된 파일은 지원되지 않습니다.</strong> 올리면 상태가 준비로 바뀌긴 하는데 답변에는 쓰이지 않아서, 왜 안 되는지 알아채기 어렵습니다.</p>
+<p>올린 파일은 Dataverse에 저장되므로 환경의 저장 용량을 씁니다.</p>
+</div>
+
+<div class="note">
+<span class="t">참조 자료가 25개를 넘어가면</span>
+<p>참조 자료가 25개를 넘으면 오케스트레이터가 그중 어느 것을 볼지 먼저 추려냅니다. 이때 각 자료에 적어 둔 <strong>설명</strong>을 읽고 판단하므로, 개수가 많아질수록 설명을 정확히 써야 합니다.</p>
+<p><strong>업로드한 파일은 이 25개에 포함되지 않습니다.</strong> 몇 개를 올리든 항상 검색 대상이 됩니다.</p>
 </div>
 
 <h3 id="m8-idx">지식 문서 작성 방법</h3>
-<p>답변의 정확도는 모델보다 문서 구조에 더 큰 영향을 받습니다.</p>
+<p>답변의 정확도는 모델보다 문서 구조에 더 큰 영향을 받습니다. 올린 파일은 잘게 쪼개져 색인되므로, 한 덩어리 안에 질문과 답이 함께 들어 있을수록 잘 찾아냅니다.</p>
 <table>
-<tr><th>원칙</th><th>설명</th></tr>
-<tr><td>질문과 답변 구조</td><td>질문과 답변을 쌍으로 작성합니다</td></tr>
-<tr><td>제목 사용</td><td>섹션 제목과 소제목으로 내용을 구분합니다</td></tr>
-<tr><td>표 활용</td><td>담당자 목록처럼 구조화된 정보는 표로 정리합니다</td></tr>
-<tr><td>짧은 문장</td><td>한 문장을 50자 이내로 작성합니다</td></tr>
+<tr><th>원칙</th><th>설명</th><th>예시</th></tr>
+<tr><td>질문과 답변 구조</td><td>질문과 답변을 쌍으로 씁니다</td><td>Q. 연차는 며칠인가요? / A. 1년 이상은 15일입니다</td></tr>
+<tr><td>제목 사용</td><td>섹션 제목과 소제목으로 내용을 나눕니다</td><td>경비·복리후생 &rarr; 복지포인트</td></tr>
+<tr><td>표 활용</td><td>담당자 목록처럼 구조가 있는 정보는 표로 정리합니다</td><td>부서 / 담당 업무 / 담당자 / 연락처</td></tr>
+<tr><td>짧은 문장</td><td>한 문장에 한 가지만 담습니다</td><td>긴 한 문장보다 짧은 두 문장</td></tr>
 </table>
+
+<div class="new"><span class="tag"></span>
+<h4>문서보다 먼저 챙길 것</h4>
+<p>Microsoft가 문서로 안내하는 항목은 문서 안쪽보다 <strong>참조 자료의 이름과 설명</strong> 쪽에 몰려 있습니다. 오케스트레이터가 어느 자료를 열어볼지 고를 때 읽는 것이 그 둘이기 때문입니다.</p>
+<table>
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td>이름은 고유하게</td><td>문서1, 가이드처럼 흔한 이름을 피하고 무엇이 들었는지 드러나게 짓습니다</td></tr>
+<tr><td>설명은 한두 문장으로</td><td>쉬운 말로, 현재형과 능동태로 씁니다. 무엇을 다루지 않는지까지 적으면 비슷한 자료끼리 헷갈리지 않습니다</td></tr>
+<tr><td>PDF 안의 이미지</td><td>이미지에 대체 텍스트를 달아 두면 그 내용도 답변에 쓰입니다</td></tr>
+<tr><td>큰 파일은 나누기</td><td>7MB가 넘는 파일은 주제별로 나누는 편이 결과가 낫습니다</td></tr>
+</table>
+
+<div class="note">
+<span class="t">엑셀 표는 계산까지 해 주지 않습니다</span>
+<p>에이전트는 표에 적힌 값을 읽어 답할 뿐이고 직접 계산하지는 않습니다. 합계나 평균처럼 계산이 필요한 질문은 표를 올렸다고 해서 정확히 답하지 못합니다. 계산이 필요하면 <a href="#m13">에이전트 흐름</a>으로 처리합니다.</p>
+</div>
+</div>
 
 <h3>실습</h3>
 <p>업로드할 문서 다섯 종입니다. 문서 형태가 서로 달라 답변 품질에 어떤 영향을 주는지 함께 볼 수 있습니다.</p>
@@ -1945,20 +2015,34 @@ details.fold .copybox{margin-top:0}
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m08_image.png" alt="업로드할 문서 다섯 종의 파일 목록">
 <p class="cap">사전에 내려받은 파일 다섯 개입니다</p>
 
-<h4>1단계. 참조 자료 화면 열기</h4>
-<p>에이전트 위쪽 탭에서 <strong>참조 자료</strong>를 누릅니다. 개요 탭의 참조 자료 카드에서 <strong>참조 자료 추가</strong>를 눌러도 같은 자리로 갑니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m08_image2.png" alt="참조 자료 탭의 원본 추가 화면">
-<p class="cap">참조 자료 원본을 추가합니다</p>
+<h4>1단계. 참조 자료 추가 열기</h4>
+<p>개요 탭을 아래로 내리면 <strong>참조 자료</strong> 카드가 있습니다. 오른쪽 위 <strong>+ 참조 자료 추가</strong>를 누릅니다. 위쪽 <strong>참조 자료</strong> 탭에서 시작해도 같은 자리로 갑니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m08-01-ref-card.png" alt="개요 탭의 참조 자료 카드와 참조 자료 추가 버튼">
+<p class="cap">바로 아래 <strong>웹 검색</strong> 토글은 사용 안 함으로 둡니다. M6 설정의 웹의 정보 사용과 같은 스위치입니다</p>
 
-<h4>2단계. 파일 업로드</h4>
-<p>파일 업로드를 선택하고 다섯 개 파일을 끌어다 놓거나 선택합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m08_image3.png" alt="파일을 끌어다 놓는 업로드 영역">
-<p class="cap">파일을 끌어다 놓습니다</p>
+<h4>2단계. 원본 종류 고르기</h4>
+<p><strong>참조 자료 추가</strong> 창이 열립니다. 위쪽은 파일을 직접 올리는 자리이고, 아래 카드는 사내 시스템에 연결하는 자리입니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m08-02-ref-dialog.png" alt="참조 자료 추가 대화상자의 파일 업로드 영역과 원본 종류 카드">
+<p class="cap">공개 웹 사이트, SharePoint, Azure AI 검색, Dataverse, Dynamics 365, Salesforce, ServiceNow, Azure SQL이 보입니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m08_image4.png" alt="다섯 개 파일을 선택하고 에이전트에 추가를 클릭하는 화면">
-<p class="cap">다섯 개를 모두 선택하고 에이전트에 추가를 클릭합니다</p>
+<p>오늘은 파일을 직접 올립니다. <strong>선택하여 찾아보기</strong>를 누릅니다. 파일을 창 안으로 끌어다 놓아도 됩니다.</p>
 
-<h4>3단계. 처리 완료 대기</h4>
+<div class="note">
+<span class="t">OneDrive와 SharePoint 버튼은 다른 것입니다</span>
+<p>같은 자리에 있는 <strong>OneDrive</strong>와 <strong>SharePoint</strong> 버튼은 파일을 복사해 오는 것이 아니라 <strong>원본과 이어 두는</strong> 방식입니다. 원본이 바뀌면 4~6시간 안에 따라 바뀌고, 질문한 사람의 권한도 확인합니다. 오늘은 파일 업로드로 진행합니다.</p>
+</div>
+
+<h4>3단계. 파일 고르기</h4>
+<p>파일 선택 창에서 내려받아 둔 다섯 개를 모두 고르고 <strong>열기</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m08-03-file-picker.png" alt="파일 선택 창에서 실습 파일 다섯 개를 모두 선택한 화면">
+<p class="cap">Ctrl을 누른 채로 클릭하거나 Ctrl+A로 한 번에 고릅니다</p>
+
+<h4>4단계. 에이전트에 추가</h4>
+<p>고른 파일이 목록으로 쌓입니다. 다섯 개가 다 있는지 확인하고 <strong>에이전트에 추가</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m08-04-upload-list.png" alt="파일 다섯 개가 목록에 올라오고 에이전트에 추가 버튼이 보이는 화면">
+<p class="cap">잘못 올린 파일은 오른쪽 휴지통으로 지웁니다. 아래쪽 안내에 파일이 Dataverse에 저장된다고 적혀 있습니다</p>
+
+<h4>5단계. 처리 완료 대기</h4>
 <p>각 파일의 상태가 준비로 바뀔 때까지 기다립니다.</p>
 
 <div class="new"><span class="tag"></span>
@@ -1975,7 +2059,7 @@ details.fold .copybox{margin-top:0}
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m08_image6.png" alt="모든 파일이 준비 상태가 된 화면">
 <p class="cap">모두 준비 상태가 되면 사용할 수 있습니다</p>
 
-<h4>4단계. 업로드 전후 비교</h4>
+<h4>6단계. 업로드 전후 비교</h4>
 <p>M7에서 던졌던 질문을 다시 실행해 답변이 어떻게 달라졌는지 확인합니다.</p>
 <table>
 <tr><th>질문</th><th>업로드 전</th><th>업로드 후</th></tr>
@@ -1988,13 +2072,13 @@ details.fold .copybox{margin-top:0}
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m08_image7.png" alt="담당자 질문에 문서를 근거로 답변하는 화면">
 <p class="cap">같은 에이전트인데 지식을 추가하자 답변이 달라집니다</p>
 
-<h4>5단계. 지침과 지식이 함께 작동하는지 확인</h4>
+<h4>7단계. 지침과 지식이 함께 작동하는지 확인</h4>
 <p>M7에서 작성한 지침의 형식이 지식과 결합해 제대로 적용되는지 봅니다.</p>
 <table>
 <tr><th>질문</th><th>확인할 점</th></tr>
-<tr><td>연차 며칠이야?</td><td>지침의 예시와 같은 번호 목록 형식을 따르는지</td></tr>
-<tr><td>경비처리 어떻게 해?</td><td>지정한 길이 안에서 번호 목록으로 정리되는지</td></tr>
-<tr><td>건강검진 어떻게 받아?</td><td>핵심을 먼저 말하고 세부 내용이 뒤따르는지</td></tr>
+<tr><td>연차 며칠이야?</td><td>지침 예시와 같은 번호 목록 형식을 따르는지</td></tr>
+<tr><td>경비처리 어떻게 해?</td><td>300자 안에서 번호 목록으로 정리되고 맺음말과 이모지가 붙는지</td></tr>
+<tr><td>건강검진 어떻게 받아?</td><td>핵심을 먼저 한 줄로 말하고 세부 내용이 뒤따르는지</td></tr>
 </table>
 
 <div class="note">
@@ -2101,6 +2185,11 @@ details.fold .copybox{margin-top:0}
 
 </section><section class="pg" data-pg="m10"><h2 class="mod" id="m10"><span class="num">M10</span>토픽과 변수 <span class="pill">실습</span></h2>
 <p class="lead">대화 흐름을 설계하고 정보를 저장하는 방법을 익힙니다.</p>
+
+<div class="note key">
+<span class="t">시작 전에 확인</span>
+<p>토픽 편집기는 표준 화면에만 있습니다. 오른쪽 위 <strong>New experience</strong> 토글이 꺼져 있는지 다시 확인하세요. 켜져 있으면 위쪽 탭에 <strong>토픽</strong>이 보이지 않습니다.</p>
+</div>
 
 <h3>토픽</h3>
 <p>토픽은 특정 상황에서 에이전트가 따르는 대화 흐름입니다. 생성형 오케스트레이터가 사용자의 질문을 보고 상황에 맞는 토픽을 선택해 실행합니다.</p>
