@@ -1771,7 +1771,7 @@ details.fold .copybox{margin-top:0}
 
 <div class="note key">
 <span class="t">시작 전에 확인</span>
-<p>화면 오른쪽 위 <strong>New experience</strong> 토글이 꺼져 있는지 보세요. 새로 고침하면 다시 켜져 있을 수 있습니다. 오늘 실습은 표준 에이전트 기준입니다.</p>
+<p>화면 오른쪽 위 <strong>New experience</strong> 토글이 꺼져 있는지 봅니다. 새로 고침하면 다시 켜져 있을 수 있습니다. 오늘 실습은 표준 에이전트 기준입니다.</p>
 </div>
 
 <p>지침은 에이전트에게 주는 행동매뉴얼입니다. 무엇을 하고 무엇을 하지 말지, 어떻게 말할지를 여기서 정합니다.</p>
@@ -2202,7 +2202,7 @@ details.fold .copybox{margin-top:0}
 
 <div class="note key">
 <span class="t">시작 전에 확인</span>
-<p>토픽 편집기는 표준 화면에만 있습니다. 오른쪽 위 <strong>New experience</strong> 토글이 꺼져 있는지 다시 확인하세요. 켜져 있으면 위쪽 탭에 <strong>토픽</strong>이 보이지 않습니다.</p>
+<p>토픽 편집기는 표준 화면에만 있습니다. 오른쪽 위 <strong>New experience</strong> 토글이 꺼져 있는지 다시 확인합니다. 켜져 있으면 위쪽 탭에 <strong>토픽</strong>이 보이지 않습니다.</p>
 </div>
 
 <h3>토픽은 대본입니다</h3>
@@ -2224,7 +2224,8 @@ details.fold .copybox{margin-top:0}
 <span class="t">대본은 노드를 이어 붙여 만듭니다</span>
 <p>토픽 편집 화면을 열면 네모난 카드가 위에서 아래로 이어진 그림이 나옵니다. 이 카드 하나하나를 <strong>노드</strong>라고 부릅니다.</p>
 <p>노드는 동작 하나를 담고 있습니다. 메시지 보내기, 질문하기, 조건에 따라 갈라지기, 변수에 저장하기 같은 것들입니다. 위에서 아래로 순서대로 실행됩니다.</p>
-<p>오후 실습에서 노드를 추가하고 순서를 바꾸는 일을 계속 하게 됩니다. 흐름과 트리거도 같은 방식입니다.</p>
+<p>맨 위 카드만 성격이 다릅니다. <strong>트리거</strong>라고 부르는데, 이 대본을 <strong>언제 시작할지</strong>를 정하는 자리입니다. 나머지 노드가 무엇을 할지 적는 곳이라면 트리거는 언제 할지를 적는 곳입니다.</p>
+<p>오후 실습에서 노드를 추가하고 순서를 바꾸는 일을 계속 하게 됩니다. 에이전트 흐름도 같은 방식으로 만듭니다.</p>
 </div>
 
 <div class="note">
@@ -2236,23 +2237,18 @@ details.fold .copybox{margin-top:0}
 
 <h3>변수는 이름표 붙은 상자입니다</h3>
 <p>변수는 값을 하나 담아 두는 <strong>상자</strong>입니다. 상자마다 이름표가 붙어 있어서, 나중에 그 이름을 부르면 안에 든 것이 나옵니다.</p>
-<p>담당자를 찾았으면 <code>Global.Contact_Result</code>라는 이름표가 붙은 상자에 넣어 둡니다. 잠시 뒤에 그 담당자에게 문의를 넣어야 할 때 같은 이름을 불러 꺼냅니다. 넣어 두지 않으면 같은 것을 다시 물어봐야 합니다. 방금 담당자를 알려줬는데 조금 뒤에 다시 누구냐고 되묻는 에이전트가 되는 것입니다.</p>
+<p>에이전트가 담당자를 찾아내면 <code>Global.Contact_Result</code>라는 이름표가 붙은 상자에 넣어 둡니다. 잠시 뒤에 그 담당자에게 문의를 넣어야 할 때 같은 이름을 불러 꺼내면 됩니다. 담아 두지 않으면 방금 알려 준 담당자를 조금 뒤에 다시 누구냐고 되묻게 됩니다.</p>
 
-<table>
-<tr><th>기억할 것</th><th>내용</th></tr>
-<tr><td>하나만 들어갑니다</td><td>새 값을 넣으면 먼저 있던 값은 없어집니다</td></tr>
-<tr><td>꺼내도 남습니다</td><td>몇 번을 꺼내 봐도 상자 안의 값은 그대로입니다</td></tr>
-<tr><td>둔 자리가 곧 범위입니다</td><td>상자를 어디에 두느냐에 따라 누가 꺼낼 수 있는지가 갈립니다</td></tr>
-</table>
+<p>한 상자에는 값이 하나만 들어갑니다. 새 값을 넣으면 먼저 있던 값은 없어집니다. 대신 꺼내 보는 것은 몇 번을 해도 상관없습니다.</p>
 
 <table>
 <tr><th>구분</th><th>상자를 어디에 두나</th><th>누가 꺼낼 수 있나</th><th>오늘</th></tr>
-<tr><td>글로벌 변수</td><td>모두가 지나다니는 자리</td><td>모든 토픽과 흐름</td><td>사용</td></tr>
-<tr><td>토픽 변수</td><td>그 대본 안</td><td>그 토픽만</td><td></td></tr>
-<tr><td>시스템 변수</td><td>처음부터 놓여 있습니다</td><td>모든 토픽</td><td>Echo 실습에서 사용</td></tr>
+<tr><td>글로벌 변수</td><td>모두가 지나다니는 자리</td><td>모든 토픽과 흐름</td><td>Contact 실습에서 결과를 담습니다</td></tr>
+<tr><td>토픽 변수</td><td>그 대본 안</td><td>그 토픽만</td><td>Contact 실습에서 입력을 받습니다</td></tr>
+<tr><td>시스템 변수</td><td>처음부터 놓여 있습니다</td><td>모든 토픽</td><td>Echo 실습에서 꺼내 씁니다</td></tr>
 </table>
 
-<p>오늘은 <strong>글로벌 변수</strong>만 씁니다. 다루기 쉽고, <a href="#m13">M13</a>에서 흐름과 이어 붙일 때 필요합니다. 변수를 만들 때 속성 창에서 <strong>글로벌(모든 토픽에서 액세스 가능)</strong>을 고르면 이름 앞에 <code>Global.</code>이 붙습니다. 이 접두사가 붙어 있는지로 구분하면 됩니다.</p>
+<p>셋 다 오늘 한 번씩 써 보는데, 다른 토픽이나 흐름으로 값을 넘길 때는 <strong>글로벌 변수</strong>가 필요합니다. <a href="#m13">M13</a>에서 흐름과 이어 붙일 때 그렇습니다. 변수를 만들 때 속성 창에서 <strong>글로벌(모든 토픽에서 액세스 가능)</strong>을 고르면 이름 앞에 <code>Global.</code>이 붙으므로, 그것이 붙어 있는지로 구분하면 됩니다.</p>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
@@ -2292,7 +2288,7 @@ details.fold .copybox{margin-top:0}
 <div class="new"><span class="tag"></span>
 <div class="note">
 <span class="t">이미 토픽이 아홉 개 있습니다</span>
-<p><strong>시스템</strong> 쪽에 인사말, 안녕히 가세요, 다시 시작 같은 것이 처음부터 들어 있습니다. 에이전트를 만들면 자동으로 딸려 오는 것들입니다.</p>
+<p><strong>시스템</strong> 쪽에 인사말, 안녕히 가세요, 다시 시작 같은 것이 여러 개 들어 있습니다. 에이전트를 만들면 자동으로 딸려 오는 것들이라 개수는 시점에 따라 다를 수 있습니다.</p>
 <p>오늘 우리가 만드는 것은 <strong>사용자 지정</strong> 쪽에 쌓입니다. 시스템 토픽은 건드리지 않습니다.</p>
 </div>
 </div>
@@ -2340,7 +2336,7 @@ details.fold .copybox{margin-top:0}
 <h4>5단계. 인사 메시지 노드 추가</h4>
 <p>트리거 아래 <strong>+</strong>를 누르고 <strong>메시지 보내기</strong>를 고릅니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-08-add-node.png" alt="트리거 아래 더하기 버튼을 누르는 화면">
-<p class="cap">여기서 노드를 이어 붙입니다</p>
+<p class="cap">노드는 모두 이 버튼으로 이어 붙입니다</p>
 
 <p>메시지 칸에 <code>안녕하세요 님,</code>을 입력하고, <strong>안녕하세요</strong>와 <strong>님</strong> 사이에 커서를 둡니다. 그 상태에서 서식 줄의 <strong>{x}</strong>를 누릅니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-09-message-var.png" alt="메시지 노드에서 변수 삽입 버튼을 누르는 화면">
@@ -2371,13 +2367,13 @@ details.fold .copybox{margin-top:0}
 <h4>6단계. 메아리 메시지 추가</h4>
 <p>첫 메시지 아래 <strong>+</strong>를 누릅니다. 붙일 수 있는 노드 목록이 나옵니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-12-add-message.png" alt="노드 추가 메뉴에서 메시지 보내기를 선택하는 화면">
-<p class="cap">질문하기, 조건 추가, 도구 추가처럼 오후에 쓸 것들이 여기 다 있습니다. 지금은 <strong>메시지 보내기</strong></p>
+<p class="cap">질문하기, 조건 추가, 도구 추가처럼 오후에 쓸 것들이 이 목록에 모여 있습니다. 지금은 <strong>메시지 보내기</strong></p>
 
-<p>빈 메시지 노드가 붙습니다. 아직 아무것도 없어서 빨간 표시가 떠 있습니다.</p>
+<p>빈 메시지 노드가 붙는데, 아직 아무것도 없어서 빨간 표시가 함께 떠 있습니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-13-second-node.png" alt="두 번째 메시지 노드가 비어 있고 오류 표시가 뜬 화면">
 <p class="cap">이번에는 글자를 치지 않고 바로 <strong>{x}</strong>를 누릅니다</p>
 
-<p>변수 선택 패널이 <strong>사용자 지정</strong> 탭으로 열립니다. 비어 있습니다. 아직 만든 변수가 없기 때문입니다. <strong>시스템</strong> 탭으로 넘어갑니다.</p>
+<p>변수 선택 패널이 <strong>사용자 지정</strong> 탭으로 열리는데, 아직 만든 변수가 없어서 비어 있습니다. <strong>시스템</strong> 탭으로 넘어갑니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-14-var-tabs.png" alt="변수 선택 패널의 사용자 지정 탭이 비어 있고 시스템 탭을 가리키는 화면">
 <p class="cap">사용자 지정은 내가 만든 변수, 시스템은 처음부터 있는 변수입니다</p>
 
@@ -2408,10 +2404,11 @@ details.fold .copybox{margin-top:0}
 
 <div class="new"><span class="tag"></span>
 <div class="note">
-<span class="t">왼쪽 화면이 오늘 가장 중요한 도구입니다</span>
-<p>테스트하면 왼쪽에 <strong>활동</strong>이 함께 뜹니다. <strong>Echo Topic</strong>이 <strong>완료</strong>로 표시되어 있고, 그 토픽의 설명이 그대로 보입니다. 오케스트레이터가 <strong>이 설명을 읽고 골랐다</strong>는 것을 눈으로 확인하는 자리입니다.</p>
-<p><strong>근거 표시</strong>를 누르면 왜 그렇게 판단했는지 더 볼 수 있고, <strong>토픽 편집</strong>으로 바로 고치러 갈 수도 있습니다.</p>
-<p>오후에 도구가 늘어나면 여기가 유일한 단서가 됩니다. 답이 이상할 때 지침을 고칠지 도구 설명을 고칠지는 대개 이 화면을 보고 정합니다.</p>
+<span class="t">테스트 패널 왼쪽에 열리는 활동 창</span>
+<p>테스트하면 테스트 패널 왼쪽에 <strong>활동</strong> 창이 함께 열립니다. 이번 대화에서 에이전트가 무엇을 골라 어떻게 처리했는지 보여주는 자리입니다.</p>
+<p><strong>Echo Topic</strong>이 <strong>완료</strong>로 표시되어 있고, 그 아래 토픽의 설명이 그대로 적혀 있습니다. 오케스트레이터가 그 설명을 읽고 이 토픽을 골랐다는 뜻입니다.</p>
+<p><strong>근거 표시</strong>를 누르면 판단 과정을 더 볼 수 있고, <strong>토픽 편집</strong>으로 바로 고치러 갈 수도 있습니다.</p>
+<p>오후에 도구가 늘어나면 활동 창이 유일한 단서가 됩니다. 답이 이상할 때 지침을 고칠지 도구 설명을 고칠지는 대개 이 창을 보고 정합니다.</p>
 </div>
 </div>
 
@@ -2448,7 +2445,6 @@ details.fold .copybox{margin-top:0}
 <div class="note">
 <span class="t">Echo 토픽과 겹치지 않게</span>
 <p>두 토픽 다 이 에이전트에 붙어 있으므로, 설명이 비슷하면 오케스트레이터가 헷갈립니다. Echo는 <strong>말을 그대로 돌려보낸다</strong>, Contact는 <strong>담당자를 조회해 제공한다</strong>로 하는 일이 분명히 다릅니다.</p>
-<p>위쪽 <strong>세부 정보</strong>를 누르면 이름과 설명을 한 창에서 확인하고 고칠 수 있습니다.</p>
 </div>
 </div>
 
@@ -2456,7 +2452,7 @@ details.fold .copybox{margin-top:0}
 <p>Echo 토픽과 다른 점이 여기서 나옵니다. Contact 토픽은 <strong>무엇을 찾을지</strong>를 받아야 합니다. 경비 담당자인지 교육 담당자인지 알아야 조회할 수 있으니까요.</p>
 <p>그 값을 받아 둘 상자를 만듭니다. 위쪽 <strong>세부 정보</strong>를 누릅니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-24-details-panel.png" alt="세부 정보를 눌러 토픽 세부 정보 패널을 연 화면">
-<p class="cap">이름과 설명이 <strong>모델 표시 이름</strong>, <strong>모델 설명</strong>으로도 보입니다. 오케스트레이터가 읽는 값이 이것입니다</p>
+<p class="cap">이름과 설명이 <strong>모델 표시 이름</strong>, <strong>모델 설명</strong>으로도 보입니다. 오케스트레이터는 이 두 값을 읽고 토픽을 고릅니다</p>
 
 <p>패널 위쪽 <strong>입력</strong> 탭으로 넘어가 <strong>새 변수 만들기</strong>를 누릅니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-25-input-tab.png" alt="입력 탭에서 새 변수 만들기를 누르는 화면">
@@ -2477,14 +2473,19 @@ details.fold .copybox{margin-top:0}
 <div class="new"><span class="tag"></span>
 <div class="note">
 <span class="t">동적 슬롯 필링이 무슨 말인가</span>
-<p><strong>이 상자를 무엇으로 채울지 대화에서 알아서 뽑아내는 것</strong>을 말합니다. 사용자가 <code>경비처리 담당자 알려줘</code>라고 하면 오케스트레이터가 <code>경비처리</code>를 뽑아 이 상자에 넣습니다.</p>
-<p>그런데 무엇을 뽑아야 하는지는 <strong>설명을 읽고</strong> 판단합니다. 설명이 비어 있으면 엉뚱한 값이 들어가거나 사용자에게 되묻습니다. 토픽에 설명이 필요했던 것과 같은 이유입니다.</p>
+<p><strong>이 상자를 무엇으로 채울지 대화에서 알아서 뽑아내는 것</strong>을 말합니다. 사용자가 <code>경비처리 담당자 알려줘</code>라고 하면 에이전트가 <code>경비처리</code>를 뽑아 이 상자에 넣습니다.</p>
+<p>지금까지 오간 대화에서 값을 찾아보고, 마땅한 것이 없으면 사용자에게 되묻는 질문을 만들어 냅니다. 그 판단에 쓰는 것이 변수의 <strong>이름과 설명</strong>입니다. 설명이 비어 있으면 엉뚱한 값이 들어가거나 어색한 질문을 던집니다. 토픽에 설명이 필요했던 것과 같은 이유입니다.</p>
 </div>
 </div>
 
-<p>설명에 <code>사용자가 찾고자 하는 담당자의 업무</code>를 넣습니다.</p>
+<p>설명 칸에 다음을 그대로 입력합니다.</p>
+<table>
+<tr><th>항목</th><th>입력값</th></tr>
+<tr><td>변수 이름</td><td><code>myContact</code></td></tr>
+<tr><td>설명</td><td>사용자가 찾고자 하는 담당자의 업무</td></tr>
+</table>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-29-var-desc.png" alt="변수 설명을 입력한 화면">
-<p class="cap">이 문장을 보고 대화에서 어떤 값을 뽑을지 정합니다</p>
+<p class="cap">빨간 안내가 사라지면 제대로 들어간 것입니다</p>
 
 <h4>5단계. 메시지 노드 추가</h4>
 <p>세부 정보 패널을 닫고, 트리거 아래 <strong>+</strong>를 누릅니다.</p>
@@ -2522,7 +2523,7 @@ details.fold .copybox{margin-top:0}
 
 <p>노드가 붙으면 <strong>입력</strong> 칸이 비어 있습니다. 오른쪽 <strong>&hellip;</strong>를 눌러 변수를 고릅니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-39-gen-input.png" alt="생성형 답변 노드의 입력 칸이 비어 있는 화면">
-<p class="cap">무엇을 근거로 찾을지 넣는 자리입니다</p>
+<p class="cap">무엇을 근거로 문서를 찾을지 여기에 넣습니다</p>
 
 <p>이번에는 <strong>시스템</strong> 탭으로 넘어갑니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-40-gen-var-tabs.png" alt="변수 선택 패널에서 시스템 탭을 가리키는 화면">
@@ -2537,50 +2538,90 @@ details.fold .copybox{margin-top:0}
 <div class="new"><span class="tag"></span>
 <div class="note">
 <span class="t">왜 myContact이 아니라 Activity.Text인가</span>
-<p><code>myContact</code>에는 <code>경비처리</code>처럼 뽑아낸 조각만 들어 있습니다. 문서를 검색할 때는 사용자가 한 말 전체를 넣는 편이 더 잘 찾습니다.</p>
-<p><code>myContact</code>은 앞의 메시지에서 무엇을 찾는 중인지 사용자에게 알려 주는 데 썼습니다. 같은 토픽 안에서도 자리마다 쓰는 값이 다릅니다.</p>
+<p>Microsoft 문서도 이 노드의 입력으로 <code>Activity.Text</code>를 고르라고 안내합니다. 사용자가 방금 한 말 전체가 담기는 변수입니다.</p>
+<p><code>myContact</code>에는 <code>경비처리</code>처럼 뽑아낸 조각만 들어 있어서, 앞의 메시지에서 무엇을 찾는 중인지 알려 주는 데 썼습니다. 같은 토픽 안에서도 자리마다 쓰는 값이 다릅니다.</p>
 </div>
 </div>
 
 <p>아래 <strong>데이터 원본</strong>의 <strong>편집</strong>을 누릅니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-43-datasource.png" alt="생성형 답변 노드의 데이터 원본 편집을 누르는 화면">
-<p class="cap">어디에서 찾을지 정하는 자리입니다</p>
+<p class="cap">어느 문서에서 찾을지는 여기서 정합니다</p>
 
 <p>오른쪽에 <strong>생성형 답변 만들기 속성</strong>이 열립니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-44-gen-props.png" alt="생성형 답변 만들기 속성 패널">
-<p class="cap">참조 자료 원본, 웹 검색, 클래식 데이터, 콘텐츠 조정 수준이 차례로 있습니다</p>
+<p class="cap">위에서부터 <strong>선택한 원본만 검색</strong>, <strong>웹 검색</strong>, <strong>클래식 데이터</strong>, <strong>콘텐츠 조정 수준</strong>입니다</p>
 
 <table>
 <tr><th>항목</th><th>이 실습에서</th><th>무엇인가</th></tr>
-<tr><td>선택한 원본만 검색</td><td><strong>켜기</strong></td><td>켜고 <code>담당자정보</code> 문서만 체크합니다. 검색 범위를 좁혀 다른 문서가 섞이지 않게 합니다</td></tr>
+<tr><td>선택한 원본만 검색</td><td><strong>켜기</strong></td><td>켠 뒤 <code>담당자정보</code> 문서만 고릅니다. 이 노드가 검색할 범위를 그 문서로 한정합니다</td></tr>
 <tr><td>웹 검색</td><td>끄기 그대로</td><td>공개 웹까지 뒤집니다. 사내 담당자를 찾는 데는 방해만 됩니다</td></tr>
-<tr><td>AI에서 자체 일반 지식 사용</td><td>끄기</td><td>문서에 없으면 모델이 아는 것으로 답하게 됩니다. 담당자 이름을 지어낼 수 있으니 끕니다</td></tr>
-<tr><td>콘텐츠 조정 수준</td><td>그대로</td><td>비워 두면 에이전트 전체 설정을 따릅니다</td></tr>
+<tr><td>클래식 데이터 &rarr; AI에서 자체 일반 지식 사용</td><td><strong>끄기</strong></td><td>펼쳐서 끕니다. 켜 두면 문서에 없는 내용을 모델이 아는 것으로 채워 담당자 이름을 지어낼 수 있습니다</td></tr>
+<tr><td>콘텐츠 조정 수준</td><td>체크하지 않음</td><td><strong>사용자 지정</strong>을 체크하면 이 노드만 다른 수준을 씁니다. 체크하지 않으면 에이전트 설정을 따릅니다</td></tr>
 </table>
 
+<div class="new"><span class="tag"></span>
 <div class="note">
-<span class="t">여기서 범위를 좁히는 이유</span>
-<p>담당자를 묻는데 휴가 규정 문서가 섞여 들어오면 답이 흐려집니다. 이 노드에서만 <code>담당자정보</code>로 한정해 두면, 같은 에이전트가 다른 질문에는 다섯 개 문서를 다 쓰면서 이 토픽에서만 한 개를 봅니다.</p>
+<span class="t">켜면 다른 문서는 아예 안 봅니다</span>
+<p><strong>선택한 원본만 검색</strong>은 기본이 꺼짐입니다. 꺼져 있으면 에이전트에 붙여 둔 참조 자료를 모두 뒤집니다. <a href="#m8">M8</a>에서 올린 다섯 개 문서 전부입니다.</p>
+<p>켜면 여기서 고른 것만 봅니다. <strong>고른 문서에서 답을 못 찾아도 나머지로 넘어가지 않습니다.</strong> 담당자를 묻는데 휴가 규정이 섞여 들어오는 것을 막으려고 좁히는 것이지만, 좁힌 만큼 못 찾을 수도 있다는 뜻입니다.</p>
+</div>
+
+<div class="note">
+<span class="t">M6에서 본 설정과는 다른 항목입니다</span>
+<p><a href="#m6">M6</a> 설정에도 <strong>근거 없는 응답 허용하기</strong>가 있었습니다. 이름이 비슷하지만 다룹니다.</p>
+<table>
+<tr><th>어디</th><th>항목</th><th>무엇을 정하나</th></tr>
+<tr><td>에이전트 설정</td><td>근거 없는 응답 허용하기</td><td>참조 자료나 도구를 아예 쓰지 않은 답을 내보낼지</td></tr>
+<tr><td>이 노드</td><td>AI에서 자체 일반 지식 사용</td><td>이 노드가 답을 만들 때 모델이 아는 것까지 근거로 쓸지</td></tr>
+</table>
+<p>둘 다 끄면 문서에 있는 내용으로만 답하게 됩니다.</p>
+</div>
 </div>
 
 <h4>7단계. 글로벌 변수에 결과 저장</h4>
-<p>고급 설정에서 메시지 보내기 체크를 해제합니다. 답변은 오케스트레이터가 만들도록 맡기고 토픽은 정보만 저장합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image12.png" alt="메시지 보내기를 해제하고 변수 선택을 클릭하는 화면">
-<p class="cap">메시지 보내기를 끄고 저장할 변수를 지정합니다</p>
+<p>같은 속성 패널을 아래로 더 내리면 <strong>고급</strong> 항목이 나옵니다. 펼쳐서 <strong>메시지 보내기</strong> 체크를 <strong>해제</strong>합니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image12.png" alt="고급에서 메시지 보내기 체크를 해제하는 화면">
+<p class="cap">체크를 풀면 이 노드가 찾은 결과를 곧바로 사용자에게 내보내지 않습니다</p>
 
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">왜 끄는가</span>
+<p>켜 두면 이 노드가 만든 문장이 그대로 사용자에게 갑니다. 그러면 <a href="#m7">M7</a>에서 정한 말투도, 다른 자료에서 얻은 내용도 섞이지 않습니다.</p>
+<p>대신 결과를 상자에 담아 두면 오케스트레이터가 그것을 읽어 답을 만듭니다. <strong>토픽은 정보를 모으고, 말하는 것은 오케스트레이터</strong>라는 원칙이 이 체크박스 하나로 정해집니다.</p>
+</div>
+</div>
+
+<p>바로 아래 응답을 저장할 변수를 고르는 자리가 있습니다. <strong>변수 선택</strong>을 누르고 <strong>새 변수 만들기</strong>를 고릅니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image13.png" alt="새 변수 만들기를 선택하는 화면">
-<p class="cap">새 변수를 만듭니다</p>
+<p class="cap">기존 변수를 고를 수도 있지만 지금은 새로 만듭니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image14.png" alt="새 변수가 봇 응답 저장에 설정된 화면">
-<p class="cap">생성된 변수가 응답 저장 위치로 지정됩니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image14.png" alt="새 변수가 봇 응답 저장 자리에 설정된 화면">
+<p class="cap">만들어진 변수가 <strong>다음 이름으로 봇 응답 저장</strong> 자리에 들어갑니다</p>
 
-<p>변수 속성에서 이름을 <code>Contact_Result</code>로 바꾸고 사용량을 전역으로 설정합니다. 이름 앞에 <code>Global.</code>이 붙습니다.</p>
+<p>그 변수를 눌러 속성을 엽니다. 이름을 <code>Contact_Result</code>로 바꾸고, <strong>사용량</strong>을 <strong>전역</strong>으로 바꿉니다. 화면에는 전역이라고 적혀 있는데 지금까지 말한 글로벌 변수와 같은 것입니다.</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image15.png" alt="변수를 전역으로 설정한 화면">
-<p class="cap">전역으로 지정해야 다른 토픽과 흐름에서 꺼내 쓸 수 있습니다</p>
+<p class="cap">전역으로 바꾸면 이름 앞에 <code>Global.</code>이 붙습니다. 그래야 다른 토픽과 흐름에서 꺼내 쓸 수 있습니다</p>
+
+<h4>8단계. 저장과 테스트</h4>
+<p>오른쪽 위 <strong>저장</strong>을 누릅니다. 그다음 테스트 패널에서 <code>경비처리 담당자 알려줘</code>를 물어봅니다.</p>
+
+<table>
+<tr><th>볼 것</th><th>설명</th></tr>
+<tr><td>조회 안내 문장</td><td>5단계에서 만든 <code>경비처리에 대한 담당자를 조회해보겠습니다.</code>가 먼저 나오는지</td></tr>
+<tr><td>뽑아낸 값</td><td>그 문장에 <code>경비처리</code>가 들어가 있는지. 들어갔다면 <code>myContact</code>이 제대로 채워진 것입니다</td></tr>
+<tr><td>담당자 정보</td><td>정경비와 연락처가 나오는지</td></tr>
+<tr><td>활동 창</td><td>Contact Topic이 완료로 표시되는지</td></tr>
+</table>
+
+<div class="note">
+<span class="t">엉뚱한 담당자가 나온다면</span>
+<p><code>myContact</code>의 설명을 다시 봅니다. 그 문장을 보고 대화에서 값을 뽑아내므로, 설명이 비어 있거나 모호하면 엉뚱한 값이 들어갑니다.</p>
+<p>아무 담당자도 못 찾으면 6단계에서 고른 문서가 <code>담당자정보</code>가 맞는지 확인합니다. 선택한 원본만 검색을 켜 두면 다른 문서로 넘어가지 않습니다.</p>
+</div>
 
 <div class="note">
 <span class="t">동작 흐름</span>
-<p>담당자를 찾아달라는 요청이 들어오면 Contact 토픽이 호출되고, 조회 결과가 <code>Global.Contact_Result</code>에 저장됩니다. 그다음 오케스트레이터가 지침에 따라 그 정보를 활용해 답변을 만듭니다.</p>
+<p>담당자를 찾아달라는 요청이 들어오면 Contact 토픽이 호출되고, 조회 결과가 <code>Global.Contact_Result</code>에 담깁니다. 그다음 오케스트레이터가 그 상자를 열어 지침대로 답변을 만듭니다.</p>
 </div>
 
 <h3>실습 &#9314; STRICT RULES 추가</h3>
@@ -2597,9 +2638,9 @@ details.fold .copybox{margin-top:0}
 - 토픽에서 결과를 찾지 못하면 HR팀 김인사(02-1234-5601)로 안내합니다</code></pre>
 
 <div class="note">
-<span class="t">손으로 타이핑하지 마세요</span>
+<span class="t">손으로 타이핑하지 않습니다</span>
 <p>토픽 이름과 변수 이름은 <strong>정확히 일치해야</strong> 호출됩니다. 한 글자만 틀려도 에이전트가 못 찾습니다.</p>
-<p>지침 입력칸에서 <strong><code>/</code></strong> 를 입력하면 토픽 목록이 뜹니다. 거기서 골라 넣으세요.</p>
+<p>지침 입력칸에서 <strong><code>/</code></strong> 를 입력하면 토픽 목록이 뜹니다. 거기서 골라 넣습니다.</p>
 <p>변수는 <strong><code>/gl</code></strong> 을 입력하면 글로벌 변수 목록이 나옵니다. <code>Global.Contact_Result</code>를 골라 넣습니다.</p>
 </div>
 
@@ -2685,7 +2726,13 @@ details.fold .copybox{margin-top:0}
 
 <div class="note plain">
 <span class="t">더 보기</span>
-<p><a href="https://learn.microsoft.com/microsoft-copilot-studio/authoring-create-edit-topics">토픽 만들기와 편집</a> &middot; <a href="https://learn.microsoft.com/microsoft-copilot-studio/authoring-variables-about">변수 개요</a> &middot; <a href="https://learn.microsoft.com/microsoft-copilot-studio/authoring-variables-bot">글로벌 변수</a> &middot; <a href="https://learn.microsoft.com/microsoft-copilot-studio/advanced-generative-actions">생성형 오케스트레이션과 설명 쓰는 법</a></p>
+<ul>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/authoring-create-edit-topics">토픽 만들기와 편집</a></li>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/authoring-variables-about">변수 개요</a></li>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/authoring-variables-bot">글로벌 변수</a></li>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/nlu-boost-node">생성형 답변 노드</a></li>
+<li><a href="https://learn.microsoft.com/microsoft-copilot-studio/advanced-generative-actions">생성형 오케스트레이션과 설명 쓰는 법</a></li>
+</ul>
 </div>
 
 </section><section class="pg" data-pg="m11"><h2 class="mod" id="m11"><span class="num">M11</span>게시와 공유 <span class="pill">실습</span></h2>
