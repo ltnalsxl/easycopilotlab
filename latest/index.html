@@ -2205,32 +2205,60 @@ details.fold .copybox{margin-top:0}
 <p>토픽 편집기는 표준 화면에만 있습니다. 오른쪽 위 <strong>New experience</strong> 토글이 꺼져 있는지 다시 확인하세요. 켜져 있으면 위쪽 탭에 <strong>토픽</strong>이 보이지 않습니다.</p>
 </div>
 
-<h3>토픽</h3>
-<p>토픽은 특정 상황에서 에이전트가 따르는 대화 흐름입니다. 생성형 오케스트레이터가 사용자의 질문을 보고 상황에 맞는 토픽을 선택해 실행합니다.</p>
+<h3>토픽은 대본입니다</h3>
+<p>토픽은 <strong>특정 상황에서 대화가 어떻게 흘러갈지 미리 짜 둔 대본</strong>입니다. 언제 무엇을 묻고, 무엇을 찾아보고, 어디에 적어 둘지가 순서대로 적혀 있습니다.</p>
+<p>다만 한 줄로만 흐르지는 않습니다. 조건에 따라 갈라지는 대본입니다. 답에 따라 다음 장면이 달라지는 이야기라고 보면 됩니다.</p>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
-<span class="t">토픽은 노드를 이어 붙여 만듭니다</span>
+<span class="t">대본은 노드를 이어 붙여 만듭니다</span>
 <p>토픽 편집 화면을 열면 네모난 카드가 위에서 아래로 이어진 그림이 나옵니다. 이 카드 하나하나를 <strong>노드</strong>라고 부릅니다.</p>
-<p>노드는 동작 하나를 담고 있습니다. 메시지 보내기, 질문하기, 변수에 저장하기 같은 것들입니다. 위에서 아래로 순서대로 실행됩니다.</p>
+<p>노드는 동작 하나를 담고 있습니다. 메시지 보내기, 질문하기, 조건에 따라 갈라지기, 변수에 저장하기 같은 것들입니다. 위에서 아래로 순서대로 실행됩니다.</p>
 <p>오후 실습에서 노드를 추가하고 순서를 바꾸는 일을 계속 하게 됩니다. 흐름과 트리거도 같은 방식입니다.</p>
 </div>
+
+<div class="note">
+<span class="t">오케스트레이터는 설명을 보고 대본을 고릅니다</span>
+<p>생성형 오케스트레이션이 켜져 있으면 토픽의 <strong>트리거 문구는 쓰이지 않습니다.</strong> 대신 각 토픽에 적어 둔 <strong>설명</strong>을 읽고 어느 대본을 꺼낼지 정합니다. 토픽 이름과 입출력값 이름도 함께 봅니다.</p>
+<p>그래서 실습에서 설명을 정성껏 쓰는 것이 이름을 짓는 것보다 중요합니다. 트리거 노드에 <strong>사용자가 다음을 말할 때</strong>가 아니라 <strong>에이전트가 선택</strong>이라고 적혀 있으면 설명으로 고르는 상태입니다.</p>
+</div>
 </div>
 
-<h3>변수</h3>
-<p>변수는 대화 중 필요한 정보를 저장해 두었다가 나중에 사용하는 공간입니다. 다른 토픽이나 흐름에서 꺼내 쓸 수 있습니다.</p>
+<h3>변수는 포스트잇입니다</h3>
+<p>변수는 대화 중에 알아낸 것을 적어 두는 <strong>포스트잇</strong>입니다. 적어 두면 나중에 다른 토픽이나 흐름에서 꺼내 씁니다. 적어 두지 않으면 같은 것을 다시 물어봐야 합니다.</p>
 
 <table>
-<tr><th>구분</th><th>유지 범위</th><th>사용</th></tr>
-<tr><td>글로벌 변수</td><td>모든 토픽에서 공유</td><td>이 과정에서 사용</td></tr>
-<tr><td>일반 변수</td><td>해당 토픽 안에서만</td><td></td></tr>
+<tr><th>구분</th><th>유지 범위</th><th>어디에 붙이나</th><th>사용</th></tr>
+<tr><td>글로벌 변수</td><td>모든 토픽에서 공유. 대화가 끝날 때까지 남습니다</td><td>책상에 붙여 두는 포스트잇</td><td>이 과정에서 사용</td></tr>
+<tr><td>토픽 변수</td><td>그 토픽 안에서만</td><td>대본 여백에 적은 메모</td><td></td></tr>
+<tr><td>시스템 변수</td><td>모든 토픽. Copilot Studio가 알아서 채웁니다</td><td>이미 적혀 있는 쪽지</td><td>Echo 실습에서 사용</td></tr>
 </table>
+
+<p>오늘은 <strong>글로벌 변수</strong>만 씁니다. 다루기 쉽고, <a href="#m13">M13</a>에서 흐름과 이어 붙일 때 필요합니다. 변수를 만들 때 속성 창에서 <strong>글로벌(모든 토픽에서 액세스 가능)</strong>을 고르면 이름 앞에 <code>Global.</code>이 붙습니다.</p>
+
+<div class="note">
+<span class="t">대화를 새로 시작하면 지워집니다</span>
+<p>글로벌 변수는 <strong>한 번의 대화 동안만</strong> 남습니다. 테스트 패널에서 새 대화를 시작하면 붙여 둔 포스트잇이 전부 떨어집니다. 실습 중 앞에서 저장한 값이 안 보이면 대화를 새로 시작했는지부터 확인하세요.</p>
+</div>
+
+<h3>토픽과 변수가 함께 도는 방식</h3>
+<p>토픽이 답을 직접 말하지 않는다는 점이 이 그림의 핵심입니다. 토픽은 알아낸 것을 포스트잇에 적어 두기만 하고, 그것을 문장으로 옮기는 일은 오케스트레이터가 맡습니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/d-m10-topic-variable.svg" alt="사용자 질문에서 오케스트레이터가 토픽을 고르고, 토픽이 글로벌 변수에 결과를 저장하면 오케스트레이터가 그것을 읽어 답변을 만드는 흐름도">
+<p class="cap">토픽은 정보를 모으고, 말하는 것은 오케스트레이터입니다</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">왜 메시지 노드로 직접 답하지 않나</span>
+<p>토픽 안에서 메시지 노드로 답을 내보낼 수도 있습니다. 그러면 <strong>답변 형식이 그 문장에 고정됩니다.</strong> 지침에 적어 둔 말투도, 다른 자료에서 찾은 내용도 섞이지 않습니다.</p>
+<p>대신 변수에 담아 두면 오케스트레이터가 지식과 다른 도구에서 얻은 것까지 합쳐 하나의 답으로 만듭니다. Microsoft도 생성형 오케스트레이션에서는 이 방식을 권장합니다.</p>
+</div>
+</div>
 
 <h3>실습 &#9312; Echo 토픽 만들기</h3>
 <p>가장 단순한 토픽을 만들어, 설명에 맞는 질문이 들어왔을 때 토픽이 자동으로 선택되는 과정을 확인합니다. 기능 자체보다 <strong>동작 원리를 체험하는 것</strong>이 목적입니다.</p>
 
 <h4>1단계. 새 토픽 생성</h4>
-<p>좌측 메뉴에서 토픽을 클릭하고 토픽 추가, 새로 시작을 차례로 선택합니다.</p>
+<p>에이전트 위쪽 탭에서 <strong>토픽</strong>을 누릅니다. <strong>+ 토픽 추가</strong> 오른쪽의 화살표를 눌러 <strong>새로 시작</strong>을 고릅니다.</p>
 <img loading="lazy" decoding="async" class="shot old" src="ecl-img/m10-1_image1.png" alt="토픽 목록에서 토픽 추가와 새로 시작을 선택하는 화면">
 <p class="cap old">토픽을 새로 만듭니다</p>
 
@@ -2391,10 +2419,34 @@ details.fold .copybox{margin-top:0}
 <p>오후에 흐름과 다른 에이전트를 붙일 때도 <strong>이 STRICT RULES에 줄을 추가</strong>합니다. <a href="#m13">M13</a>과 <a href="#m16">M16</a>에서 다시 꺼내 쓰게 됩니다.</p>
 </div>
 </div>
-<h3>토픽 설계 원칙</h3>
-<p>토픽 안에서 메시지 노드로 답변을 직접 출력할 수도 있습니다. 다만 이 경우 답변 형식이 토픽에 고정됩니다.</p>
+<h3>어느 토픽이 뽑히나</h3>
+<p>질문이 두 토픽에 다 걸쳐 보일 때가 있습니다. 오케스트레이터는 각 토픽의 <strong>설명</strong>을 읽고 의도에 더 정확히 맞는 쪽을 고릅니다.</p>
 
-<p>대신 <strong>토픽은 정보를 수집해 변수에 저장하고, 답변 생성은 오케스트레이터에 맡기는 방식</strong>을 권장합니다. 답변의 내용과 형식을 AI가 상황에 맞게 구성하므로, 여러 정보가 섞인 복합 질문에도 유연하게 대응합니다.</p>
+<table>
+<tr><th>질문 유형</th><th>뽑히는 토픽</th><th>이유</th></tr>
+<tr><td>경비처리 담당자 알려줘</td><td>Contact 토픽</td><td>담당자를 찾아 돌려주는 것이 목적이라고 설명에 적혀 있습니다</td></tr>
+<tr><td>메아리 테스트 해줘</td><td>Echo 토픽</td><td>말을 그대로 돌려보낸다고 설명에 적혀 있습니다</td></tr>
+<tr><td>둘 다 걸쳐 보이는 질문</td><td>오케스트레이터가 판단</td><td>설명을 비교해 더 맞는 쪽을 고릅니다</td></tr>
+</table>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">겹칠 때 되묻지는 않습니다</span>
+<p>여러 토픽이 비슷하게 맞으면 예전 방식에서는 <strong>여러 토픽 일치</strong> 시스템 토픽이 떠서 사용자에게 어느 쪽인지 물었습니다. 지금 쓰는 <strong>생성형 오케스트레이션에서는 이 되묻기가 동작하지 않습니다.</strong> 에이전트가 혼자 판단해서 하나를 고르고, 틀리게 고를 수도 있습니다.</p>
+<p>그래서 겹치지 않게 하는 책임이 만드는 쪽에 있습니다. 설명에 <strong>이 토픽이 다루지 않는 것</strong>까지 적어 두면 헷갈림이 크게 줄어듭니다.</p>
+</div>
+</div>
+
+<p><a href="#m13">M13</a>에서 에이전트 흐름을 붙이면 문의를 전달해 달라는 요청은 흐름이 먼저 불리도록 STRICT RULES에 줄을 추가합니다.</p>
+
+<h3>토픽 설계 원칙</h3>
+<table>
+<tr><th>원칙</th><th>내용</th></tr>
+<tr><td>설명을 정확히</td><td>쉬운 말로 한두 문장. 무엇을 하는지와 무엇을 하지 않는지를 함께 적습니다</td></tr>
+<tr><td>이름은 고유하게</td><td>토픽1, 안내처럼 흔한 이름을 피합니다. 이름도 판단 근거로 쓰입니다</td></tr>
+<tr><td>하나의 토픽은 하나의 일</td><td>역할이 겹치면 어느 쪽이 뽑힐지 예측하기 어려워집니다</td></tr>
+<tr><td>답은 변수로 넘기기</td><td>메시지 노드로 직접 말하면 형식이 고정됩니다. 변수에 담아 오케스트레이터에게 맡깁니다</td></tr>
+</table>
 
 <h3>확인</h3>
 <p>다음 세 가지 질문으로 토픽이 올바르게 동작하는지 확인합니다.</p>
@@ -2408,9 +2460,31 @@ details.fold .copybox{margin-top:0}
 <img loading="lazy" decoding="async" class="shot old" src="ecl-img/m10-3_test.png" alt="경비처리 담당자를 물었을 때 토픽이 호출된 화면">
 <p class="cap old">토픽이 담당자 정보를 찾아오면 오케스트레이터가 문장으로 다듬어 답합니다</p>
 
-<div class="note">
-<span class="t">토픽이 겹쳐 보일 때</span>
-<p>여러 토픽이 동시에 해당할 수 있는 질문은 더 구체적인 의도를 가진 토픽이 선택됩니다. 판단이 어려우면 오케스트레이터가 사용자에게 다시 묻습니다. M13에서 에이전트 흐름을 추가하면 문의를 전달해 달라는 요청은 흐름이 우선 호출되도록 지침에서 조정합니다.</p>
+<div class="new"><span class="tag"></span>
+<h3>정리</h3>
+<ul>
+<li>토픽은 <strong>대본</strong>입니다. 상황마다 대화가 어떻게 흘러갈지 미리 짜 둔 것입니다</li>
+<li>변수는 <strong>포스트잇</strong>입니다. 알아낸 것을 적어 두었다가 나중에 꺼내 씁니다</li>
+<li>어느 대본을 꺼낼지는 <strong>토픽의 설명</strong>을 보고 정합니다. 트리거 문구가 아닙니다</li>
+<li>토픽은 정보를 모아 변수에 적고, <strong>말로 옮기는 일은 오케스트레이터</strong>가 합니다</li>
+<li>STRICT RULES는 언제 그 토픽을 부를지를 지침에 못 박아 두는 장치입니다</li>
+</ul>
+</div>
+
+<h3>자주 나오는 질문</h3>
+<table>
+<tr><th>질문</th><th>답</th></tr>
+<tr><td>토픽을 몇 개까지 만들 수 있나요</td><td>에이전트 하나에 1,000개까지입니다. 개수보다 <strong>역할이 겹치지 않게</strong> 만드는 편이 중요합니다</td></tr>
+<tr><td>토픽과 지침이 어긋나면요</td><td>지침의 STRICT RULES에 적은 조건이 판단에 강하게 작용합니다. 여러 토픽이 겹치면 설명이 더 구체적인 쪽이 뽑힙니다</td></tr>
+<tr><td>변수 이름은 아무렇게나 지어도 되나요</td><td>됩니다. 다만 이름 앞에 <code>Global.</code>이 붙어 있어야 다른 토픽과 흐름에서 꺼내 쓸 수 있습니다</td></tr>
+<tr><td>메시지 노드로 직접 답하면 안 되나요</td><td>됩니다. 다만 답변 형식이 그 문장에 고정되어 지침의 말투가 안 먹습니다. 변수에 담아 넘기는 편이 낫습니다</td></tr>
+<tr><td>사용자 이름이 빈칸으로 나옵니다</td><td><code>User.DisplayName</code>은 로그인한 사용자에게서 가져오는 값이라, 인증이 걸려 있지 않으면 비어 있을 수 있습니다</td></tr>
+<tr><td>앞에서 저장한 값이 사라졌습니다</td><td>글로벌 변수는 대화 하나 동안만 남습니다. 새 대화를 시작했다면 다시 채워야 합니다</td></tr>
+</table>
+
+<div class="note plain">
+<span class="t">더 보기</span>
+<p><a href="https://learn.microsoft.com/microsoft-copilot-studio/authoring-create-edit-topics">토픽 만들기와 편집</a> &middot; <a href="https://learn.microsoft.com/microsoft-copilot-studio/authoring-variables-about">변수 개요</a> &middot; <a href="https://learn.microsoft.com/microsoft-copilot-studio/authoring-variables-bot">글로벌 변수</a> &middot; <a href="https://learn.microsoft.com/microsoft-copilot-studio/advanced-generative-actions">생성형 오케스트레이션과 설명 쓰는 법</a></p>
 </div>
 
 </section><section class="pg" data-pg="m11"><h2 class="mod" id="m11"><span class="num">M11</span>게시와 공유 <span class="pill">실습</span></h2>
