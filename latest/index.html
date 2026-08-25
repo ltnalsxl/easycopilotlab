@@ -288,7 +288,7 @@ details.fold .copybox{margin-top:0}
   <a href="#m1">M1. 코파일럿 동작원리</a>
   <a href="#m2">M2. 에이전트의 사용 방식</a>
   <a href="#m3">M3. 에이전트 만들기 시작</a>
-  <a href="#m4">M4. 에이전트 복사하기</a>
+  <a href="#m4">M4. Copilot Studio로 옮기기</a>
   <a href="#m5">M5. 에이전트의 구성요소</a>
   <a href="#m6">M6. 오케스트레이터</a>
   <a href="#m7">M7. 지침</a>
@@ -451,7 +451,7 @@ details.fold .copybox{margin-top:0}
 <tr><th>단계</th><th>내용</th><th>모듈</th></tr>
 <tr><td>원리 이해</td><td>Copilot의 작동 방식과 사용 형태</td><td>M1~M2</td></tr>
 <tr><td>에이전트 생성</td><td>에이전트 빌더로 만들고 파일 업로드</td><td>M3</td></tr>
-<tr><td>Copilot Studio로 이동</td><td>솔루션 만들고 복사</td><td>M4</td></tr>
+<tr><td>Copilot Studio로 이동</td><td>솔루션 만들고 표준 에이전트 생성</td><td>M4</td></tr>
 <tr><td>기본기 구성</td><td>구성 요소 이해, 지침 작성, 지식 연결</td><td>M5~M8</td></tr>
 <tr><td>대화 흐름 설계</td><td>도구의 원리, 토픽과 변수</td><td>M9~M10</td></tr>
 <tr><td>게시</td><td>Copilot에서 사용할 수 있도록 배포</td><td>M11</td></tr>
@@ -608,7 +608,7 @@ details.fold .copybox{margin-top:0}
 
 <div class="note">
 <span class="t">알아두면 좋습니다</span>
-<p>선언형 에이전트는 Copilot Studio의 에이전트 목록에 나타나지 않습니다. Copilot Studio에만 있는 기능이 필요해지면 편집 화면의 <strong>...</strong> 메뉴에서 Copilot Studio로 복사할 수 있습니다. 처음부터 다시 만들지 않아도 됩니다. <a href="#m4">M4</a>에서 이 작업을 합니다.</p>
+<p>선언형 에이전트는 Copilot Studio의 에이전트 목록에 나타나지 않습니다. Copilot Studio에만 있는 기능이 필요해지면 편집 화면의 <strong>...</strong> 메뉴에 Copilot Studio로 복사하는 항목도 있습니다. 다만 이 과정에서는 표준 에이전트로 새로 만듭니다. 이유는 그때 설명합니다. <a href="#m4">M4</a>에서 이 작업을 합니다.</p>
 </div>
 
 <div class="note">
@@ -1193,8 +1193,8 @@ details.fold .copybox{margin-top:0}
 </div>
 </div>
 
-</section><section class="pg" data-pg="m4"><h2 class="mod" id="m4"><span class="num">M4</span>에이전트 복사하기 <span class="pill">실습</span></h2>
-<p class="lead">에이전트 빌더에서 만든 에이전트를 Copilot Studio로 복사합니다.</p>
+</section><section class="pg" data-pg="m4"><h2 class="mod" id="m4"><span class="num">M4</span>Copilot Studio로 옮기기 <span class="pill">실습</span></h2>
+<p class="lead">오전에 만든 지침을 Copilot Studio의 표준 에이전트로 옮깁니다.</p>
 
 <h3>두 도구의 차이</h3>
 <p>에이전트 빌더와 Copilot Studio는 같은 에이전트를 다루는 서로 다른 편집 도구입니다. 에이전트가 바뀌는 것이 아니라 다룰 수 있는 범위가 넓어집니다.</p>
@@ -1279,7 +1279,7 @@ details.fold .copybox{margin-top:0}
 <div class="note">
 <span class="t">안내받은 환경을 고르세요</span>
 <p>화면에 보이는 이름은 예시입니다. 강사가 알려준 환경이 있으면 그것을, 없으면 기본 환경을 고르면 됩니다.</p>
-<p><strong>여기서 고른 환경을 기억해 두세요.</strong> 실습 ②에서 에이전트를 복사할 때 같은 환경을 골라야 합니다.</p>
+<p><strong>여기서 고른 환경을 기억해 두세요.</strong> 실습 ②에서 에이전트를 만들 때 같은 환경이어야 합니다.</p>
 </div>
 
 <h4>2단계. 솔루션 만들기</h4>
@@ -1305,74 +1305,86 @@ details.fold .copybox{margin-top:0}
 <p>아래 <strong>선호하는 솔루션으로 설정</strong>은 체크하지 않아도 됩니다. 체크하면 앞으로 만드는 것이 기본으로 이 솔루션에 들어갑니다.</p>
 </div>
 
-<h3>실습 ② Copilot Studio로 복사</h3>
-<p>M3에서 만든 HR 도우미를 Copilot Studio로 가져옵니다.</p>
-
-<h4>1단계. 복사 시작</h4>
-<p>Microsoft 365 Copilot의 왼쪽 에이전트 목록에서 <strong>...</strong>를 누르고 <strong>편집</strong>을 고릅니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m03-23-agent-menu.jpeg" alt="에이전트 목록의 점 세 개 메뉴에서 편집">
-<p class="cap">에이전트 목록에서 편집으로 들어갑니다</p>
-
-<p>편집 화면 오른쪽 위의 <strong>...</strong>에서 <strong>Copilot Studio에 복사</strong>를 누릅니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m04-2_copy.png" alt="편집 화면 상단 메뉴의 Copilot Studio에 복사">
-<p class="cap">공유, 삭제와 같은 메뉴 안에 있습니다</p>
-
-<p>무엇이 넘어가고 무엇이 안 넘어가는지 알려 줍니다. 읽어 보고 <strong>시작</strong>을 누릅니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m04-2_scope.jpeg" alt="복사되는 내용과 포함되지 않는 항목 안내">
-<p class="cap">포함되지 않은 항목에 업로드한 파일이 들어 있습니다</p>
+<h3>실습 ② 표준 에이전트 만들기</h3>
+<p>Copilot Studio에서 HR 도우미를 다시 만듭니다. M3에서 쓴 지침을 그대로 옮겨 붙입니다.</p>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
-<span class="t">파일은 넘어가지 않습니다</span>
-<p>안내창의 <strong>포함되지 않은 항목</strong>을 보면 업로드한 파일, Teams 및 Outlook 지식 원본, 공유 설정, 이미지 생성이 적혀 있습니다.</p>
-<p>M3에서 올린 실습 파일 다섯 개가 여기 해당합니다. <strong>넘어가지 않습니다.</strong> 내 컴퓨터에서 올린 파일은 에이전트 안에 박혀 있어서 따라오지 못합니다. <a href="#m8">M8</a>에서 같은 파일을 다시 올리게 되는데, 그 이유가 여기 있습니다.</p>
-<p>공유 설정도 초기화되므로 나중에 다시 공유해야 합니다.</p>
+<span class="t">복사 기능이 있는데 왜 새로 만드나요</span>
+<p>에이전트 빌더의 <strong>...</strong> 메뉴에 Copilot Studio에 복사라는 항목이 있습니다. 다만 이 기능으로 넘기면 <strong>GitHub Copilot 하네스</strong>로 만들어집니다.</p>
+<p>그 화면에는 토픽 탭이 없어서 오후에 하는 실습을 따라가지 못합니다. 하네스는 만들 때 정해지고 나중에 바꿀 수 없습니다.</p>
+<p>그래서 이 과정에서는 표준 에이전트로 새로 만듭니다. 지침은 그냥 텍스트라 옥기는 데 몇 초면 됩니다.</p>
 </div>
 </div>
 
-<p>어느 환경에 복사할지 묻습니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m04-2_env.jpeg" alt="복사할 환경을 고르는 대화상자">
-<p class="cap">환경을 고르고 계속을 누릅니다</p>
+<h4>1단계. 표준 에이전트 고르기</h4>
+<p>Copilot Studio 홈 화면의 큰 카드 두 개에는 GitHub Copilot 표시가 붙어 있습니다. 이 과정에서 쓰는 것이 아닙니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-01-studio-home.png" alt="Copilot Studio 홈 화면">
+<p class="cap">상단 카드 두 개는 지나칩니다</p>
 
-<div class="new"><span class="tag"></span>
-<div class="note">
-<span class="t">솔루션을 만든 환경과 같아야 합니다</span>
-<p>여기서 다른 환경을 고르면 조금 전에 만든 솔루션이 보이지 않습니다. 솔루션은 환경 안에만 있기 때문입니다.</p>
-<p>실습 ① 1단계에서 확인한 환경을 그대로 고르세요.</p>
-</div>
-</div>
+<ol class="steps">
+<li><b>아래로 내리기</b>홈 화면 아래쪽의 <strong>다른 빌드 방법</strong>을 누릅니다.</li>
+<li><b>에이전트(표준) 선택</b>미리 정의된 토픽과 흐름으로 규칙 기반 대화형 에이전트를 만듭니다라고 적힌 항목입니다.</li>
+</ol>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-02-other-ways-standard.png" alt="다른 빌드 방법에서 표준 에이전트를 고르는 화면">
+<p class="cap">왼쪽 에이전트 카드에 <strong>표준</strong> 표시가 붙어 있습니다. 이것을 고릅니다</p>
 
 <h4>2단계. 언어와 솔루션 지정</h4>
-<p>복사된 에이전트는 기본 언어가 <strong>영어(en-US)</strong>로 설정되어 있습니다. 위쪽 <strong>...</strong>에서 바꿉니다.</p>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_lang1.png" alt="언어 업데이트 메뉴">
-<p class="cap old">에이전트 언어 업데이트를 누릅니다</p>
+<p>만들기 화면에서 <strong>고급 옵션</strong>을 열어 두 가지를 정합니다.</p>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_lang2.png" alt="한국어를 고르는 화면">
-<p class="cap old">한국어(ko-KR)를 고르고 업데이트합니다</p>
+<table>
+<tr><th>항목</th><th>지정할 값</th></tr>
+<tr><td>언어</td><td>한국어</td></tr>
+<tr><td>솔루션</td><td>실습 ①에서 만든 솔루션</td></tr>
+<tr><td>이름</td><td><code>HR 도우미_이름</code></td></tr>
+</table>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
 <span class="t">언어는 지금 정해야 합니다</span>
-<p>에이전트의 기본 언어는 <strong>만든 뒤에는 바꿀 수 없습니다.</strong> 만들기를 누르기 전에 한국어로 바꿔 두세요. 놓치면 지우고 다시 복사해야 합니다.</p>
+<p>에이전트의 기본 언어는 <strong>만든 뒤에는 바꿈 수 없습니다.</strong> 만들기를 누르기 전에 한국어로 맞춰 두세요. 놓치면 지우고 다시 만들어야 합니다.</p>
+<p>솔루션을 지정하지 않으면 기본 솔루션으로 들어갑니다. 실습 ①에서 만든 솔루션이 목록에 안 보이면 환경이 다른 경우입니다.</p>
 </div>
 </div>
 
-<p>같은 메뉴의 <strong>고급 설정 업데이트</strong>에서 실습 ①의 솔루션을 지정합니다.</p>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_sol.png" alt="고급 설정에서 솔루션 선택">
-<p class="cap old">앞에서 만든 솔루션을 고릅니다</p>
+<h4>3단계. 지침 옮기기</h4>
+<p>만들어진 에이전트의 <strong>개요</strong> 탭을 열면 지침 칸이 비어 있습니다. <a href="#m3">M3</a>에서 쓴 지침을 그대로 붙여넣습니다.</p>
 
-<h4>3단계. 저장과 확인</h4>
-<p>위쪽 <strong>만들기</strong>를 눌러 저장합니다. 이름도 <code>HR 도우미 이름</code>처럼 바꿔 두면 나중에 찾기 쉽습니다.</p>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_create.png" alt="상단 만들기 버튼">
-<p class="cap old">위쪽 만들기를 눌러 저장합니다</p>
+<pre><code># 역할
+당신은 우리 회사의 HR과 총무 전담 도우미입니다.
 
-<p>처음 만들어질 때 설정을 마칠 때까지 기다리라는 메시지가 잠시 보입니다.</p>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_wait.png" alt="설정 완료를 기다리는 메시지">
-<p class="cap old">메시지가 사라질 때까지 기다립니다</p>
+# 범위
+복리후생, 연차와 휴가, 경비처리, 사내 규정에 관한 질문에만 답변합니다.
 
-<p>오른쪽 테스트 패널에서 대화가 되는지 확인합니다.</p>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m04-2_test.png" alt="테스트 패널에서 정상 작동을 확인한 화면">
-<p class="cap old">답변이 돌아오면 복사가 끝난 것입니다</p>
+# 태도
+- 한국어 존칭을 사용합니다
+- 핵심을 먼저 말하고 부가 설명은 뒤에 붙입니다
+- 200자 이내로 간결하게 답합니다
+
+# 원칙
+- 답을 모를 때는 모른다고 말하고 HR팀 김인사(02-1234-5601)로 안내합니다
+- 급여와 인사평가는 개인정보이므로 답하지 않고 담당자를 안내합니다</code></pre>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">지침은 그냥 글입니다</span>
+<p>도구가 바뀌었는데 지침은 그대로 쓰인다는 점을 보세요. 새 문법을 배우거나 변환할 필요가 없습니다.</p>
+<p>오전에 지침 쓰는 법을 익혀 두면, 어느 도구로 옮기든 그대로 쓰게 됩니다. 오후 <a href="#m7">M7</a>에서 이 지침을 훨씬 초밀하게 다시 씁니다.</p>
+</div>
+</div>
+
+<h4>4단계. 저장과 확인</h4>
+<p>위쪽 <strong>만들기</strong>를 눌러 저장합니다. 처음 만들어질 때 설정을 마칠 때까지 기다리라는 메시지가 잠시 보입니다.</p>
+<p>사라지면 오른쪽 테스트 패널에서 대화가 되는지 확인합니다.</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">지식은 아직 없습니다</span>
+<p>M3에서 올린 실습 파일 다섯 개는 여기에 없습니다. 새로 만든 에이전트니까요.</p>
+<p>그래서 지금은 M3 초반처럼 모른다고 답합니다. <a href="#m8">M8</a>에서 같은 파일을 다시 올립니다.</p>
+</div>
+</div>
 
 <div class="note">
 <span class="t">이 에이전트를 계속 씁니다</span>
@@ -1483,36 +1495,23 @@ details.fold .copybox{margin-top:0}
 <p>과정 이후 직접 접속했을 때 화면이 다르게 보인다면 하네스가 다른 것입니다. 홈 화면 아래쪽의 다른 빌드 방법에서 에이전트(표준)를 선택하면 이 과정과 같은 환경으로 들어갑니다.</p>
 
 <div class="new"><span class="tag"></span>
-<h4>표준 하네스로 새로 만들 때</h4>
-<p>오늘은 M3에서 만든 것을 복사해 왔으므로 이 과정이 필요 없었습니다. 나중에 처음부터 만들 때는 이렇게 합니다.</p>
-
-<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-01-studio-home.png" alt="Copilot Studio 홈 화면">
-<p class="cap">홈 화면의 큰 카드 두 개에는 GitHub Copilot 표시가 붙어 있습니다. 이 과정에서 쓰는 것이 아닙니다</p>
-
-<ol class="steps">
-<li><b>아래로 내리기</b>홈 화면 아래쪽의 <strong>다른 빌드 방법</strong>을 누릅니다.</li>
-<li><b>에이전트(표준) 선택</b>미리 정의된 토픽과 흐름으로 규칙 기반 대화형 에이전트를 만듭니다라고 적힌 항목입니다.</li>
-</ol>
-
-<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m04-02-other-ways-standard.png" alt="다른 빌드 방법에서 표준 에이전트를 고르는 화면">
-<p class="cap">왼쪽 에이전트 카드에 표준 표시가 붙어 있습니다</p>
-
-<p>홈 화면 오른쪽 위의 <strong>새로운 환경</strong> 토글을 꺼도 같은 결과입니다. 에이전트 목록에서 기존 에이전트를 열 때는 신경 쓰지 않아도 됩니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m05-newexp.jpeg" alt="새로운 환경 토글">
-<p class="cap">켜면 GitHub Copilot 하네스, 끄면 표준 하네스로 만들게 됩니다</p>
-
-<h4>표준 하네스에서 만드는 네 가지 방법</h4>
+<h4>표준 하네스로 만드는 네 가지 방법</h4>
+<p><a href="#m4">M4</a>에서는 다른 빌드 방법을 거쳐 빈 에이전트로 만들었습니다. 그 밖에도 이런 방법이 있습니다.</p>
 <table>
 <tr><th>방법</th><th>내용</th></tr>
 <tr><td>관리형 에이전트 설치</td><td>바로 쓸 수 있게 준비된 것을 설치하고 설정만 합니다. 업데이트가 나오면 반영됩니다</td></tr>
 <tr><td>템플릿</td><td>미리 채워진 값을 우리 상황에 맞게 고칩니다</td></tr>
 <tr><td>설명으로 만들기</td><td>할 일을 자연어로 적으면 지침이 채워지고 지식과 도구가 제안됩니다. M3에서 한 것과 같은 방식입니다</td></tr>
-<tr><td>빈 에이전트</td><td>에이전트 목록에서 처음부터 직접 만듭니다</td></tr>
+<tr><td>빈 에이전트</td><td>에이전트 목록에서 처음부터 직접 만듭니다. 오전에 한 방식입니다</td></tr>
 </table>
+
+<p>홈 화면 오른쪽 위의 <strong>새로운 환경</strong> 토글을 꺼도 표준 하네스로 들어갑니다. 에이전트 목록에서 기존 에이전트를 열 때는 신경 쓰지 않아도 됩니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-img/m05-newexp.jpeg" alt="새로운 환경 토글">
+<p class="cap">켜면 GitHub Copilot 하네스, 끄면 표준 하네스로 만들게 됩니다</p>
 
 <div class="note">
 <span class="t">솔루션을 먼저 정해 두세요</span>
-<p>새로 만들 때는 기본 설정 솔루션에 들어갑니다. 원하는 솔루션이 따로 있다면 만들기 전에 지정해 두는 편이 낫습니다. 설명으로 만들 때는 톱니바퀴 아이콘에서 언어와 솔루션, 스키마 이름을 바꿀 수 있습니다.</p>
+<p>새로 만들 때는 기본 설정 솔루션에 들어갑니다. 원하는 솔루션이 따로 있다면 만들기 전에 지정해 두는 편이 낫습니다.</p>
 </div>
 </div>
 
@@ -3432,7 +3431,7 @@ details.fold .copybox{margin-top:0}
 <table>
 <tr><th>항목</th><th>모듈</th></tr>
 <tr><td>에이전트 빌더로 HR 도우미 생성</td><td>M3</td></tr>
-<tr><td>Copilot Studio로 가져오기</td><td>M4</td></tr>
+<tr><td>Copilot Studio에서 표준 에이전트 만들기</td><td>M4</td></tr>
 <tr><td>AI 모델 변경과 설정 조정</td><td>M6</td></tr>
 <tr><td>지침 작성</td><td>M7</td></tr>
 <tr><td>지식 문서 다섯 개 연결</td><td>M8</td></tr>
@@ -3467,7 +3466,7 @@ details.fold .copybox{margin-top:0}
 <h3>에이전트 만들기</h3>
 <dl class="qa">
 <dt>에이전트 빌더로 만든 것을 Copilot Studio에서 열 수 있나요?</dt>
-<dd>가능합니다. M4에서 복사합니다. 에이전트가 바뀌는 것이 아니라 편집 도구만 바뀝니다.</dd>
+<dd>복사 기능이 있지만 이 과정에서는 쓰지 않습니다. 복사하면 GitHub Copilot 하네스로 만들어져 토픽 탭이 없기 때문입니다. M4에서 표준 에이전트로 새로 만들고 지침만 옮깁니다.</dd>
 <dt>에이전트 빌더만으로 충분한 경우도 있나요?</dt>
 <dd>있습니다. 웹사이트나 SharePoint 문서를 근거로 답하고 이미지 생성이나 데이터 분석 정도가 필요한 경우라면 에이전트 빌더로 해결됩니다.</dd>
 <dt>솔루션을 꼭 만들어야 하나요?</dt>
