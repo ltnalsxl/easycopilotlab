@@ -2076,7 +2076,7 @@ details.fold .copybox{margin-top:0}
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m08_image5.png" alt="참조 자료 목록에 진행 중 상태가 표시된 화면">
 <p class="cap">처리 중에는 진행 중으로 표시됩니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m08_image6.png" alt="모든 파일이 준비 상태가 된 화면">
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m08-05-ready.png" alt="모든 파일이 준비 상태가 된 화면">
 <p class="cap">모두 준비 상태가 되면 사용할 수 있습니다</p>
 
 <h4>6단계. 업로드 전후 비교</h4>
@@ -2201,6 +2201,10 @@ details.fold .copybox{margin-top:0}
 <li>판단의 근거는 도구의 설명, 이름, 입출력값의 이름입니다. 사람이 읽어서 알 만하게 적어야 합니다</li>
 <li>도구가 안 불릴 때는 설명부터 다시 봅니다</li>
 </ul>
+
+<p>도구는 에이전트 위쪽 <strong>도구</strong> 탭에서 붙이고 관리합니다. <a href="#m12">M12</a>부터 이 자리를 계속 오가게 됩니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m09-01-tools-tab.png" alt="에이전트의 도구 탭">
+<p class="cap">아직 비어 있습니다. 오후에 하나씩 채웁니다</p>
 </div>
 
 </section><section class="pg" data-pg="m10"><h2 class="mod" id="m10"><span class="num">M10</span>토픽과 변수 <span class="pill">실습</span></h2>
@@ -2939,18 +2943,30 @@ details.fold .copybox{margin-top:0}
 <p>Teams처럼 대화가 이어지는 채널은 반영이 늦습니다. 최신 버전이 적용되기까지 최대 한 시간이 걸립니다. 진행 중인 대화는 세션이 끝난 뒤부터 반영되며, 30분간 활동이 없으면 세션이 끝납니다.</p>
 </div>
 
-<h3>실습 &#9312; 게시와 채널 추가</h3>
+<h3>실습 &#9313; 게시와 채널 추가</h3>
 
 <h4>1단계. 게시</h4>
-<p>에이전트 편집 화면 우측 상단의 게시 버튼을 클릭합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m11_image.png" alt="에이전트 편집 화면의 게시 버튼 위치">
-<p class="cap">우측 상단의 게시 버튼입니다</p>
+<p>에이전트 화면 오른쪽 위의 <strong>게시</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-02-publish.png" alt="게시 확인 대화상자">
+<p class="cap">이름과 설명을 확인하고 <strong>게시</strong></p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m11_image2.png" alt="게시 확인 대화상자">
-<p class="cap">확인 대화상자에서 게시를 클릭합니다</p>
-
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m11_image3.png" alt="게시가 진행 중인 화면">
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-03-publishing.png" alt="게시가 진행 중인 화면">
 <p class="cap">진행 중에도 닫기를 눌러 다른 작업을 할 수 있습니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-04-published.png" alt="게시가 완료된 화면">
+<p class="cap">완료되면 이름 옆에 방패 아이콘이 붙고 게시 날짜가 표시됩니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-05-preview-share.png" alt="게시 완료 후 미리 보기와 공유 안내가 뜬 화면">
+<p class="cap">여기서 바로 미리 보거나 공유할 수도 있습니다</p>
+
+<details class="fold">
+<summary>게시가 끝나지 않고 계속 돌아간다면<span class="use">참고</span></summary>
+<div class="in">
+<p>드물게 게시 중 표시가 오래 유지될 때가 있습니다. 화면을 새로 고쳐 상태를 다시 확인하고, 그래도 같으면 잠시 뒤 다시 시도합니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-13-stuck.png" alt="게시가 계속 진행 중으로 표시되는 화면">
+<p class="cap">대개는 실제로 게시가 끝났는데 화면만 갱신되지 않은 경우입니다</p>
+</div>
+</details>
 
 <h4>2단계. 채널 추가</h4>
 <p>게시가 끝나면 에이전트를 어디에서 사용할지 채널을 연결합니다. 상단 탭에서 채널을 클릭합니다.</p>
@@ -2965,29 +2981,43 @@ details.fold .copybox{margin-top:0}
 <p class="cap">채널 목록에서 선택합니다</p>
 
 <p>오른쪽 패널의 <strong>Microsoft 365 켜기</strong> 아래에 있는 확인란이 체크되어 있는지 보고 <strong>채널 추가</strong>를 누릅니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m11_image7.png" alt="채널 추가 버튼을 클릭하는 화면">
-<p class="cap">설정을 확인하고 채널을 추가합니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-06-add-channel.png" alt="채널 추가 버튼을 클릭하는 화면">
+<p class="cap">확인란을 체크해야 Microsoft 365 Copilot에서도 보입니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m11_image8.png" alt="채널이 추가되었다는 성공 메시지">
-<p class="cap">추가가 완료되면 메시지가 표시됩니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-07-channel-adding.png" alt="채널 추가가 진행 중인 화면">
+<p class="cap">잠시 걸립니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-08-channel-done.png" alt="채널이 추가되었다는 성공 메시지">
+<p class="cap">완료되면 아래에 설치 링크가 나타납니다</p>
 
 <h4>3단계. Microsoft 365에 등록</h4>
-<p>같은 패널에서 <strong>Teams에서 에이전트 보기</strong> 링크를 누릅니다. 채널을 추가할 때 확인란을 체크했다면 이 버튼 하나로 Teams와 Microsoft 365 Copilot 양쪽에 설치됩니다.</p>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m11_image9.png" alt="Teams에서 에이전트 보기 링크">
-<p class="cap old">링크를 눌러 설치 화면으로 이동합니다</p>
+<p>같은 패널에서 <strong>Copilot에서 에이전트 보기</strong>를 누릅니다. 채널을 추가할 때 확인란을 체크했다면 이 버튼 하나로 Teams와 Microsoft 365 Copilot 양쪽에 설치됩니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-09-view-in-copilot.png" alt="Copilot에서 에이전트 보기 링크">
+<p class="cap">새 탭이 열립니다</p>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m11_image10.png" alt="Microsoft 365 Copilot에서 에이전트를 추가하는 화면">
-<p class="cap old">추가 버튼을 클릭합니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-10-in-copilot.png" alt="Microsoft 365 Copilot에서 에이전트를 추가하는 화면">
+<p class="cap">Microsoft 365 Copilot으로 넘어왔습니다. <strong>추가</strong>를 누릅니다</p>
 
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m11_image11.png" alt="추가된 에이전트의 대화 화면">
-<p class="cap old">이제 Microsoft 365 Copilot에서 에이전트를 사용할 수 있습니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-11-added.png" alt="추가된 에이전트의 대화 화면">
+<p class="cap">앞에서 넣어 둔 <strong>추천 프롬프트</strong>가 버튼으로 보입니다</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">실습 &#9312;에서 넣은 것이 여기 나옵니다</span>
+<p>테스트 패널에는 안 보이던 추천 프롬프트가 이 화면에는 뜹니다. 처음 쓰는 사람이 무엇을 물어볼지 정하는 자리라, 여기서 어떻게 보이는지 확인해 두는 편이 좋습니다.</p>
+</div>
+</div>
+
+<p>버튼을 눌러 답이 오는지 봅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m11-12-copilot-test.png" alt="Microsoft 365 Copilot에서 에이전트가 답변한 화면">
+<p class="cap">테스트 패널이 아니라 실제 Copilot에서 동작합니다</p>
 
 <div class="note">
 <span class="t">채널 연결이 먼저입니다</span>
 <p>Teams 및 Microsoft 365 Copilot 채널이 연결되어 있어야 다음 두 실습에서 에이전트를 사용할 수 있습니다.</p>
 </div>
 
-<h3>실습 &#9313; Immersive로 사용</h3>
+<h3>실습 &#9314; Immersive로 사용</h3>
 <p>Microsoft 365 Copilot에 접속해 에이전트 목록에서 만든 에이전트 이름을 클릭하면 전용 화면이 열립니다.</p>
 <img loading="lazy" decoding="async" class="shot old" src="ecl-img/m11_image12.png" alt="Immersive 화면에서 질문을 입력하는 모습">
 <p class="cap old">복지포인트 사용처 알려줘 같은 질문을 입력합니다</p>
@@ -2995,7 +3025,7 @@ details.fold .copybox{margin-top:0}
 <img loading="lazy" decoding="async" class="shot old" src="ecl-img/m11_image13.png" alt="Immersive 화면에서 에이전트가 답변한 모습">
 <p class="cap old">업로드한 문서를 근거로 답변합니다</p>
 
-<h3>실습 &#9314; In-context로 호출</h3>
+<h3>실습 &#9315; In-context로 호출</h3>
 <p>Microsoft 365 Copilot 채팅에서 <code>@</code>를 입력하면 쓸 수 있는 에이전트 목록이 뜹니다. 만든 에이전트를 골라 그대로 질문합니다.</p>
 
 <pre><code>@HR 도우미 복지포인트 사용처 알려줘</code></pre>
@@ -3084,28 +3114,52 @@ details.fold .copybox{margin-top:0}
 </div>
 
 <h4>1단계. 커넥터 추가</h4>
-<p>상단 도구 탭에서 도구 추가를 클릭합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image1.png" alt="도구 탭에서 도구 추가 버튼을 클릭하는 화면">
-<p class="cap">도구 탭에서 시작합니다</p>
+<p>위쪽 <strong>도구</strong> 탭을 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w01-tools.png" alt="상단 도구 탭">
+<p class="cap">지금은 비어 있습니다</p>
 
-<p>검색창에 msn을 입력하고 커넥터 필터를 선택한 뒤 현재 날씨 가져오기를 고릅니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image2.png" alt="MSN 날씨 커넥터를 검색해 선택하는 화면">
-<p class="cap">MSN 날씨의 현재 날씨 가져오기를 선택합니다</p>
+<p><strong>+ 도구 추가</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w02-add-tool.png" alt="도구 추가를 눌러 목록이 열린 화면">
+<p class="cap">모델 컨텍스트 프로토콜, 커넥터, 사용자 지정 커넥터, 흐름, 프롬프트가 있습니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image3.png" alt="연결 설정 화면">
-<p class="cap">기존 연결을 고르거나 새 연결을 만듭니다</p>
+<p>검색창에 <code>msn</code>을 입력합니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w03-search.png" alt="검색창에 msn을 입력한 화면">
+<p class="cap">그냥 입력하면 아무것도 안 나옵니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image4.png" alt="MSN 날씨에 연결하는 화면">
-<p class="cap">만들기를 클릭합니다</p>
+<p>위쪽 <strong>커넥터</strong> 탭을 눌러야 결과가 나옵니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w04-filter.png" alt="커넥터 탭을 눌러 필터를 바꾸는 화면">
+<p class="cap">종류를 먼저 고르고 검색하는 구조입니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image5.png" alt="연결이 완료되어 추가 및 구성을 클릭하는 화면">
-<p class="cap">연결이 완료되면 추가 및 구성으로 넘어갑니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w05-result.png" alt="MSN 날씨 커넥터가 검색된 화면">
+<p class="cap">MSN 날씨가 나옵니다</p>
+
+<p>동작 목록에서 <strong>현재 날씨 가져오기</strong>를 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w06-pick.png" alt="현재 날씨 가져오기를 고르는 화면">
+<p class="cap">하나의 커넥터 안에 동작이 여럿 있습니다</p>
+
+<p>연결을 만들어야 합니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w07-conn.png" alt="연결 설정 화면">
+<p class="cap">아직 연결이 없어 목록이 비어 있습니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w08-newconn.png" alt="새 연결 만들기를 누르는 화면">
+<p class="cap">새 연결 만들기</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w09-create.png" alt="연결 이름을 입력하는 화면">
+<p class="cap">이름은 비워 두어도 됩니다. 만들기를 누릅니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w10-connok.png" alt="연결이 만들어진 화면">
+<p class="cap">연결이 잡혔습니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w11-done.png" alt="연결 완료 화면">
+<p class="cap">이 상태가 되면 다음으로 넘어갑니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w12-addconfig.png" alt="추가 및 구성을 누르는 화면">
+<p class="cap"><strong>추가 및 구성</strong></p>
 
 <h4>2단계. 커넥터 구성</h4>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image6.png" alt="커넥터의 이름과 설명을 확인하는 화면">
-<p class="cap">이름과 설명을 확인합니다</p>
-
-<p>추가 세부 정보를 펼쳐 자격 증명을 설정합니다.</p>
+<p><strong>추가 세부 정보</strong>를 펼쳐 자격 증명을 설정합니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w13-details.png" alt="추가 세부 정보를 펼치는 화면">
+<p class="cap">접혀 있어서 놓치기 쉽습니다</p>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
@@ -3119,14 +3173,40 @@ details.fold .copybox{margin-top:0}
 <p>오늘 실습에서는 모두 <strong>제작자 제공</strong>을 씁니다. 앞으로 M13과 M16에서도 같은 항목이 나옵니다.</p>
 </div>
 </div>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image7.png" alt="자격 증명 옵션을 선택하는 화면">
-<p class="cap">사용할 자격 증명을 고릅니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w14-cred.png" alt="자격 증명 옵션이 펼쳐진 화면">
+<p class="cap">기본은 <strong>사용자가 제공한 자격 증명</strong>입니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image8.png" alt="제작자 제공 자격 증명을 선택한 화면">
-<p class="cap">제작자 제공 자격 증명을 선택하면 사용자에게 별도 인증을 요구하지 않습니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w15-maker.png" alt="작성자가 제공한 자격 증명을 고른 화면">
+<p class="cap"><strong>작성자가 제공한 자격 증명</strong>으로 바꿉니다. 화면에 따라 제작자 제공으로 표시되기도 합니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image9.png" alt="단위를 Metric으로 설정하고 저장하는 화면">
-<p class="cap">단위를 Metric으로 설정하고 저장합니다</p>
+<p>더 아래로 내리면 <strong>입력</strong>이 있습니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w16-inputs.png" alt="입력 항목이 보이는 화면">
+<p class="cap">위치와 단위 두 가지입니다</p>
+
+<p>단위를 바꿉니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w17-unit.png" alt="단위 항목을 가리키는 화면">
+<p class="cap">기본값이 비어 있습니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w18-unitpick.png" alt="단위 채우는 방식을 고르는 화면">
+<p class="cap">사용자 지정 값을 고릅니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w19-metric.png" alt="Metric을 고른 화면">
+<p class="cap"><strong>Metric</strong>을 골라야 섭씨로 나옵니다</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">위치는 왜 비워 두나</span>
+<p><strong>위치</strong>는 건드리지 않습니다. 비워 두면 에이전트가 대화에서 알아서 뽑아냅니다. 런던을 물으면 런던, 서울을 물으면 서울이 들어갑니다.</p>
+<p>반대로 단위는 매번 같아야 하므로 고정합니다. 커넥터를 붙일 때마다 입력값 하나하나를 두고 <strong>고정할지 맡길지</strong>를 정하게 됩니다.</p>
+</div>
+</div>
+
+<p>다 했으면 <strong>저장</strong>합니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w21-save.png" alt="도구를 저장하는 화면">
+<p class="cap">저장하지 않으면 도구가 붙지 않습니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w22-saved.png" alt="도구 목록에 MSN 날씨가 추가된 화면">
+<p class="cap">도구 탭에 하나가 생겼습니다</p>
 
 <h4>3단계. 테스트</h4>
 <p>테스트 패널에서 <code>런던 날씨 알려줘</code>를 물어봅니다. 아마 이렇게 나올 것입니다.</p>
@@ -3151,7 +3231,17 @@ details.fold .copybox{margin-top:0}
 
 <p>도구 이름은 손으로 치지 말고 <strong><code>/</code></strong> 를 쳐서 목록에서 고릅니다. <a href="#m10">M10</a>에서 토픽을 넣을 때와 같습니다. 아이콘이 붙어야 참조로 들어간 것입니다.</p>
 
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w23-instr.png" alt="지침에 날씨 예외 규칙을 추가한 화면">
+<p class="cap">도구 이름이 아이콘으로 들어가 있어야 합니다</p>
+
 <p>넣었으면 <strong>저장</strong>합니다.</p>
+
+<div class="note key">
+<span class="t">저장을 안 누르면 그대로입니다</span>
+<p>지침을 고쳐 놓고 저장을 누르지 않으면 계속 거절합니다. 실습 중 가장 자주 나오는 상황입니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w24-nosave.png" alt="저장하지 않아 여전히 거절하는 화면">
+<p class="cap">지침은 고쳤는데 답이 그대로라면 저장부터 확인합니다</p>
+</div>
 
 <div class="note">
 <span class="t">범위 항목은 그대로 둡니다</span>
@@ -3163,16 +3253,27 @@ details.fold .copybox{margin-top:0}
 <p>테스트 패널에서 <strong>새 테스트 세션 시작</strong>을 누르고 다시 물어봅니다.</p>
 <pre><code>런던 날씨 알려줘</code></pre>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image10.png" alt="날씨를 묻는 질문에 커넥터가 호출된 화면">
-<p class="cap">이번에는 커넥터가 실제 데이터를 가져옵니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w25-london.png" alt="런던 날씨를 물어 커넥터가 답한 화면">
+<p class="cap">이번에는 커넥터가 실제 데이터를 가져옵니다. 활동 창에 <strong>MSN 날씨</strong>가 완료로 표시됩니다</p>
+
+<p>도시를 바꿔 두 번 더 물어봅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w26-seoul.png" alt="서울 날씨를 물은 화면">
+<p class="cap">서울</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-w27-daejeon.png" alt="대전 날씨를 물은 화면">
+<p class="cap">대전. 도시 이름은 매번 달라지는데 단위는 계속 섭씨입니다</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">여기서 확인되는 것</span>
+<p>비워 둔 <strong>위치</strong>는 매번 대화에서 뽑아 채워졌고, 고정한 <strong>단위</strong>는 그대로 유지됐습니다. 2단계에서 한 판단이 그대로 동작한 것입니다.</p>
+</div>
+</div>
 
 <div class="note">
 <span class="t">아직 거절한다면</span>
 <p>지침을 저장했는지, 대화를 새로 시작했는지 먼저 봅니다. 그다음 STRICT RULES의 도구 이름이 글자가 아니라 아이콘으로 들어갔는지 확인합니다.</p>
 </div>
-
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12-1_image11.png" alt="커넥터의 입력과 출력을 상세히 확인하는 화면">
-<p class="cap">테스트 패널에서 커넥터 동작을 클릭하면 입력값과 출력값을 볼 수 있습니다</p>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
@@ -3190,24 +3291,34 @@ details.fold .copybox{margin-top:0}
 </div>
 
 <h4>1단계. Excel 파일 만들기</h4>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image.png" alt="OneDrive에서 Excel 통합 문서를 만드는 화면">
-<p class="cap">OneDrive에서 Excel 통합 문서를 만듭니다</p>
+<p>화면 왼쪽 위 바둑판 모양의 <strong>앱 시작 관리자</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x01-waffle.png" alt="Copilot Studio 왼쪽 위의 앱 시작 관리자">
+<p class="cap">Copilot Studio를 떠나지 않고 다른 앱으로 갈 수 있습니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x02-onedrive.png" alt="앱 목록에서 OneDrive를 고르는 화면">
+<p class="cap"><strong>OneDrive</strong>를 고릅니다</p>
+
+<p><strong>만들기 또는 업로드</strong>에서 <strong>Excel 통합 문서</strong>를 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x03-newxlsx.png" alt="만들기 또는 업로드에서 Excel 통합 문서를 고르는 화면">
+<p class="cap">새 통합 문서가 열립니다</p>
 
 <h4>2단계. 머리글 입력</h4>
-<p>A1부터 D1까지 시간, 사용자, 질문, 답변을 입력합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image2.png" alt="머리글 네 개를 입력한 화면">
-<p class="cap">네 개의 열 이름을 입력합니다</p>
+<p>A1부터 D1까지 <strong>시간, 사용자, 질문, 답변</strong>을 입력합니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x04-headers.png" alt="머리글 네 개를 입력한 화면">
+<p class="cap">여기서 정한 이름이 나중에 그대로 입력 항목이 됩니다</p>
 
 <h4>3단계. 표로 변환</h4>
-<p>A1부터 <strong>D2</strong>까지 선택하고 삽입 탭에서 테이블을 클릭합니다. 머리글은 1행까지지만, 표를 만들려면 데이터가 들어갈 행이 최소 하나 필요하므로 비어 있는 2행까지 함께 잡습니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image3.png" alt="삽입 탭의 테이블 버튼">
-<p class="cap">삽입 탭에서 테이블을 선택합니다</p>
+<p>A1부터 <strong>D2</strong>까지 선택하고 <strong>삽입</strong> 탭에서 <strong>테이블</strong>을 누릅니다. 머리글은 1행뿐이지만, 표를 만들려면 데이터가 들어갈 행이 최소 하나 필요하므로 비어 있는 2행까지 함께 잡습니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x05-insert.png" alt="삽입 탭의 테이블 버튼">
+<p class="cap">삽입 탭에 있습니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image4.png" alt="테이블 만들기 대화상자">
-<p class="cap">표에 머리글이 있습니다를 체크하고 확인합니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x06-dialog.png" alt="테이블 만들기 대화상자">
+<p class="cap"><strong>표에 머리글이 있습니다</strong>를 체크하고 확인합니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image5.png" alt="표가 만들어지고 표 디자인 탭이 나타난 화면">
-<p class="cap">머리글에 필터가 생기면 표로 변환된 것입니다. 파일 이름을 대화기록으로 바꿉니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x07-table.png" alt="표가 만들어진 화면">
+<p class="cap">머리글에 필터 단추가 생기면 표로 바뀐 것입니다</p>
+
+<p>파일 이름을 <code>Record Topic File</code>로 바꿔 둡니다.</p>
 
 <div class="note">
 <span class="t">표로 만들어야 합니다</span>
@@ -3216,45 +3327,89 @@ details.fold .copybox{margin-top:0}
 </div>
 
 <h4>4단계. 토픽 생성과 트리거 변경</h4>
-<img loading="lazy" decoding="async" class="shot old" src="ecl-img/m12_image6.png" alt="토픽을 새로 추가하는 화면">
-<p class="cap old">토픽을 새로 만들고 이름을 Record Topic으로 정합니다</p>
+<p>에이전트로 돌아와 <strong>토픽</strong> 탭을 엽니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x08-topics.png" alt="토픽 탭으로 돌아온 화면">
+<p class="cap">앞에서 만든 토픽 두 개가 있습니다</p>
 
-<p>트리거 노드에서 트리거 변경을 클릭하고 AI가 생성한 응답이 곧 전송됩니다를 선택합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image7.png" alt="트리거 유형을 변경하는 화면">
-<p class="cap">트리거 유형을 바꿉니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x09-newtopic.png" alt="토픽 추가에서 새로 시작을 고르는 화면">
+<p class="cap"><strong>+ 토픽 추가</strong>에서 <strong>새로 시작</strong></p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image8.png" alt="트리거가 생성된 AI 응답으로 바뀐 화면">
-<p class="cap">일반 토픽과 달리 사용자가 말하지 않아도 매번 실행됩니다</p>
+<p>이름을 <code>Record Topic</code>으로 바꿉니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x10-rename.png" alt="토픽 이름을 Record Topic으로 바꾼 화면">
+<p class="cap">설명은 비워 두어도 됩니다. 사용자가 불러서 실행되는 토픽이 아니기 때문입니다</p>
+
+<p>트리거 노드의 <strong>&hellip;</strong>에서 <strong>트리거 변경</strong>을 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x11-changetrigger.png" alt="트리거 변경 메뉴">
+<p class="cap">여기가 이번 실습의 갈림길입니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x12-pick-trigger.png" alt="트리거 목록에서 AI가 생성한 응답이 곧 전송됩니다를 고르는 화면">
+<p class="cap"><strong>AI가 생성한 응답이 곧 전송됩니다</strong>를 고릅니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x13-trigger-done.png" alt="트리거가 바뀐 화면">
+<p class="cap">트리거 카드에 설명 칸이 없어졌습니다. 사용자가 말하지 않아도 매번 실행되기 때문입니다</p>
 
 <h4>5단계. Excel 커넥터 추가</h4>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image9.png" alt="노드 추가 메뉴에서 도구 추가를 선택하는 화면">
-<p class="cap">트리거 아래에 도구를 추가합니다</p>
+<p>트리거 아래 <strong>+</strong>에서 <strong>도구 추가</strong>를 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x14-addtool.png" alt="노드 메뉴에서 도구 추가를 고르는 화면">
+<p class="cap">토픽 안에서도 도구를 부를 수 있습니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image10.png" alt="테이블에 행 추가 커넥터를 검색해 선택하는 화면">
-<p class="cap">커넥터 탭에서 테이블에 행 추가를 찾습니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x15-connector-tab.png" alt="커넥터 탭을 고르는 화면">
+<p class="cap">앞에서와 같이 <strong>커넥터</strong>를 먼저 고릅니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image11.png" alt="Excel Online 연결을 확인하고 제출하는 화면">
-<p class="cap">연결을 확인하고 제출합니다</p>
+<p>검색창에 <code>테이블에 행 추가</code>를 입력합니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x16-search-row.png" alt="테이블에 행 추가를 검색한 화면">
+<p class="cap">Excel Online (Business)의 동작입니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image12.png" alt="커넥터 노드가 추가된 화면">
-<p class="cap">행 추가 노드가 만들어졌습니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x17-conn-screen.png" alt="연결 화면">
+<p class="cap">Excel도 연결을 새로 만들어야 합니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x18-newconn.png" alt="새 연결 만들기 화면">
+<p class="cap">새 연결 만들기</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x19-create.png" alt="Excel 커넥터 연결을 만드는 화면">
+<p class="cap">만들기</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x20-submit.png" alt="제출 버튼">
+<p class="cap">제출을 누릅니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x21-node.png" alt="커넥터 노드가 추가된 화면">
+<p class="cap">노드가 붙었습니다</p>
 
 <h4>6단계. 파일과 표 지정</h4>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image13.png" alt="커넥터의 입력 패널">
-<p class="cap">노드를 클릭하면 오른쪽에 입력 패널이 열립니다</p>
+<p>노드의 <strong>입력</strong>을 봅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x22-inputs.png" alt="커넥터 노드의 입력 항목">
+<p class="cap">빨간 별표가 붙은 것이 반드시 채워야 하는 항목입니다</p>
 
-<p>위에서부터 네 항목을 차례로 고릅니다. <strong>순서대로</strong> 골라야 다음 항목의 목록이 채워집니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x23-panel.png" alt="입력 패널이 열린 화면">
+<p class="cap">클릭하면 오른쪽에 패널이 열립니다</p>
+
+<p>위에서부터 차례로 고릅니다. <strong>순서를 지켜야</strong> 다음 항목의 목록이 채워집니다.</p>
 
 <table>
 <tr><th>항목</th><th>값</th></tr>
 <tr><td>Location</td><td>OneDrive for Business</td></tr>
-<tr><td>Document Library</td><td>기본값</td></tr>
-<tr><td>File</td><td>대화기록.xlsx</td></tr>
+<tr><td>Document Library</td><td>OneDrive 또는 문서</td></tr>
+<tr><td>File</td><td>Record Topic File.xlsx</td></tr>
 <tr><td>Table</td><td>표1</td></tr>
 </table>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image14.png" alt="파일과 표를 선택한 화면">
-<p class="cap">파일과 표를 고르고 나면 아래에 <strong>고급 매개 변수</strong>가 나타납니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x24-location.png" alt="Location에서 OneDrive for Business를 고르는 화면">
+<p class="cap">Location</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x25-library.png" alt="Document Library를 고르는 화면">
+<p class="cap">Document Library. 환경에 따라 <strong>OneDrive</strong> 또는 <strong>문서</strong>로 보입니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x26-folder.png" alt="File 항목의 폴더 아이콘을 누르는 화면">
+<p class="cap">File은 목록이 아니라 <strong>폴더 아이콘</strong>으로 찾습니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x28-pickfile.png" alt="파일을 고르는 화면">
+<p class="cap">앞에서 만든 <code>Record Topic File</code>을 고릅니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x29-picktable.png" alt="표를 고르는 화면">
+<p class="cap">Table에서 <strong>표1</strong>을 고릅니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x30-params.png" alt="고급 매개 변수가 나타난 화면">
+<p class="cap">표를 고르고 나면 아래에 <strong>고급 매개 변수(5)</strong>가 나타납니다</p>
 
 <div class="new"><span class="tag"></span>
 <div class="note">
@@ -3265,27 +3420,38 @@ details.fold .copybox{margin-top:0}
 </div>
 
 <h4>7단계. 열마다 값 넣기</h4>
-<p><strong>고급 매개 변수</strong>를 펼치면 아래 항목이 보입니다. 하나씩 채웁니다.</p>
+<p><strong>고급 매개 변수</strong>를 펼치면 1단계에서 만든 열 이름이 그대로 나타납니다. 하나씩 채웁니다.</p>
 
 <table>
 <tr><th>항목</th><th>넣는 방법</th><th>값</th></tr>
 <tr><td>시간</td><td><code>fx</code> 수식</td><td><code>Text(Now(), "yyyy-mm-dd hh:mm")</code></td></tr>
-<tr><td>사용자</td><td><code>{x}</code> 변수</td><td><code>System.User.PrincipalName</code></td></tr>
-<tr><td>질문</td><td><code>{x}</code> 변수</td><td><code>System.LastMessage.Text</code></td></tr>
-<tr><td>답변</td><td><code>{x}</code> 변수</td><td><code>System.Response.FormattedText</code></td></tr>
-<tr><td>DateTime Format</td><td>비워 둡니다</td><td></td></tr>
+<tr><td>사용자</td><td><code>{x}</code> 변수</td><td><code>User.PrincipalName</code></td></tr>
+<tr><td>질문</td><td><code>{x}</code> 변수</td><td><code>Activity.Text</code></td></tr>
+<tr><td>답변</td><td><code>{x}</code> 변수</td><td><code>Response.FormattedText</code></td></tr>
+<tr><td>DateTime Format</td><td>목록에서 고름</td><td>ISO 8601</td></tr>
 </table>
 
 <p>시간만 <code>fx</code>로 넣고 나머지 셋은 <code>{x}</code>로 고릅니다. <code>Text()</code>와 <code>Now()</code>는 변수가 아니라 함수이기 때문입니다.</p>
 
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x31-user.png" alt="사용자 칸에 변수를 넣는 화면">
+<p class="cap">사용자</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x32-question.png" alt="질문 칸에 변수를 넣는 화면">
+<p class="cap">질문</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x33-answer.png" alt="답변 칸에 변수를 넣는 화면">
+<p class="cap">답변</p>
+
 <div class="new"><span class="tag"></span>
 <div class="note key">
 <span class="t">시간에 Now()만 넣으면 오류가 납니다</span>
-<p>표의 네 열은 모두 <strong>문자열</strong>로 잡혀 있습니다. 그런데 <code>Now()</code>는 날짜 값을 돌려주므로 유형이 맞지 않습니다. 저장하려 하면 노드에 이렇게 뜹니다.</p>
-<p class="sm">Input 변수 'Row'의 유형이 잘못됨: Record</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-01-row-error.png" alt="Row 변수의 유형이 잘못됨 오류가 표시된 화면">
-<p class="cap">시간 칸에 <code>Now()</code>만 들어가 있는 상태입니다</p>
-<p><code>Text()</code>로 감싸 문자열로 바꾸면 해결됩니다. 뒤의 <code>"yyyy-mm-dd hh:mm"</code>은 어떤 모양으로 적을지 정하는 부분이라, 이렇게 넣으면 <code>2026-08-26 01:54</code>처럼 들어갑니다.</p>
+<p>표의 네 열은 모두 <strong>문자열</strong>로 잡혀 있습니다. 그런데 <code>Now()</code>는 날짜 값을 돌려주므로 유형이 맞지 않습니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x34-time-wrong.png" alt="시간 칸에 Now만 들어간 화면">
+<p class="cap">이렇게 두면 저장할 때 <code>Input 변수 'Row'의 유형이 잘못됨: Record</code>가 뜹니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x35-time-fix.png" alt="Text로 감싼 수식을 넣은 화면">
+<p class="cap"><code>Text()</code>로 감싸면 문자열이 되어 통과합니다</p>
+<p>뒤의 <code>"yyyy-mm-dd hh:mm"</code>은 어떤 모양으로 적을지 정하는 부분이라, 이렇게 넣으면 <code>2026-08-26 01:58</code>처럼 들어갑니다.</p>
 </div>
 
 <div class="note">
@@ -3295,19 +3461,50 @@ details.fold .copybox{margin-top:0}
 </div>
 </div>
 
-<h4>8단계. 인증 설정</h4>
+<p>다 채우면 이 모습이 됩니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x36-final.png" alt="고급 매개 변수 다섯 개가 모두 채워진 화면">
+<p class="cap">시간만 <code>fx</code>이고 나머지는 <code>{x}</code>입니다. DateTime Format은 <strong>ISO 8601</strong></p>
+
+<h4>8단계. 인증 설정과 저장</h4>
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image17.png" alt="노드 메뉴에서 속성을 선택하는 화면">
-<p class="cap">노드 메뉴에서 속성을 엽니다</p>
+<p class="cap">노드의 <strong>&hellip;</strong>에서 속성을 엽니다</p>
 
 <img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image18.png" alt="최종 사용자 인증을 제작자 제공 자격 증명으로 설정한 화면">
-<p class="cap">제작자 제공 자격 증명으로 설정하고 저장합니다</p>
+<p class="cap">날씨 커넥터와 같이 <strong>제작자 제공 자격 증명</strong>으로 둡니다</p>
+
+<p>토픽을 <strong>저장</strong>합니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x37-save.png" alt="토픽을 저장하는 화면">
+<p class="cap">여기서 유형 오류가 남아 있으면 저장되지 않습니다</p>
 
 <h4>9단계. 테스트</h4>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image19.png" alt="질문에 답변하면서 Record 토픽이 실행된 화면">
-<p class="cap">아무 질문이나 입력하면 답변과 함께 토픽이 자동 실행됩니다</p>
+<p>테스트 패널에서 아무 질문이나 던집니다. 여기서는 <code>연차 총 며칠이야</code>로 해봅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x38-test.png" alt="테스트 패널에서 질문하는 화면">
+<p class="cap">Record 토픽을 부르지 않았는데도 함께 돌아갑니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m12_image20.png" alt="Excel에 새 행이 추가된 화면">
-<p class="cap">Excel을 열면 시간, 사용자, 질문, 답변이 기록되어 있습니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x39-running.png" alt="답변이 만들어지는 중인 화면">
+<p class="cap">답변이 만들어지는 동안 활동 창에 Record Topic이 함께 보입니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x40-result.png" alt="연차 안내 답변이 나온 화면">
+<p class="cap">사용자에게는 평소와 똑같이 보입니다. 기록되는 줄 모릅니다</p>
+
+<p>답변 아래 <strong>참조</strong>를 누르면 어느 문서를 근거로 삼았는지 볼 수 있습니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x41-refclick.png" alt="참조를 누르는 화면">
+<p class="cap">참조 표시</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x42-refopen.png" alt="참조 문서가 열린 화면">
+<p class="cap">근거가 된 문서가 바로 열립니다</p>
+
+<p>이제 Excel 파일을 열어 봅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-x43-excel.png" alt="Excel에 새 행이 추가된 화면">
+<p class="cap">시간, 사용자, 질문, 답변이 한 줄로 쌓였습니다</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">답변 칸에 별표가 보입니다</span>
+<p><code>**근속 기간에 따라**</code>처럼 별표가 그대로 들어갑니다. <code>Response.FormattedText</code>가 화면에 보이던 굵은 글씨를 마크다운 기호째로 담아 오기 때문입니다.</p>
+<p>사람이 읽는 데는 지장이 없고, 나중에 Copilot에 이 파일을 첨부해 분석할 때도 문제되지 않습니다.</p>
+</div>
+</div>
 <h3>Record 토픽</h3>
 <p>일반 토픽은 사용자가 특정 질문을 해야 실행되지만, Record 토픽은 <strong>AI 생성 응답이 전송되기 직전</strong> 트리거를 사용해 자동으로 실행됩니다. 사용자는 기록 과정을 인지하지 못합니다.</p>
 
