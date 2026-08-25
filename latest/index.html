@@ -3258,9 +3258,9 @@ details.fold .copybox{margin-top:0}
 
 <div class="new"><span class="tag"></span>
 <div class="note">
-<span class="t">표를 고르면 입력 항목이 바뀝니다</span>
-<p>표를 고르는 순간 커넥터가 그 표의 <strong>머리글을 읽어</strong> 열마다 입력 항목을 하나씩 만들어 줍니다. 1단계에서 넣은 시간, 사용자, 질문, 답변이 그대로 나타납니다.</p>
-<p>그래서 값을 한 덩어리로 묶어 넣을 필요가 없습니다. 열마다 따로 채우면 됩니다.</p>
+<span class="t">표를 고르면 입력 항목이 늘어납니다</span>
+<p>표를 고르는 순간 커넥터가 그 표의 <strong>머리글을 읽어</strong> 열마다 입력 칸을 하나씩 만들어 줍니다. 1단계에서 넣은 시간, 사용자, 질문, 답변이 그대로 나타납니다.</p>
+<p>표를 고르기 전에는 이 칸들이 없습니다. 순서를 지켜야 하는 이유입니다.</p>
 </div>
 </div>
 
@@ -3269,22 +3269,29 @@ details.fold .copybox{margin-top:0}
 
 <table>
 <tr><th>항목</th><th>넣는 방법</th><th>값</th></tr>
-<tr><td>시간</td><td><code>fx</code> 수식</td><td><code>Now()</code></td></tr>
+<tr><td>시간</td><td><code>fx</code> 수식</td><td><code>Text(Now(), "yyyy-mm-dd hh:mm")</code></td></tr>
 <tr><td>사용자</td><td><code>{x}</code> 변수</td><td><code>System.User.PrincipalName</code></td></tr>
 <tr><td>질문</td><td><code>{x}</code> 변수</td><td><code>System.LastMessage.Text</code></td></tr>
 <tr><td>답변</td><td><code>{x}</code> 변수</td><td><code>System.Response.FormattedText</code></td></tr>
 <tr><td>DateTime Format</td><td>비워 둡니다</td><td></td></tr>
 </table>
 
-<p>시간만 <code>fx</code>로 넣고 나머지 셋은 <code>{x}</code>로 고릅니다. <code>Now()</code>는 변수가 아니라 함수이기 때문입니다.</p>
+<p>시간만 <code>fx</code>로 넣고 나머지 셋은 <code>{x}</code>로 고릅니다. <code>Text()</code>와 <code>Now()</code>는 변수가 아니라 함수이기 때문입니다.</p>
 
 <div class="new"><span class="tag"></span>
-<div class="note">
-<span class="t">Row 유형이 잘못됨 오류가 뜬다면</span>
-<p>표를 고르기 전에 <strong>Row</strong>라는 항목에 값을 넣어 둔 경우입니다. 표를 고르면 Row가 열별 항목으로 바뀌는데, 먼저 넣어 둔 값이 남아 충돌합니다.</p>
-<p>패널 오른쪽 위의 <strong>새로 고침</strong>을 누르면 표 구조를 다시 읽어 옵니다. 그래도 남아 있으면 커넥터 노드를 지우고 5단계부터 다시 합니다. 이번에는 <strong>파일과 표를 먼저 고른 뒤</strong> 값을 넣습니다.</p>
+<div class="note key">
+<span class="t">시간에 Now()만 넣으면 오류가 납니다</span>
+<p>표의 네 열은 모두 <strong>문자열</strong>로 잡혀 있습니다. 그런데 <code>Now()</code>는 날짜 값을 돌려주므로 유형이 맞지 않습니다. 저장하려 하면 노드에 이렇게 뜹니다.</p>
+<p class="sm">Input 변수 'Row'의 유형이 잘못됨: Record</p>
 <img loading="lazy" decoding="async" class="shot" src="ecl-shots/m12-01-row-error.png" alt="Row 변수의 유형이 잘못됨 오류가 표시된 화면">
-<p class="cap">노드에 <code>Input 변수 'Row'의 유형이 잘못됨</code>이라고 뜹니다. 오른쪽 패널에는 이미 시간, 사용자, 질문이 열별 항목으로 바뀌어 있습니다</p>
+<p class="cap">시간 칸에 <code>Now()</code>만 들어가 있는 상태입니다</p>
+<p><code>Text()</code>로 감싸 문자열로 바꾸면 해결됩니다. 뒤의 <code>"yyyy-mm-dd hh:mm"</code>은 어떤 모양으로 적을지 정하는 부분이라, 이렇게 넣으면 <code>2026-08-26 01:54</code>처럼 들어갑니다.</p>
+</div>
+
+<div class="note">
+<span class="t">Row가 뭔가요</span>
+<p>화면에는 시간, 사용자, 질문, 답변이 따로 보이지만 커넥터 안에서는 <strong>Row</strong>라는 하나의 묶음입니다. 그래서 넷 중 하나만 유형이 어긋나도 Row 전체가 잘못됐다고 나옵니다.</p>
+<p>오류가 나면 <strong>어느 칸이 문제인지</strong>를 찾아야 하는데, 대개 시간입니다.</p>
 </div>
 </div>
 
@@ -3306,7 +3313,7 @@ details.fold .copybox{margin-top:0}
 
 <table>
 <tr><th>컬럼</th><th>값</th><th>구분</th></tr>
-<tr><td>시간</td><td><code>Now()</code></td><td>Power Fx 함수</td></tr>
+<tr><td>시간</td><td><code>Text(Now(), "yyyy-mm-dd hh:mm")</code></td><td>Power Fx 함수</td></tr>
 <tr><td>사용자</td><td><code>System.User.PrincipalName</code></td><td>시스템 변수</td></tr>
 <tr><td>질문</td><td><code>System.LastMessage.Text</code></td><td>시스템 변수</td></tr>
 <tr><td>답변</td><td><code>System.Response.FormattedText</code></td><td>해당 트리거 전용 변수</td></tr>
@@ -3315,7 +3322,7 @@ details.fold .copybox{margin-top:0}
 <div class="note">
 <span class="t">변수 사용 범위</span>
 <p><code>System.Response.FormattedText</code>는 AI 생성 응답이 전송되기 직전 트리거 안에서만 쓸 수 있습니다. 다른 토픽에서는 참조되지 않습니다.</p>
-<p><code>Now()</code>는 시스템 변수가 아니라 Power Fx 함수입니다. 그래서 <code>{x}</code>가 아니라 <code>fx</code>로 넣습니다. <a href="#m13">M13</a>에서는 같은 일을 <code>utcNow()</code>로 하는데, 그쪽은 Copilot Studio가 아니라 Power Automate 편집기라 함수 이름이 다릅니다.</p>
+<p><code>Now()</code>는 시스템 변수가 아니라 Power Fx 함수입니다. 그래서 <code>{x}</code>가 아니라 <code>fx</code>로 넣고, 표의 열이 문자열이라 <code>Text()</code>로 한 번 더 감쌉니다. <a href="#m13">M13</a>에서는 같은 일을 <code>utcNow()</code>로 하는데, 그쪽은 Copilot Studio가 아니라 Power Automate 편집기라 함수 이름이 다릅니다.</p>
 <p><code>System.User.PrincipalName</code>에는 로그인한 사용자의 계정이 담깁니다. 실습에서는 회사 계정으로 로그인한 상태이므로 그대로 값이 들어옵니다.</p>
 </div>
 
