@@ -2453,38 +2453,115 @@ details.fold .copybox{margin-top:0}
 </div>
 
 <h4>4단계. 입력 변수 만들기</h4>
-<p>오케스트레이터가 어느 분야의 담당자를 찾는지 토픽에 전달할 수 있도록 입력 변수를 만듭니다. 상단의 자세히에서 세부 정보를 클릭합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image3.png" alt="자세히 메뉴에서 세부 정보를 선택하는 화면">
-<p class="cap">토픽의 세부 정보를 엽니다</p>
+<p>Echo 토픽과 다른 점이 여기서 나옵니다. Contact 토픽은 <strong>무엇을 찾을지</strong>를 받아야 합니다. 경비 담당자인지 교육 담당자인지 알아야 조회할 수 있으니까요.</p>
+<p>그 값을 받아 둘 상자를 만듭니다. 위쪽 <strong>세부 정보</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-24-details-panel.png" alt="세부 정보를 눌러 토픽 세부 정보 패널을 연 화면">
+<p class="cap">이름과 설명이 <strong>모델 표시 이름</strong>, <strong>모델 설명</strong>으로도 보입니다. 오케스트레이터가 읽는 값이 이것입니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image4.png" alt="입력 탭에서 새 변수 만들기를 클릭하는 화면">
-<p class="cap">입력 탭에서 변수를 추가합니다</p>
+<p>패널 위쪽 <strong>입력</strong> 탭으로 넘어가 <strong>새 변수 만들기</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-25-input-tab.png" alt="입력 탭에서 새 변수 만들기를 누르는 화면">
+<p class="cap">토픽에서 사용자 입력을 처리하기 위해 사용하는 변수라고 적혀 있습니다</p>
 
-<p>변수 이름은 <code>myContact</code>, 설명은 사용자가 찾고자 하는 담당자의 업무로 입력합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image5.png" alt="입력 변수의 이름과 설명을 설정한 화면">
-<p class="cap">변수에도 설명을 붙여야 오케스트레이터가 값을 채웁니다</p>
+<p><code>Var1</code>이라는 이름으로 만들어집니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-26-var1.png" alt="Var1 변수가 만들어진 화면">
+<p class="cap">변수 이름 칸의 글자가 선택되어 있어 바로 덮어쓰면 됩니다</p>
+
+<p>이름을 <code>myContact</code>으로 바꿉니다. <strong>변수 이름</strong>을 고치면 <strong>표시 이름</strong>도 따라 바뀝니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-27-var-renamed.png" alt="변수 이름을 myContact으로 바꾼 화면">
+<p class="cap">데이터 형식은 String, 채우는 방식은 <strong>최상의 옵션으로 동적으로 채우기</strong> 그대로 둡니다</p>
+
+<p>아래로 내리면 <strong>설명</strong> 칸이 비어 있고 빨간 안내가 떠 있습니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-28-var-desc-empty.png" alt="변수 설명이 비어 있어 안내 문구가 표시된 화면">
+<p class="cap">동적 슬롯 필링 향상을 위해 설명을 제공하라는 안내입니다</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">동적 슬롯 필링이 무슨 말인가</span>
+<p><strong>이 상자를 무엇으로 채울지 대화에서 알아서 뽑아내는 것</strong>을 말합니다. 사용자가 <code>경비처리 담당자 알려줘</code>라고 하면 오케스트레이터가 <code>경비처리</code>를 뽑아 이 상자에 넣습니다.</p>
+<p>그런데 무엇을 뽑아야 하는지는 <strong>설명을 읽고</strong> 판단합니다. 설명이 비어 있으면 엉뚱한 값이 들어가거나 사용자에게 되묻습니다. 토픽에 설명이 필요했던 것과 같은 이유입니다.</p>
+</div>
+</div>
+
+<p>설명에 <code>사용자가 찾고자 하는 담당자의 업무</code>를 넣습니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-29-var-desc.png" alt="변수 설명을 입력한 화면">
+<p class="cap">이 문장을 보고 대화에서 어떤 값을 뽑을지 정합니다</p>
 
 <h4>5단계. 메시지 노드 추가</h4>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image6.png" alt="메시지 보내기 노드를 추가하는 화면">
-<p class="cap">메시지 노드를 추가합니다</p>
+<p>세부 정보 패널을 닫고, 트리거 아래 <strong>+</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-30-add-message.png" alt="트리거 아래 더하기 버튼을 누르는 화면">
+<p class="cap">여기서부터는 Echo 토픽과 같은 방식입니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image7.png" alt="메시지 노드에서 변수 삽입 버튼을 클릭하는 화면">
-<p class="cap">변수 삽입 버튼을 클릭합니다</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-31-node-message.png" alt="노드 메뉴에서 메시지 보내기를 선택하는 화면">
+<p class="cap"><strong>메시지 보내기</strong>를 고릅니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image8.png" alt="사용자 지정 탭에서 myContact 변수를 선택하는 화면">
-<p class="cap">직접 만든 변수는 사용자 지정 탭에 있습니다</p>
+<p>빈 메시지 노드가 붙습니다. <strong>{x}</strong>를 누르면 이번에는 <strong>사용자 지정</strong> 탭에 <code>myContact</code>이 보입니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-32-msg-var.png" alt="메시지 노드에서 변수 선택 패널을 연 화면">
+<p class="cap">Echo 때는 비어 있던 자리입니다. 방금 만든 변수가 들어와 있습니다</p>
 
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image9.png" alt="메시지가 완성된 화면">
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-33-pick-mycontact.png" alt="사용자 지정 탭에서 myContact을 고르는 화면">
+<p class="cap"><code>(Topic.myContact)</code>이라고 적혀 있습니다. 이 토픽 안에서만 쓰는 변수라는 뜻입니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-34-msg-inserted.png" alt="메시지에 myContact 변수가 들어간 화면">
+<p class="cap">변수가 먼저 들어갑니다</p>
+
+<p>변수 뒤에 <code>에 대한 담당자를 조회해보겠습니다.</code>를 이어서 씁니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-35-msg-done.png" alt="메시지 문장이 완성된 화면">
 <p class="cap">조회 중임을 알리는 메시지가 완성되었습니다</p>
 
 <h4>6단계. 생성형 답변 노드 추가</h4>
-<p>더하기 버튼에서 고급, 생성형 답변을 차례로 선택합니다. 화면에 따라 생성 응답으로 표시되기도 합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image10.png" alt="고급 메뉴에서 생성형 답변을 선택하는 화면">
-<p class="cap">생성형 답변 노드를 추가합니다</p>
+<p>메시지 노드 아래 <strong>+</strong>를 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-36-add-next.png" alt="메시지 노드 아래 더하기 버튼을 누르는 화면">
+<p class="cap">이번에는 메시지가 아니라 다른 노드를 붙입니다</p>
 
-<p>입력은 <code>Activity.Text</code>로 두고, 데이터 원본에서 선택한 원본만 검색을 켠 뒤 담당자정보 문서만 체크합니다.</p>
-<img loading="lazy" decoding="async" class="shot" src="ecl-img/m10-2_image11.png" alt="생성형 답변의 입력과 데이터 원본을 설정한 화면">
-<p class="cap">검색 범위를 담당자 문서로 좁혀 관련 없는 내용이 섞이지 않게 합니다</p>
+<p>목록 맨 아래 <strong>고급</strong>으로 들어갑니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-37-node-advanced.png" alt="노드 메뉴에서 고급을 선택하는 화면">
+<p class="cap">자주 쓰지 않는 노드가 여기 모여 있습니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-38-node-genanswer.png" alt="고급 메뉴에서 생성형 답변을 선택하는 화면">
+<p class="cap">맨 위 <strong>생성형 답변</strong>입니다. 화면에 따라 생성 응답으로 표시되기도 합니다</p>
+
+<p>노드가 붙으면 <strong>입력</strong> 칸이 비어 있습니다. 오른쪽 <strong>&hellip;</strong>를 눌러 변수를 고릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-39-gen-input.png" alt="생성형 답변 노드의 입력 칸이 비어 있는 화면">
+<p class="cap">무엇을 근거로 찾을지 넣는 자리입니다</p>
+
+<p>이번에는 <strong>시스템</strong> 탭으로 넘어갑니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-40-gen-var-tabs.png" alt="변수 선택 패널에서 시스템 탭을 가리키는 화면">
+<p class="cap">사용자 지정에는 myContact만 있습니다. 여기서는 쓰지 않습니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-41-gen-activity.png" alt="시스템 탭에서 Activity.Text를 검색한 화면">
+<p class="cap"><code>Activity.Text</code>를 고릅니다</p>
+
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-42-gen-input-done.png" alt="생성형 답변 입력에 Activity.Text가 들어간 화면">
+<p class="cap">입력이 채워졌습니다</p>
+
+<div class="new"><span class="tag"></span>
+<div class="note">
+<span class="t">왜 myContact이 아니라 Activity.Text인가</span>
+<p><code>myContact</code>에는 <code>경비처리</code>처럼 뽑아낸 조각만 들어 있습니다. 문서를 검색할 때는 사용자가 한 말 전체를 넣는 편이 더 잘 찾습니다.</p>
+<p><code>myContact</code>은 앞의 메시지에서 무엇을 찾는 중인지 사용자에게 알려 주는 데 썼습니다. 같은 토픽 안에서도 자리마다 쓰는 값이 다릅니다.</p>
+</div>
+</div>
+
+<p>아래 <strong>데이터 원본</strong>의 <strong>편집</strong>을 누릅니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-43-datasource.png" alt="생성형 답변 노드의 데이터 원본 편집을 누르는 화면">
+<p class="cap">어디에서 찾을지 정하는 자리입니다</p>
+
+<p>오른쪽에 <strong>생성형 답변 만들기 속성</strong>이 열립니다.</p>
+<img loading="lazy" decoding="async" class="shot" src="ecl-shots/m10-44-gen-props.png" alt="생성형 답변 만들기 속성 패널">
+<p class="cap">참조 자료 원본, 웹 검색, 클래식 데이터, 콘텐츠 조정 수준이 차례로 있습니다</p>
+
+<table>
+<tr><th>항목</th><th>이 실습에서</th><th>무엇인가</th></tr>
+<tr><td>선택한 원본만 검색</td><td><strong>켜기</strong></td><td>켜고 <code>담당자정보</code> 문서만 체크합니다. 검색 범위를 좁혀 다른 문서가 섞이지 않게 합니다</td></tr>
+<tr><td>웹 검색</td><td>끄기 그대로</td><td>공개 웹까지 뒤집니다. 사내 담당자를 찾는 데는 방해만 됩니다</td></tr>
+<tr><td>AI에서 자체 일반 지식 사용</td><td>끄기</td><td>문서에 없으면 모델이 아는 것으로 답하게 됩니다. 담당자 이름을 지어낼 수 있으니 끕니다</td></tr>
+<tr><td>콘텐츠 조정 수준</td><td>그대로</td><td>비워 두면 에이전트 전체 설정을 따릅니다</td></tr>
+</table>
+
+<div class="note">
+<span class="t">여기서 범위를 좁히는 이유</span>
+<p>담당자를 묻는데 휴가 규정 문서가 섞여 들어오면 답이 흐려집니다. 이 노드에서만 <code>담당자정보</code>로 한정해 두면, 같은 에이전트가 다른 질문에는 다섯 개 문서를 다 쓰면서 이 토픽에서만 한 개를 봅니다.</p>
+</div>
 
 <h4>7단계. 글로벌 변수에 결과 저장</h4>
 <p>고급 설정에서 메시지 보내기 체크를 해제합니다. 답변은 오케스트레이터가 만들도록 맡기고 토픽은 정보만 저장합니다.</p>
